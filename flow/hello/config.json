@@ -1,0 +1,15 @@
+{
+    "DESIGN_NAME": "hello",
+    "VERILOG_FILES": ["dir::../../rtl/hello.v"],
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "CLOCK_PERIOD": 10,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 100 100",
+    "FP_CORE_UTIL": 35,
+    "PL_TARGET_DENSITY_PCT": 45,
+    "PDK": "sky130A",
+    "STD_CELL_LIBRARY": "sky130_fd_sc_hd",
+    "RUN_LINTER": true,
+    "RUN_HEURISTIC_DIODE_INSERTION": true
+}
