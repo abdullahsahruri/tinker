@@ -1,0 +1,33 @@
+# Build artifacts and run outputs
+flow/**/runs/
+**/runs/
+tmp/
+build/
+*.log
+*.rpt
+
+# Large physical-design outputs (released as curated artifact, not in git)
+*.gds
+*.gds.gz
+*.lef
+*.def
+*.sdf
+*.spef
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# PDK should never live in this repo
+.volare/
+pdk/
