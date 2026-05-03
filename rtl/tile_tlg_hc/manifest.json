@@ -1,9 +1,10 @@
 {
   "variant_logic": "tlg",
   "variant_mode": "hc",
+  "seed_id": 0,
+  "numpy_seed": 42,
   "n_neurons": 16,
   "n_inputs": 64,
-  "weight_seed": 42,
   "weights_hex": [
     "0x01ab7c173fd74222",
     "0x656b5fe7ff4abaf6",

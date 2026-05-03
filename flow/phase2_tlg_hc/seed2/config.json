@@ -1,0 +1,14 @@
+{
+    "DESIGN_NAME": "tile_tlg_hc_s2",
+    "VERILOG_FILES": ["dir::../../../rtl/tile_tlg_hc/tile_tlg_hc_s2.v"],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 10,
+    "SYNTH_STRATEGY": "AREA 0",
+    "FP_SIZING": "relative",
+    "FP_CORE_UTIL": 35,
+    "PL_TARGET_DENSITY_PCT": 55,
+    "PNR_SDC_FILE": "dir::../../common/tile.sdc",
+    "SIGNOFF_SDC_FILE": "dir::../../common/tile.sdc",
+    "RUN_LINTER": true,
+    "RUN_HEURISTIC_DIODE_INSERTION": true
+}

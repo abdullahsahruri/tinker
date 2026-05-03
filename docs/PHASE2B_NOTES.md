@@ -1,5 +1,16 @@
 # Phase 2 Session B — tile-level LibreLane PPA
 
+> **Erratum / pointer (added 2026-05-03 after Session 2B.5).** The
+> 28.1% hc-vs-hc power advantage reported below is a **single-seed
+> measurement** (seed_id 0, numpy.RandomState(42)). The 3-seed mean
+> from Session 2B.5 is **31.3% ± tight variance**, with every TLG hc
+> seed beating every handopt hc seed on every measured axis. The
+> "marginal" verdict below is therefore superseded — both gates pass
+> with margin on the multi-seed mean. **See `PHASE2B5_NOTES.md` for
+> the canonical multi-seed numbers and the variance-asymmetry
+> finding.** The original Session 2B narrative is preserved unchanged
+> below for traceability.
+
 > **Headline (read this first).** Phase 1's per-neuron 48% TLG power
 > advantage **does compose at tile level — and grows on the
 > realistic loadable comparison to ~62%**. The hardcoded comparison
