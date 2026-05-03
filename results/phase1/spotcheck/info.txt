@@ -1,0 +1,2 @@
+spot_check_variant=naive
+spot_check_seed=3
