@@ -1,0 +1,8 @@
+{
+  "corner": "max_ff_n40C_1v95",
+  "top": "tile_tlg_hc",
+  "power__internal__total": 0.03697192668914795,
+  "power__switching__total": 0.03602323681116104,
+  "power__leakage__total": 1.0822860474490881e-7,
+  "power__total": 0.07299527525901794
+}

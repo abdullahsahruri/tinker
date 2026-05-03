@@ -5,6 +5,8 @@ tmp/
 build/
 *.log
 *.rpt
+*.tsv
+*.vcd
 
 # Large physical-design outputs (released as curated artifact, not in git)
 *.gds
@@ -13,6 +15,19 @@ build/
 *.def
 *.sdf
 *.spef
+
+# Phase 2C reuses 2B/2B.5 post-route artifacts and only re-runs OpenSTA's
+# power stage. The small text outputs (power.rpt, power.metrics.json) are
+# the canonical session artifacts and ARE committed; the large per-run
+# VCDs and the iverilog sim binaries are not. Per-test power testbenches
+# under tb/phase2c/ are auto-generated, so omit them too.
+!results/phase2c/runs/
+!results/phase2c/runs/**/
+!results/phase2c/runs/**/power.metrics.json
+!results/phase2c/runs/**/power.rpt
+results/phase2c/saif/
+results/phase2c/logs/
+tb/phase2c/
 
 # Python
 .venv/

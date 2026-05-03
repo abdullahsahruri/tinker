@@ -1,0 +1,14 @@
+{
+  "seed_id": 2,
+  "input_seed": 1002,
+  "weight_seed": 2,
+  "n_vectors": 1024,
+  "n_neurons": 16,
+  "n_inputs": 64,
+  "threshold": 32,
+  "files": {
+    "xs.hex": "f8a39b42649e3f1cb47a6c3d60c9412d",
+    "ws.hex": "01f818ffbcd4e48875880728fa3a7316",
+    "ts.hex": "0f9c762362b77ac490870185263b0e47"
+  }
+}

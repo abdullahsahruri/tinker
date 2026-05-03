@@ -1,0 +1,14 @@
+===== Phase 2C activity-aware power
+  top:           tile_handopt_ld
+  corner:        max_ff_n40C_1v95
+  liberty:       /work/pdk/volare/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib
+  netlist:       /work/flow/phase2_handopt_ld/runs/phase2_handopt_ld/final/nl/tile_handopt_ld.nl.v
+  spef:          /work/flow/phase2_handopt_ld/runs/phase2_handopt_ld/final/spef/max/tile_handopt_ld.max.spef
+  vcd:           /work/results/phase2c/saif/tile_handopt_ld_s1/tile_handopt_ld.vcd
+  vcd_scope:     tb_power/dut
+=============================================================
+
+Group               Internal    Switching      Leakage        Total
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+Total             3.4149e-01   3.6494e-01   2.9749e-07   7.0643e-01
