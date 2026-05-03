@@ -32,30 +32,19 @@ Run:
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import numpy as np
 
-N_INPUTS = 64
-THRESHOLD = 32
-CHUNK_SIZE = 6  # 10 chunks of 6 + 1 chunk of 4 = 64
-
-
-def gen_weights(seed: int) -> np.ndarray:
-    rng = np.random.RandomState(seed)
-    return rng.randint(0, 2, size=N_INPUTS).astype(np.uint8)
-
-
-def w_to_int(w_bits: np.ndarray) -> int:
-    """Pack a bit array (LSB at index 0) into an integer."""
-    return int(sum(int(b) << i for i, b in enumerate(w_bits)))
-
-
-def reference_y(x_int: int, w_int: int, threshold: int = THRESHOLD) -> int:
-    """Python golden model: 1 iff popcount(x XNOR w) >= threshold."""
-    mask = (1 << N_INPUTS) - 1
-    xnor = (~(x_int ^ w_int)) & mask
-    return int(bin(xnor).count("1") >= threshold)
+# Primitives moved to tlg_lib so gen_tile.py can share them. The emit_*
+# functions below stay verbatim — Phase 1's committed Verilog must be
+# byte-identical after this refactor.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from tlg_lib import (  # noqa: E402
+    N_INPUTS, THRESHOLD, CHUNK_SIZE,
+    gen_weights, w_to_int, reference_y,
+)
 
 
 # ----------------------------------------------------------------------
