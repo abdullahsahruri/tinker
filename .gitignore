@@ -54,3 +54,8 @@ firmware/**/*.bin
 firmware/**/*.hex
 firmware/**/*.map
 firmware/**/*.lst
+
+# Phase-3D MNIST raw IDX files — re-downloaded by scripts/train_bnn.py on
+# first invocation; the trained-network artifacts (data/bnn_weights.{npz,pt}
+# and data/bnn_test_set.npz) ARE committed.
+data/mnist/
