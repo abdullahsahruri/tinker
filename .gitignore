@@ -71,3 +71,9 @@ firmware/**/*.lst
 # first invocation; the trained-network artifacts (data/bnn_weights.{npz,pt}
 # and data/bnn_test_set.npz) ARE committed.
 data/mnist/
+
+# Fashion-MNIST raw data (re-downloadable via torchvision)
+data/fashion_mnist/
+
+# Claude Code internal state
+.claude/scheduled_tasks.lock
