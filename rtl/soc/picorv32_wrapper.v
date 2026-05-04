@@ -73,7 +73,7 @@ module picorv32_wrapper (
         .LATCHED_IRQ          (32'hffff_ffff),
         .PROGADDR_RESET       (32'h0000_0000),
         .PROGADDR_IRQ         (32'h0000_0010),
-        .STACKADDR            (32'h1000_1000)
+        .STACKADDR            (32'h1000_0400)
     ) u_core (
         .trap        (u_trap),
         .wb_rst_i    (wb_rst),

@@ -89,14 +89,19 @@ silently.
 
 | Region   | Base         | Size  | Decode (adr[31:28]) | Access | Word width | Notes                                                        |
 | -------- | ------------ | ----- | ------------------- | ------ | ---------- | ------------------------------------------------------------ |
-| **IMEM** | `0x0000_0000`| 8 KB  | `0x0`               | RX     | 32-bit     | Reset vector at base. Firmware lives here. Read-only at run-time; loaded by the testbench (or Session 3E flow) via `$readmemh`. |
-| **DMEM** | `0x1000_0000`| 4 KB  | `0x1`               | RW     | 32-bit     | Stack, heap, scratchpad, MNIST input/output buffers. Initialised to 0 on reset. |
+| **IMEM** | `0x0000_0000`| 2 KB  | `0x0`               | RX     | 32-bit     | Reset vector at base. Firmware lives here. Read-only at run-time; loaded by the testbench (or Session 3E flow) via `$readmemh`. Sized to 2 KB in the Session 3E baseline rerun (down from the 8 KB Session 3A spec) to fix a 15 115-fanout IMEM read-mux that the open-flow resizer could not close at the slow corner — see §7. |
+| **DMEM** | `0x1000_0000`| 1 KB  | `0x1`               | RW     | 32-bit     | Stack, heap, scratchpad, MNIST input/output buffers. Initialised to 0 on reset. Shrunk from 4 KB in the Session 3E baseline rerun for symmetry with the IMEM reduction; the 32-word test-image preload + small stack still fit comfortably. |
 | **TILE** | `0x2000_0000`| 512 B | `0x2`               | RW     | 32-bit     | Tile cfg regfile + control/status + I/O windows. See §4 for the per-byte layout. |
 | **GPIO** | `0x3000_0000`| 16 B  | `0x3`               | RW     | 32-bit     | Sim observability: write a byte to print or otherwise emit it; pulse a "done" pin to end-of-test the bench. See §6. |
 
 Reserved decode values (`0x4`–`0xF`) are unmapped and assert
-`m_err`. Total mapped on-chip storage: 12 KB across IMEM + DMEM, plus
-~144 bytes of architectural state in the tile cfg regfile (§4).
+`m_err`. Total mapped on-chip storage in the Session 3E baseline:
+3 KB across IMEM + DMEM (originally specified as 12 KB in 3A; see §7
+for rationale), plus ~144 bytes of architectural state in the tile
+cfg regfile (§4). Decode bits, base addresses, and the chip-pin
+contract are unchanged from 3A — only the in-slave depths shrunk,
+so firmware that respects the SIZE_BYTES parameter recompiles
+cleanly without code-side changes.
 
 ### 2.1 Reset vector
 
@@ -198,7 +203,7 @@ PicoRV32 parameter choices (locked here, applied in 3C):
 | `MASKED_IRQ`           | n/a   | IRQs disabled.                                      |
 | `PROGADDR_RESET`       | `32'h0000_0000` | Top of IMEM.                                |
 | `PROGADDR_IRQ`         | `32'h0000_0010` | Default; unused (IRQs off).                 |
-| `STACKADDR`            | `32'h1000_1000` | Top of DMEM. Stack grows down.              |
+| `STACKADDR`            | `32'h1000_0400` | Top of DMEM (1 KB in the Session 3E baseline; was `0x1000_1000` for the 4 KB DMEM in 3A–3D). Stack grows down. |
 
 ### 3.5 Interconnect topology
 
@@ -463,13 +468,13 @@ We are not using OpenRAM. IMEM and DMEM are implemented as
 register-file memory (flop arrays), the same as the tile's cfg
 regfile. Honest accounting:
 
-| Storage    | Size   | Implementation                  | Approx flop count |
-| ---------- | ------ | ------------------------------- | ----------------- |
-| IMEM       | 8 KB   | 2048 × 32-bit reg               | 65,536            |
-| DMEM       | 4 KB   | 1024 × 32-bit reg               | 32,768            |
-| Tile cfg   | ~144 B | 16 × 64 + 16 × 7                | 1,136             |
-| Wrapper shadow | 68 B | 16 × 32 (W lo) + 64 (XIN) + ~10 (FSM) | ~590    |
-| **Total**  | ~12 KB | mostly flops                    | **~100 K flops**  |
+| Storage    | Size (3A) | Size (3E baseline) | Implementation                | Approx flop count (3E) |
+| ---------- | --------- | ------------------ | ----------------------------- | ---------------------: |
+| IMEM       | 8 KB      | **2 KB**           | 512 × 32-bit reg              | 16,384                 |
+| DMEM       | 4 KB      | **1 KB**           | 256 × 32-bit reg              |  8,192                 |
+| Tile cfg   | ~144 B    | ~144 B             | 16 × 64 + 16 × 7              |  1,136                 |
+| Wrapper shadow | 68 B  | 68 B               | 16 × 32 (W lo) + 64 (XIN) + ~10 (FSM) | ~590           |
+| **Total**  | ~12 KB    | **~3 KB**          | mostly flops                  | **~26 K flops**        |
 
 For comparison, the tile alone is ~22 K cells (Phase 2C numbers for
 `tile_tlg_ld`). The SoC will therefore be **~5×–10× the cell count
@@ -490,20 +495,41 @@ the Phase-2C claim** at the system level. Phase 4 will quantify
 this. The architectural decision here is to accept this as the
 honest cost of a no-OpenRAM SoC and to report it transparently.
 
-### 7.1 Why 8 KB / 4 KB and not larger
+### 7.1 Why 2 KB / 1 KB in the Session 3E baseline
 
-- A full PicoRV32 inference loop (32 cfg writes + a counted loop
-  over input vectors) compiled with `-Os` is well under 1 KB of
-  text. 8 KB IMEM gives 8× headroom for `.rodata` weight + input
-  tables.
-- DMEM at 4 KB covers a 256-sample MNIST buffer (1 byte/pixel × 784
-  pixels × 0 — actually MNIST is too big for DMEM; in §5.3 we
-  noted that input vectors live in `.rodata` for the smoke test, so
-  DMEM only holds the stack and small scratch). 4 KB stack + scratch
-  is generous for this firmware.
+The original 3A spec called for 8 KB IMEM / 4 KB DMEM, with the
+rationale that 8 KB IMEM gives 8× headroom over a ~1 KB inference
+loop and 4 KB DMEM is generous stack + scratch. The Phase-3D
+firmware ended up at 1 556 B (text + rodata: see PHASE3D_NOTES §4.1).
 
-If a later session needs more, the sizes are parameterised at the
-top of `soc_top.v` so changing them is a one-line edit.
+Session 3E's first SoC P&R run revealed the structural cost of an
+8 KB regfile-IMEM: Yosys synthesizes the 2048 × 32-bit read mux as
+a single net with **15 115 terminals**, which the open-flow resizer
+cannot break up (`RSZ-0062: Unable to repair all setup violations`).
+The headline `nom_tt_025C_1v80` corner closed (+1.74 ns slack), but
+the slow + fast corners diverged catastrophically (WNS −3 359 ns at
+`nom_ss`, −5 000 ns at `nom_ff`). This is a register-file-baseline
+artifact, not a tile or interconnect issue.
+
+The shrink:
+
+- IMEM 8 KB → **2 KB / 512 words.** Read-mux fanout drops ~4×;
+  firmware fits with ~30 % headroom (1 556 / 2 048 B).
+- DMEM 4 KB → **1 KB / 256 words.** Symmetric reduction; the 32-word
+  test-image preload + small stack still fit comfortably.
+
+The shrink is framed as **intentional engineering for the
+register-file baseline** ("memory sized to balance functional
+headroom against open-flow timing limits"), not accidental
+limitation. A separate Session 3.5 will integrate OpenRAM SRAM
+macros for IMEM + DMEM, which removes the read-mux fanout problem
+and lets the depths grow back to the 3A spec — that becomes the
+final headline number for the paper. **The 3E baseline is the
+register-file data point against which 3.5 is compared.**
+
+If a later session needs different depths, the sizes are
+parameterised at the top of `soc_top.v` so changing them is a
+one-line edit.
 
 ---
 

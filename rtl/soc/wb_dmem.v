@@ -1,9 +1,16 @@
 // =============================================================================
-// wb_dmem.v — 4 KB Wishbone B4 classic data memory (RW).
+// wb_dmem.v — 1 KB Wishbone B4 classic data memory (RW).
 //
 // Flat regfile-style memory; reset clears all words to 0 (one full sweep
 // over WORDS entries while rst_n is low). Supports byte-strobe writes via
 // wb_sel_i; reads always return the full 32-bit word.
+//
+// Sizing (Session 3E baseline rerun — 2026-05-04). Reduced from 4 KB to
+// 1 KB to match the wb_imem shrink (which fixed a 15 115-fanout read-mux
+// timing closure problem at the slow corner). The Phase-3D BNN firmware
+// uses DMEM only for the 32-word test-image preload + a small stack;
+// 256 words remain comfortable. Stack top moves from 0x1000_1000 to
+// 0x1000_0400 — see picorv32_wrapper.v + firmware/*/start.S.
 //
 // Wishbone B4 classic slave: same ack pattern as wb_imem (1-cycle registered
 // pulse on first stb).
@@ -11,7 +18,7 @@
 `default_nettype none
 
 module wb_dmem #(
-    parameter integer SIZE_BYTES = 4096
+    parameter integer SIZE_BYTES = 1024
 ) (
     input  wire        clk,
     input  wire        rst_n,

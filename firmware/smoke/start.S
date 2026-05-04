@@ -13,7 +13,7 @@
 _start:
 _reset:
     # Stack top per spec — DMEM end. Stack grows down.
-    li      sp, 0x10001000
+    li      sp, 0x10000400
     li      gp, 0
     li      ra, 0
     call    main

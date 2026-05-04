@@ -26,9 +26,10 @@ LDFLAGS  := -march=$(ARCH) -mabi=$(ABI) \
 REPO_ROOT := $(realpath ../..)
 BIN2HEX   := $(REPO_ROOT)/scripts/bin2hex.py
 
-# Match wb_imem.v SIZE_BYTES (8 KB / 4 = 2048 words). Pad firmware.hex to
-# this depth so $readmemh fully populates IMEM.
-IMEM_WORDS := 2048
+# Match wb_imem.v SIZE_BYTES (2 KB / 4 = 512 words; shrunk in Session 3E
+# baseline rerun, see wb_imem.v header). Pad firmware.hex to this depth so
+# $readmemh fully populates IMEM.
+IMEM_WORDS := 512
 
 OBJS := start.o main.o
 

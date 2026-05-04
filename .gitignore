@@ -29,6 +29,18 @@ results/phase2c/saif/
 results/phase2c/logs/
 tb/phase2c/
 
+# Phase 3E SoC power artifacts — same convention as Phase 2C: small text
+# reports (power.rpt + power.metrics.json) are committed as the canonical
+# session artifacts; logs and large run dirs are not. The per-bucket cell
+# lists (results/phase3/power/buckets/) are committed because they are
+# the basis of the hierarchical decomposition and reproducible from the
+# post-route netlist via scripts/bucket_soc_cells.py.
+!results/phase3/power/
+!results/phase3/power/**/
+!results/phase3/power/**/power.metrics.json
+!results/phase3/power/**/power.rpt
+results/phase3/logs/
+
 # Python
 .venv/
 __pycache__/
