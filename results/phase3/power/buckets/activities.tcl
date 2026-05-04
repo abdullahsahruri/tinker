@@ -2,8 +2,8 @@
 # Source VCD: /tmp/tb_soc_bnn.flat.vcd
 # Source scope: tb_soc_bnn.dut
 # Clock period: 10.0 ns
-# Simulation duration: 2346436000 ticks (2346.44 ms = 234644 cycles)
-# 1368 signals in scope; emitting activities for those that match design nets.
+# Simulation duration: 2705156000 ticks (2705.16 ms = 270516 cycles)
+# 1416 signals in scope; emitting activities for those that match design nets.
 
 # For each VCD signal: try to find the matching design
 # net, then apply set_power_activity to its input pins.
@@ -15,1047 +15,1207 @@ set _ann_count 0
 set _miss_count 0
 if {[catch {set _n [get_nets -quiet {rst_n_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s3_we_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039503e-02 -duty 0.0304; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.0264; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s3_stb_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.812776e-04 -duty 0.0003; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.439785e-04 -duty 0.0002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s3_sel[0]} {s3_sel[1]} {s3_sel[2]} {s3_sel[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s3_dat_w[0]} {s3_dat_w[1]} {s3_dat_w[2]} {s3_dat_w[3]} {s3_dat_w[4]} {s3_dat_w[5]} {s3_dat_w[6]} {s3_dat_w[7]} {s3_dat_w[8]} {s3_dat_w[9]} {s3_dat_w[10]} {s3_dat_w[11]} {s3_dat_w[12]} {s3_dat_w[13]} {s3_dat_w[14]} {s3_dat_w[15]} {s3_dat_w[16]} {s3_dat_w[17]} {s3_dat_w[18]} {s3_dat_w[19]} {s3_dat_w[20]} {s3_dat_w[21]} {s3_dat_w[22]} {s3_dat_w[23]} {s3_dat_w[24]} {s3_dat_w[25]} {s3_dat_w[26]} {s3_dat_w[27]} {s3_dat_w[28]} {s3_dat_w[29]} {s3_dat_w[30]} {s3_dat_w[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s3_dat_r[0]} {s3_dat_r[1]} {s3_dat_r[2]} {s3_dat_r[3]} {s3_dat_r[4]} {s3_dat_r[5]} {s3_dat_r[6]} {s3_dat_r[7]} {s3_dat_r[8]} {s3_dat_r[9]} {s3_dat_r[10]} {s3_dat_r[11]} {s3_dat_r[12]} {s3_dat_r[13]} {s3_dat_r[14]} {s3_dat_r[15]} {s3_dat_r[16]} {s3_dat_r[17]} {s3_dat_r[18]} {s3_dat_r[19]} {s3_dat_r[20]} {s3_dat_r[21]} {s3_dat_r[22]} {s3_dat_r[23]} {s3_dat_r[24]} {s3_dat_r[25]} {s3_dat_r[26]} {s3_dat_r[27]} {s3_dat_r[28]} {s3_dat_r[29]} {s3_dat_r[30]} {s3_dat_r[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.275019e-02 -duty 0.0860; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.973338e-02 -duty 0.0856; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s3_cyc_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.812776e-04 -duty 0.0003; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.439785e-04 -duty 0.0002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s3_adr[0]} {s3_adr[1]} {s3_adr[2]} {s3_adr[3]} {s3_adr[4]} {s3_adr[5]} {s3_adr[6]} {s3_adr[7]} {s3_adr[8]} {s3_adr[9]} {s3_adr[10]} {s3_adr[11]} {s3_adr[12]} {s3_adr[13]} {s3_adr[14]} {s3_adr[15]} {s3_adr[16]} {s3_adr[17]} {s3_adr[18]} {s3_adr[19]} {s3_adr[20]} {s3_adr[21]} {s3_adr[22]} {s3_adr[23]} {s3_adr[24]} {s3_adr[25]} {s3_adr[26]} {s3_adr[27]} {s3_adr[28]} {s3_adr[29]} {s3_adr[30]} {s3_adr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s3_ack_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.812776e-04 -duty 0.0001; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.439785e-04 -duty 0.0001; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s2_we_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039503e-02 -duty 0.0304; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.0264; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s2_stb_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.836642e-02 -duty 0.0284; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.460487e-02 -duty 0.0246; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s2_sel[0]} {s2_sel[1]} {s2_sel[2]} {s2_sel[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s2_dat_w[0]} {s2_dat_w[1]} {s2_dat_w[2]} {s2_dat_w[3]} {s2_dat_w[4]} {s2_dat_w[5]} {s2_dat_w[6]} {s2_dat_w[7]} {s2_dat_w[8]} {s2_dat_w[9]} {s2_dat_w[10]} {s2_dat_w[11]} {s2_dat_w[12]} {s2_dat_w[13]} {s2_dat_w[14]} {s2_dat_w[15]} {s2_dat_w[16]} {s2_dat_w[17]} {s2_dat_w[18]} {s2_dat_w[19]} {s2_dat_w[20]} {s2_dat_w[21]} {s2_dat_w[22]} {s2_dat_w[23]} {s2_dat_w[24]} {s2_dat_w[25]} {s2_dat_w[26]} {s2_dat_w[27]} {s2_dat_w[28]} {s2_dat_w[29]} {s2_dat_w[30]} {s2_dat_w[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s2_dat_r[0]} {s2_dat_r[1]} {s2_dat_r[2]} {s2_dat_r[3]} {s2_dat_r[4]} {s2_dat_r[5]} {s2_dat_r[6]} {s2_dat_r[7]} {s2_dat_r[8]} {s2_dat_r[9]} {s2_dat_r[10]} {s2_dat_r[11]} {s2_dat_r[12]} {s2_dat_r[13]} {s2_dat_r[14]} {s2_dat_r[15]} {s2_dat_r[16]} {s2_dat_r[17]} {s2_dat_r[18]} {s2_dat_r[19]} {s2_dat_r[20]} {s2_dat_r[21]} {s2_dat_r[22]} {s2_dat_r[23]} {s2_dat_r[24]} {s2_dat_r[25]} {s2_dat_r[26]} {s2_dat_r[27]} {s2_dat_r[28]} {s2_dat_r[29]} {s2_dat_r[30]} {s2_dat_r[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.192688e-02 -duty 0.1697; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.636713e-02 -duty 0.1644; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s2_cyc_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.836642e-02 -duty 0.0284; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.460487e-02 -duty 0.0246; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s2_adr[0]} {s2_adr[1]} {s2_adr[2]} {s2_adr[3]} {s2_adr[4]} {s2_adr[5]} {s2_adr[6]} {s2_adr[7]} {s2_adr[8]} {s2_adr[9]} {s2_adr[10]} {s2_adr[11]} {s2_adr[12]} {s2_adr[13]} {s2_adr[14]} {s2_adr[15]} {s2_adr[16]} {s2_adr[17]} {s2_adr[18]} {s2_adr[19]} {s2_adr[20]} {s2_adr[21]} {s2_adr[22]} {s2_adr[23]} {s2_adr[24]} {s2_adr[25]} {s2_adr[26]} {s2_adr[27]} {s2_adr[28]} {s2_adr[29]} {s2_adr[30]} {s2_adr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s2_ack_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.836642e-02 -duty 0.0142; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.460487e-02 -duty 0.0123; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s1_we_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039503e-02 -duty 0.0304; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.0264; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s1_stb_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.838642e-03 -duty 0.0058; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.0064; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s1_sel[0]} {s1_sel[1]} {s1_sel[2]} {s1_sel[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s1_dat_w[0]} {s1_dat_w[1]} {s1_dat_w[2]} {s1_dat_w[3]} {s1_dat_w[4]} {s1_dat_w[5]} {s1_dat_w[6]} {s1_dat_w[7]} {s1_dat_w[8]} {s1_dat_w[9]} {s1_dat_w[10]} {s1_dat_w[11]} {s1_dat_w[12]} {s1_dat_w[13]} {s1_dat_w[14]} {s1_dat_w[15]} {s1_dat_w[16]} {s1_dat_w[17]} {s1_dat_w[18]} {s1_dat_w[19]} {s1_dat_w[20]} {s1_dat_w[21]} {s1_dat_w[22]} {s1_dat_w[23]} {s1_dat_w[24]} {s1_dat_w[25]} {s1_dat_w[26]} {s1_dat_w[27]} {s1_dat_w[28]} {s1_dat_w[29]} {s1_dat_w[30]} {s1_dat_w[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s1_dat_r[0]} {s1_dat_r[1]} {s1_dat_r[2]} {s1_dat_r[3]} {s1_dat_r[4]} {s1_dat_r[5]} {s1_dat_r[6]} {s1_dat_r[7]} {s1_dat_r[8]} {s1_dat_r[9]} {s1_dat_r[10]} {s1_dat_r[11]} {s1_dat_r[12]} {s1_dat_r[13]} {s1_dat_r[14]} {s1_dat_r[15]} {s1_dat_r[16]} {s1_dat_r[17]} {s1_dat_r[18]} {s1_dat_r[19]} {s1_dat_r[20]} {s1_dat_r[21]} {s1_dat_r[22]} {s1_dat_r[23]} {s1_dat_r[24]} {s1_dat_r[25]} {s1_dat_r[26]} {s1_dat_r[27]} {s1_dat_r[28]} {s1_dat_r[29]} {s1_dat_r[30]} {s1_dat_r[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.472157e-03 -duty 0.0249; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.498008e-04 -duty 0.2855; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s1_cyc_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.838642e-03 -duty 0.0058; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.0064; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s1_adr[0]} {s1_adr[1]} {s1_adr[2]} {s1_adr[3]} {s1_adr[4]} {s1_adr[5]} {s1_adr[6]} {s1_adr[7]} {s1_adr[8]} {s1_adr[9]} {s1_adr[10]} {s1_adr[11]} {s1_adr[12]} {s1_adr[13]} {s1_adr[14]} {s1_adr[15]} {s1_adr[16]} {s1_adr[17]} {s1_adr[18]} {s1_adr[19]} {s1_adr[20]} {s1_adr[21]} {s1_adr[22]} {s1_adr[23]} {s1_adr[24]} {s1_adr[25]} {s1_adr[26]} {s1_adr[27]} {s1_adr[28]} {s1_adr[29]} {s1_adr[30]} {s1_adr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s1_ack_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.838642e-03 -duty 0.0029; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s0_we_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039503e-02 -duty 0.0304; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.0264; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s0_stb_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.090304e-01 -duty 0.3090; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.4021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s0_sel[0]} {s0_sel[1]} {s0_sel[2]} {s0_sel[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s0_dat_w[0]} {s0_dat_w[1]} {s0_dat_w[2]} {s0_dat_w[3]} {s0_dat_w[4]} {s0_dat_w[5]} {s0_dat_w[6]} {s0_dat_w[7]} {s0_dat_w[8]} {s0_dat_w[9]} {s0_dat_w[10]} {s0_dat_w[11]} {s0_dat_w[12]} {s0_dat_w[13]} {s0_dat_w[14]} {s0_dat_w[15]} {s0_dat_w[16]} {s0_dat_w[17]} {s0_dat_w[18]} {s0_dat_w[19]} {s0_dat_w[20]} {s0_dat_w[21]} {s0_dat_w[22]} {s0_dat_w[23]} {s0_dat_w[24]} {s0_dat_w[25]} {s0_dat_w[26]} {s0_dat_w[27]} {s0_dat_w[28]} {s0_dat_w[29]} {s0_dat_w[30]} {s0_dat_w[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s0_dat_r[0]} {s0_dat_r[1]} {s0_dat_r[2]} {s0_dat_r[3]} {s0_dat_r[4]} {s0_dat_r[5]} {s0_dat_r[6]} {s0_dat_r[7]} {s0_dat_r[8]} {s0_dat_r[9]} {s0_dat_r[10]} {s0_dat_r[11]} {s0_dat_r[12]} {s0_dat_r[13]} {s0_dat_r[14]} {s0_dat_r[15]} {s0_dat_r[16]} {s0_dat_r[17]} {s0_dat_r[18]} {s0_dat_r[19]} {s0_dat_r[20]} {s0_dat_r[21]} {s0_dat_r[22]} {s0_dat_r[23]} {s0_dat_r[24]} {s0_dat_r[25]} {s0_dat_r[26]} {s0_dat_r[27]} {s0_dat_r[28]} {s0_dat_r[29]} {s0_dat_r[30]} {s0_dat_r[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.147462e-02 -duty 0.3945; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.717611e-02 -duty 0.4113; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s0_cyc_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.090304e-01 -duty 0.3090; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.4021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {s0_adr[0]} {s0_adr[1]} {s0_adr[2]} {s0_adr[3]} {s0_adr[4]} {s0_adr[5]} {s0_adr[6]} {s0_adr[7]} {s0_adr[8]} {s0_adr[9]} {s0_adr[10]} {s0_adr[11]} {s0_adr[12]} {s0_adr[13]} {s0_adr[14]} {s0_adr[15]} {s0_adr[16]} {s0_adr[17]} {s0_adr[18]} {s0_adr[19]} {s0_adr[20]} {s0_adr[21]} {s0_adr[22]} {s0_adr[23]} {s0_adr[24]} {s0_adr[25]} {s0_adr[26]} {s0_adr[27]} {s0_adr[28]} {s0_adr[29]} {s0_adr[30]} {s0_adr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s0_ack_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.090304e-01 -duty 0.1545; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.1340; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.rst_n}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.m_we_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039503e-02 -duty 0.0304; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.0264; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.m_stb_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435167e-01 -duty 0.3435; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979643e-01 -duty 0.4333; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {m_sel[0]} {m_sel[1]} {m_sel[2]} {m_sel[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {m_dat_w[0]} {m_dat_w[1]} {m_dat_w[2]} {m_dat_w[3]} {m_dat_w[4]} {m_dat_w[5]} {m_dat_w[6]} {m_dat_w[7]} {m_dat_w[8]} {m_dat_w[9]} {m_dat_w[10]} {m_dat_w[11]} {m_dat_w[12]} {m_dat_w[13]} {m_dat_w[14]} {m_dat_w[15]} {m_dat_w[16]} {m_dat_w[17]} {m_dat_w[18]} {m_dat_w[19]} {m_dat_w[20]} {m_dat_w[21]} {m_dat_w[22]} {m_dat_w[23]} {m_dat_w[24]} {m_dat_w[25]} {m_dat_w[26]} {m_dat_w[27]} {m_dat_w[28]} {m_dat_w[29]} {m_dat_w[30]} {m_dat_w[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {m_dat_r[0]} {m_dat_r[1]} {m_dat_r[2]} {m_dat_r[3]} {m_dat_r[4]} {m_dat_r[5]} {m_dat_r[6]} {m_dat_r[7]} {m_dat_r[8]} {m_dat_r[9]} {m_dat_r[10]} {m_dat_r[11]} {m_dat_r[12]} {m_dat_r[13]} {m_dat_r[14]} {m_dat_r[15]} {m_dat_r[16]} {m_dat_r[17]} {m_dat_r[18]} {m_dat_r[19]} {m_dat_r[20]} {m_dat_r[21]} {m_dat_r[22]} {m_dat_r[23]} {m_dat_r[24]} {m_dat_r[25]} {m_dat_r[26]} {m_dat_r[27]} {m_dat_r[28]} {m_dat_r[29]} {m_dat_r[30]} {m_dat_r[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.713972e-02 -duty 0.4030; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.603547e-02 -duty 0.4032; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.m_cyc_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435167e-01 -duty 0.3435; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979643e-01 -duty 0.4333; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {m_adr[0]} {m_adr[1]} {m_adr[2]} {m_adr[3]} {m_adr[4]} {m_adr[5]} {m_adr[6]} {m_adr[7]} {m_adr[8]} {m_adr[9]} {m_adr[10]} {m_adr[11]} {m_adr[12]} {m_adr[13]} {m_adr[14]} {m_adr[15]} {m_adr[16]} {m_adr[17]} {m_adr[18]} {m_adr[19]} {m_adr[20]} {m_adr[21]} {m_adr[22]} {m_adr[23]} {m_adr[24]} {m_adr[25]} {m_adr[26]} {m_adr[27]} {m_adr[28]} {m_adr[29]} {m_adr[30]} {m_adr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.m_ack_o}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435167e-01 -duty 0.1718; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979643e-01 -duty 0.1490; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {gpio_o[0]} {gpio_o[1]} {gpio_o[2]} {gpio_o[3]} {gpio_o[4]} {gpio_o[5]} {gpio_o[6]} {gpio_o[7]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.598168e-05 -duty 0.1404; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.386242e-05 -duty 0.1404; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {rst_sync_q1}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.wb_rst_i}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0001; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0001; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.wbm_sel_o[0]} {u_cpu.wbm_sel_o[1]} {u_cpu.wbm_sel_o[2]} {u_cpu.wbm_sel_o[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.wbm_dat_o[0]} {u_cpu.wbm_dat_o[1]} {u_cpu.wbm_dat_o[2]} {u_cpu.wbm_dat_o[3]} {u_cpu.wbm_dat_o[4]} {u_cpu.wbm_dat_o[5]} {u_cpu.wbm_dat_o[6]} {u_cpu.wbm_dat_o[7]} {u_cpu.wbm_dat_o[8]} {u_cpu.wbm_dat_o[9]} {u_cpu.wbm_dat_o[10]} {u_cpu.wbm_dat_o[11]} {u_cpu.wbm_dat_o[12]} {u_cpu.wbm_dat_o[13]} {u_cpu.wbm_dat_o[14]} {u_cpu.wbm_dat_o[15]} {u_cpu.wbm_dat_o[16]} {u_cpu.wbm_dat_o[17]} {u_cpu.wbm_dat_o[18]} {u_cpu.wbm_dat_o[19]} {u_cpu.wbm_dat_o[20]} {u_cpu.wbm_dat_o[21]} {u_cpu.wbm_dat_o[22]} {u_cpu.wbm_dat_o[23]} {u_cpu.wbm_dat_o[24]} {u_cpu.wbm_dat_o[25]} {u_cpu.wbm_dat_o[26]} {u_cpu.wbm_dat_o[27]} {u_cpu.wbm_dat_o[28]} {u_cpu.wbm_dat_o[29]} {u_cpu.wbm_dat_o[30]} {u_cpu.wbm_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.wbm_dat_i[0]} {u_cpu.wbm_dat_i[1]} {u_cpu.wbm_dat_i[2]} {u_cpu.wbm_dat_i[3]} {u_cpu.wbm_dat_i[4]} {u_cpu.wbm_dat_i[5]} {u_cpu.wbm_dat_i[6]} {u_cpu.wbm_dat_i[7]} {u_cpu.wbm_dat_i[8]} {u_cpu.wbm_dat_i[9]} {u_cpu.wbm_dat_i[10]} {u_cpu.wbm_dat_i[11]} {u_cpu.wbm_dat_i[12]} {u_cpu.wbm_dat_i[13]} {u_cpu.wbm_dat_i[14]} {u_cpu.wbm_dat_i[15]} {u_cpu.wbm_dat_i[16]} {u_cpu.wbm_dat_i[17]} {u_cpu.wbm_dat_i[18]} {u_cpu.wbm_dat_i[19]} {u_cpu.wbm_dat_i[20]} {u_cpu.wbm_dat_i[21]} {u_cpu.wbm_dat_i[22]} {u_cpu.wbm_dat_i[23]} {u_cpu.wbm_dat_i[24]} {u_cpu.wbm_dat_i[25]} {u_cpu.wbm_dat_i[26]} {u_cpu.wbm_dat_i[27]} {u_cpu.wbm_dat_i[28]} {u_cpu.wbm_dat_i[29]} {u_cpu.wbm_dat_i[30]} {u_cpu.wbm_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.713972e-02 -duty 0.4030; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.603547e-02 -duty 0.4032; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.wbm_adr_o[0]} {u_cpu.wbm_adr_o[1]} {u_cpu.wbm_adr_o[2]} {u_cpu.wbm_adr_o[3]} {u_cpu.wbm_adr_o[4]} {u_cpu.wbm_adr_o[5]} {u_cpu.wbm_adr_o[6]} {u_cpu.wbm_adr_o[7]} {u_cpu.wbm_adr_o[8]} {u_cpu.wbm_adr_o[9]} {u_cpu.wbm_adr_o[10]} {u_cpu.wbm_adr_o[11]} {u_cpu.wbm_adr_o[12]} {u_cpu.wbm_adr_o[13]} {u_cpu.wbm_adr_o[14]} {u_cpu.wbm_adr_o[15]} {u_cpu.wbm_adr_o[16]} {u_cpu.wbm_adr_o[17]} {u_cpu.wbm_adr_o[18]} {u_cpu.wbm_adr_o[19]} {u_cpu.wbm_adr_o[20]} {u_cpu.wbm_adr_o[21]} {u_cpu.wbm_adr_o[22]} {u_cpu.wbm_adr_o[23]} {u_cpu.wbm_adr_o[24]} {u_cpu.wbm_adr_o[25]} {u_cpu.wbm_adr_o[26]} {u_cpu.wbm_adr_o[27]} {u_cpu.wbm_adr_o[28]} {u_cpu.wbm_adr_o[29]} {u_cpu.wbm_adr_o[30]} {u_cpu.wbm_adr_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_pcpi_rs2[0]} {u_cpu.u_pcpi_rs2[1]} {u_cpu.u_pcpi_rs2[2]} {u_cpu.u_pcpi_rs2[3]} {u_cpu.u_pcpi_rs2[4]} {u_cpu.u_pcpi_rs2[5]} {u_cpu.u_pcpi_rs2[6]} {u_cpu.u_pcpi_rs2[7]} {u_cpu.u_pcpi_rs2[8]} {u_cpu.u_pcpi_rs2[9]} {u_cpu.u_pcpi_rs2[10]} {u_cpu.u_pcpi_rs2[11]} {u_cpu.u_pcpi_rs2[12]} {u_cpu.u_pcpi_rs2[13]} {u_cpu.u_pcpi_rs2[14]} {u_cpu.u_pcpi_rs2[15]} {u_cpu.u_pcpi_rs2[16]} {u_cpu.u_pcpi_rs2[17]} {u_cpu.u_pcpi_rs2[18]} {u_cpu.u_pcpi_rs2[19]} {u_cpu.u_pcpi_rs2[20]} {u_cpu.u_pcpi_rs2[21]} {u_cpu.u_pcpi_rs2[22]} {u_cpu.u_pcpi_rs2[23]} {u_cpu.u_pcpi_rs2[24]} {u_cpu.u_pcpi_rs2[25]} {u_cpu.u_pcpi_rs2[26]} {u_cpu.u_pcpi_rs2[27]} {u_cpu.u_pcpi_rs2[28]} {u_cpu.u_pcpi_rs2[29]} {u_cpu.u_pcpi_rs2[30]} {u_cpu.u_pcpi_rs2[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.184257e-02 -duty 0.1361; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.894611e-02 -duty 0.1332; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_pcpi_rs1[0]} {u_cpu.u_pcpi_rs1[1]} {u_cpu.u_pcpi_rs1[2]} {u_cpu.u_pcpi_rs1[3]} {u_cpu.u_pcpi_rs1[4]} {u_cpu.u_pcpi_rs1[5]} {u_cpu.u_pcpi_rs1[6]} {u_cpu.u_pcpi_rs1[7]} {u_cpu.u_pcpi_rs1[8]} {u_cpu.u_pcpi_rs1[9]} {u_cpu.u_pcpi_rs1[10]} {u_cpu.u_pcpi_rs1[11]} {u_cpu.u_pcpi_rs1[12]} {u_cpu.u_pcpi_rs1[13]} {u_cpu.u_pcpi_rs1[14]} {u_cpu.u_pcpi_rs1[15]} {u_cpu.u_pcpi_rs1[16]} {u_cpu.u_pcpi_rs1[17]} {u_cpu.u_pcpi_rs1[18]} {u_cpu.u_pcpi_rs1[19]} {u_cpu.u_pcpi_rs1[20]} {u_cpu.u_pcpi_rs1[21]} {u_cpu.u_pcpi_rs1[22]} {u_cpu.u_pcpi_rs1[23]} {u_cpu.u_pcpi_rs1[24]} {u_cpu.u_pcpi_rs1[25]} {u_cpu.u_pcpi_rs1[26]} {u_cpu.u_pcpi_rs1[27]} {u_cpu.u_pcpi_rs1[28]} {u_cpu.u_pcpi_rs1[29]} {u_cpu.u_pcpi_rs1[30]} {u_cpu.u_pcpi_rs1[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.856913e-02 -duty 0.1456; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.478069e-02 -duty 0.1453; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_instr}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.566795e-02 -duty 0.7729; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.563392e-02 -duty 0.7839; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.resetn}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.we}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.wbm_dat_i[0]} {u_cpu.u_core.wbm_dat_i[1]} {u_cpu.u_core.wbm_dat_i[2]} {u_cpu.u_core.wbm_dat_i[3]} {u_cpu.u_core.wbm_dat_i[4]} {u_cpu.u_core.wbm_dat_i[5]} {u_cpu.u_core.wbm_dat_i[6]} {u_cpu.u_core.wbm_dat_i[7]} {u_cpu.u_core.wbm_dat_i[8]} {u_cpu.u_core.wbm_dat_i[9]} {u_cpu.u_core.wbm_dat_i[10]} {u_cpu.u_core.wbm_dat_i[11]} {u_cpu.u_core.wbm_dat_i[12]} {u_cpu.u_core.wbm_dat_i[13]} {u_cpu.u_core.wbm_dat_i[14]} {u_cpu.u_core.wbm_dat_i[15]} {u_cpu.u_core.wbm_dat_i[16]} {u_cpu.u_core.wbm_dat_i[17]} {u_cpu.u_core.wbm_dat_i[18]} {u_cpu.u_core.wbm_dat_i[19]} {u_cpu.u_core.wbm_dat_i[20]} {u_cpu.u_core.wbm_dat_i[21]} {u_cpu.u_core.wbm_dat_i[22]} {u_cpu.u_core.wbm_dat_i[23]} {u_cpu.u_core.wbm_dat_i[24]} {u_cpu.u_core.wbm_dat_i[25]} {u_cpu.u_core.wbm_dat_i[26]} {u_cpu.u_core.wbm_dat_i[27]} {u_cpu.u_core.wbm_dat_i[28]} {u_cpu.u_core.wbm_dat_i[29]} {u_cpu.u_core.wbm_dat_i[30]} {u_cpu.u_core.wbm_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.713972e-02 -duty 0.4030; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.603547e-02 -duty 0.4032; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.pcpi_rs2[0]} {u_cpu.u_core.pcpi_rs2[1]} {u_cpu.u_core.pcpi_rs2[2]} {u_cpu.u_core.pcpi_rs2[3]} {u_cpu.u_core.pcpi_rs2[4]} {u_cpu.u_core.pcpi_rs2[5]} {u_cpu.u_core.pcpi_rs2[6]} {u_cpu.u_core.pcpi_rs2[7]} {u_cpu.u_core.pcpi_rs2[8]} {u_cpu.u_core.pcpi_rs2[9]} {u_cpu.u_core.pcpi_rs2[10]} {u_cpu.u_core.pcpi_rs2[11]} {u_cpu.u_core.pcpi_rs2[12]} {u_cpu.u_core.pcpi_rs2[13]} {u_cpu.u_core.pcpi_rs2[14]} {u_cpu.u_core.pcpi_rs2[15]} {u_cpu.u_core.pcpi_rs2[16]} {u_cpu.u_core.pcpi_rs2[17]} {u_cpu.u_core.pcpi_rs2[18]} {u_cpu.u_core.pcpi_rs2[19]} {u_cpu.u_core.pcpi_rs2[20]} {u_cpu.u_core.pcpi_rs2[21]} {u_cpu.u_core.pcpi_rs2[22]} {u_cpu.u_core.pcpi_rs2[23]} {u_cpu.u_core.pcpi_rs2[24]} {u_cpu.u_core.pcpi_rs2[25]} {u_cpu.u_core.pcpi_rs2[26]} {u_cpu.u_core.pcpi_rs2[27]} {u_cpu.u_core.pcpi_rs2[28]} {u_cpu.u_core.pcpi_rs2[29]} {u_cpu.u_core.pcpi_rs2[30]} {u_cpu.u_core.pcpi_rs2[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.184257e-02 -duty 0.1361; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.894611e-02 -duty 0.1332; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.pcpi_rs1[0]} {u_cpu.u_core.pcpi_rs1[1]} {u_cpu.u_core.pcpi_rs1[2]} {u_cpu.u_core.pcpi_rs1[3]} {u_cpu.u_core.pcpi_rs1[4]} {u_cpu.u_core.pcpi_rs1[5]} {u_cpu.u_core.pcpi_rs1[6]} {u_cpu.u_core.pcpi_rs1[7]} {u_cpu.u_core.pcpi_rs1[8]} {u_cpu.u_core.pcpi_rs1[9]} {u_cpu.u_core.pcpi_rs1[10]} {u_cpu.u_core.pcpi_rs1[11]} {u_cpu.u_core.pcpi_rs1[12]} {u_cpu.u_core.pcpi_rs1[13]} {u_cpu.u_core.pcpi_rs1[14]} {u_cpu.u_core.pcpi_rs1[15]} {u_cpu.u_core.pcpi_rs1[16]} {u_cpu.u_core.pcpi_rs1[17]} {u_cpu.u_core.pcpi_rs1[18]} {u_cpu.u_core.pcpi_rs1[19]} {u_cpu.u_core.pcpi_rs1[20]} {u_cpu.u_core.pcpi_rs1[21]} {u_cpu.u_core.pcpi_rs1[22]} {u_cpu.u_core.pcpi_rs1[23]} {u_cpu.u_core.pcpi_rs1[24]} {u_cpu.u_core.pcpi_rs1[25]} {u_cpu.u_core.pcpi_rs1[26]} {u_cpu.u_core.pcpi_rs1[27]} {u_cpu.u_core.pcpi_rs1[28]} {u_cpu.u_core.pcpi_rs1[29]} {u_cpu.u_core.pcpi_rs1[30]} {u_cpu.u_core.pcpi_rs1[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.856913e-02 -duty 0.1456; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.478069e-02 -duty 0.1453; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.mem_wstrb[0]} {u_cpu.u_core.mem_wstrb[1]} {u_cpu.u_core.mem_wstrb[2]} {u_cpu.u_core.mem_wstrb[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.mem_wdata[0]} {u_cpu.u_core.mem_wdata[1]} {u_cpu.u_core.mem_wdata[2]} {u_cpu.u_core.mem_wdata[3]} {u_cpu.u_core.mem_wdata[4]} {u_cpu.u_core.mem_wdata[5]} {u_cpu.u_core.mem_wdata[6]} {u_cpu.u_core.mem_wdata[7]} {u_cpu.u_core.mem_wdata[8]} {u_cpu.u_core.mem_wdata[9]} {u_cpu.u_core.mem_wdata[10]} {u_cpu.u_core.mem_wdata[11]} {u_cpu.u_core.mem_wdata[12]} {u_cpu.u_core.mem_wdata[13]} {u_cpu.u_core.mem_wdata[14]} {u_cpu.u_core.mem_wdata[15]} {u_cpu.u_core.mem_wdata[16]} {u_cpu.u_core.mem_wdata[17]} {u_cpu.u_core.mem_wdata[18]} {u_cpu.u_core.mem_wdata[19]} {u_cpu.u_core.mem_wdata[20]} {u_cpu.u_core.mem_wdata[21]} {u_cpu.u_core.mem_wdata[22]} {u_cpu.u_core.mem_wdata[23]} {u_cpu.u_core.mem_wdata[24]} {u_cpu.u_core.mem_wdata[25]} {u_cpu.u_core.mem_wdata[26]} {u_cpu.u_core.mem_wdata[27]} {u_cpu.u_core.mem_wdata[28]} {u_cpu.u_core.mem_wdata[29]} {u_cpu.u_core.mem_wdata[30]} {u_cpu.u_core.mem_wdata[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_valid}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435125e-01 -duty 0.6870; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979606e-01 -duty 0.7312; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.mem_addr[0]} {u_cpu.u_core.mem_addr[1]} {u_cpu.u_core.mem_addr[2]} {u_cpu.u_core.mem_addr[3]} {u_cpu.u_core.mem_addr[4]} {u_cpu.u_core.mem_addr[5]} {u_cpu.u_core.mem_addr[6]} {u_cpu.u_core.mem_addr[7]} {u_cpu.u_core.mem_addr[8]} {u_cpu.u_core.mem_addr[9]} {u_cpu.u_core.mem_addr[10]} {u_cpu.u_core.mem_addr[11]} {u_cpu.u_core.mem_addr[12]} {u_cpu.u_core.mem_addr[13]} {u_cpu.u_core.mem_addr[14]} {u_cpu.u_core.mem_addr[15]} {u_cpu.u_core.mem_addr[16]} {u_cpu.u_core.mem_addr[17]} {u_cpu.u_core.mem_addr[18]} {u_cpu.u_core.mem_addr[19]} {u_cpu.u_core.mem_addr[20]} {u_cpu.u_core.mem_addr[21]} {u_cpu.u_core.mem_addr[22]} {u_cpu.u_core.mem_addr[23]} {u_cpu.u_core.mem_addr[24]} {u_cpu.u_core.mem_addr[25]} {u_cpu.u_core.mem_addr[26]} {u_cpu.u_core.mem_addr[27]} {u_cpu.u_core.mem_addr[28]} {u_cpu.u_core.mem_addr[29]} {u_cpu.u_core.mem_addr[30]} {u_cpu.u_core.mem_addr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.mem_rdata[0]} {u_cpu.u_core.mem_rdata[1]} {u_cpu.u_core.mem_rdata[2]} {u_cpu.u_core.mem_rdata[3]} {u_cpu.u_core.mem_rdata[4]} {u_cpu.u_core.mem_rdata[5]} {u_cpu.u_core.mem_rdata[6]} {u_cpu.u_core.mem_rdata[7]} {u_cpu.u_core.mem_rdata[8]} {u_cpu.u_core.mem_rdata[9]} {u_cpu.u_core.mem_rdata[10]} {u_cpu.u_core.mem_rdata[11]} {u_cpu.u_core.mem_rdata[12]} {u_cpu.u_core.mem_rdata[13]} {u_cpu.u_core.mem_rdata[14]} {u_cpu.u_core.mem_rdata[15]} {u_cpu.u_core.mem_rdata[16]} {u_cpu.u_core.mem_rdata[17]} {u_cpu.u_core.mem_rdata[18]} {u_cpu.u_core.mem_rdata[19]} {u_cpu.u_core.mem_rdata[20]} {u_cpu.u_core.mem_rdata[21]} {u_cpu.u_core.mem_rdata[22]} {u_cpu.u_core.mem_rdata[23]} {u_cpu.u_core.mem_rdata[24]} {u_cpu.u_core.mem_rdata[25]} {u_cpu.u_core.mem_rdata[26]} {u_cpu.u_core.mem_rdata[27]} {u_cpu.u_core.mem_rdata[28]} {u_cpu.u_core.mem_rdata[29]} {u_cpu.u_core.mem_rdata[30]} {u_cpu.u_core.mem_rdata[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.335606e-02 -duty 0.4031; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.507342e-02 -duty 0.4020; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_ready}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435125e-01 -duty 0.1718; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979606e-01 -duty 0.1490; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.state[0]} {u_cpu.u_core.state[1]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435146e-01 -duty 0.2576; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979625e-01 -duty 0.2911; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.wbm_adr_o[0]} {u_cpu.u_core.wbm_adr_o[1]} {u_cpu.u_core.wbm_adr_o[2]} {u_cpu.u_core.wbm_adr_o[3]} {u_cpu.u_core.wbm_adr_o[4]} {u_cpu.u_core.wbm_adr_o[5]} {u_cpu.u_core.wbm_adr_o[6]} {u_cpu.u_core.wbm_adr_o[7]} {u_cpu.u_core.wbm_adr_o[8]} {u_cpu.u_core.wbm_adr_o[9]} {u_cpu.u_core.wbm_adr_o[10]} {u_cpu.u_core.wbm_adr_o[11]} {u_cpu.u_core.wbm_adr_o[12]} {u_cpu.u_core.wbm_adr_o[13]} {u_cpu.u_core.wbm_adr_o[14]} {u_cpu.u_core.wbm_adr_o[15]} {u_cpu.u_core.wbm_adr_o[16]} {u_cpu.u_core.wbm_adr_o[17]} {u_cpu.u_core.wbm_adr_o[18]} {u_cpu.u_core.wbm_adr_o[19]} {u_cpu.u_core.wbm_adr_o[20]} {u_cpu.u_core.wbm_adr_o[21]} {u_cpu.u_core.wbm_adr_o[22]} {u_cpu.u_core.wbm_adr_o[23]} {u_cpu.u_core.wbm_adr_o[24]} {u_cpu.u_core.wbm_adr_o[25]} {u_cpu.u_core.wbm_adr_o[26]} {u_cpu.u_core.wbm_adr_o[27]} {u_cpu.u_core.wbm_adr_o[28]} {u_cpu.u_core.wbm_adr_o[29]} {u_cpu.u_core.wbm_adr_o[30]} {u_cpu.u_core.wbm_adr_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.wbm_dat_o[0]} {u_cpu.u_core.wbm_dat_o[1]} {u_cpu.u_core.wbm_dat_o[2]} {u_cpu.u_core.wbm_dat_o[3]} {u_cpu.u_core.wbm_dat_o[4]} {u_cpu.u_core.wbm_dat_o[5]} {u_cpu.u_core.wbm_dat_o[6]} {u_cpu.u_core.wbm_dat_o[7]} {u_cpu.u_core.wbm_dat_o[8]} {u_cpu.u_core.wbm_dat_o[9]} {u_cpu.u_core.wbm_dat_o[10]} {u_cpu.u_core.wbm_dat_o[11]} {u_cpu.u_core.wbm_dat_o[12]} {u_cpu.u_core.wbm_dat_o[13]} {u_cpu.u_core.wbm_dat_o[14]} {u_cpu.u_core.wbm_dat_o[15]} {u_cpu.u_core.wbm_dat_o[16]} {u_cpu.u_core.wbm_dat_o[17]} {u_cpu.u_core.wbm_dat_o[18]} {u_cpu.u_core.wbm_dat_o[19]} {u_cpu.u_core.wbm_dat_o[20]} {u_cpu.u_core.wbm_dat_o[21]} {u_cpu.u_core.wbm_dat_o[22]} {u_cpu.u_core.wbm_dat_o[23]} {u_cpu.u_core.wbm_dat_o[24]} {u_cpu.u_core.wbm_dat_o[25]} {u_cpu.u_core.wbm_dat_o[26]} {u_cpu.u_core.wbm_dat_o[27]} {u_cpu.u_core.wbm_dat_o[28]} {u_cpu.u_core.wbm_dat_o[29]} {u_cpu.u_core.wbm_dat_o[30]} {u_cpu.u_core.wbm_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.wbm_sel_o[0]} {u_cpu.u_core.wbm_sel_o[1]} {u_cpu.u_core.wbm_sel_o[2]} {u_cpu.u_core.wbm_sel_o[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_mem_addr[0]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[1]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[2]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[3]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[4]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[5]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[6]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[7]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[8]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[9]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[10]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[11]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[12]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[13]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[14]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[15]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[16]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[17]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[18]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[19]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[20]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[21]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[22]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[23]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[24]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[25]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[26]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[27]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[28]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[29]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[30]} {u_cpu.u_core.picorv32_core.dbg_mem_addr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_mem_instr}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.566795e-02 -duty 0.7729; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.563392e-02 -duty 0.7839; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_mem_rdata[0]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[1]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[2]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[3]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[4]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[5]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[6]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[7]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[8]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[9]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[10]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[11]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[12]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[13]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[14]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[15]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[16]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[17]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[18]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[19]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[20]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[21]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[22]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[23]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[24]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[25]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[26]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[27]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[28]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[29]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[30]} {u_cpu.u_core.picorv32_core.dbg_mem_rdata[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.335606e-02 -duty 0.4031; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.507342e-02 -duty 0.4020; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_mem_ready}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435125e-01 -duty 0.1718; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979606e-01 -duty 0.1490; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_mem_valid}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435125e-01 -duty 0.6870; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979606e-01 -duty 0.7312; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_mem_wdata[0]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[1]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[2]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[3]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[4]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[5]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[6]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[7]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[8]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[9]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[10]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[11]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[12]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[13]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[14]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[15]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[16]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[17]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[18]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[19]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[20]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[21]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[22]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[23]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[24]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[25]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[26]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[27]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[28]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[29]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[30]} {u_cpu.u_core.picorv32_core.dbg_mem_wdata[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_mem_wstrb[0]} {u_cpu.u_core.picorv32_core.dbg_mem_wstrb[1]} {u_cpu.u_core.picorv32_core.dbg_mem_wstrb[2]} {u_cpu.u_core.picorv32_core.dbg_mem_wstrb[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.launch_next_insn}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.484193e-01 -duty 0.1242; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.154774e-01 -duty 0.1077; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_done}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435125e-01 -duty 0.1718; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979606e-01 -duty 0.1490; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_la_read}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.131217e-01 -duty 0.1566; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.715999e-01 -duty 0.1358; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_la_write}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039503e-02 -duty 0.0152; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.0132; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_rdata[0]} {u_cpu.u_core.picorv32_core.mem_rdata[1]} {u_cpu.u_core.picorv32_core.mem_rdata[2]} {u_cpu.u_core.picorv32_core.mem_rdata[3]} {u_cpu.u_core.picorv32_core.mem_rdata[4]} {u_cpu.u_core.picorv32_core.mem_rdata[5]} {u_cpu.u_core.picorv32_core.mem_rdata[6]} {u_cpu.u_core.picorv32_core.mem_rdata[7]} {u_cpu.u_core.picorv32_core.mem_rdata[8]} {u_cpu.u_core.picorv32_core.mem_rdata[9]} {u_cpu.u_core.picorv32_core.mem_rdata[10]} {u_cpu.u_core.picorv32_core.mem_rdata[11]} {u_cpu.u_core.picorv32_core.mem_rdata[12]} {u_cpu.u_core.picorv32_core.mem_rdata[13]} {u_cpu.u_core.picorv32_core.mem_rdata[14]} {u_cpu.u_core.picorv32_core.mem_rdata[15]} {u_cpu.u_core.picorv32_core.mem_rdata[16]} {u_cpu.u_core.picorv32_core.mem_rdata[17]} {u_cpu.u_core.picorv32_core.mem_rdata[18]} {u_cpu.u_core.picorv32_core.mem_rdata[19]} {u_cpu.u_core.picorv32_core.mem_rdata[20]} {u_cpu.u_core.picorv32_core.mem_rdata[21]} {u_cpu.u_core.picorv32_core.mem_rdata[22]} {u_cpu.u_core.picorv32_core.mem_rdata[23]} {u_cpu.u_core.picorv32_core.mem_rdata[24]} {u_cpu.u_core.picorv32_core.mem_rdata[25]} {u_cpu.u_core.picorv32_core.mem_rdata[26]} {u_cpu.u_core.picorv32_core.mem_rdata[27]} {u_cpu.u_core.picorv32_core.mem_rdata[28]} {u_cpu.u_core.picorv32_core.mem_rdata[29]} {u_cpu.u_core.picorv32_core.mem_rdata[30]} {u_cpu.u_core.picorv32_core.mem_rdata[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.335606e-02 -duty 0.4031; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.507342e-02 -duty 0.4020; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_xfer}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435125e-01 -duty 0.1718; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979606e-01 -duty 0.1490; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.pcpi_rs1[0]} {u_cpu.u_core.picorv32_core.pcpi_rs1[1]} {u_cpu.u_core.picorv32_core.pcpi_rs1[2]} {u_cpu.u_core.picorv32_core.pcpi_rs1[3]} {u_cpu.u_core.picorv32_core.pcpi_rs1[4]} {u_cpu.u_core.picorv32_core.pcpi_rs1[5]} {u_cpu.u_core.picorv32_core.pcpi_rs1[6]} {u_cpu.u_core.picorv32_core.pcpi_rs1[7]} {u_cpu.u_core.picorv32_core.pcpi_rs1[8]} {u_cpu.u_core.picorv32_core.pcpi_rs1[9]} {u_cpu.u_core.picorv32_core.pcpi_rs1[10]} {u_cpu.u_core.picorv32_core.pcpi_rs1[11]} {u_cpu.u_core.picorv32_core.pcpi_rs1[12]} {u_cpu.u_core.picorv32_core.pcpi_rs1[13]} {u_cpu.u_core.picorv32_core.pcpi_rs1[14]} {u_cpu.u_core.picorv32_core.pcpi_rs1[15]} {u_cpu.u_core.picorv32_core.pcpi_rs1[16]} {u_cpu.u_core.picorv32_core.pcpi_rs1[17]} {u_cpu.u_core.picorv32_core.pcpi_rs1[18]} {u_cpu.u_core.picorv32_core.pcpi_rs1[19]} {u_cpu.u_core.picorv32_core.pcpi_rs1[20]} {u_cpu.u_core.picorv32_core.pcpi_rs1[21]} {u_cpu.u_core.picorv32_core.pcpi_rs1[22]} {u_cpu.u_core.picorv32_core.pcpi_rs1[23]} {u_cpu.u_core.picorv32_core.pcpi_rs1[24]} {u_cpu.u_core.picorv32_core.pcpi_rs1[25]} {u_cpu.u_core.picorv32_core.pcpi_rs1[26]} {u_cpu.u_core.picorv32_core.pcpi_rs1[27]} {u_cpu.u_core.picorv32_core.pcpi_rs1[28]} {u_cpu.u_core.picorv32_core.pcpi_rs1[29]} {u_cpu.u_core.picorv32_core.pcpi_rs1[30]} {u_cpu.u_core.picorv32_core.pcpi_rs1[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.856913e-02 -duty 0.1456; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.478069e-02 -duty 0.1453; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.pcpi_rs2[0]} {u_cpu.u_core.picorv32_core.pcpi_rs2[1]} {u_cpu.u_core.picorv32_core.pcpi_rs2[2]} {u_cpu.u_core.picorv32_core.pcpi_rs2[3]} {u_cpu.u_core.picorv32_core.pcpi_rs2[4]} {u_cpu.u_core.picorv32_core.pcpi_rs2[5]} {u_cpu.u_core.picorv32_core.pcpi_rs2[6]} {u_cpu.u_core.picorv32_core.pcpi_rs2[7]} {u_cpu.u_core.picorv32_core.pcpi_rs2[8]} {u_cpu.u_core.picorv32_core.pcpi_rs2[9]} {u_cpu.u_core.picorv32_core.pcpi_rs2[10]} {u_cpu.u_core.picorv32_core.pcpi_rs2[11]} {u_cpu.u_core.picorv32_core.pcpi_rs2[12]} {u_cpu.u_core.picorv32_core.pcpi_rs2[13]} {u_cpu.u_core.picorv32_core.pcpi_rs2[14]} {u_cpu.u_core.picorv32_core.pcpi_rs2[15]} {u_cpu.u_core.picorv32_core.pcpi_rs2[16]} {u_cpu.u_core.picorv32_core.pcpi_rs2[17]} {u_cpu.u_core.picorv32_core.pcpi_rs2[18]} {u_cpu.u_core.picorv32_core.pcpi_rs2[19]} {u_cpu.u_core.picorv32_core.pcpi_rs2[20]} {u_cpu.u_core.picorv32_core.pcpi_rs2[21]} {u_cpu.u_core.picorv32_core.pcpi_rs2[22]} {u_cpu.u_core.picorv32_core.pcpi_rs2[23]} {u_cpu.u_core.picorv32_core.pcpi_rs2[24]} {u_cpu.u_core.picorv32_core.pcpi_rs2[25]} {u_cpu.u_core.picorv32_core.pcpi_rs2[26]} {u_cpu.u_core.picorv32_core.pcpi_rs2[27]} {u_cpu.u_core.picorv32_core.pcpi_rs2[28]} {u_cpu.u_core.picorv32_core.pcpi_rs2[29]} {u_cpu.u_core.picorv32_core.pcpi_rs2[30]} {u_cpu.u_core.picorv32_core.pcpi_rs2[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.184257e-02 -duty 0.1361; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.894611e-02 -duty 0.1332; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.next_pc[0]} {u_cpu.u_core.picorv32_core.next_pc[1]} {u_cpu.u_core.picorv32_core.next_pc[2]} {u_cpu.u_core.picorv32_core.next_pc[3]} {u_cpu.u_core.picorv32_core.next_pc[4]} {u_cpu.u_core.picorv32_core.next_pc[5]} {u_cpu.u_core.picorv32_core.next_pc[6]} {u_cpu.u_core.picorv32_core.next_pc[7]} {u_cpu.u_core.picorv32_core.next_pc[8]} {u_cpu.u_core.picorv32_core.next_pc[9]} {u_cpu.u_core.picorv32_core.next_pc[10]} {u_cpu.u_core.picorv32_core.next_pc[11]} {u_cpu.u_core.picorv32_core.next_pc[12]} {u_cpu.u_core.picorv32_core.next_pc[13]} {u_cpu.u_core.picorv32_core.next_pc[14]} {u_cpu.u_core.picorv32_core.next_pc[15]} {u_cpu.u_core.picorv32_core.next_pc[16]} {u_cpu.u_core.picorv32_core.next_pc[17]} {u_cpu.u_core.picorv32_core.next_pc[18]} {u_cpu.u_core.picorv32_core.next_pc[19]} {u_cpu.u_core.picorv32_core.next_pc[20]} {u_cpu.u_core.picorv32_core.next_pc[21]} {u_cpu.u_core.picorv32_core.next_pc[22]} {u_cpu.u_core.picorv32_core.next_pc[23]} {u_cpu.u_core.picorv32_core.next_pc[24]} {u_cpu.u_core.picorv32_core.next_pc[25]} {u_cpu.u_core.picorv32_core.next_pc[26]} {u_cpu.u_core.picorv32_core.next_pc[27]} {u_cpu.u_core.picorv32_core.next_pc[28]} {u_cpu.u_core.picorv32_core.next_pc[29]} {u_cpu.u_core.picorv32_core.next_pc[30]} {u_cpu.u_core.picorv32_core.next_pc[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.834942e-03 -duty 0.1203; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.663375e-03 -duty 0.1203; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[0]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[1]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[2]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[3]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[4]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[5]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[6]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[7]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[8]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[9]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[10]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[11]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[12]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[13]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[14]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[15]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[16]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[17]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[18]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[19]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[20]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[21]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[22]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[23]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[24]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[25]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[26]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[27]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[28]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[29]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[30]} {u_cpu.u_core.picorv32_core.mem_rdata_latched_noshuffle[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.335606e-02 -duty 0.4031; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.507342e-02 -duty 0.4020; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_rdata_latched[0]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[1]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[2]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[3]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[4]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[5]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[6]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[7]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[8]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[9]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[10]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[11]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[12]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[13]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[14]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[15]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[16]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[17]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[18]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[19]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[20]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[21]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[22]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[23]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[24]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[25]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[26]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[27]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[28]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[29]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[30]} {u_cpu.u_core.picorv32_core.mem_rdata_latched[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.335606e-02 -duty 0.4031; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.507342e-02 -duty 0.4020; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_la_addr[0]} {u_cpu.u_core.picorv32_core.mem_la_addr[1]} {u_cpu.u_core.picorv32_core.mem_la_addr[2]} {u_cpu.u_core.picorv32_core.mem_la_addr[3]} {u_cpu.u_core.picorv32_core.mem_la_addr[4]} {u_cpu.u_core.picorv32_core.mem_la_addr[5]} {u_cpu.u_core.picorv32_core.mem_la_addr[6]} {u_cpu.u_core.picorv32_core.mem_la_addr[7]} {u_cpu.u_core.picorv32_core.mem_la_addr[8]} {u_cpu.u_core.picorv32_core.mem_la_addr[9]} {u_cpu.u_core.picorv32_core.mem_la_addr[10]} {u_cpu.u_core.picorv32_core.mem_la_addr[11]} {u_cpu.u_core.picorv32_core.mem_la_addr[12]} {u_cpu.u_core.picorv32_core.mem_la_addr[13]} {u_cpu.u_core.picorv32_core.mem_la_addr[14]} {u_cpu.u_core.picorv32_core.mem_la_addr[15]} {u_cpu.u_core.picorv32_core.mem_la_addr[16]} {u_cpu.u_core.picorv32_core.mem_la_addr[17]} {u_cpu.u_core.picorv32_core.mem_la_addr[18]} {u_cpu.u_core.picorv32_core.mem_la_addr[19]} {u_cpu.u_core.picorv32_core.mem_la_addr[20]} {u_cpu.u_core.picorv32_core.mem_la_addr[21]} {u_cpu.u_core.picorv32_core.mem_la_addr[22]} {u_cpu.u_core.picorv32_core.mem_la_addr[23]} {u_cpu.u_core.picorv32_core.mem_la_addr[24]} {u_cpu.u_core.picorv32_core.mem_la_addr[25]} {u_cpu.u_core.picorv32_core.mem_la_addr[26]} {u_cpu.u_core.picorv32_core.mem_la_addr[27]} {u_cpu.u_core.picorv32_core.mem_la_addr[28]} {u_cpu.u_core.picorv32_core.mem_la_addr[29]} {u_cpu.u_core.picorv32_core.mem_la_addr[30]} {u_cpu.u_core.picorv32_core.mem_la_addr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.890568e-02 -duty 0.1249; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.374655e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_busy}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.484236e-01 -duty 0.8675; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.154811e-01 -duty 0.8851; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_add_sub[0]} {u_cpu.u_core.picorv32_core.alu_add_sub[1]} {u_cpu.u_core.picorv32_core.alu_add_sub[2]} {u_cpu.u_core.picorv32_core.alu_add_sub[3]} {u_cpu.u_core.picorv32_core.alu_add_sub[4]} {u_cpu.u_core.picorv32_core.alu_add_sub[5]} {u_cpu.u_core.picorv32_core.alu_add_sub[6]} {u_cpu.u_core.picorv32_core.alu_add_sub[7]} {u_cpu.u_core.picorv32_core.alu_add_sub[8]} {u_cpu.u_core.picorv32_core.alu_add_sub[9]} {u_cpu.u_core.picorv32_core.alu_add_sub[10]} {u_cpu.u_core.picorv32_core.alu_add_sub[11]} {u_cpu.u_core.picorv32_core.alu_add_sub[12]} {u_cpu.u_core.picorv32_core.alu_add_sub[13]} {u_cpu.u_core.picorv32_core.alu_add_sub[14]} {u_cpu.u_core.picorv32_core.alu_add_sub[15]} {u_cpu.u_core.picorv32_core.alu_add_sub[16]} {u_cpu.u_core.picorv32_core.alu_add_sub[17]} {u_cpu.u_core.picorv32_core.alu_add_sub[18]} {u_cpu.u_core.picorv32_core.alu_add_sub[19]} {u_cpu.u_core.picorv32_core.alu_add_sub[20]} {u_cpu.u_core.picorv32_core.alu_add_sub[21]} {u_cpu.u_core.picorv32_core.alu_add_sub[22]} {u_cpu.u_core.picorv32_core.alu_add_sub[23]} {u_cpu.u_core.picorv32_core.alu_add_sub[24]} {u_cpu.u_core.picorv32_core.alu_add_sub[25]} {u_cpu.u_core.picorv32_core.alu_add_sub[26]} {u_cpu.u_core.picorv32_core.alu_add_sub[27]} {u_cpu.u_core.picorv32_core.alu_add_sub[28]} {u_cpu.u_core.picorv32_core.alu_add_sub[29]} {u_cpu.u_core.picorv32_core.alu_add_sub[30]} {u_cpu.u_core.picorv32_core.alu_add_sub[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.462298e-02 -duty 0.1561; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.135783e-02 -duty 0.1533; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_eq}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.537574e-03 -duty 0.0333; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.670653e-03 -duty 0.0337; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_lts}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.799139e-02 -duty 0.1913; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.427956e-02 -duty 0.1937; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_ltu}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.333140e-02 -duty 0.2844; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.891146e-02 -duty 0.2828; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_out[0]} {u_cpu.u_core.picorv32_core.alu_out[1]} {u_cpu.u_core.picorv32_core.alu_out[2]} {u_cpu.u_core.picorv32_core.alu_out[3]} {u_cpu.u_core.picorv32_core.alu_out[4]} {u_cpu.u_core.picorv32_core.alu_out[5]} {u_cpu.u_core.picorv32_core.alu_out[6]} {u_cpu.u_core.picorv32_core.alu_out[7]} {u_cpu.u_core.picorv32_core.alu_out[8]} {u_cpu.u_core.picorv32_core.alu_out[9]} {u_cpu.u_core.picorv32_core.alu_out[10]} {u_cpu.u_core.picorv32_core.alu_out[11]} {u_cpu.u_core.picorv32_core.alu_out[12]} {u_cpu.u_core.picorv32_core.alu_out[13]} {u_cpu.u_core.picorv32_core.alu_out[14]} {u_cpu.u_core.picorv32_core.alu_out[15]} {u_cpu.u_core.picorv32_core.alu_out[16]} {u_cpu.u_core.picorv32_core.alu_out[17]} {u_cpu.u_core.picorv32_core.alu_out[18]} {u_cpu.u_core.picorv32_core.alu_out[19]} {u_cpu.u_core.picorv32_core.alu_out[20]} {u_cpu.u_core.picorv32_core.alu_out[21]} {u_cpu.u_core.picorv32_core.alu_out[22]} {u_cpu.u_core.picorv32_core.alu_out[23]} {u_cpu.u_core.picorv32_core.alu_out[24]} {u_cpu.u_core.picorv32_core.alu_out[25]} {u_cpu.u_core.picorv32_core.alu_out[26]} {u_cpu.u_core.picorv32_core.alu_out[27]} {u_cpu.u_core.picorv32_core.alu_out[28]} {u_cpu.u_core.picorv32_core.alu_out[29]} {u_cpu.u_core.picorv32_core.alu_out[30]} {u_cpu.u_core.picorv32_core.alu_out[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.433985e-03 -duty 0.0690; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.846012e-03 -duty 0.0690; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_out_0}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.201823e-03 -duty 0.1515; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.042454e-03 -duty 0.1483; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_out_0_q}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.201823e-03 -duty 0.1515; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.042454e-03 -duty 0.1483; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_out_q[0]} {u_cpu.u_core.picorv32_core.alu_out_q[1]} {u_cpu.u_core.picorv32_core.alu_out_q[2]} {u_cpu.u_core.picorv32_core.alu_out_q[3]} {u_cpu.u_core.picorv32_core.alu_out_q[4]} {u_cpu.u_core.picorv32_core.alu_out_q[5]} {u_cpu.u_core.picorv32_core.alu_out_q[6]} {u_cpu.u_core.picorv32_core.alu_out_q[7]} {u_cpu.u_core.picorv32_core.alu_out_q[8]} {u_cpu.u_core.picorv32_core.alu_out_q[9]} {u_cpu.u_core.picorv32_core.alu_out_q[10]} {u_cpu.u_core.picorv32_core.alu_out_q[11]} {u_cpu.u_core.picorv32_core.alu_out_q[12]} {u_cpu.u_core.picorv32_core.alu_out_q[13]} {u_cpu.u_core.picorv32_core.alu_out_q[14]} {u_cpu.u_core.picorv32_core.alu_out_q[15]} {u_cpu.u_core.picorv32_core.alu_out_q[16]} {u_cpu.u_core.picorv32_core.alu_out_q[17]} {u_cpu.u_core.picorv32_core.alu_out_q[18]} {u_cpu.u_core.picorv32_core.alu_out_q[19]} {u_cpu.u_core.picorv32_core.alu_out_q[20]} {u_cpu.u_core.picorv32_core.alu_out_q[21]} {u_cpu.u_core.picorv32_core.alu_out_q[22]} {u_cpu.u_core.picorv32_core.alu_out_q[23]} {u_cpu.u_core.picorv32_core.alu_out_q[24]} {u_cpu.u_core.picorv32_core.alu_out_q[25]} {u_cpu.u_core.picorv32_core.alu_out_q[26]} {u_cpu.u_core.picorv32_core.alu_out_q[27]} {u_cpu.u_core.picorv32_core.alu_out_q[28]} {u_cpu.u_core.picorv32_core.alu_out_q[29]} {u_cpu.u_core.picorv32_core.alu_out_q[30]} {u_cpu.u_core.picorv32_core.alu_out_q[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.433985e-03 -duty 0.0690; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.846012e-03 -duty 0.0690; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_shl[0]} {u_cpu.u_core.picorv32_core.alu_shl[1]} {u_cpu.u_core.picorv32_core.alu_shl[2]} {u_cpu.u_core.picorv32_core.alu_shl[3]} {u_cpu.u_core.picorv32_core.alu_shl[4]} {u_cpu.u_core.picorv32_core.alu_shl[5]} {u_cpu.u_core.picorv32_core.alu_shl[6]} {u_cpu.u_core.picorv32_core.alu_shl[7]} {u_cpu.u_core.picorv32_core.alu_shl[8]} {u_cpu.u_core.picorv32_core.alu_shl[9]} {u_cpu.u_core.picorv32_core.alu_shl[10]} {u_cpu.u_core.picorv32_core.alu_shl[11]} {u_cpu.u_core.picorv32_core.alu_shl[12]} {u_cpu.u_core.picorv32_core.alu_shl[13]} {u_cpu.u_core.picorv32_core.alu_shl[14]} {u_cpu.u_core.picorv32_core.alu_shl[15]} {u_cpu.u_core.picorv32_core.alu_shl[16]} {u_cpu.u_core.picorv32_core.alu_shl[17]} {u_cpu.u_core.picorv32_core.alu_shl[18]} {u_cpu.u_core.picorv32_core.alu_shl[19]} {u_cpu.u_core.picorv32_core.alu_shl[20]} {u_cpu.u_core.picorv32_core.alu_shl[21]} {u_cpu.u_core.picorv32_core.alu_shl[22]} {u_cpu.u_core.picorv32_core.alu_shl[23]} {u_cpu.u_core.picorv32_core.alu_shl[24]} {u_cpu.u_core.picorv32_core.alu_shl[25]} {u_cpu.u_core.picorv32_core.alu_shl[26]} {u_cpu.u_core.picorv32_core.alu_shl[27]} {u_cpu.u_core.picorv32_core.alu_shl[28]} {u_cpu.u_core.picorv32_core.alu_shl[29]} {u_cpu.u_core.picorv32_core.alu_shl[30]} {u_cpu.u_core.picorv32_core.alu_shl[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.128041e-02 -duty 0.0638; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.784556e-03 -duty 0.0638; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.alu_shr[0]} {u_cpu.u_core.picorv32_core.alu_shr[1]} {u_cpu.u_core.picorv32_core.alu_shr[2]} {u_cpu.u_core.picorv32_core.alu_shr[3]} {u_cpu.u_core.picorv32_core.alu_shr[4]} {u_cpu.u_core.picorv32_core.alu_shr[5]} {u_cpu.u_core.picorv32_core.alu_shr[6]} {u_cpu.u_core.picorv32_core.alu_shr[7]} {u_cpu.u_core.picorv32_core.alu_shr[8]} {u_cpu.u_core.picorv32_core.alu_shr[9]} {u_cpu.u_core.picorv32_core.alu_shr[10]} {u_cpu.u_core.picorv32_core.alu_shr[11]} {u_cpu.u_core.picorv32_core.alu_shr[12]} {u_cpu.u_core.picorv32_core.alu_shr[13]} {u_cpu.u_core.picorv32_core.alu_shr[14]} {u_cpu.u_core.picorv32_core.alu_shr[15]} {u_cpu.u_core.picorv32_core.alu_shr[16]} {u_cpu.u_core.picorv32_core.alu_shr[17]} {u_cpu.u_core.picorv32_core.alu_shr[18]} {u_cpu.u_core.picorv32_core.alu_shr[19]} {u_cpu.u_core.picorv32_core.alu_shr[20]} {u_cpu.u_core.picorv32_core.alu_shr[21]} {u_cpu.u_core.picorv32_core.alu_shr[22]} {u_cpu.u_core.picorv32_core.alu_shr[23]} {u_cpu.u_core.picorv32_core.alu_shr[24]} {u_cpu.u_core.picorv32_core.alu_shr[25]} {u_cpu.u_core.picorv32_core.alu_shr[26]} {u_cpu.u_core.picorv32_core.alu_shr[27]} {u_cpu.u_core.picorv32_core.alu_shr[28]} {u_cpu.u_core.picorv32_core.alu_shr[29]} {u_cpu.u_core.picorv32_core.alu_shr[30]} {u_cpu.u_core.picorv32_core.alu_shr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.599158e-03 -duty 0.0423; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.591464e-03 -duty 0.0423; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cached_ascii_instr[0]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[1]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[2]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[3]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[4]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[5]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[6]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[7]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[8]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[9]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[10]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[11]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[12]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[13]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[14]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[15]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[16]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[17]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[18]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[19]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[20]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[21]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[22]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[23]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[24]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[25]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[26]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[27]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[28]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[29]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[30]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[31]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[32]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[33]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[34]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[35]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[36]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[37]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[38]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[39]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[40]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[41]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[42]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[43]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[44]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[45]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[46]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[47]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[48]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[49]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[50]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[51]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[52]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[53]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[54]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[55]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[56]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[57]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[58]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[59]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[60]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[61]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[62]} {u_cpu.u_core.picorv32_core.cached_ascii_instr[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.594546e-02 -duty 0.1889; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.383100e-02 -duty 0.1887; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cached_insn_imm[0]} {u_cpu.u_core.picorv32_core.cached_insn_imm[1]} {u_cpu.u_core.picorv32_core.cached_insn_imm[2]} {u_cpu.u_core.picorv32_core.cached_insn_imm[3]} {u_cpu.u_core.picorv32_core.cached_insn_imm[4]} {u_cpu.u_core.picorv32_core.cached_insn_imm[5]} {u_cpu.u_core.picorv32_core.cached_insn_imm[6]} {u_cpu.u_core.picorv32_core.cached_insn_imm[7]} {u_cpu.u_core.picorv32_core.cached_insn_imm[8]} {u_cpu.u_core.picorv32_core.cached_insn_imm[9]} {u_cpu.u_core.picorv32_core.cached_insn_imm[10]} {u_cpu.u_core.picorv32_core.cached_insn_imm[11]} {u_cpu.u_core.picorv32_core.cached_insn_imm[12]} {u_cpu.u_core.picorv32_core.cached_insn_imm[13]} {u_cpu.u_core.picorv32_core.cached_insn_imm[14]} {u_cpu.u_core.picorv32_core.cached_insn_imm[15]} {u_cpu.u_core.picorv32_core.cached_insn_imm[16]} {u_cpu.u_core.picorv32_core.cached_insn_imm[17]} {u_cpu.u_core.picorv32_core.cached_insn_imm[18]} {u_cpu.u_core.picorv32_core.cached_insn_imm[19]} {u_cpu.u_core.picorv32_core.cached_insn_imm[20]} {u_cpu.u_core.picorv32_core.cached_insn_imm[21]} {u_cpu.u_core.picorv32_core.cached_insn_imm[22]} {u_cpu.u_core.picorv32_core.cached_insn_imm[23]} {u_cpu.u_core.picorv32_core.cached_insn_imm[24]} {u_cpu.u_core.picorv32_core.cached_insn_imm[25]} {u_cpu.u_core.picorv32_core.cached_insn_imm[26]} {u_cpu.u_core.picorv32_core.cached_insn_imm[27]} {u_cpu.u_core.picorv32_core.cached_insn_imm[28]} {u_cpu.u_core.picorv32_core.cached_insn_imm[29]} {u_cpu.u_core.picorv32_core.cached_insn_imm[30]} {u_cpu.u_core.picorv32_core.cached_insn_imm[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.708323e-02 -duty 0.2451; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.349183e-02 -duty 0.2436; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cached_insn_opcode[0]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[1]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[2]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[3]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[4]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[5]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[6]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[7]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[8]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[9]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[10]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[11]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[12]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[13]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[14]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[15]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[16]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[17]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[18]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[19]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[20]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[21]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[22]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[23]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[24]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[25]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[26]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[27]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[28]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[29]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[30]} {u_cpu.u_core.picorv32_core.cached_insn_opcode[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.863054e-02 -duty 0.3589; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.092509e-02 -duty 0.3581; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cached_insn_rd[0]} {u_cpu.u_core.picorv32_core.cached_insn_rd[1]} {u_cpu.u_core.picorv32_core.cached_insn_rd[2]} {u_cpu.u_core.picorv32_core.cached_insn_rd[3]} {u_cpu.u_core.picorv32_core.cached_insn_rd[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.444954e-02 -duty 0.5361; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.855526e-02 -duty 0.5373; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cached_insn_rs1[0]} {u_cpu.u_core.picorv32_core.cached_insn_rs1[1]} {u_cpu.u_core.picorv32_core.cached_insn_rs1[2]} {u_cpu.u_core.picorv32_core.cached_insn_rs1[3]} {u_cpu.u_core.picorv32_core.cached_insn_rs1[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.637160e-02 -duty 0.5713; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.022245e-02 -duty 0.5721; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cached_insn_rs2[0]} {u_cpu.u_core.picorv32_core.cached_insn_rs2[1]} {u_cpu.u_core.picorv32_core.cached_insn_rs2[2]} {u_cpu.u_core.picorv32_core.cached_insn_rs2[3]} {u_cpu.u_core.picorv32_core.cached_insn_rs2[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.670046e-02 -duty 0.3853; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.918164e-02 -duty 0.3838; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cpu_state[0]} {u_cpu.u_core.picorv32_core.cpu_state[1]} {u_cpu.u_core.picorv32_core.cpu_state[2]} {u_cpu.u_core.picorv32_core.cpu_state[3]} {u_cpu.u_core.picorv32_core.cpu_state[4]} {u_cpu.u_core.picorv32_core.cpu_state[5]} {u_cpu.u_core.picorv32_core.cpu_state[6]} {u_cpu.u_core.picorv32_core.cpu_state[7]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.305389e-02 -duty 0.1250; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.071438e-02 -duty 0.1250; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cpuregs_rs1[0]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[1]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[2]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[3]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[4]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[5]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[6]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[7]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[8]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[9]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[10]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[11]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[12]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[13]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[14]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[15]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[16]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[17]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[18]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[19]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[20]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[21]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[22]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[23]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[24]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[25]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[26]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[27]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[28]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[29]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[30]} {u_cpu.u_core.picorv32_core.cpuregs_rs1[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.810299e-02 -duty 0.1509; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.437637e-02 -duty 0.1499; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cpuregs_rs2[0]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[1]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[2]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[3]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[4]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[5]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[6]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[7]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[8]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[9]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[10]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[11]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[12]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[13]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[14]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[15]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[16]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[17]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[18]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[19]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[20]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[21]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[22]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[23]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[24]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[25]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[26]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[27]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[28]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[29]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[30]} {u_cpu.u_core.picorv32_core.cpuregs_rs2[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.546256e-02 -duty 0.1432; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.076001e-02 -duty 0.1424; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cpuregs_wrdata[0]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[1]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[2]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[3]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[4]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[5]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[6]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[7]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[8]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[9]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[10]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[11]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[12]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[13]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[14]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[15]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[16]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[17]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[18]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[19]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[20]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[21]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[22]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[23]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[24]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[25]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[26]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[27]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[28]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[29]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[30]} {u_cpu.u_core.picorv32_core.cpuregs_wrdata[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0203; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0177; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.cpuregs_write}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.154928e-01 -duty 0.1078; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.869171e-01 -duty 0.0935; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_ascii_instr[0]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[1]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[2]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[3]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[4]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[5]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[6]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[7]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[8]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[9]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[10]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[11]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[12]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[13]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[14]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[15]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[16]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[17]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[18]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[19]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[20]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[21]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[22]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[23]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[24]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[25]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[26]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[27]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[28]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[29]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[30]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[31]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[32]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[33]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[34]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[35]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[36]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[37]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[38]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[39]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[40]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[41]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[42]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[43]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[44]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[45]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[46]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[47]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[48]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[49]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[50]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[51]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[52]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[53]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[54]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[55]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[56]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[57]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[58]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[59]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[60]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[61]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[62]} {u_cpu.u_core.picorv32_core.dbg_ascii_instr[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.594479e-02 -duty 0.1855; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.383042e-02 -duty 0.1852; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_ascii_state[0]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[1]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[2]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[3]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[4]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[5]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[6]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[7]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[8]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[9]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[10]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[11]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[12]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[13]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[14]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[15]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[16]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[17]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[18]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[19]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[20]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[21]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[22]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[23]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[24]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[25]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[26]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[27]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[28]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[29]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[30]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[31]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[32]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[33]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[34]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[35]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[36]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[37]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[38]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[39]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[40]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[41]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[42]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[43]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[44]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[45]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[46]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[47]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[48]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[49]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[50]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[51]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[52]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[53]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[54]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[55]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[56]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[57]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[58]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[59]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[60]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[61]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[62]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[63]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[64]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[65]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[66]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[67]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[68]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[69]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[70]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[71]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[72]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[73]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[74]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[75]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[76]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[77]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[78]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[79]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[80]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[81]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[82]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[83]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[84]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[85]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[86]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[87]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[88]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[89]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[90]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[91]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[92]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[93]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[94]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[95]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[96]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[97]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[98]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[99]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[100]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[101]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[102]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[103]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[104]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[105]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[106]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[107]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[108]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[109]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[110]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[111]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[112]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[113]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[114]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[115]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[116]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[117]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[118]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[119]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[120]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[121]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[122]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[123]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[124]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[125]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[126]} {u_cpu.u_core.picorv32_core.dbg_ascii_state[127]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.598696e-02 -duty 0.1592; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.988882e-02 -duty 0.1586; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_insn_addr[0]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[1]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[2]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[3]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[4]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[5]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[6]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[7]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[8]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[9]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[10]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[11]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[12]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[13]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[14]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[15]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[16]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[17]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[18]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[19]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[20]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[21]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[22]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[23]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[24]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[25]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[26]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[27]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[28]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[29]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[30]} {u_cpu.u_core.picorv32_core.dbg_insn_addr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.678534e-03 -duty 0.1176; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.660314e-03 -duty 0.1176; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_insn_imm[0]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[1]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[2]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[3]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[4]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[5]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[6]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[7]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[8]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[9]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[10]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[11]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[12]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[13]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[14]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[15]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[16]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[17]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[18]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[19]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[20]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[21]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[22]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[23]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[24]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[25]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[26]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[27]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[28]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[29]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[30]} {u_cpu.u_core.picorv32_core.dbg_insn_imm[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.708323e-02 -duty 0.2621; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.349183e-02 -duty 0.2573; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_insn_opcode[0]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[1]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[2]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[3]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[4]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[5]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[6]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[7]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[8]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[9]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[10]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[11]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[12]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[13]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[14]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[15]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[16]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[17]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[18]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[19]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[20]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[21]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[22]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[23]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[24]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[25]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[26]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[27]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[28]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[29]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[30]} {u_cpu.u_core.picorv32_core.dbg_insn_opcode[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.164481e-02 -duty 0.4134; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.612245e-02 -duty 0.4117; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_insn_rd[0]} {u_cpu.u_core.picorv32_core.dbg_insn_rd[1]} {u_cpu.u_core.picorv32_core.dbg_insn_rd[2]} {u_cpu.u_core.picorv32_core.dbg_insn_rd[3]} {u_cpu.u_core.picorv32_core.dbg_insn_rd[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.444954e-02 -duty 0.5346; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.855526e-02 -duty 0.5351; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_insn_rs1[0]} {u_cpu.u_core.picorv32_core.dbg_insn_rs1[1]} {u_cpu.u_core.picorv32_core.dbg_insn_rs1[2]} {u_cpu.u_core.picorv32_core.dbg_insn_rs1[3]} {u_cpu.u_core.picorv32_core.dbg_insn_rs1[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.636905e-02 -duty 0.5765; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.022023e-02 -duty 0.5763; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_insn_rs2[0]} {u_cpu.u_core.picorv32_core.dbg_insn_rs2[1]} {u_cpu.u_core.picorv32_core.dbg_insn_rs2[2]} {u_cpu.u_core.picorv32_core.dbg_insn_rs2[3]} {u_cpu.u_core.picorv32_core.dbg_insn_rs2[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.669705e-02 -duty 0.3509; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.917868e-02 -duty 0.3481; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_next}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.484193e-01 -duty 0.1242; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.154774e-01 -duty 0.1077; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_rs1val[0]} {u_cpu.u_core.picorv32_core.dbg_rs1val[1]} {u_cpu.u_core.picorv32_core.dbg_rs1val[2]} {u_cpu.u_core.picorv32_core.dbg_rs1val[3]} {u_cpu.u_core.picorv32_core.dbg_rs1val[4]} {u_cpu.u_core.picorv32_core.dbg_rs1val[5]} {u_cpu.u_core.picorv32_core.dbg_rs1val[6]} {u_cpu.u_core.picorv32_core.dbg_rs1val[7]} {u_cpu.u_core.picorv32_core.dbg_rs1val[8]} {u_cpu.u_core.picorv32_core.dbg_rs1val[9]} {u_cpu.u_core.picorv32_core.dbg_rs1val[10]} {u_cpu.u_core.picorv32_core.dbg_rs1val[11]} {u_cpu.u_core.picorv32_core.dbg_rs1val[12]} {u_cpu.u_core.picorv32_core.dbg_rs1val[13]} {u_cpu.u_core.picorv32_core.dbg_rs1val[14]} {u_cpu.u_core.picorv32_core.dbg_rs1val[15]} {u_cpu.u_core.picorv32_core.dbg_rs1val[16]} {u_cpu.u_core.picorv32_core.dbg_rs1val[17]} {u_cpu.u_core.picorv32_core.dbg_rs1val[18]} {u_cpu.u_core.picorv32_core.dbg_rs1val[19]} {u_cpu.u_core.picorv32_core.dbg_rs1val[20]} {u_cpu.u_core.picorv32_core.dbg_rs1val[21]} {u_cpu.u_core.picorv32_core.dbg_rs1val[22]} {u_cpu.u_core.picorv32_core.dbg_rs1val[23]} {u_cpu.u_core.picorv32_core.dbg_rs1val[24]} {u_cpu.u_core.picorv32_core.dbg_rs1val[25]} {u_cpu.u_core.picorv32_core.dbg_rs1val[26]} {u_cpu.u_core.picorv32_core.dbg_rs1val[27]} {u_cpu.u_core.picorv32_core.dbg_rs1val[28]} {u_cpu.u_core.picorv32_core.dbg_rs1val[29]} {u_cpu.u_core.picorv32_core.dbg_rs1val[30]} {u_cpu.u_core.picorv32_core.dbg_rs1val[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.1317; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.1333; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_rs1val_valid}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.330641e-01 -duty 0.8373; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.021584e-01 -duty 0.8522; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_rs2val[0]} {u_cpu.u_core.picorv32_core.dbg_rs2val[1]} {u_cpu.u_core.picorv32_core.dbg_rs2val[2]} {u_cpu.u_core.picorv32_core.dbg_rs2val[3]} {u_cpu.u_core.picorv32_core.dbg_rs2val[4]} {u_cpu.u_core.picorv32_core.dbg_rs2val[5]} {u_cpu.u_core.picorv32_core.dbg_rs2val[6]} {u_cpu.u_core.picorv32_core.dbg_rs2val[7]} {u_cpu.u_core.picorv32_core.dbg_rs2val[8]} {u_cpu.u_core.picorv32_core.dbg_rs2val[9]} {u_cpu.u_core.picorv32_core.dbg_rs2val[10]} {u_cpu.u_core.picorv32_core.dbg_rs2val[11]} {u_cpu.u_core.picorv32_core.dbg_rs2val[12]} {u_cpu.u_core.picorv32_core.dbg_rs2val[13]} {u_cpu.u_core.picorv32_core.dbg_rs2val[14]} {u_cpu.u_core.picorv32_core.dbg_rs2val[15]} {u_cpu.u_core.picorv32_core.dbg_rs2val[16]} {u_cpu.u_core.picorv32_core.dbg_rs2val[17]} {u_cpu.u_core.picorv32_core.dbg_rs2val[18]} {u_cpu.u_core.picorv32_core.dbg_rs2val[19]} {u_cpu.u_core.picorv32_core.dbg_rs2val[20]} {u_cpu.u_core.picorv32_core.dbg_rs2val[21]} {u_cpu.u_core.picorv32_core.dbg_rs2val[22]} {u_cpu.u_core.picorv32_core.dbg_rs2val[23]} {u_cpu.u_core.picorv32_core.dbg_rs2val[24]} {u_cpu.u_core.picorv32_core.dbg_rs2val[25]} {u_cpu.u_core.picorv32_core.dbg_rs2val[26]} {u_cpu.u_core.picorv32_core.dbg_rs2val[27]} {u_cpu.u_core.picorv32_core.dbg_rs2val[28]} {u_cpu.u_core.picorv32_core.dbg_rs2val[29]} {u_cpu.u_core.picorv32_core.dbg_rs2val[30]} {u_cpu.u_core.picorv32_core.dbg_rs2val[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0908; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0889; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_rs2val_valid}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.667001e-02 -duty 0.3664; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.385099e-02 -duty 0.3681; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.dbg_valid_insn}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoded_imm[0]} {u_cpu.u_core.picorv32_core.decoded_imm[1]} {u_cpu.u_core.picorv32_core.decoded_imm[2]} {u_cpu.u_core.picorv32_core.decoded_imm[3]} {u_cpu.u_core.picorv32_core.decoded_imm[4]} {u_cpu.u_core.picorv32_core.decoded_imm[5]} {u_cpu.u_core.picorv32_core.decoded_imm[6]} {u_cpu.u_core.picorv32_core.decoded_imm[7]} {u_cpu.u_core.picorv32_core.decoded_imm[8]} {u_cpu.u_core.picorv32_core.decoded_imm[9]} {u_cpu.u_core.picorv32_core.decoded_imm[10]} {u_cpu.u_core.picorv32_core.decoded_imm[11]} {u_cpu.u_core.picorv32_core.decoded_imm[12]} {u_cpu.u_core.picorv32_core.decoded_imm[13]} {u_cpu.u_core.picorv32_core.decoded_imm[14]} {u_cpu.u_core.picorv32_core.decoded_imm[15]} {u_cpu.u_core.picorv32_core.decoded_imm[16]} {u_cpu.u_core.picorv32_core.decoded_imm[17]} {u_cpu.u_core.picorv32_core.decoded_imm[18]} {u_cpu.u_core.picorv32_core.decoded_imm[19]} {u_cpu.u_core.picorv32_core.decoded_imm[20]} {u_cpu.u_core.picorv32_core.decoded_imm[21]} {u_cpu.u_core.picorv32_core.decoded_imm[22]} {u_cpu.u_core.picorv32_core.decoded_imm[23]} {u_cpu.u_core.picorv32_core.decoded_imm[24]} {u_cpu.u_core.picorv32_core.decoded_imm[25]} {u_cpu.u_core.picorv32_core.decoded_imm[26]} {u_cpu.u_core.picorv32_core.decoded_imm[27]} {u_cpu.u_core.picorv32_core.decoded_imm[28]} {u_cpu.u_core.picorv32_core.decoded_imm[29]} {u_cpu.u_core.picorv32_core.decoded_imm[30]} {u_cpu.u_core.picorv32_core.decoded_imm[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.708323e-02 -duty 0.2451; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.349183e-02 -duty 0.2436; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoded_imm_j[0]} {u_cpu.u_core.picorv32_core.decoded_imm_j[1]} {u_cpu.u_core.picorv32_core.decoded_imm_j[2]} {u_cpu.u_core.picorv32_core.decoded_imm_j[3]} {u_cpu.u_core.picorv32_core.decoded_imm_j[4]} {u_cpu.u_core.picorv32_core.decoded_imm_j[5]} {u_cpu.u_core.picorv32_core.decoded_imm_j[6]} {u_cpu.u_core.picorv32_core.decoded_imm_j[7]} {u_cpu.u_core.picorv32_core.decoded_imm_j[8]} {u_cpu.u_core.picorv32_core.decoded_imm_j[9]} {u_cpu.u_core.picorv32_core.decoded_imm_j[10]} {u_cpu.u_core.picorv32_core.decoded_imm_j[11]} {u_cpu.u_core.picorv32_core.decoded_imm_j[12]} {u_cpu.u_core.picorv32_core.decoded_imm_j[13]} {u_cpu.u_core.picorv32_core.decoded_imm_j[14]} {u_cpu.u_core.picorv32_core.decoded_imm_j[15]} {u_cpu.u_core.picorv32_core.decoded_imm_j[16]} {u_cpu.u_core.picorv32_core.decoded_imm_j[17]} {u_cpu.u_core.picorv32_core.decoded_imm_j[18]} {u_cpu.u_core.picorv32_core.decoded_imm_j[19]} {u_cpu.u_core.picorv32_core.decoded_imm_j[20]} {u_cpu.u_core.picorv32_core.decoded_imm_j[21]} {u_cpu.u_core.picorv32_core.decoded_imm_j[22]} {u_cpu.u_core.picorv32_core.decoded_imm_j[23]} {u_cpu.u_core.picorv32_core.decoded_imm_j[24]} {u_cpu.u_core.picorv32_core.decoded_imm_j[25]} {u_cpu.u_core.picorv32_core.decoded_imm_j[26]} {u_cpu.u_core.picorv32_core.decoded_imm_j[27]} {u_cpu.u_core.picorv32_core.decoded_imm_j[28]} {u_cpu.u_core.picorv32_core.decoded_imm_j[29]} {u_cpu.u_core.picorv32_core.decoded_imm_j[30]} {u_cpu.u_core.picorv32_core.decoded_imm_j[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.325669e-02 -duty 0.2869; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.752059e-02 -duty 0.2844; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoded_rd[0]} {u_cpu.u_core.picorv32_core.decoded_rd[1]} {u_cpu.u_core.picorv32_core.decoded_rd[2]} {u_cpu.u_core.picorv32_core.decoded_rd[3]} {u_cpu.u_core.picorv32_core.decoded_rd[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.841470e-02 -duty 0.5323; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.199462e-02 -duty 0.5333; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoded_rs1[0]} {u_cpu.u_core.picorv32_core.decoded_rs1[1]} {u_cpu.u_core.picorv32_core.decoded_rs1[2]} {u_cpu.u_core.picorv32_core.decoded_rs1[3]} {u_cpu.u_core.picorv32_core.decoded_rs1[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.198693e-02 -duty 0.5638; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.509315e-02 -duty 0.5643; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoded_rs2[0]} {u_cpu.u_core.picorv32_core.decoded_rs2[1]} {u_cpu.u_core.picorv32_core.decoded_rs2[2]} {u_cpu.u_core.picorv32_core.decoded_rs2[3]} {u_cpu.u_core.picorv32_core.decoded_rs2[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.894727e-02 -duty 0.3659; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.113051e-02 -duty 0.3637; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoder_pseudo_trigger}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.566369e-02 -duty 0.0378; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.563023e-02 -duty 0.0328; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoder_pseudo_trigger_q}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.566369e-02 -duty 0.0378; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.563023e-02 -duty 0.0328; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoder_trigger}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.240915e-01 -duty 0.1620; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.811150e-01 -duty 0.1406; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.decoder_trigger_q}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.240915e-01 -duty 0.1620; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.811150e-01 -duty 0.1406; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_add}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.982210e-02 -duty 0.1617; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.454145e-02 -duty 0.1611; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_addi}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.081935e-02 -duty 0.2619; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.540646e-02 -duty 0.2670; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_and}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0030; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0028; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_andi}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.728131e-03 -duty 0.0275; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.570728e-03 -duty 0.0277; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_auipc}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.736064e-03 -duty 0.0082; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.373246e-03 -duty 0.0083; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_bge}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-03 -duty 0.0066; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-03 -duty 0.0068; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_bltu}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0023; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0024; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_bne}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.004743e-02 -duty 0.1491; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.738902e-02 -duty 0.1459; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_jal}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.770159e-04 -duty 0.0008; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.402819e-04 -duty 0.0008; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_jalr}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.463605e-03 -duty 0.0246; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.739098e-03 -duty 0.0237; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_lbu}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.963829e-02 -duty 0.0589; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.703414e-02 -duty 0.0596; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_lh}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-03 -duty 0.0041; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-03 -duty 0.0041; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_lui}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.729650e-03 -duty 0.0408; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.439439e-03 -duty 0.0414; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_lw}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.413874e-02 -duty 0.0745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.093779e-02 -duty 0.0752; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_or}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.818852e-04 -duty 0.0024; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.914631e-04 -duty 0.0024; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_sll}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0019; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_slli}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909279e-03 -duty 0.0094; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.656097e-03 -duty 0.0093; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_srli}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.182622e-03 -duty 0.0395; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.097557e-03 -duty 0.0367; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_sw}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.840904e-02 -duty 0.0996; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464183e-02 -duty 0.1001; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_xor}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.727541e-03 -duty 0.0150; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.365852e-03 -duty 0.0148; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.instr_xori}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.727541e-03 -duty 0.0082; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.365852e-03 -duty 0.0083; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_alu_reg_imm}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.213865e-02 -duty 0.3501; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.522475e-02 -duty 0.3526; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_alu_reg_reg}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.404978e-02 -duty 0.2052; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.820852e-02 -duty 0.2049; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_beq_bne_blt_bge_bltu_bgeu}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.195670e-02 -duty 0.1095; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.904511e-02 -duty 0.1045; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_compare}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.195670e-02 -duty 0.0985; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.904511e-02 -duty 0.0950; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_jalr_addi_slti_sltiu_xori_ori_andi}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.363880e-02 -duty 0.3222; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.652597e-02 -duty 0.3266; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_lb_lh_lw_lbu_lhu}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.514080e-02 -duty 0.1375; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.915486e-02 -duty 0.1390; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_lbu_lhu_lw}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.377703e-02 -duty 0.1334; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.797193e-02 -duty 0.1349; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_lui_auipc_jal}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.274273e-02 -duty 0.0499; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.105297e-02 -duty 0.0506; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_lui_auipc_jal_jalr_addi_add_sub}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.248745e-01 -duty 0.4357; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.083154e-01 -duty 0.4482; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_sb_sh_sw}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.781906e-02 -duty 0.1231; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.280402e-02 -duty 0.1246; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_sll_srl_sra}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0019; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_slli_srli_srai}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.009190e-02 -duty 0.0490; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.753654e-03 -duty 0.0460; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.is_sltiu_bltu_sltu}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0023; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0024; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.last_mem_valid}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435125e-01 -duty 0.5153; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979606e-01 -duty 0.5823; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.latched_branch}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.515304e-02 -duty 0.0417; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.181760e-02 -duty 0.0446; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.latched_is_lh}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-03 -duty 0.0041; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-03 -duty 0.0041; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.latched_is_lu}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.391341e-02 -duty 0.1317; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.809022e-02 -duty 0.1328; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.latched_rd[0]} {u_cpu.u_core.picorv32_core.latched_rd[1]} {u_cpu.u_core.picorv32_core.latched_rd[2]} {u_cpu.u_core.picorv32_core.latched_rd[3]} {u_cpu.u_core.picorv32_core.latched_rd[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.103314e-02 -duty 0.5166; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.426584e-02 -duty 0.5158; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.latched_stalu}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.398802e-01 -duty 0.0699; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.213313e-01 -duty 0.0607; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.latched_store}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.152158e-01 -duty 0.3363; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.866768e-01 -duty 0.3389; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_addr[0]} {u_cpu.u_core.picorv32_core.mem_addr[1]} {u_cpu.u_core.picorv32_core.mem_addr[2]} {u_cpu.u_core.picorv32_core.mem_addr[3]} {u_cpu.u_core.picorv32_core.mem_addr[4]} {u_cpu.u_core.picorv32_core.mem_addr[5]} {u_cpu.u_core.picorv32_core.mem_addr[6]} {u_cpu.u_core.picorv32_core.mem_addr[7]} {u_cpu.u_core.picorv32_core.mem_addr[8]} {u_cpu.u_core.picorv32_core.mem_addr[9]} {u_cpu.u_core.picorv32_core.mem_addr[10]} {u_cpu.u_core.picorv32_core.mem_addr[11]} {u_cpu.u_core.picorv32_core.mem_addr[12]} {u_cpu.u_core.picorv32_core.mem_addr[13]} {u_cpu.u_core.picorv32_core.mem_addr[14]} {u_cpu.u_core.picorv32_core.mem_addr[15]} {u_cpu.u_core.picorv32_core.mem_addr[16]} {u_cpu.u_core.picorv32_core.mem_addr[17]} {u_cpu.u_core.picorv32_core.mem_addr[18]} {u_cpu.u_core.picorv32_core.mem_addr[19]} {u_cpu.u_core.picorv32_core.mem_addr[20]} {u_cpu.u_core.picorv32_core.mem_addr[21]} {u_cpu.u_core.picorv32_core.mem_addr[22]} {u_cpu.u_core.picorv32_core.mem_addr[23]} {u_cpu.u_core.picorv32_core.mem_addr[24]} {u_cpu.u_core.picorv32_core.mem_addr[25]} {u_cpu.u_core.picorv32_core.mem_addr[26]} {u_cpu.u_core.picorv32_core.mem_addr[27]} {u_cpu.u_core.picorv32_core.mem_addr[28]} {u_cpu.u_core.picorv32_core.mem_addr[29]} {u_cpu.u_core.picorv32_core.mem_addr[30]} {u_cpu.u_core.picorv32_core.mem_addr[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_do_prefetch}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.426829e-01 -duty 0.6154; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.105017e-01 -duty 0.6364; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_do_rdata}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.527718e-02 -duty 0.1132; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.927315e-02 -duty 0.1173; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_do_rinst}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.484278e-01 -duty 0.5333; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.154848e-01 -duty 0.5760; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_do_wdata}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0760; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0659; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_la_wdata[0]} {u_cpu.u_core.picorv32_core.mem_la_wdata[1]} {u_cpu.u_core.picorv32_core.mem_la_wdata[2]} {u_cpu.u_core.picorv32_core.mem_la_wdata[3]} {u_cpu.u_core.picorv32_core.mem_la_wdata[4]} {u_cpu.u_core.picorv32_core.mem_la_wdata[5]} {u_cpu.u_core.picorv32_core.mem_la_wdata[6]} {u_cpu.u_core.picorv32_core.mem_la_wdata[7]} {u_cpu.u_core.picorv32_core.mem_la_wdata[8]} {u_cpu.u_core.picorv32_core.mem_la_wdata[9]} {u_cpu.u_core.picorv32_core.mem_la_wdata[10]} {u_cpu.u_core.picorv32_core.mem_la_wdata[11]} {u_cpu.u_core.picorv32_core.mem_la_wdata[12]} {u_cpu.u_core.picorv32_core.mem_la_wdata[13]} {u_cpu.u_core.picorv32_core.mem_la_wdata[14]} {u_cpu.u_core.picorv32_core.mem_la_wdata[15]} {u_cpu.u_core.picorv32_core.mem_la_wdata[16]} {u_cpu.u_core.picorv32_core.mem_la_wdata[17]} {u_cpu.u_core.picorv32_core.mem_la_wdata[18]} {u_cpu.u_core.picorv32_core.mem_la_wdata[19]} {u_cpu.u_core.picorv32_core.mem_la_wdata[20]} {u_cpu.u_core.picorv32_core.mem_la_wdata[21]} {u_cpu.u_core.picorv32_core.mem_la_wdata[22]} {u_cpu.u_core.picorv32_core.mem_la_wdata[23]} {u_cpu.u_core.picorv32_core.mem_la_wdata[24]} {u_cpu.u_core.picorv32_core.mem_la_wdata[25]} {u_cpu.u_core.picorv32_core.mem_la_wdata[26]} {u_cpu.u_core.picorv32_core.mem_la_wdata[27]} {u_cpu.u_core.picorv32_core.mem_la_wdata[28]} {u_cpu.u_core.picorv32_core.mem_la_wdata[29]} {u_cpu.u_core.picorv32_core.mem_la_wdata[30]} {u_cpu.u_core.picorv32_core.mem_la_wdata[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.184257e-02 -duty 0.1361; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.894611e-02 -duty 0.1332; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_la_wstrb[0]} {u_cpu.u_core.picorv32_core.mem_la_wstrb[1]} {u_cpu.u_core.picorv32_core.mem_la_wstrb[2]} {u_cpu.u_core.picorv32_core.mem_la_wstrb[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.541061e-02 -duty 0.9527; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.336707e-02 -duty 0.9521; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_rdata_q[0]} {u_cpu.u_core.picorv32_core.mem_rdata_q[1]} {u_cpu.u_core.picorv32_core.mem_rdata_q[2]} {u_cpu.u_core.picorv32_core.mem_rdata_q[3]} {u_cpu.u_core.picorv32_core.mem_rdata_q[4]} {u_cpu.u_core.picorv32_core.mem_rdata_q[5]} {u_cpu.u_core.picorv32_core.mem_rdata_q[6]} {u_cpu.u_core.picorv32_core.mem_rdata_q[7]} {u_cpu.u_core.picorv32_core.mem_rdata_q[8]} {u_cpu.u_core.picorv32_core.mem_rdata_q[9]} {u_cpu.u_core.picorv32_core.mem_rdata_q[10]} {u_cpu.u_core.picorv32_core.mem_rdata_q[11]} {u_cpu.u_core.picorv32_core.mem_rdata_q[12]} {u_cpu.u_core.picorv32_core.mem_rdata_q[13]} {u_cpu.u_core.picorv32_core.mem_rdata_q[14]} {u_cpu.u_core.picorv32_core.mem_rdata_q[15]} {u_cpu.u_core.picorv32_core.mem_rdata_q[16]} {u_cpu.u_core.picorv32_core.mem_rdata_q[17]} {u_cpu.u_core.picorv32_core.mem_rdata_q[18]} {u_cpu.u_core.picorv32_core.mem_rdata_q[19]} {u_cpu.u_core.picorv32_core.mem_rdata_q[20]} {u_cpu.u_core.picorv32_core.mem_rdata_q[21]} {u_cpu.u_core.picorv32_core.mem_rdata_q[22]} {u_cpu.u_core.picorv32_core.mem_rdata_q[23]} {u_cpu.u_core.picorv32_core.mem_rdata_q[24]} {u_cpu.u_core.picorv32_core.mem_rdata_q[25]} {u_cpu.u_core.picorv32_core.mem_rdata_q[26]} {u_cpu.u_core.picorv32_core.mem_rdata_q[27]} {u_cpu.u_core.picorv32_core.mem_rdata_q[28]} {u_cpu.u_core.picorv32_core.mem_rdata_q[29]} {u_cpu.u_core.picorv32_core.mem_rdata_q[30]} {u_cpu.u_core.picorv32_core.mem_rdata_q[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.335340e-02 -duty 0.4031; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.507111e-02 -duty 0.4020; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_rdata_word[0]} {u_cpu.u_core.picorv32_core.mem_rdata_word[1]} {u_cpu.u_core.picorv32_core.mem_rdata_word[2]} {u_cpu.u_core.picorv32_core.mem_rdata_word[3]} {u_cpu.u_core.picorv32_core.mem_rdata_word[4]} {u_cpu.u_core.picorv32_core.mem_rdata_word[5]} {u_cpu.u_core.picorv32_core.mem_rdata_word[6]} {u_cpu.u_core.picorv32_core.mem_rdata_word[7]} {u_cpu.u_core.picorv32_core.mem_rdata_word[8]} {u_cpu.u_core.picorv32_core.mem_rdata_word[9]} {u_cpu.u_core.picorv32_core.mem_rdata_word[10]} {u_cpu.u_core.picorv32_core.mem_rdata_word[11]} {u_cpu.u_core.picorv32_core.mem_rdata_word[12]} {u_cpu.u_core.picorv32_core.mem_rdata_word[13]} {u_cpu.u_core.picorv32_core.mem_rdata_word[14]} {u_cpu.u_core.picorv32_core.mem_rdata_word[15]} {u_cpu.u_core.picorv32_core.mem_rdata_word[16]} {u_cpu.u_core.picorv32_core.mem_rdata_word[17]} {u_cpu.u_core.picorv32_core.mem_rdata_word[18]} {u_cpu.u_core.picorv32_core.mem_rdata_word[19]} {u_cpu.u_core.picorv32_core.mem_rdata_word[20]} {u_cpu.u_core.picorv32_core.mem_rdata_word[21]} {u_cpu.u_core.picorv32_core.mem_rdata_word[22]} {u_cpu.u_core.picorv32_core.mem_rdata_word[23]} {u_cpu.u_core.picorv32_core.mem_rdata_word[24]} {u_cpu.u_core.picorv32_core.mem_rdata_word[25]} {u_cpu.u_core.picorv32_core.mem_rdata_word[26]} {u_cpu.u_core.picorv32_core.mem_rdata_word[27]} {u_cpu.u_core.picorv32_core.mem_rdata_word[28]} {u_cpu.u_core.picorv32_core.mem_rdata_word[29]} {u_cpu.u_core.picorv32_core.mem_rdata_word[30]} {u_cpu.u_core.picorv32_core.mem_rdata_word[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.632359e-02 -duty 0.3867; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.764744e-02 -duty 0.3851; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_state[0]} {u_cpu.u_core.picorv32_core.mem_state[1]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.748929e-01 -duty 0.3522; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.514645e-01 -duty 0.3705; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_wdata[0]} {u_cpu.u_core.picorv32_core.mem_wdata[1]} {u_cpu.u_core.picorv32_core.mem_wdata[2]} {u_cpu.u_core.picorv32_core.mem_wdata[3]} {u_cpu.u_core.picorv32_core.mem_wdata[4]} {u_cpu.u_core.picorv32_core.mem_wdata[5]} {u_cpu.u_core.picorv32_core.mem_wdata[6]} {u_cpu.u_core.picorv32_core.mem_wdata[7]} {u_cpu.u_core.picorv32_core.mem_wdata[8]} {u_cpu.u_core.picorv32_core.mem_wdata[9]} {u_cpu.u_core.picorv32_core.mem_wdata[10]} {u_cpu.u_core.picorv32_core.mem_wdata[11]} {u_cpu.u_core.picorv32_core.mem_wdata[12]} {u_cpu.u_core.picorv32_core.mem_wdata[13]} {u_cpu.u_core.picorv32_core.mem_wdata[14]} {u_cpu.u_core.picorv32_core.mem_wdata[15]} {u_cpu.u_core.picorv32_core.mem_wdata[16]} {u_cpu.u_core.picorv32_core.mem_wdata[17]} {u_cpu.u_core.picorv32_core.mem_wdata[18]} {u_cpu.u_core.picorv32_core.mem_wdata[19]} {u_cpu.u_core.picorv32_core.mem_wdata[20]} {u_cpu.u_core.picorv32_core.mem_wdata[21]} {u_cpu.u_core.picorv32_core.mem_wdata[22]} {u_cpu.u_core.picorv32_core.mem_wdata[23]} {u_cpu.u_core.picorv32_core.mem_wdata[24]} {u_cpu.u_core.picorv32_core.mem_wdata[25]} {u_cpu.u_core.picorv32_core.mem_wdata[26]} {u_cpu.u_core.picorv32_core.mem_wdata[27]} {u_cpu.u_core.picorv32_core.mem_wdata[28]} {u_cpu.u_core.picorv32_core.mem_wdata[29]} {u_cpu.u_core.picorv32_core.mem_wdata[30]} {u_cpu.u_core.picorv32_core.mem_wdata[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_wordsize[0]} {u_cpu.u_core.picorv32_core.mem_wordsize[1]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.050103e-02 -duty 0.0315; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.108532e-03 -duty 0.0319; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.mem_wstrb[0]} {u_cpu.u_core.picorv32_core.mem_wstrb[1]} {u_cpu.u_core.picorv32_core.mem_wstrb[2]} {u_cpu.u_core.picorv32_core.mem_wstrb[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.new_ascii_instr[0]} {u_cpu.u_core.picorv32_core.new_ascii_instr[1]} {u_cpu.u_core.picorv32_core.new_ascii_instr[2]} {u_cpu.u_core.picorv32_core.new_ascii_instr[3]} {u_cpu.u_core.picorv32_core.new_ascii_instr[4]} {u_cpu.u_core.picorv32_core.new_ascii_instr[5]} {u_cpu.u_core.picorv32_core.new_ascii_instr[6]} {u_cpu.u_core.picorv32_core.new_ascii_instr[7]} {u_cpu.u_core.picorv32_core.new_ascii_instr[8]} {u_cpu.u_core.picorv32_core.new_ascii_instr[9]} {u_cpu.u_core.picorv32_core.new_ascii_instr[10]} {u_cpu.u_core.picorv32_core.new_ascii_instr[11]} {u_cpu.u_core.picorv32_core.new_ascii_instr[12]} {u_cpu.u_core.picorv32_core.new_ascii_instr[13]} {u_cpu.u_core.picorv32_core.new_ascii_instr[14]} {u_cpu.u_core.picorv32_core.new_ascii_instr[15]} {u_cpu.u_core.picorv32_core.new_ascii_instr[16]} {u_cpu.u_core.picorv32_core.new_ascii_instr[17]} {u_cpu.u_core.picorv32_core.new_ascii_instr[18]} {u_cpu.u_core.picorv32_core.new_ascii_instr[19]} {u_cpu.u_core.picorv32_core.new_ascii_instr[20]} {u_cpu.u_core.picorv32_core.new_ascii_instr[21]} {u_cpu.u_core.picorv32_core.new_ascii_instr[22]} {u_cpu.u_core.picorv32_core.new_ascii_instr[23]} {u_cpu.u_core.picorv32_core.new_ascii_instr[24]} {u_cpu.u_core.picorv32_core.new_ascii_instr[25]} {u_cpu.u_core.picorv32_core.new_ascii_instr[26]} {u_cpu.u_core.picorv32_core.new_ascii_instr[27]} {u_cpu.u_core.picorv32_core.new_ascii_instr[28]} {u_cpu.u_core.picorv32_core.new_ascii_instr[29]} {u_cpu.u_core.picorv32_core.new_ascii_instr[30]} {u_cpu.u_core.picorv32_core.new_ascii_instr[31]} {u_cpu.u_core.picorv32_core.new_ascii_instr[32]} {u_cpu.u_core.picorv32_core.new_ascii_instr[33]} {u_cpu.u_core.picorv32_core.new_ascii_instr[34]} {u_cpu.u_core.picorv32_core.new_ascii_instr[35]} {u_cpu.u_core.picorv32_core.new_ascii_instr[36]} {u_cpu.u_core.picorv32_core.new_ascii_instr[37]} {u_cpu.u_core.picorv32_core.new_ascii_instr[38]} {u_cpu.u_core.picorv32_core.new_ascii_instr[39]} {u_cpu.u_core.picorv32_core.new_ascii_instr[40]} {u_cpu.u_core.picorv32_core.new_ascii_instr[41]} {u_cpu.u_core.picorv32_core.new_ascii_instr[42]} {u_cpu.u_core.picorv32_core.new_ascii_instr[43]} {u_cpu.u_core.picorv32_core.new_ascii_instr[44]} {u_cpu.u_core.picorv32_core.new_ascii_instr[45]} {u_cpu.u_core.picorv32_core.new_ascii_instr[46]} {u_cpu.u_core.picorv32_core.new_ascii_instr[47]} {u_cpu.u_core.picorv32_core.new_ascii_instr[48]} {u_cpu.u_core.picorv32_core.new_ascii_instr[49]} {u_cpu.u_core.picorv32_core.new_ascii_instr[50]} {u_cpu.u_core.picorv32_core.new_ascii_instr[51]} {u_cpu.u_core.picorv32_core.new_ascii_instr[52]} {u_cpu.u_core.picorv32_core.new_ascii_instr[53]} {u_cpu.u_core.picorv32_core.new_ascii_instr[54]} {u_cpu.u_core.picorv32_core.new_ascii_instr[55]} {u_cpu.u_core.picorv32_core.new_ascii_instr[56]} {u_cpu.u_core.picorv32_core.new_ascii_instr[57]} {u_cpu.u_core.picorv32_core.new_ascii_instr[58]} {u_cpu.u_core.picorv32_core.new_ascii_instr[59]} {u_cpu.u_core.picorv32_core.new_ascii_instr[60]} {u_cpu.u_core.picorv32_core.new_ascii_instr[61]} {u_cpu.u_core.picorv32_core.new_ascii_instr[62]} {u_cpu.u_core.picorv32_core.new_ascii_instr[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.769006e-02 -duty 0.1874; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.534425e-02 -duty 0.1874; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.next_insn_opcode[0]} {u_cpu.u_core.picorv32_core.next_insn_opcode[1]} {u_cpu.u_core.picorv32_core.next_insn_opcode[2]} {u_cpu.u_core.picorv32_core.next_insn_opcode[3]} {u_cpu.u_core.picorv32_core.next_insn_opcode[4]} {u_cpu.u_core.picorv32_core.next_insn_opcode[5]} {u_cpu.u_core.picorv32_core.next_insn_opcode[6]} {u_cpu.u_core.picorv32_core.next_insn_opcode[7]} {u_cpu.u_core.picorv32_core.next_insn_opcode[8]} {u_cpu.u_core.picorv32_core.next_insn_opcode[9]} {u_cpu.u_core.picorv32_core.next_insn_opcode[10]} {u_cpu.u_core.picorv32_core.next_insn_opcode[11]} {u_cpu.u_core.picorv32_core.next_insn_opcode[12]} {u_cpu.u_core.picorv32_core.next_insn_opcode[13]} {u_cpu.u_core.picorv32_core.next_insn_opcode[14]} {u_cpu.u_core.picorv32_core.next_insn_opcode[15]} {u_cpu.u_core.picorv32_core.next_insn_opcode[16]} {u_cpu.u_core.picorv32_core.next_insn_opcode[17]} {u_cpu.u_core.picorv32_core.next_insn_opcode[18]} {u_cpu.u_core.picorv32_core.next_insn_opcode[19]} {u_cpu.u_core.picorv32_core.next_insn_opcode[20]} {u_cpu.u_core.picorv32_core.next_insn_opcode[21]} {u_cpu.u_core.picorv32_core.next_insn_opcode[22]} {u_cpu.u_core.picorv32_core.next_insn_opcode[23]} {u_cpu.u_core.picorv32_core.next_insn_opcode[24]} {u_cpu.u_core.picorv32_core.next_insn_opcode[25]} {u_cpu.u_core.picorv32_core.next_insn_opcode[26]} {u_cpu.u_core.picorv32_core.next_insn_opcode[27]} {u_cpu.u_core.picorv32_core.next_insn_opcode[28]} {u_cpu.u_core.picorv32_core.next_insn_opcode[29]} {u_cpu.u_core.picorv32_core.next_insn_opcode[30]} {u_cpu.u_core.picorv32_core.next_insn_opcode[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.335340e-02 -duty 0.4031; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.507111e-02 -duty 0.4020; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.q_ascii_instr[0]} {u_cpu.u_core.picorv32_core.q_ascii_instr[1]} {u_cpu.u_core.picorv32_core.q_ascii_instr[2]} {u_cpu.u_core.picorv32_core.q_ascii_instr[3]} {u_cpu.u_core.picorv32_core.q_ascii_instr[4]} {u_cpu.u_core.picorv32_core.q_ascii_instr[5]} {u_cpu.u_core.picorv32_core.q_ascii_instr[6]} {u_cpu.u_core.picorv32_core.q_ascii_instr[7]} {u_cpu.u_core.picorv32_core.q_ascii_instr[8]} {u_cpu.u_core.picorv32_core.q_ascii_instr[9]} {u_cpu.u_core.picorv32_core.q_ascii_instr[10]} {u_cpu.u_core.picorv32_core.q_ascii_instr[11]} {u_cpu.u_core.picorv32_core.q_ascii_instr[12]} {u_cpu.u_core.picorv32_core.q_ascii_instr[13]} {u_cpu.u_core.picorv32_core.q_ascii_instr[14]} {u_cpu.u_core.picorv32_core.q_ascii_instr[15]} {u_cpu.u_core.picorv32_core.q_ascii_instr[16]} {u_cpu.u_core.picorv32_core.q_ascii_instr[17]} {u_cpu.u_core.picorv32_core.q_ascii_instr[18]} {u_cpu.u_core.picorv32_core.q_ascii_instr[19]} {u_cpu.u_core.picorv32_core.q_ascii_instr[20]} {u_cpu.u_core.picorv32_core.q_ascii_instr[21]} {u_cpu.u_core.picorv32_core.q_ascii_instr[22]} {u_cpu.u_core.picorv32_core.q_ascii_instr[23]} {u_cpu.u_core.picorv32_core.q_ascii_instr[24]} {u_cpu.u_core.picorv32_core.q_ascii_instr[25]} {u_cpu.u_core.picorv32_core.q_ascii_instr[26]} {u_cpu.u_core.picorv32_core.q_ascii_instr[27]} {u_cpu.u_core.picorv32_core.q_ascii_instr[28]} {u_cpu.u_core.picorv32_core.q_ascii_instr[29]} {u_cpu.u_core.picorv32_core.q_ascii_instr[30]} {u_cpu.u_core.picorv32_core.q_ascii_instr[31]} {u_cpu.u_core.picorv32_core.q_ascii_instr[32]} {u_cpu.u_core.picorv32_core.q_ascii_instr[33]} {u_cpu.u_core.picorv32_core.q_ascii_instr[34]} {u_cpu.u_core.picorv32_core.q_ascii_instr[35]} {u_cpu.u_core.picorv32_core.q_ascii_instr[36]} {u_cpu.u_core.picorv32_core.q_ascii_instr[37]} {u_cpu.u_core.picorv32_core.q_ascii_instr[38]} {u_cpu.u_core.picorv32_core.q_ascii_instr[39]} {u_cpu.u_core.picorv32_core.q_ascii_instr[40]} {u_cpu.u_core.picorv32_core.q_ascii_instr[41]} {u_cpu.u_core.picorv32_core.q_ascii_instr[42]} {u_cpu.u_core.picorv32_core.q_ascii_instr[43]} {u_cpu.u_core.picorv32_core.q_ascii_instr[44]} {u_cpu.u_core.picorv32_core.q_ascii_instr[45]} {u_cpu.u_core.picorv32_core.q_ascii_instr[46]} {u_cpu.u_core.picorv32_core.q_ascii_instr[47]} {u_cpu.u_core.picorv32_core.q_ascii_instr[48]} {u_cpu.u_core.picorv32_core.q_ascii_instr[49]} {u_cpu.u_core.picorv32_core.q_ascii_instr[50]} {u_cpu.u_core.picorv32_core.q_ascii_instr[51]} {u_cpu.u_core.picorv32_core.q_ascii_instr[52]} {u_cpu.u_core.picorv32_core.q_ascii_instr[53]} {u_cpu.u_core.picorv32_core.q_ascii_instr[54]} {u_cpu.u_core.picorv32_core.q_ascii_instr[55]} {u_cpu.u_core.picorv32_core.q_ascii_instr[56]} {u_cpu.u_core.picorv32_core.q_ascii_instr[57]} {u_cpu.u_core.picorv32_core.q_ascii_instr[58]} {u_cpu.u_core.picorv32_core.q_ascii_instr[59]} {u_cpu.u_core.picorv32_core.q_ascii_instr[60]} {u_cpu.u_core.picorv32_core.q_ascii_instr[61]} {u_cpu.u_core.picorv32_core.q_ascii_instr[62]} {u_cpu.u_core.picorv32_core.q_ascii_instr[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.594479e-02 -duty 0.1855; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.383042e-02 -duty 0.1852; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.q_insn_imm[0]} {u_cpu.u_core.picorv32_core.q_insn_imm[1]} {u_cpu.u_core.picorv32_core.q_insn_imm[2]} {u_cpu.u_core.picorv32_core.q_insn_imm[3]} {u_cpu.u_core.picorv32_core.q_insn_imm[4]} {u_cpu.u_core.picorv32_core.q_insn_imm[5]} {u_cpu.u_core.picorv32_core.q_insn_imm[6]} {u_cpu.u_core.picorv32_core.q_insn_imm[7]} {u_cpu.u_core.picorv32_core.q_insn_imm[8]} {u_cpu.u_core.picorv32_core.q_insn_imm[9]} {u_cpu.u_core.picorv32_core.q_insn_imm[10]} {u_cpu.u_core.picorv32_core.q_insn_imm[11]} {u_cpu.u_core.picorv32_core.q_insn_imm[12]} {u_cpu.u_core.picorv32_core.q_insn_imm[13]} {u_cpu.u_core.picorv32_core.q_insn_imm[14]} {u_cpu.u_core.picorv32_core.q_insn_imm[15]} {u_cpu.u_core.picorv32_core.q_insn_imm[16]} {u_cpu.u_core.picorv32_core.q_insn_imm[17]} {u_cpu.u_core.picorv32_core.q_insn_imm[18]} {u_cpu.u_core.picorv32_core.q_insn_imm[19]} {u_cpu.u_core.picorv32_core.q_insn_imm[20]} {u_cpu.u_core.picorv32_core.q_insn_imm[21]} {u_cpu.u_core.picorv32_core.q_insn_imm[22]} {u_cpu.u_core.picorv32_core.q_insn_imm[23]} {u_cpu.u_core.picorv32_core.q_insn_imm[24]} {u_cpu.u_core.picorv32_core.q_insn_imm[25]} {u_cpu.u_core.picorv32_core.q_insn_imm[26]} {u_cpu.u_core.picorv32_core.q_insn_imm[27]} {u_cpu.u_core.picorv32_core.q_insn_imm[28]} {u_cpu.u_core.picorv32_core.q_insn_imm[29]} {u_cpu.u_core.picorv32_core.q_insn_imm[30]} {u_cpu.u_core.picorv32_core.q_insn_imm[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.708323e-02 -duty 0.2621; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.349183e-02 -duty 0.2573; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.q_insn_opcode[0]} {u_cpu.u_core.picorv32_core.q_insn_opcode[1]} {u_cpu.u_core.picorv32_core.q_insn_opcode[2]} {u_cpu.u_core.picorv32_core.q_insn_opcode[3]} {u_cpu.u_core.picorv32_core.q_insn_opcode[4]} {u_cpu.u_core.picorv32_core.q_insn_opcode[5]} {u_cpu.u_core.picorv32_core.q_insn_opcode[6]} {u_cpu.u_core.picorv32_core.q_insn_opcode[7]} {u_cpu.u_core.picorv32_core.q_insn_opcode[8]} {u_cpu.u_core.picorv32_core.q_insn_opcode[9]} {u_cpu.u_core.picorv32_core.q_insn_opcode[10]} {u_cpu.u_core.picorv32_core.q_insn_opcode[11]} {u_cpu.u_core.picorv32_core.q_insn_opcode[12]} {u_cpu.u_core.picorv32_core.q_insn_opcode[13]} {u_cpu.u_core.picorv32_core.q_insn_opcode[14]} {u_cpu.u_core.picorv32_core.q_insn_opcode[15]} {u_cpu.u_core.picorv32_core.q_insn_opcode[16]} {u_cpu.u_core.picorv32_core.q_insn_opcode[17]} {u_cpu.u_core.picorv32_core.q_insn_opcode[18]} {u_cpu.u_core.picorv32_core.q_insn_opcode[19]} {u_cpu.u_core.picorv32_core.q_insn_opcode[20]} {u_cpu.u_core.picorv32_core.q_insn_opcode[21]} {u_cpu.u_core.picorv32_core.q_insn_opcode[22]} {u_cpu.u_core.picorv32_core.q_insn_opcode[23]} {u_cpu.u_core.picorv32_core.q_insn_opcode[24]} {u_cpu.u_core.picorv32_core.q_insn_opcode[25]} {u_cpu.u_core.picorv32_core.q_insn_opcode[26]} {u_cpu.u_core.picorv32_core.q_insn_opcode[27]} {u_cpu.u_core.picorv32_core.q_insn_opcode[28]} {u_cpu.u_core.picorv32_core.q_insn_opcode[29]} {u_cpu.u_core.picorv32_core.q_insn_opcode[30]} {u_cpu.u_core.picorv32_core.q_insn_opcode[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.164481e-02 -duty 0.4134; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.612245e-02 -duty 0.4117; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.q_insn_rd[0]} {u_cpu.u_core.picorv32_core.q_insn_rd[1]} {u_cpu.u_core.picorv32_core.q_insn_rd[2]} {u_cpu.u_core.picorv32_core.q_insn_rd[3]} {u_cpu.u_core.picorv32_core.q_insn_rd[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.444954e-02 -duty 0.5346; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.855526e-02 -duty 0.5351; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.q_insn_rs1[0]} {u_cpu.u_core.picorv32_core.q_insn_rs1[1]} {u_cpu.u_core.picorv32_core.q_insn_rs1[2]} {u_cpu.u_core.picorv32_core.q_insn_rs1[3]} {u_cpu.u_core.picorv32_core.q_insn_rs1[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.636905e-02 -duty 0.5765; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.022023e-02 -duty 0.5763; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.q_insn_rs2[0]} {u_cpu.u_core.picorv32_core.q_insn_rs2[1]} {u_cpu.u_core.picorv32_core.q_insn_rs2[2]} {u_cpu.u_core.picorv32_core.q_insn_rs2[3]} {u_cpu.u_core.picorv32_core.q_insn_rs2[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.669705e-02 -duty 0.3509; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.917868e-02 -duty 0.3481; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.reg_next_pc[0]} {u_cpu.u_core.picorv32_core.reg_next_pc[1]} {u_cpu.u_core.picorv32_core.reg_next_pc[2]} {u_cpu.u_core.picorv32_core.reg_next_pc[3]} {u_cpu.u_core.picorv32_core.reg_next_pc[4]} {u_cpu.u_core.picorv32_core.reg_next_pc[5]} {u_cpu.u_core.picorv32_core.reg_next_pc[6]} {u_cpu.u_core.picorv32_core.reg_next_pc[7]} {u_cpu.u_core.picorv32_core.reg_next_pc[8]} {u_cpu.u_core.picorv32_core.reg_next_pc[9]} {u_cpu.u_core.picorv32_core.reg_next_pc[10]} {u_cpu.u_core.picorv32_core.reg_next_pc[11]} {u_cpu.u_core.picorv32_core.reg_next_pc[12]} {u_cpu.u_core.picorv32_core.reg_next_pc[13]} {u_cpu.u_core.picorv32_core.reg_next_pc[14]} {u_cpu.u_core.picorv32_core.reg_next_pc[15]} {u_cpu.u_core.picorv32_core.reg_next_pc[16]} {u_cpu.u_core.picorv32_core.reg_next_pc[17]} {u_cpu.u_core.picorv32_core.reg_next_pc[18]} {u_cpu.u_core.picorv32_core.reg_next_pc[19]} {u_cpu.u_core.picorv32_core.reg_next_pc[20]} {u_cpu.u_core.picorv32_core.reg_next_pc[21]} {u_cpu.u_core.picorv32_core.reg_next_pc[22]} {u_cpu.u_core.picorv32_core.reg_next_pc[23]} {u_cpu.u_core.picorv32_core.reg_next_pc[24]} {u_cpu.u_core.picorv32_core.reg_next_pc[25]} {u_cpu.u_core.picorv32_core.reg_next_pc[26]} {u_cpu.u_core.picorv32_core.reg_next_pc[27]} {u_cpu.u_core.picorv32_core.reg_next_pc[28]} {u_cpu.u_core.picorv32_core.reg_next_pc[29]} {u_cpu.u_core.picorv32_core.reg_next_pc[30]} {u_cpu.u_core.picorv32_core.reg_next_pc[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.791525e-03 -duty 0.1213; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.625715e-03 -duty 0.1214; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.reg_op1[0]} {u_cpu.u_core.picorv32_core.reg_op1[1]} {u_cpu.u_core.picorv32_core.reg_op1[2]} {u_cpu.u_core.picorv32_core.reg_op1[3]} {u_cpu.u_core.picorv32_core.reg_op1[4]} {u_cpu.u_core.picorv32_core.reg_op1[5]} {u_cpu.u_core.picorv32_core.reg_op1[6]} {u_cpu.u_core.picorv32_core.reg_op1[7]} {u_cpu.u_core.picorv32_core.reg_op1[8]} {u_cpu.u_core.picorv32_core.reg_op1[9]} {u_cpu.u_core.picorv32_core.reg_op1[10]} {u_cpu.u_core.picorv32_core.reg_op1[11]} {u_cpu.u_core.picorv32_core.reg_op1[12]} {u_cpu.u_core.picorv32_core.reg_op1[13]} {u_cpu.u_core.picorv32_core.reg_op1[14]} {u_cpu.u_core.picorv32_core.reg_op1[15]} {u_cpu.u_core.picorv32_core.reg_op1[16]} {u_cpu.u_core.picorv32_core.reg_op1[17]} {u_cpu.u_core.picorv32_core.reg_op1[18]} {u_cpu.u_core.picorv32_core.reg_op1[19]} {u_cpu.u_core.picorv32_core.reg_op1[20]} {u_cpu.u_core.picorv32_core.reg_op1[21]} {u_cpu.u_core.picorv32_core.reg_op1[22]} {u_cpu.u_core.picorv32_core.reg_op1[23]} {u_cpu.u_core.picorv32_core.reg_op1[24]} {u_cpu.u_core.picorv32_core.reg_op1[25]} {u_cpu.u_core.picorv32_core.reg_op1[26]} {u_cpu.u_core.picorv32_core.reg_op1[27]} {u_cpu.u_core.picorv32_core.reg_op1[28]} {u_cpu.u_core.picorv32_core.reg_op1[29]} {u_cpu.u_core.picorv32_core.reg_op1[30]} {u_cpu.u_core.picorv32_core.reg_op1[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.856913e-02 -duty 0.1456; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.478069e-02 -duty 0.1453; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.reg_op2[0]} {u_cpu.u_core.picorv32_core.reg_op2[1]} {u_cpu.u_core.picorv32_core.reg_op2[2]} {u_cpu.u_core.picorv32_core.reg_op2[3]} {u_cpu.u_core.picorv32_core.reg_op2[4]} {u_cpu.u_core.picorv32_core.reg_op2[5]} {u_cpu.u_core.picorv32_core.reg_op2[6]} {u_cpu.u_core.picorv32_core.reg_op2[7]} {u_cpu.u_core.picorv32_core.reg_op2[8]} {u_cpu.u_core.picorv32_core.reg_op2[9]} {u_cpu.u_core.picorv32_core.reg_op2[10]} {u_cpu.u_core.picorv32_core.reg_op2[11]} {u_cpu.u_core.picorv32_core.reg_op2[12]} {u_cpu.u_core.picorv32_core.reg_op2[13]} {u_cpu.u_core.picorv32_core.reg_op2[14]} {u_cpu.u_core.picorv32_core.reg_op2[15]} {u_cpu.u_core.picorv32_core.reg_op2[16]} {u_cpu.u_core.picorv32_core.reg_op2[17]} {u_cpu.u_core.picorv32_core.reg_op2[18]} {u_cpu.u_core.picorv32_core.reg_op2[19]} {u_cpu.u_core.picorv32_core.reg_op2[20]} {u_cpu.u_core.picorv32_core.reg_op2[21]} {u_cpu.u_core.picorv32_core.reg_op2[22]} {u_cpu.u_core.picorv32_core.reg_op2[23]} {u_cpu.u_core.picorv32_core.reg_op2[24]} {u_cpu.u_core.picorv32_core.reg_op2[25]} {u_cpu.u_core.picorv32_core.reg_op2[26]} {u_cpu.u_core.picorv32_core.reg_op2[27]} {u_cpu.u_core.picorv32_core.reg_op2[28]} {u_cpu.u_core.picorv32_core.reg_op2[29]} {u_cpu.u_core.picorv32_core.reg_op2[30]} {u_cpu.u_core.picorv32_core.reg_op2[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.184257e-02 -duty 0.1361; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.894611e-02 -duty 0.1332; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.reg_out[0]} {u_cpu.u_core.picorv32_core.reg_out[1]} {u_cpu.u_core.picorv32_core.reg_out[2]} {u_cpu.u_core.picorv32_core.reg_out[3]} {u_cpu.u_core.picorv32_core.reg_out[4]} {u_cpu.u_core.picorv32_core.reg_out[5]} {u_cpu.u_core.picorv32_core.reg_out[6]} {u_cpu.u_core.picorv32_core.reg_out[7]} {u_cpu.u_core.picorv32_core.reg_out[8]} {u_cpu.u_core.picorv32_core.reg_out[9]} {u_cpu.u_core.picorv32_core.reg_out[10]} {u_cpu.u_core.picorv32_core.reg_out[11]} {u_cpu.u_core.picorv32_core.reg_out[12]} {u_cpu.u_core.picorv32_core.reg_out[13]} {u_cpu.u_core.picorv32_core.reg_out[14]} {u_cpu.u_core.picorv32_core.reg_out[15]} {u_cpu.u_core.picorv32_core.reg_out[16]} {u_cpu.u_core.picorv32_core.reg_out[17]} {u_cpu.u_core.picorv32_core.reg_out[18]} {u_cpu.u_core.picorv32_core.reg_out[19]} {u_cpu.u_core.picorv32_core.reg_out[20]} {u_cpu.u_core.picorv32_core.reg_out[21]} {u_cpu.u_core.picorv32_core.reg_out[22]} {u_cpu.u_core.picorv32_core.reg_out[23]} {u_cpu.u_core.picorv32_core.reg_out[24]} {u_cpu.u_core.picorv32_core.reg_out[25]} {u_cpu.u_core.picorv32_core.reg_out[26]} {u_cpu.u_core.picorv32_core.reg_out[27]} {u_cpu.u_core.picorv32_core.reg_out[28]} {u_cpu.u_core.picorv32_core.reg_out[29]} {u_cpu.u_core.picorv32_core.reg_out[30]} {u_cpu.u_core.picorv32_core.reg_out[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0207; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0191; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.reg_pc[0]} {u_cpu.u_core.picorv32_core.reg_pc[1]} {u_cpu.u_core.picorv32_core.reg_pc[2]} {u_cpu.u_core.picorv32_core.reg_pc[3]} {u_cpu.u_core.picorv32_core.reg_pc[4]} {u_cpu.u_core.picorv32_core.reg_pc[5]} {u_cpu.u_core.picorv32_core.reg_pc[6]} {u_cpu.u_core.picorv32_core.reg_pc[7]} {u_cpu.u_core.picorv32_core.reg_pc[8]} {u_cpu.u_core.picorv32_core.reg_pc[9]} {u_cpu.u_core.picorv32_core.reg_pc[10]} {u_cpu.u_core.picorv32_core.reg_pc[11]} {u_cpu.u_core.picorv32_core.reg_pc[12]} {u_cpu.u_core.picorv32_core.reg_pc[13]} {u_cpu.u_core.picorv32_core.reg_pc[14]} {u_cpu.u_core.picorv32_core.reg_pc[15]} {u_cpu.u_core.picorv32_core.reg_pc[16]} {u_cpu.u_core.picorv32_core.reg_pc[17]} {u_cpu.u_core.picorv32_core.reg_pc[18]} {u_cpu.u_core.picorv32_core.reg_pc[19]} {u_cpu.u_core.picorv32_core.reg_pc[20]} {u_cpu.u_core.picorv32_core.reg_pc[21]} {u_cpu.u_core.picorv32_core.reg_pc[22]} {u_cpu.u_core.picorv32_core.reg_pc[23]} {u_cpu.u_core.picorv32_core.reg_pc[24]} {u_cpu.u_core.picorv32_core.reg_pc[25]} {u_cpu.u_core.picorv32_core.reg_pc[26]} {u_cpu.u_core.picorv32_core.reg_pc[27]} {u_cpu.u_core.picorv32_core.reg_pc[28]} {u_cpu.u_core.picorv32_core.reg_pc[29]} {u_cpu.u_core.picorv32_core.reg_pc[30]} {u_cpu.u_core.picorv32_core.reg_pc[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.678534e-03 -duty 0.1156; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.660314e-03 -duty 0.1155; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.reg_sh[0]} {u_cpu.u_core.picorv32_core.reg_sh[1]} {u_cpu.u_core.picorv32_core.reg_sh[2]} {u_cpu.u_core.picorv32_core.reg_sh[3]} {u_cpu.u_core.picorv32_core.reg_sh[4]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.000590e-03 -duty 0.0225; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.204875e-03 -duty 0.0196; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.set_mem_do_rdata}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.527718e-02 -duty 0.0226; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.927315e-02 -duty 0.0196; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.set_mem_do_rinst}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.941668e-02 -duty 0.0388; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.684191e-02 -duty 0.0421; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_cpu.u_core.picorv32_core.set_mem_do_wdata}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039503e-02 -duty 0.0152; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.0132; incr _ann_count } else { incr _miss_count }
 }
-if {[catch {set _n [get_nets -quiet {u_dmem.bus_wr}]}] || $_n eq ""} { incr _miss_count } else {
+if {[catch {set _n [get_nets -quiet {u_dmem.bus_request}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.838347e-03 -duty 0.0014; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.0038; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.csb0}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.9969; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.din0_int[0]} {u_dmem.din0_int[1]} {u_dmem.din0_int[2]} {u_dmem.din0_int[3]} {u_dmem.din0_int[4]} {u_dmem.din0_int[5]} {u_dmem.din0_int[6]} {u_dmem.din0_int[7]} {u_dmem.din0_int[8]} {u_dmem.din0_int[9]} {u_dmem.din0_int[10]} {u_dmem.din0_int[11]} {u_dmem.din0_int[12]} {u_dmem.din0_int[13]} {u_dmem.din0_int[14]} {u_dmem.din0_int[15]} {u_dmem.din0_int[16]} {u_dmem.din0_int[17]} {u_dmem.din0_int[18]} {u_dmem.din0_int[19]} {u_dmem.din0_int[20]} {u_dmem.din0_int[21]} {u_dmem.din0_int[22]} {u_dmem.din0_int[23]} {u_dmem.din0_int[24]} {u_dmem.din0_int[25]} {u_dmem.din0_int[26]} {u_dmem.din0_int[27]} {u_dmem.din0_int[28]} {u_dmem.din0_int[29]} {u_dmem.din0_int[30]} {u_dmem.din0_int[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.is_read}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.602438e-03 -duty 0.0013; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.is_write}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.461965e-03 -duty 0.0012; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.macro_active}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_dmem.wb_dat_o[0]} {u_dmem.wb_dat_o[1]} {u_dmem.wb_dat_o[2]} {u_dmem.wb_dat_o[3]} {u_dmem.wb_dat_o[4]} {u_dmem.wb_dat_o[5]} {u_dmem.wb_dat_o[6]} {u_dmem.wb_dat_o[7]} {u_dmem.wb_dat_o[8]} {u_dmem.wb_dat_o[9]} {u_dmem.wb_dat_o[10]} {u_dmem.wb_dat_o[11]} {u_dmem.wb_dat_o[12]} {u_dmem.wb_dat_o[13]} {u_dmem.wb_dat_o[14]} {u_dmem.wb_dat_o[15]} {u_dmem.wb_dat_o[16]} {u_dmem.wb_dat_o[17]} {u_dmem.wb_dat_o[18]} {u_dmem.wb_dat_o[19]} {u_dmem.wb_dat_o[20]} {u_dmem.wb_dat_o[21]} {u_dmem.wb_dat_o[22]} {u_dmem.wb_dat_o[23]} {u_dmem.wb_dat_o[24]} {u_dmem.wb_dat_o[25]} {u_dmem.wb_dat_o[26]} {u_dmem.wb_dat_o[27]} {u_dmem.wb_dat_o[28]} {u_dmem.wb_dat_o[29]} {u_dmem.wb_dat_o[30]} {u_dmem.wb_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.472157e-03 -duty 0.0249; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.498008e-04 -duty 0.2855; incr _ann_count } else { incr _miss_count }
 }
-if {[catch {set _n [get_nets -quiet {u_dmem.widx[0]} {u_dmem.widx[1]} {u_dmem.widx[2]} {u_dmem.widx[3]} {u_dmem.widx[4]} {u_dmem.widx[5]} {u_dmem.widx[6]} {u_dmem.widx[7]}]}] || $_n eq ""} { incr _miss_count } else {
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.web0}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.722935e-02 -duty 0.4760; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.9736; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.wmask0_int[0]} {u_dmem.wmask0_int[1]} {u_dmem.wmask0_int[2]} {u_dmem.wmask0_int[3]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_dmem.wb_sel_i[0]} {u_dmem.wb_sel_i[1]} {u_dmem.wb_sel_i[2]} {u_dmem.wb_sel_i[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_dmem.wb_dat_i[0]} {u_dmem.wb_dat_i[1]} {u_dmem.wb_dat_i[2]} {u_dmem.wb_dat_i[3]} {u_dmem.wb_dat_i[4]} {u_dmem.wb_dat_i[5]} {u_dmem.wb_dat_i[6]} {u_dmem.wb_dat_i[7]} {u_dmem.wb_dat_i[8]} {u_dmem.wb_dat_i[9]} {u_dmem.wb_dat_i[10]} {u_dmem.wb_dat_i[11]} {u_dmem.wb_dat_i[12]} {u_dmem.wb_dat_i[13]} {u_dmem.wb_dat_i[14]} {u_dmem.wb_dat_i[15]} {u_dmem.wb_dat_i[16]} {u_dmem.wb_dat_i[17]} {u_dmem.wb_dat_i[18]} {u_dmem.wb_dat_i[19]} {u_dmem.wb_dat_i[20]} {u_dmem.wb_dat_i[21]} {u_dmem.wb_dat_i[22]} {u_dmem.wb_dat_i[23]} {u_dmem.wb_dat_i[24]} {u_dmem.wb_dat_i[25]} {u_dmem.wb_dat_i[26]} {u_dmem.wb_dat_i[27]} {u_dmem.wb_dat_i[28]} {u_dmem.wb_dat_i[29]} {u_dmem.wb_dat_i[30]} {u_dmem.wb_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_dmem.wb_adr_i[0]} {u_dmem.wb_adr_i[1]} {u_dmem.wb_adr_i[2]} {u_dmem.wb_adr_i[3]} {u_dmem.wb_adr_i[4]} {u_dmem.wb_adr_i[5]} {u_dmem.wb_adr_i[6]} {u_dmem.wb_adr_i[7]} {u_dmem.wb_adr_i[8]} {u_dmem.wb_adr_i[9]} {u_dmem.wb_adr_i[10]} {u_dmem.wb_adr_i[11]} {u_dmem.wb_adr_i[12]} {u_dmem.wb_adr_i[13]} {u_dmem.wb_adr_i[14]} {u_dmem.wb_adr_i[15]} {u_dmem.wb_adr_i[16]} {u_dmem.wb_adr_i[17]} {u_dmem.wb_adr_i[18]} {u_dmem.wb_adr_i[19]} {u_dmem.wb_adr_i[20]} {u_dmem.wb_adr_i[21]} {u_dmem.wb_adr_i[22]} {u_dmem.wb_adr_i[23]} {u_dmem.wb_adr_i[24]} {u_dmem.wb_adr_i[25]} {u_dmem.wb_adr_i[26]} {u_dmem.wb_adr_i[27]} {u_dmem.wb_adr_i[28]} {u_dmem.wb_adr_i[29]} {u_dmem.wb_adr_i[30]} {u_dmem.wb_adr_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.dout0_int[0]} {u_dmem.dout0_int[1]} {u_dmem.dout0_int[2]} {u_dmem.dout0_int[3]} {u_dmem.dout0_int[4]} {u_dmem.dout0_int[5]} {u_dmem.dout0_int[6]} {u_dmem.dout0_int[7]} {u_dmem.dout0_int[8]} {u_dmem.dout0_int[9]} {u_dmem.dout0_int[10]} {u_dmem.dout0_int[11]} {u_dmem.dout0_int[12]} {u_dmem.dout0_int[13]} {u_dmem.dout0_int[14]} {u_dmem.dout0_int[15]} {u_dmem.dout0_int[16]} {u_dmem.dout0_int[17]} {u_dmem.dout0_int[18]} {u_dmem.dout0_int[19]} {u_dmem.dout0_int[20]} {u_dmem.dout0_int[21]} {u_dmem.dout0_int[22]} {u_dmem.dout0_int[23]} {u_dmem.dout0_int[24]} {u_dmem.dout0_int[25]} {u_dmem.dout0_int[26]} {u_dmem.dout0_int[27]} {u_dmem.dout0_int[28]} {u_dmem.dout0_int[29]} {u_dmem.dout0_int[30]} {u_dmem.dout0_int[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0001; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.addr0_int[0]} {u_dmem.addr0_int[1]} {u_dmem.addr0_int[2]} {u_dmem.addr0_int[3]} {u_dmem.addr0_int[4]} {u_dmem.addr0_int[5]} {u_dmem.addr0_int[6]} {u_dmem.addr0_int[7]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.964039e-02 -duty 0.4775; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_dmem.ack_q}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.838642e-03 -duty 0.0029; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.0025; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.dout0_q[0]} {u_dmem.dout0_q[1]} {u_dmem.dout0_q[2]} {u_dmem.dout0_q[3]} {u_dmem.dout0_q[4]} {u_dmem.dout0_q[5]} {u_dmem.dout0_q[6]} {u_dmem.dout0_q[7]} {u_dmem.dout0_q[8]} {u_dmem.dout0_q[9]} {u_dmem.dout0_q[10]} {u_dmem.dout0_q[11]} {u_dmem.dout0_q[12]} {u_dmem.dout0_q[13]} {u_dmem.dout0_q[14]} {u_dmem.dout0_q[15]} {u_dmem.dout0_q[16]} {u_dmem.dout0_q[17]} {u_dmem.dout0_q[18]} {u_dmem.dout0_q[19]} {u_dmem.dout0_q[20]} {u_dmem.dout0_q[21]} {u_dmem.dout0_q[22]} {u_dmem.dout0_q[23]} {u_dmem.dout0_q[24]} {u_dmem.dout0_q[25]} {u_dmem.dout0_q[26]} {u_dmem.dout0_q[27]} {u_dmem.dout0_q[28]} {u_dmem.dout0_q[29]} {u_dmem.dout0_q[30]} {u_dmem.dout0_q[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.498008e-04 -duty 0.2855; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.state}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.602438e-03 -duty 0.0013; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem._mirror_i[0]} {u_dmem._mirror_i[1]} {u_dmem._mirror_i[2]} {u_dmem._mirror_i[3]} {u_dmem._mirror_i[4]} {u_dmem._mirror_i[5]} {u_dmem._mirror_i[6]} {u_dmem._mirror_i[7]} {u_dmem._mirror_i[8]} {u_dmem._mirror_i[9]} {u_dmem._mirror_i[10]} {u_dmem._mirror_i[11]} {u_dmem._mirror_i[12]} {u_dmem._mirror_i[13]} {u_dmem._mirror_i[14]} {u_dmem._mirror_i[15]} {u_dmem._mirror_i[16]} {u_dmem._mirror_i[17]} {u_dmem._mirror_i[18]} {u_dmem._mirror_i[19]} {u_dmem._mirror_i[20]} {u_dmem._mirror_i[21]} {u_dmem._mirror_i[22]} {u_dmem._mirror_i[23]} {u_dmem._mirror_i[24]} {u_dmem._mirror_i[25]} {u_dmem._mirror_i[26]} {u_dmem._mirror_i[27]} {u_dmem._mirror_i[28]} {u_dmem._mirror_i[29]} {u_dmem._mirror_i[30]} {u_dmem._mirror_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.addr0[0]} {u_dmem.u_macro.addr0[1]} {u_dmem.u_macro.addr0[2]} {u_dmem.u_macro.addr0[3]} {u_dmem.u_macro.addr0[4]} {u_dmem.u_macro.addr0[5]} {u_dmem.u_macro.addr0[6]} {u_dmem.u_macro.addr0[7]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.964039e-02 -duty 0.4775; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.din0[0]} {u_dmem.u_macro.din0[1]} {u_dmem.u_macro.din0[2]} {u_dmem.u_macro.din0[3]} {u_dmem.u_macro.din0[4]} {u_dmem.u_macro.din0[5]} {u_dmem.u_macro.din0[6]} {u_dmem.u_macro.din0[7]} {u_dmem.u_macro.din0[8]} {u_dmem.u_macro.din0[9]} {u_dmem.u_macro.din0[10]} {u_dmem.u_macro.din0[11]} {u_dmem.u_macro.din0[12]} {u_dmem.u_macro.din0[13]} {u_dmem.u_macro.din0[14]} {u_dmem.u_macro.din0[15]} {u_dmem.u_macro.din0[16]} {u_dmem.u_macro.din0[17]} {u_dmem.u_macro.din0[18]} {u_dmem.u_macro.din0[19]} {u_dmem.u_macro.din0[20]} {u_dmem.u_macro.din0[21]} {u_dmem.u_macro.din0[22]} {u_dmem.u_macro.din0[23]} {u_dmem.u_macro.din0[24]} {u_dmem.u_macro.din0[25]} {u_dmem.u_macro.din0[26]} {u_dmem.u_macro.din0[27]} {u_dmem.u_macro.din0[28]} {u_dmem.u_macro.din0[29]} {u_dmem.u_macro.din0[30]} {u_dmem.u_macro.din0[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.wmask0[0]} {u_dmem.u_macro.wmask0[1]} {u_dmem.u_macro.wmask0[2]} {u_dmem.u_macro.wmask0[3]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.addr0_reg[0]} {u_dmem.u_macro.addr0_reg[1]} {u_dmem.u_macro.addr0_reg[2]} {u_dmem.u_macro.addr0_reg[3]} {u_dmem.u_macro.addr0_reg[4]} {u_dmem.u_macro.addr0_reg[5]} {u_dmem.u_macro.addr0_reg[6]} {u_dmem.u_macro.addr0_reg[7]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.964039e-02 -duty 0.4775; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.csb0_reg}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.9969; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.din0_reg[0]} {u_dmem.u_macro.din0_reg[1]} {u_dmem.u_macro.din0_reg[2]} {u_dmem.u_macro.din0_reg[3]} {u_dmem.u_macro.din0_reg[4]} {u_dmem.u_macro.din0_reg[5]} {u_dmem.u_macro.din0_reg[6]} {u_dmem.u_macro.din0_reg[7]} {u_dmem.u_macro.din0_reg[8]} {u_dmem.u_macro.din0_reg[9]} {u_dmem.u_macro.din0_reg[10]} {u_dmem.u_macro.din0_reg[11]} {u_dmem.u_macro.din0_reg[12]} {u_dmem.u_macro.din0_reg[13]} {u_dmem.u_macro.din0_reg[14]} {u_dmem.u_macro.din0_reg[15]} {u_dmem.u_macro.din0_reg[16]} {u_dmem.u_macro.din0_reg[17]} {u_dmem.u_macro.din0_reg[18]} {u_dmem.u_macro.din0_reg[19]} {u_dmem.u_macro.din0_reg[20]} {u_dmem.u_macro.din0_reg[21]} {u_dmem.u_macro.din0_reg[22]} {u_dmem.u_macro.din0_reg[23]} {u_dmem.u_macro.din0_reg[24]} {u_dmem.u_macro.din0_reg[25]} {u_dmem.u_macro.din0_reg[26]} {u_dmem.u_macro.din0_reg[27]} {u_dmem.u_macro.din0_reg[28]} {u_dmem.u_macro.din0_reg[29]} {u_dmem.u_macro.din0_reg[30]} {u_dmem.u_macro.din0_reg[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.dout0[0]} {u_dmem.u_macro.dout0[1]} {u_dmem.u_macro.dout0[2]} {u_dmem.u_macro.dout0[3]} {u_dmem.u_macro.dout0[4]} {u_dmem.u_macro.dout0[5]} {u_dmem.u_macro.dout0[6]} {u_dmem.u_macro.dout0[7]} {u_dmem.u_macro.dout0[8]} {u_dmem.u_macro.dout0[9]} {u_dmem.u_macro.dout0[10]} {u_dmem.u_macro.dout0[11]} {u_dmem.u_macro.dout0[12]} {u_dmem.u_macro.dout0[13]} {u_dmem.u_macro.dout0[14]} {u_dmem.u_macro.dout0[15]} {u_dmem.u_macro.dout0[16]} {u_dmem.u_macro.dout0[17]} {u_dmem.u_macro.dout0[18]} {u_dmem.u_macro.dout0[19]} {u_dmem.u_macro.dout0[20]} {u_dmem.u_macro.dout0[21]} {u_dmem.u_macro.dout0[22]} {u_dmem.u_macro.dout0[23]} {u_dmem.u_macro.dout0[24]} {u_dmem.u_macro.dout0[25]} {u_dmem.u_macro.dout0[26]} {u_dmem.u_macro.dout0[27]} {u_dmem.u_macro.dout0[28]} {u_dmem.u_macro.dout0[29]} {u_dmem.u_macro.dout0[30]} {u_dmem.u_macro.dout0[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0001; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.web0_reg}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.9736; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_dmem.u_macro.wmask0_reg[0]} {u_dmem.u_macro.wmask0_reg[1]} {u_dmem.u_macro.wmask0_reg[2]} {u_dmem.u_macro.wmask0_reg[3]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.bus_wr}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.812776e-04 -duty 0.0001; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.439785e-04 -duty 0.0001; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.wb_dat_o[0]} {u_gpio.wb_dat_o[1]} {u_gpio.wb_dat_o[2]} {u_gpio.wb_dat_o[3]} {u_gpio.wb_dat_o[4]} {u_gpio.wb_dat_o[5]} {u_gpio.wb_dat_o[6]} {u_gpio.wb_dat_o[7]} {u_gpio.wb_dat_o[8]} {u_gpio.wb_dat_o[9]} {u_gpio.wb_dat_o[10]} {u_gpio.wb_dat_o[11]} {u_gpio.wb_dat_o[12]} {u_gpio.wb_dat_o[13]} {u_gpio.wb_dat_o[14]} {u_gpio.wb_dat_o[15]} {u_gpio.wb_dat_o[16]} {u_gpio.wb_dat_o[17]} {u_gpio.wb_dat_o[18]} {u_gpio.wb_dat_o[19]} {u_gpio.wb_dat_o[20]} {u_gpio.wb_dat_o[21]} {u_gpio.wb_dat_o[22]} {u_gpio.wb_dat_o[23]} {u_gpio.wb_dat_o[24]} {u_gpio.wb_dat_o[25]} {u_gpio.wb_dat_o[26]} {u_gpio.wb_dat_o[27]} {u_gpio.wb_dat_o[28]} {u_gpio.wb_dat_o[29]} {u_gpio.wb_dat_o[30]} {u_gpio.wb_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.275019e-02 -duty 0.0860; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.973338e-02 -duty 0.0856; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.wb_sel_i[0]} {u_gpio.wb_sel_i[1]} {u_gpio.wb_sel_i[2]} {u_gpio.wb_sel_i[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.wb_dat_i[0]} {u_gpio.wb_dat_i[1]} {u_gpio.wb_dat_i[2]} {u_gpio.wb_dat_i[3]} {u_gpio.wb_dat_i[4]} {u_gpio.wb_dat_i[5]} {u_gpio.wb_dat_i[6]} {u_gpio.wb_dat_i[7]} {u_gpio.wb_dat_i[8]} {u_gpio.wb_dat_i[9]} {u_gpio.wb_dat_i[10]} {u_gpio.wb_dat_i[11]} {u_gpio.wb_dat_i[12]} {u_gpio.wb_dat_i[13]} {u_gpio.wb_dat_i[14]} {u_gpio.wb_dat_i[15]} {u_gpio.wb_dat_i[16]} {u_gpio.wb_dat_i[17]} {u_gpio.wb_dat_i[18]} {u_gpio.wb_dat_i[19]} {u_gpio.wb_dat_i[20]} {u_gpio.wb_dat_i[21]} {u_gpio.wb_dat_i[22]} {u_gpio.wb_dat_i[23]} {u_gpio.wb_dat_i[24]} {u_gpio.wb_dat_i[25]} {u_gpio.wb_dat_i[26]} {u_gpio.wb_dat_i[27]} {u_gpio.wb_dat_i[28]} {u_gpio.wb_dat_i[29]} {u_gpio.wb_dat_i[30]} {u_gpio.wb_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.wb_adr_i[0]} {u_gpio.wb_adr_i[1]} {u_gpio.wb_adr_i[2]} {u_gpio.wb_adr_i[3]} {u_gpio.wb_adr_i[4]} {u_gpio.wb_adr_i[5]} {u_gpio.wb_adr_i[6]} {u_gpio.wb_adr_i[7]} {u_gpio.wb_adr_i[8]} {u_gpio.wb_adr_i[9]} {u_gpio.wb_adr_i[10]} {u_gpio.wb_adr_i[11]} {u_gpio.wb_adr_i[12]} {u_gpio.wb_adr_i[13]} {u_gpio.wb_adr_i[14]} {u_gpio.wb_adr_i[15]} {u_gpio.wb_adr_i[16]} {u_gpio.wb_adr_i[17]} {u_gpio.wb_adr_i[18]} {u_gpio.wb_adr_i[19]} {u_gpio.wb_adr_i[20]} {u_gpio.wb_adr_i[21]} {u_gpio.wb_adr_i[22]} {u_gpio.wb_adr_i[23]} {u_gpio.wb_adr_i[24]} {u_gpio.wb_adr_i[25]} {u_gpio.wb_adr_i[26]} {u_gpio.wb_adr_i[27]} {u_gpio.wb_adr_i[28]} {u_gpio.wb_adr_i[29]} {u_gpio.wb_adr_i[30]} {u_gpio.wb_adr_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.off[0]} {u_gpio.off[1]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.041324e-01 -duty 0.4884; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.032381e-02 -duty 0.4884; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.gpio_o[0]} {u_gpio.gpio_o[1]} {u_gpio.gpio_o[2]} {u_gpio.gpio_o[3]} {u_gpio.gpio_o[4]} {u_gpio.gpio_o[5]} {u_gpio.gpio_o[6]} {u_gpio.gpio_o[7]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.598168e-05 -duty 0.1404; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.386242e-05 -duty 0.1404; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.ack_q}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.812776e-04 -duty 0.0001; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.439785e-04 -duty 0.0001; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.out_q[0]} {u_gpio.out_q[1]} {u_gpio.out_q[2]} {u_gpio.out_q[3]} {u_gpio.out_q[4]} {u_gpio.out_q[5]} {u_gpio.out_q[6]} {u_gpio.out_q[7]} {u_gpio.out_q[8]} {u_gpio.out_q[9]} {u_gpio.out_q[10]} {u_gpio.out_q[11]} {u_gpio.out_q[12]} {u_gpio.out_q[13]} {u_gpio.out_q[14]} {u_gpio.out_q[15]} {u_gpio.out_q[16]} {u_gpio.out_q[17]} {u_gpio.out_q[18]} {u_gpio.out_q[19]} {u_gpio.out_q[20]} {u_gpio.out_q[21]} {u_gpio.out_q[22]} {u_gpio.out_q[23]} {u_gpio.out_q[24]} {u_gpio.out_q[25]} {u_gpio.out_q[26]} {u_gpio.out_q[27]} {u_gpio.out_q[28]} {u_gpio.out_q[29]} {u_gpio.out_q[30]} {u_gpio.out_q[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.995421e-06 -duty 0.0351; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.465604e-06 -duty 0.0351; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.rd_data[0]} {u_gpio.rd_data[1]} {u_gpio.rd_data[2]} {u_gpio.rd_data[3]} {u_gpio.rd_data[4]} {u_gpio.rd_data[5]} {u_gpio.rd_data[6]} {u_gpio.rd_data[7]} {u_gpio.rd_data[8]} {u_gpio.rd_data[9]} {u_gpio.rd_data[10]} {u_gpio.rd_data[11]} {u_gpio.rd_data[12]} {u_gpio.rd_data[13]} {u_gpio.rd_data[14]} {u_gpio.rd_data[15]} {u_gpio.rd_data[16]} {u_gpio.rd_data[17]} {u_gpio.rd_data[18]} {u_gpio.rd_data[19]} {u_gpio.rd_data[20]} {u_gpio.rd_data[21]} {u_gpio.rd_data[22]} {u_gpio.rd_data[23]} {u_gpio.rd_data[24]} {u_gpio.rd_data[25]} {u_gpio.rd_data[26]} {u_gpio.rd_data[27]} {u_gpio.rd_data[28]} {u_gpio.rd_data[29]} {u_gpio.rd_data[30]} {u_gpio.rd_data[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.275019e-02 -duty 0.0860; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.973338e-02 -duty 0.0856; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_gpio.sim_end_q[0]} {u_gpio.sim_end_q[1]} {u_gpio.sim_end_q[2]} {u_gpio.sim_end_q[3]} {u_gpio.sim_end_q[4]} {u_gpio.sim_end_q[5]} {u_gpio.sim_end_q[6]} {u_gpio.sim_end_q[7]} {u_gpio.sim_end_q[8]} {u_gpio.sim_end_q[9]} {u_gpio.sim_end_q[10]} {u_gpio.sim_end_q[11]} {u_gpio.sim_end_q[12]} {u_gpio.sim_end_q[13]} {u_gpio.sim_end_q[14]} {u_gpio.sim_end_q[15]} {u_gpio.sim_end_q[16]} {u_gpio.sim_end_q[17]} {u_gpio.sim_end_q[18]} {u_gpio.sim_end_q[19]} {u_gpio.sim_end_q[20]} {u_gpio.sim_end_q[21]} {u_gpio.sim_end_q[22]} {u_gpio.sim_end_q[23]} {u_gpio.sim_end_q[24]} {u_gpio.sim_end_q[25]} {u_gpio.sim_end_q[26]} {u_gpio.sim_end_q[27]} {u_gpio.sim_end_q[28]} {u_gpio.sim_end_q[29]} {u_gpio.sim_end_q[30]} {u_gpio.sim_end_q[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.925397e-06 -duty 0.2985; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.007047e-06 -duty 0.2985; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.bus_request}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.2681; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.csb0}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.8660; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.din0_int[0]} {u_imem.din0_int[1]} {u_imem.din0_int[2]} {u_imem.din0_int[3]} {u_imem.din0_int[4]} {u_imem.din0_int[5]} {u_imem.din0_int[6]} {u_imem.din0_int[7]} {u_imem.din0_int[8]} {u_imem.din0_int[9]} {u_imem.din0_int[10]} {u_imem.din0_int[11]} {u_imem.din0_int[12]} {u_imem.din0_int[13]} {u_imem.din0_int[14]} {u_imem.din0_int[15]} {u_imem.din0_int[16]} {u_imem.din0_int[17]} {u_imem.din0_int[18]} {u_imem.din0_int[19]} {u_imem.din0_int[20]} {u_imem.din0_int[21]} {u_imem.din0_int[22]} {u_imem.din0_int[23]} {u_imem.din0_int[24]} {u_imem.din0_int[25]} {u_imem.din0_int[26]} {u_imem.din0_int[27]} {u_imem.din0_int[28]} {u_imem.din0_int[29]} {u_imem.din0_int[30]} {u_imem.din0_int[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.is_read}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.1340; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.macro_active}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.1340; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_imem.wb_dat_o[0]} {u_imem.wb_dat_o[1]} {u_imem.wb_dat_o[2]} {u_imem.wb_dat_o[3]} {u_imem.wb_dat_o[4]} {u_imem.wb_dat_o[5]} {u_imem.wb_dat_o[6]} {u_imem.wb_dat_o[7]} {u_imem.wb_dat_o[8]} {u_imem.wb_dat_o[9]} {u_imem.wb_dat_o[10]} {u_imem.wb_dat_o[11]} {u_imem.wb_dat_o[12]} {u_imem.wb_dat_o[13]} {u_imem.wb_dat_o[14]} {u_imem.wb_dat_o[15]} {u_imem.wb_dat_o[16]} {u_imem.wb_dat_o[17]} {u_imem.wb_dat_o[18]} {u_imem.wb_dat_o[19]} {u_imem.wb_dat_o[20]} {u_imem.wb_dat_o[21]} {u_imem.wb_dat_o[22]} {u_imem.wb_dat_o[23]} {u_imem.wb_dat_o[24]} {u_imem.wb_dat_o[25]} {u_imem.wb_dat_o[26]} {u_imem.wb_dat_o[27]} {u_imem.wb_dat_o[28]} {u_imem.wb_dat_o[29]} {u_imem.wb_dat_o[30]} {u_imem.wb_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.147462e-02 -duty 0.3945; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.717611e-02 -duty 0.4113; incr _ann_count } else { incr _miss_count }
 }
-if {[catch {set _n [get_nets -quiet {u_imem.widx[0]} {u_imem.widx[1]} {u_imem.widx[2]} {u_imem.widx[3]} {u_imem.widx[4]} {u_imem.widx[5]} {u_imem.widx[6]} {u_imem.widx[7]} {u_imem.widx[8]}]}] || $_n eq ""} { incr _miss_count } else {
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.web0}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.370414e-02 -duty 0.4316; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636447e-02 -duty 0.9736; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.wmask0_int[0]} {u_imem.wmask0_int[1]} {u_imem.wmask0_int[2]} {u_imem.wmask0_int[3]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_imem.wb_sel_i[0]} {u_imem.wb_sel_i[1]} {u_imem.wb_sel_i[2]} {u_imem.wb_sel_i[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_imem.wb_dat_i[0]} {u_imem.wb_dat_i[1]} {u_imem.wb_dat_i[2]} {u_imem.wb_dat_i[3]} {u_imem.wb_dat_i[4]} {u_imem.wb_dat_i[5]} {u_imem.wb_dat_i[6]} {u_imem.wb_dat_i[7]} {u_imem.wb_dat_i[8]} {u_imem.wb_dat_i[9]} {u_imem.wb_dat_i[10]} {u_imem.wb_dat_i[11]} {u_imem.wb_dat_i[12]} {u_imem.wb_dat_i[13]} {u_imem.wb_dat_i[14]} {u_imem.wb_dat_i[15]} {u_imem.wb_dat_i[16]} {u_imem.wb_dat_i[17]} {u_imem.wb_dat_i[18]} {u_imem.wb_dat_i[19]} {u_imem.wb_dat_i[20]} {u_imem.wb_dat_i[21]} {u_imem.wb_dat_i[22]} {u_imem.wb_dat_i[23]} {u_imem.wb_dat_i[24]} {u_imem.wb_dat_i[25]} {u_imem.wb_dat_i[26]} {u_imem.wb_dat_i[27]} {u_imem.wb_dat_i[28]} {u_imem.wb_dat_i[29]} {u_imem.wb_dat_i[30]} {u_imem.wb_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_imem.wb_adr_i[0]} {u_imem.wb_adr_i[1]} {u_imem.wb_adr_i[2]} {u_imem.wb_adr_i[3]} {u_imem.wb_adr_i[4]} {u_imem.wb_adr_i[5]} {u_imem.wb_adr_i[6]} {u_imem.wb_adr_i[7]} {u_imem.wb_adr_i[8]} {u_imem.wb_adr_i[9]} {u_imem.wb_adr_i[10]} {u_imem.wb_adr_i[11]} {u_imem.wb_adr_i[12]} {u_imem.wb_adr_i[13]} {u_imem.wb_adr_i[14]} {u_imem.wb_adr_i[15]} {u_imem.wb_adr_i[16]} {u_imem.wb_adr_i[17]} {u_imem.wb_adr_i[18]} {u_imem.wb_adr_i[19]} {u_imem.wb_adr_i[20]} {u_imem.wb_adr_i[21]} {u_imem.wb_adr_i[22]} {u_imem.wb_adr_i[23]} {u_imem.wb_adr_i[24]} {u_imem.wb_adr_i[25]} {u_imem.wb_adr_i[26]} {u_imem.wb_adr_i[27]} {u_imem.wb_adr_i[28]} {u_imem.wb_adr_i[29]} {u_imem.wb_adr_i[30]} {u_imem.wb_adr_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.dout0_int[0]} {u_imem.dout0_int[1]} {u_imem.dout0_int[2]} {u_imem.dout0_int[3]} {u_imem.dout0_int[4]} {u_imem.dout0_int[5]} {u_imem.dout0_int[6]} {u_imem.dout0_int[7]} {u_imem.dout0_int[8]} {u_imem.dout0_int[9]} {u_imem.dout0_int[10]} {u_imem.dout0_int[11]} {u_imem.dout0_int[12]} {u_imem.dout0_int[13]} {u_imem.dout0_int[14]} {u_imem.dout0_int[15]} {u_imem.dout0_int[16]} {u_imem.dout0_int[17]} {u_imem.dout0_int[18]} {u_imem.dout0_int[19]} {u_imem.dout0_int[20]} {u_imem.dout0_int[21]} {u_imem.dout0_int[22]} {u_imem.dout0_int[23]} {u_imem.dout0_int[24]} {u_imem.dout0_int[25]} {u_imem.dout0_int[26]} {u_imem.dout0_int[27]} {u_imem.dout0_int[28]} {u_imem.dout0_int[29]} {u_imem.dout0_int[30]} {u_imem.dout0_int[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0162; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.addr0_int[0]} {u_imem.addr0_int[1]} {u_imem.addr0_int[2]} {u_imem.addr0_int[3]} {u_imem.addr0_int[4]} {u_imem.addr0_int[5]} {u_imem.addr0_int[6]} {u_imem.addr0_int[7]} {u_imem.addr0_int[8]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.658265e-02 -duty 0.4331; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.ack_q}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.1340; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.dout0_q[0]} {u_imem.dout0_q[1]} {u_imem.dout0_q[2]} {u_imem.dout0_q[3]} {u_imem.dout0_q[4]} {u_imem.dout0_q[5]} {u_imem.dout0_q[6]} {u_imem.dout0_q[7]} {u_imem.dout0_q[8]} {u_imem.dout0_q[9]} {u_imem.dout0_q[10]} {u_imem.dout0_q[11]} {u_imem.dout0_q[12]} {u_imem.dout0_q[13]} {u_imem.dout0_q[14]} {u_imem.dout0_q[15]} {u_imem.dout0_q[16]} {u_imem.dout0_q[17]} {u_imem.dout0_q[18]} {u_imem.dout0_q[19]} {u_imem.dout0_q[20]} {u_imem.dout0_q[21]} {u_imem.dout0_q[22]} {u_imem.dout0_q[23]} {u_imem.dout0_q[24]} {u_imem.dout0_q[25]} {u_imem.dout0_q[26]} {u_imem.dout0_q[27]} {u_imem.dout0_q[28]} {u_imem.dout0_q[29]} {u_imem.dout0_q[30]} {u_imem.dout0_q[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.717611e-02 -duty 0.4113; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.state}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.1340; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.addr0[0]} {u_imem.u_macro.addr0[1]} {u_imem.u_macro.addr0[2]} {u_imem.u_macro.addr0[3]} {u_imem.u_macro.addr0[4]} {u_imem.u_macro.addr0[5]} {u_imem.u_macro.addr0[6]} {u_imem.u_macro.addr0[7]} {u_imem.u_macro.addr0[8]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.658265e-02 -duty 0.4331; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.din0[0]} {u_imem.u_macro.din0[1]} {u_imem.u_macro.din0[2]} {u_imem.u_macro.din0[3]} {u_imem.u_macro.din0[4]} {u_imem.u_macro.din0[5]} {u_imem.u_macro.din0[6]} {u_imem.u_macro.din0[7]} {u_imem.u_macro.din0[8]} {u_imem.u_macro.din0[9]} {u_imem.u_macro.din0[10]} {u_imem.u_macro.din0[11]} {u_imem.u_macro.din0[12]} {u_imem.u_macro.din0[13]} {u_imem.u_macro.din0[14]} {u_imem.u_macro.din0[15]} {u_imem.u_macro.din0[16]} {u_imem.u_macro.din0[17]} {u_imem.u_macro.din0[18]} {u_imem.u_macro.din0[19]} {u_imem.u_macro.din0[20]} {u_imem.u_macro.din0[21]} {u_imem.u_macro.din0[22]} {u_imem.u_macro.din0[23]} {u_imem.u_macro.din0[24]} {u_imem.u_macro.din0[25]} {u_imem.u_macro.din0[26]} {u_imem.u_macro.din0[27]} {u_imem.u_macro.din0[28]} {u_imem.u_macro.din0[29]} {u_imem.u_macro.din0[30]} {u_imem.u_macro.din0[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.wmask0[0]} {u_imem.u_macro.wmask0[1]} {u_imem.u_macro.wmask0[2]} {u_imem.u_macro.wmask0[3]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.addr0_reg[0]} {u_imem.u_macro.addr0_reg[1]} {u_imem.u_macro.addr0_reg[2]} {u_imem.u_macro.addr0_reg[3]} {u_imem.u_macro.addr0_reg[4]} {u_imem.u_macro.addr0_reg[5]} {u_imem.u_macro.addr0_reg[6]} {u_imem.u_macro.addr0_reg[7]} {u_imem.u_macro.addr0_reg[8]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.658265e-02 -duty 0.4331; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.csb0_reg}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.680511e-01 -duty 0.8659; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.din0_reg[0]} {u_imem.u_macro.din0_reg[1]} {u_imem.u_macro.din0_reg[2]} {u_imem.u_macro.din0_reg[3]} {u_imem.u_macro.din0_reg[4]} {u_imem.u_macro.din0_reg[5]} {u_imem.u_macro.din0_reg[6]} {u_imem.u_macro.din0_reg[7]} {u_imem.u_macro.din0_reg[8]} {u_imem.u_macro.din0_reg[9]} {u_imem.u_macro.din0_reg[10]} {u_imem.u_macro.din0_reg[11]} {u_imem.u_macro.din0_reg[12]} {u_imem.u_macro.din0_reg[13]} {u_imem.u_macro.din0_reg[14]} {u_imem.u_macro.din0_reg[15]} {u_imem.u_macro.din0_reg[16]} {u_imem.u_macro.din0_reg[17]} {u_imem.u_macro.din0_reg[18]} {u_imem.u_macro.din0_reg[19]} {u_imem.u_macro.din0_reg[20]} {u_imem.u_macro.din0_reg[21]} {u_imem.u_macro.din0_reg[22]} {u_imem.u_macro.din0_reg[23]} {u_imem.u_macro.din0_reg[24]} {u_imem.u_macro.din0_reg[25]} {u_imem.u_macro.din0_reg[26]} {u_imem.u_macro.din0_reg[27]} {u_imem.u_macro.din0_reg[28]} {u_imem.u_macro.din0_reg[29]} {u_imem.u_macro.din0_reg[30]} {u_imem.u_macro.din0_reg[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.dout0[0]} {u_imem.u_macro.dout0[1]} {u_imem.u_macro.dout0[2]} {u_imem.u_macro.dout0[3]} {u_imem.u_macro.dout0[4]} {u_imem.u_macro.dout0[5]} {u_imem.u_macro.dout0[6]} {u_imem.u_macro.dout0[7]} {u_imem.u_macro.dout0[8]} {u_imem.u_macro.dout0[9]} {u_imem.u_macro.dout0[10]} {u_imem.u_macro.dout0[11]} {u_imem.u_macro.dout0[12]} {u_imem.u_macro.dout0[13]} {u_imem.u_macro.dout0[14]} {u_imem.u_macro.dout0[15]} {u_imem.u_macro.dout0[16]} {u_imem.u_macro.dout0[17]} {u_imem.u_macro.dout0[18]} {u_imem.u_macro.dout0[19]} {u_imem.u_macro.dout0[20]} {u_imem.u_macro.dout0[21]} {u_imem.u_macro.dout0[22]} {u_imem.u_macro.dout0[23]} {u_imem.u_macro.dout0[24]} {u_imem.u_macro.dout0[25]} {u_imem.u_macro.dout0[26]} {u_imem.u_macro.dout0[27]} {u_imem.u_macro.dout0[28]} {u_imem.u_macro.dout0[29]} {u_imem.u_macro.dout0[30]} {u_imem.u_macro.dout0[31]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 0.000000e+00 -duty 0.0162; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.web0_reg}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.9736; incr _ann_count } else { incr _miss_count }
+}
+if {[catch {set _n [get_nets -quiet {u_imem.u_macro.wmask0_reg[0]} {u_imem.u_macro.wmask0_reg[1]} {u_imem.u_macro.wmask0_reg[2]} {u_imem.u_macro.wmask0_reg[3]}]}] || $_n eq ""} { incr _miss_count } else {
+  set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.bus_wr}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.727541e-02 -duty 0.0136; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.365852e-02 -duty 0.0118; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.bus_xact}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.836642e-02 -duty 0.0142; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.460487e-02 -duty 0.0123; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.commit_t}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.728131e-03 -duty 0.0044; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.570728e-03 -duty 0.0038; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.commit_w_hi}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.728131e-03 -duty 0.0044; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.570728e-03 -duty 0.0038; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.commit_xin}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0003; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_ctrl}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.926916e-04 -duty 0.0024; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.875759e-04 -duty 0.0024; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_status}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.329676e-03 -duty 0.0040; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.153353e-03 -duty 0.0038; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_t}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.286020e-02 -duty 0.1218; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.982880e-02 -duty 0.1198; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_w_hi}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.009485e-02 -duty 0.1241; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.477803e-02 -duty 0.1201; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_w_lo}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.982210e-02 -duty 0.1248; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.454145e-02 -duty 0.1207; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_xin_hi}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.321153e-03 -duty 0.0040; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.145960e-03 -duty 0.0038; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_xin_lo}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.406388e-03 -duty 0.0039; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.219893e-03 -duty 0.0038; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_yout}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.330266e-04 -duty 0.0036; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.358229e-04 -duty 0.0034; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.cfg_we}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.745626e-02 -duty 0.0087; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.514146e-02 -duty 0.0076; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.x_valid}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0003; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.wb_dat_o[0]} {u_tile.wb_dat_o[1]} {u_tile.wb_dat_o[2]} {u_tile.wb_dat_o[3]} {u_tile.wb_dat_o[4]} {u_tile.wb_dat_o[5]} {u_tile.wb_dat_o[6]} {u_tile.wb_dat_o[7]} {u_tile.wb_dat_o[8]} {u_tile.wb_dat_o[9]} {u_tile.wb_dat_o[10]} {u_tile.wb_dat_o[11]} {u_tile.wb_dat_o[12]} {u_tile.wb_dat_o[13]} {u_tile.wb_dat_o[14]} {u_tile.wb_dat_o[15]} {u_tile.wb_dat_o[16]} {u_tile.wb_dat_o[17]} {u_tile.wb_dat_o[18]} {u_tile.wb_dat_o[19]} {u_tile.wb_dat_o[20]} {u_tile.wb_dat_o[21]} {u_tile.wb_dat_o[22]} {u_tile.wb_dat_o[23]} {u_tile.wb_dat_o[24]} {u_tile.wb_dat_o[25]} {u_tile.wb_dat_o[26]} {u_tile.wb_dat_o[27]} {u_tile.wb_dat_o[28]} {u_tile.wb_dat_o[29]} {u_tile.wb_dat_o[30]} {u_tile.wb_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.192688e-02 -duty 0.1697; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.636713e-02 -duty 0.1644; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.widx[0]} {u_tile.widx[1]} {u_tile.widx[2]} {u_tile.widx[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.066434e-02 -duty 0.5365; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.261989e-02 -duty 0.5374; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.wb_sel_i[0]} {u_tile.wb_sel_i[1]} {u_tile.wb_sel_i[2]} {u_tile.wb_sel_i[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.wb_dat_i[0]} {u_tile.wb_dat_i[1]} {u_tile.wb_dat_i[2]} {u_tile.wb_dat_i[3]} {u_tile.wb_dat_i[4]} {u_tile.wb_dat_i[5]} {u_tile.wb_dat_i[6]} {u_tile.wb_dat_i[7]} {u_tile.wb_dat_i[8]} {u_tile.wb_dat_i[9]} {u_tile.wb_dat_i[10]} {u_tile.wb_dat_i[11]} {u_tile.wb_dat_i[12]} {u_tile.wb_dat_i[13]} {u_tile.wb_dat_i[14]} {u_tile.wb_dat_i[15]} {u_tile.wb_dat_i[16]} {u_tile.wb_dat_i[17]} {u_tile.wb_dat_i[18]} {u_tile.wb_dat_i[19]} {u_tile.wb_dat_i[20]} {u_tile.wb_dat_i[21]} {u_tile.wb_dat_i[22]} {u_tile.wb_dat_i[23]} {u_tile.wb_dat_i[24]} {u_tile.wb_dat_i[25]} {u_tile.wb_dat_i[26]} {u_tile.wb_dat_i[27]} {u_tile.wb_dat_i[28]} {u_tile.wb_dat_i[29]} {u_tile.wb_dat_i[30]} {u_tile.wb_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.wb_adr_i[0]} {u_tile.wb_adr_i[1]} {u_tile.wb_adr_i[2]} {u_tile.wb_adr_i[3]} {u_tile.wb_adr_i[4]} {u_tile.wb_adr_i[5]} {u_tile.wb_adr_i[6]} {u_tile.wb_adr_i[7]} {u_tile.wb_adr_i[8]} {u_tile.wb_adr_i[9]} {u_tile.wb_adr_i[10]} {u_tile.wb_adr_i[11]} {u_tile.wb_adr_i[12]} {u_tile.wb_adr_i[13]} {u_tile.wb_adr_i[14]} {u_tile.wb_adr_i[15]} {u_tile.wb_adr_i[16]} {u_tile.wb_adr_i[17]} {u_tile.wb_adr_i[18]} {u_tile.wb_adr_i[19]} {u_tile.wb_adr_i[20]} {u_tile.wb_adr_i[21]} {u_tile.wb_adr_i[22]} {u_tile.wb_adr_i[23]} {u_tile.wb_adr_i[24]} {u_tile.wb_adr_i[25]} {u_tile.wb_adr_i[26]} {u_tile.wb_adr_i[27]} {u_tile.wb_adr_i[28]} {u_tile.wb_adr_i[29]} {u_tile.wb_adr_i[30]} {u_tile.wb_adr_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.y_valid}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0003; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.tile_y_out[0]} {u_tile.tile_y_out[1]} {u_tile.tile_y_out[2]} {u_tile.tile_y_out[3]} {u_tile.tile_y_out[4]} {u_tile.tile_y_out[5]} {u_tile.tile_y_out[6]} {u_tile.tile_y_out[7]} {u_tile.tile_y_out[8]} {u_tile.tile_y_out[9]} {u_tile.tile_y_out[10]} {u_tile.tile_y_out[11]} {u_tile.tile_y_out[12]} {u_tile.tile_y_out[13]} {u_tile.tile_y_out[14]} {u_tile.tile_y_out[15]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.546415e-04 -duty 0.4805; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.208745e-04 -duty 0.4805; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.tile_x_in[0]} {u_tile.tile_x_in[1]} {u_tile.tile_x_in[2]} {u_tile.tile_x_in[3]} {u_tile.tile_x_in[4]} {u_tile.tile_x_in[5]} {u_tile.tile_x_in[6]} {u_tile.tile_x_in[7]} {u_tile.tile_x_in[8]} {u_tile.tile_x_in[9]} {u_tile.tile_x_in[10]} {u_tile.tile_x_in[11]} {u_tile.tile_x_in[12]} {u_tile.tile_x_in[13]} {u_tile.tile_x_in[14]} {u_tile.tile_x_in[15]} {u_tile.tile_x_in[16]} {u_tile.tile_x_in[17]} {u_tile.tile_x_in[18]} {u_tile.tile_x_in[19]} {u_tile.tile_x_in[20]} {u_tile.tile_x_in[21]} {u_tile.tile_x_in[22]} {u_tile.tile_x_in[23]} {u_tile.tile_x_in[24]} {u_tile.tile_x_in[25]} {u_tile.tile_x_in[26]} {u_tile.tile_x_in[27]} {u_tile.tile_x_in[28]} {u_tile.tile_x_in[29]} {u_tile.tile_x_in[30]} {u_tile.tile_x_in[31]} {u_tile.tile_x_in[32]} {u_tile.tile_x_in[33]} {u_tile.tile_x_in[34]} {u_tile.tile_x_in[35]} {u_tile.tile_x_in[36]} {u_tile.tile_x_in[37]} {u_tile.tile_x_in[38]} {u_tile.tile_x_in[39]} {u_tile.tile_x_in[40]} {u_tile.tile_x_in[41]} {u_tile.tile_x_in[42]} {u_tile.tile_x_in[43]} {u_tile.tile_x_in[44]} {u_tile.tile_x_in[45]} {u_tile.tile_x_in[46]} {u_tile.tile_x_in[47]} {u_tile.tile_x_in[48]} {u_tile.tile_x_in[49]} {u_tile.tile_x_in[50]} {u_tile.tile_x_in[51]} {u_tile.tile_x_in[52]} {u_tile.tile_x_in[53]} {u_tile.tile_x_in[54]} {u_tile.tile_x_in[55]} {u_tile.tile_x_in[56]} {u_tile.tile_x_in[57]} {u_tile.tile_x_in[58]} {u_tile.tile_x_in[59]} {u_tile.tile_x_in[60]} {u_tile.tile_x_in[61]} {u_tile.tile_x_in[62]} {u_tile.tile_x_in[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.933838e-03 -duty 0.4185; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.544793e-03 -duty 0.4186; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.tile_cfg_wdata[0]} {u_tile.tile_cfg_wdata[1]} {u_tile.tile_cfg_wdata[2]} {u_tile.tile_cfg_wdata[3]} {u_tile.tile_cfg_wdata[4]} {u_tile.tile_cfg_wdata[5]} {u_tile.tile_cfg_wdata[6]} {u_tile.tile_cfg_wdata[7]} {u_tile.tile_cfg_wdata[8]} {u_tile.tile_cfg_wdata[9]} {u_tile.tile_cfg_wdata[10]} {u_tile.tile_cfg_wdata[11]} {u_tile.tile_cfg_wdata[12]} {u_tile.tile_cfg_wdata[13]} {u_tile.tile_cfg_wdata[14]} {u_tile.tile_cfg_wdata[15]} {u_tile.tile_cfg_wdata[16]} {u_tile.tile_cfg_wdata[17]} {u_tile.tile_cfg_wdata[18]} {u_tile.tile_cfg_wdata[19]} {u_tile.tile_cfg_wdata[20]} {u_tile.tile_cfg_wdata[21]} {u_tile.tile_cfg_wdata[22]} {u_tile.tile_cfg_wdata[23]} {u_tile.tile_cfg_wdata[24]} {u_tile.tile_cfg_wdata[25]} {u_tile.tile_cfg_wdata[26]} {u_tile.tile_cfg_wdata[27]} {u_tile.tile_cfg_wdata[28]} {u_tile.tile_cfg_wdata[29]} {u_tile.tile_cfg_wdata[30]} {u_tile.tile_cfg_wdata[31]} {u_tile.tile_cfg_wdata[32]} {u_tile.tile_cfg_wdata[33]} {u_tile.tile_cfg_wdata[34]} {u_tile.tile_cfg_wdata[35]} {u_tile.tile_cfg_wdata[36]} {u_tile.tile_cfg_wdata[37]} {u_tile.tile_cfg_wdata[38]} {u_tile.tile_cfg_wdata[39]} {u_tile.tile_cfg_wdata[40]} {u_tile.tile_cfg_wdata[41]} {u_tile.tile_cfg_wdata[42]} {u_tile.tile_cfg_wdata[43]} {u_tile.tile_cfg_wdata[44]} {u_tile.tile_cfg_wdata[45]} {u_tile.tile_cfg_wdata[46]} {u_tile.tile_cfg_wdata[47]} {u_tile.tile_cfg_wdata[48]} {u_tile.tile_cfg_wdata[49]} {u_tile.tile_cfg_wdata[50]} {u_tile.tile_cfg_wdata[51]} {u_tile.tile_cfg_wdata[52]} {u_tile.tile_cfg_wdata[53]} {u_tile.tile_cfg_wdata[54]} {u_tile.tile_cfg_wdata[55]} {u_tile.tile_cfg_wdata[56]} {u_tile.tile_cfg_wdata[57]} {u_tile.tile_cfg_wdata[58]} {u_tile.tile_cfg_wdata[59]} {u_tile.tile_cfg_wdata[60]} {u_tile.tile_cfg_wdata[61]} {u_tile.tile_cfg_wdata[62]} {u_tile.tile_cfg_wdata[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.800286e-03 -duty 0.0029; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.031133e-03 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.tile_cfg_addr[0]} {u_tile.tile_cfg_addr[1]} {u_tile.tile_cfg_addr[2]} {u_tile.tile_cfg_addr[3]} {u_tile.tile_cfg_addr[4]} {u_tile.tile_cfg_addr[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.273442e-03 -duty 0.0036; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.308940e-03 -duty 0.0032; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.tidx[0]} {u_tile.tidx[1]} {u_tile.tidx[2]} {u_tile.tidx[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.014708e-02 -duty 0.5049; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.951910e-02 -duty 0.5044; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_w_region}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.729060e-02 -duty 0.2488; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.234564e-02 -duty 0.2406; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.is_ctrl_reg}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.186294e-02 -duty 0.1281; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.896379e-02 -duty 0.1287; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.ack_q}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.836642e-02 -duty 0.0142; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.460487e-02 -duty 0.0123; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.busy}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0005; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0005; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.done}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.rd_data[0]} {u_tile.rd_data[1]} {u_tile.rd_data[2]} {u_tile.rd_data[3]} {u_tile.rd_data[4]} {u_tile.rd_data[5]} {u_tile.rd_data[6]} {u_tile.rd_data[7]} {u_tile.rd_data[8]} {u_tile.rd_data[9]} {u_tile.rd_data[10]} {u_tile.rd_data[11]} {u_tile.rd_data[12]} {u_tile.rd_data[13]} {u_tile.rd_data[14]} {u_tile.rd_data[15]} {u_tile.rd_data[16]} {u_tile.rd_data[17]} {u_tile.rd_data[18]} {u_tile.rd_data[19]} {u_tile.rd_data[20]} {u_tile.rd_data[21]} {u_tile.rd_data[22]} {u_tile.rd_data[23]} {u_tile.rd_data[24]} {u_tile.rd_data[25]} {u_tile.rd_data[26]} {u_tile.rd_data[27]} {u_tile.rd_data[28]} {u_tile.rd_data[29]} {u_tile.rd_data[30]} {u_tile.rd_data[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.192688e-02 -duty 0.1697; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.636713e-02 -duty 0.1644; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.xin_hi_shadow[0]} {u_tile.xin_hi_shadow[1]} {u_tile.xin_hi_shadow[2]} {u_tile.xin_hi_shadow[3]} {u_tile.xin_hi_shadow[4]} {u_tile.xin_hi_shadow[5]} {u_tile.xin_hi_shadow[6]} {u_tile.xin_hi_shadow[7]} {u_tile.xin_hi_shadow[8]} {u_tile.xin_hi_shadow[9]} {u_tile.xin_hi_shadow[10]} {u_tile.xin_hi_shadow[11]} {u_tile.xin_hi_shadow[12]} {u_tile.xin_hi_shadow[13]} {u_tile.xin_hi_shadow[14]} {u_tile.xin_hi_shadow[15]} {u_tile.xin_hi_shadow[16]} {u_tile.xin_hi_shadow[17]} {u_tile.xin_hi_shadow[18]} {u_tile.xin_hi_shadow[19]} {u_tile.xin_hi_shadow[20]} {u_tile.xin_hi_shadow[21]} {u_tile.xin_hi_shadow[22]} {u_tile.xin_hi_shadow[23]} {u_tile.xin_hi_shadow[24]} {u_tile.xin_hi_shadow[25]} {u_tile.xin_hi_shadow[26]} {u_tile.xin_hi_shadow[27]} {u_tile.xin_hi_shadow[28]} {u_tile.xin_hi_shadow[29]} {u_tile.xin_hi_shadow[30]} {u_tile.xin_hi_shadow[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.038809e-05 -duty 0.1521; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.010571e-06 -duty 0.1521; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.xin_lo_shadow[0]} {u_tile.xin_lo_shadow[1]} {u_tile.xin_lo_shadow[2]} {u_tile.xin_lo_shadow[3]} {u_tile.xin_lo_shadow[4]} {u_tile.xin_lo_shadow[5]} {u_tile.xin_lo_shadow[6]} {u_tile.xin_lo_shadow[7]} {u_tile.xin_lo_shadow[8]} {u_tile.xin_lo_shadow[9]} {u_tile.xin_lo_shadow[10]} {u_tile.xin_lo_shadow[11]} {u_tile.xin_lo_shadow[12]} {u_tile.xin_lo_shadow[13]} {u_tile.xin_lo_shadow[14]} {u_tile.xin_lo_shadow[15]} {u_tile.xin_lo_shadow[16]} {u_tile.xin_lo_shadow[17]} {u_tile.xin_lo_shadow[18]} {u_tile.xin_lo_shadow[19]} {u_tile.xin_lo_shadow[20]} {u_tile.xin_lo_shadow[21]} {u_tile.xin_lo_shadow[22]} {u_tile.xin_lo_shadow[23]} {u_tile.xin_lo_shadow[24]} {u_tile.xin_lo_shadow[25]} {u_tile.xin_lo_shadow[26]} {u_tile.xin_lo_shadow[27]} {u_tile.xin_lo_shadow[28]} {u_tile.xin_lo_shadow[29]} {u_tile.xin_lo_shadow[30]} {u_tile.xin_lo_shadow[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.784621e-05 -duty 0.3589; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.547970e-05 -duty 0.3589; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.yout[0]} {u_tile.yout[1]} {u_tile.yout[2]} {u_tile.yout[3]} {u_tile.yout[4]} {u_tile.yout[5]} {u_tile.yout[6]} {u_tile.yout[7]} {u_tile.yout[8]} {u_tile.yout[9]} {u_tile.yout[10]} {u_tile.yout[11]} {u_tile.yout[12]} {u_tile.yout[13]} {u_tile.yout[14]} {u_tile.yout[15]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.337134e-04 -duty 0.4721; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.159822e-04 -duty 0.4721; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.yvalid_sticky}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.i[0]} {u_tile.i[1]} {u_tile.i[2]} {u_tile.i[3]} {u_tile.i[4]} {u_tile.i[5]} {u_tile.i[6]} {u_tile.i[7]} {u_tile.i[8]} {u_tile.i[9]} {u_tile.i[10]} {u_tile.i[11]} {u_tile.i[12]} {u_tile.i[13]} {u_tile.i[14]} {u_tile.i[15]} {u_tile.i[16]} {u_tile.i[17]} {u_tile.i[18]} {u_tile.i[19]} {u_tile.i[20]} {u_tile.i[21]} {u_tile.i[22]} {u_tile.i[23]} {u_tile.i[24]} {u_tile.i[25]} {u_tile.i[26]} {u_tile.i[27]} {u_tile.i[28]} {u_tile.i[29]} {u_tile.i[30]} {u_tile.i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
@@ -1063,39 +1223,39 @@ if {[catch {set _n [get_nets -quiet {u_tile.i[0]} {u_tile.i[1]} {u_tile.i[2]} {u
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.cfg_addr[0]} {u_tile.u_tile.cfg_addr[1]} {u_tile.u_tile.cfg_addr[2]} {u_tile.u_tile.cfg_addr[3]} {u_tile.u_tile.cfg_addr[4]} {u_tile.u_tile.cfg_addr[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.273442e-03 -duty 0.0036; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.308940e-03 -duty 0.0032; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.cfg_wdata[0]} {u_tile.u_tile.cfg_wdata[1]} {u_tile.u_tile.cfg_wdata[2]} {u_tile.u_tile.cfg_wdata[3]} {u_tile.u_tile.cfg_wdata[4]} {u_tile.u_tile.cfg_wdata[5]} {u_tile.u_tile.cfg_wdata[6]} {u_tile.u_tile.cfg_wdata[7]} {u_tile.u_tile.cfg_wdata[8]} {u_tile.u_tile.cfg_wdata[9]} {u_tile.u_tile.cfg_wdata[10]} {u_tile.u_tile.cfg_wdata[11]} {u_tile.u_tile.cfg_wdata[12]} {u_tile.u_tile.cfg_wdata[13]} {u_tile.u_tile.cfg_wdata[14]} {u_tile.u_tile.cfg_wdata[15]} {u_tile.u_tile.cfg_wdata[16]} {u_tile.u_tile.cfg_wdata[17]} {u_tile.u_tile.cfg_wdata[18]} {u_tile.u_tile.cfg_wdata[19]} {u_tile.u_tile.cfg_wdata[20]} {u_tile.u_tile.cfg_wdata[21]} {u_tile.u_tile.cfg_wdata[22]} {u_tile.u_tile.cfg_wdata[23]} {u_tile.u_tile.cfg_wdata[24]} {u_tile.u_tile.cfg_wdata[25]} {u_tile.u_tile.cfg_wdata[26]} {u_tile.u_tile.cfg_wdata[27]} {u_tile.u_tile.cfg_wdata[28]} {u_tile.u_tile.cfg_wdata[29]} {u_tile.u_tile.cfg_wdata[30]} {u_tile.u_tile.cfg_wdata[31]} {u_tile.u_tile.cfg_wdata[32]} {u_tile.u_tile.cfg_wdata[33]} {u_tile.u_tile.cfg_wdata[34]} {u_tile.u_tile.cfg_wdata[35]} {u_tile.u_tile.cfg_wdata[36]} {u_tile.u_tile.cfg_wdata[37]} {u_tile.u_tile.cfg_wdata[38]} {u_tile.u_tile.cfg_wdata[39]} {u_tile.u_tile.cfg_wdata[40]} {u_tile.u_tile.cfg_wdata[41]} {u_tile.u_tile.cfg_wdata[42]} {u_tile.u_tile.cfg_wdata[43]} {u_tile.u_tile.cfg_wdata[44]} {u_tile.u_tile.cfg_wdata[45]} {u_tile.u_tile.cfg_wdata[46]} {u_tile.u_tile.cfg_wdata[47]} {u_tile.u_tile.cfg_wdata[48]} {u_tile.u_tile.cfg_wdata[49]} {u_tile.u_tile.cfg_wdata[50]} {u_tile.u_tile.cfg_wdata[51]} {u_tile.u_tile.cfg_wdata[52]} {u_tile.u_tile.cfg_wdata[53]} {u_tile.u_tile.cfg_wdata[54]} {u_tile.u_tile.cfg_wdata[55]} {u_tile.u_tile.cfg_wdata[56]} {u_tile.u_tile.cfg_wdata[57]} {u_tile.u_tile.cfg_wdata[58]} {u_tile.u_tile.cfg_wdata[59]} {u_tile.u_tile.cfg_wdata[60]} {u_tile.u_tile.cfg_wdata[61]} {u_tile.u_tile.cfg_wdata[62]} {u_tile.u_tile.cfg_wdata[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.800286e-03 -duty 0.0029; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.031133e-03 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.x_in[0]} {u_tile.u_tile.x_in[1]} {u_tile.u_tile.x_in[2]} {u_tile.u_tile.x_in[3]} {u_tile.u_tile.x_in[4]} {u_tile.u_tile.x_in[5]} {u_tile.u_tile.x_in[6]} {u_tile.u_tile.x_in[7]} {u_tile.u_tile.x_in[8]} {u_tile.u_tile.x_in[9]} {u_tile.u_tile.x_in[10]} {u_tile.u_tile.x_in[11]} {u_tile.u_tile.x_in[12]} {u_tile.u_tile.x_in[13]} {u_tile.u_tile.x_in[14]} {u_tile.u_tile.x_in[15]} {u_tile.u_tile.x_in[16]} {u_tile.u_tile.x_in[17]} {u_tile.u_tile.x_in[18]} {u_tile.u_tile.x_in[19]} {u_tile.u_tile.x_in[20]} {u_tile.u_tile.x_in[21]} {u_tile.u_tile.x_in[22]} {u_tile.u_tile.x_in[23]} {u_tile.u_tile.x_in[24]} {u_tile.u_tile.x_in[25]} {u_tile.u_tile.x_in[26]} {u_tile.u_tile.x_in[27]} {u_tile.u_tile.x_in[28]} {u_tile.u_tile.x_in[29]} {u_tile.u_tile.x_in[30]} {u_tile.u_tile.x_in[31]} {u_tile.u_tile.x_in[32]} {u_tile.u_tile.x_in[33]} {u_tile.u_tile.x_in[34]} {u_tile.u_tile.x_in[35]} {u_tile.u_tile.x_in[36]} {u_tile.u_tile.x_in[37]} {u_tile.u_tile.x_in[38]} {u_tile.u_tile.x_in[39]} {u_tile.u_tile.x_in[40]} {u_tile.u_tile.x_in[41]} {u_tile.u_tile.x_in[42]} {u_tile.u_tile.x_in[43]} {u_tile.u_tile.x_in[44]} {u_tile.u_tile.x_in[45]} {u_tile.u_tile.x_in[46]} {u_tile.u_tile.x_in[47]} {u_tile.u_tile.x_in[48]} {u_tile.u_tile.x_in[49]} {u_tile.u_tile.x_in[50]} {u_tile.u_tile.x_in[51]} {u_tile.u_tile.x_in[52]} {u_tile.u_tile.x_in[53]} {u_tile.u_tile.x_in[54]} {u_tile.u_tile.x_in[55]} {u_tile.u_tile.x_in[56]} {u_tile.u_tile.x_in[57]} {u_tile.u_tile.x_in[58]} {u_tile.u_tile.x_in[59]} {u_tile.u_tile.x_in[60]} {u_tile.u_tile.x_in[61]} {u_tile.u_tile.x_in[62]} {u_tile.u_tile.x_in[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.933838e-03 -duty 0.4185; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.544793e-03 -duty 0.4186; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.y_out[0]} {u_tile.u_tile.y_out[1]} {u_tile.u_tile.y_out[2]} {u_tile.u_tile.y_out[3]} {u_tile.u_tile.y_out[4]} {u_tile.u_tile.y_out[5]} {u_tile.u_tile.y_out[6]} {u_tile.u_tile.y_out[7]} {u_tile.u_tile.y_out[8]} {u_tile.u_tile.y_out[9]} {u_tile.u_tile.y_out[10]} {u_tile.u_tile.y_out[11]} {u_tile.u_tile.y_out[12]} {u_tile.u_tile.y_out[13]} {u_tile.u_tile.y_out[14]} {u_tile.u_tile.y_out[15]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.546415e-04 -duty 0.4805; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.208745e-04 -duty 0.4805; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.y_comb[0]} {u_tile.u_tile.y_comb[1]} {u_tile.u_tile.y_comb[2]} {u_tile.u_tile.y_comb[3]} {u_tile.u_tile.y_comb[4]} {u_tile.u_tile.y_comb[5]} {u_tile.u_tile.y_comb[6]} {u_tile.u_tile.y_comb[7]} {u_tile.u_tile.y_comb[8]} {u_tile.u_tile.y_comb[9]} {u_tile.u_tile.y_comb[10]} {u_tile.u_tile.y_comb[11]} {u_tile.u_tile.y_comb[12]} {u_tile.u_tile.y_comb[13]} {u_tile.u_tile.y_comb[14]} {u_tile.u_tile.y_comb[15]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.503797e-04 -duty 0.4806; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.171779e-04 -duty 0.4805; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.v_d1}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0003; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.v_d2}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.455082e-04 -duty 0.0003; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.731705e-04 -duty 0.0002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.x_reg[0]} {u_tile.u_tile.x_reg[1]} {u_tile.u_tile.x_reg[2]} {u_tile.u_tile.x_reg[3]} {u_tile.u_tile.x_reg[4]} {u_tile.u_tile.x_reg[5]} {u_tile.u_tile.x_reg[6]} {u_tile.u_tile.x_reg[7]} {u_tile.u_tile.x_reg[8]} {u_tile.u_tile.x_reg[9]} {u_tile.u_tile.x_reg[10]} {u_tile.u_tile.x_reg[11]} {u_tile.u_tile.x_reg[12]} {u_tile.u_tile.x_reg[13]} {u_tile.u_tile.x_reg[14]} {u_tile.u_tile.x_reg[15]} {u_tile.u_tile.x_reg[16]} {u_tile.u_tile.x_reg[17]} {u_tile.u_tile.x_reg[18]} {u_tile.u_tile.x_reg[19]} {u_tile.u_tile.x_reg[20]} {u_tile.u_tile.x_reg[21]} {u_tile.u_tile.x_reg[22]} {u_tile.u_tile.x_reg[23]} {u_tile.u_tile.x_reg[24]} {u_tile.u_tile.x_reg[25]} {u_tile.u_tile.x_reg[26]} {u_tile.u_tile.x_reg[27]} {u_tile.u_tile.x_reg[28]} {u_tile.u_tile.x_reg[29]} {u_tile.u_tile.x_reg[30]} {u_tile.u_tile.x_reg[31]} {u_tile.u_tile.x_reg[32]} {u_tile.u_tile.x_reg[33]} {u_tile.u_tile.x_reg[34]} {u_tile.u_tile.x_reg[35]} {u_tile.u_tile.x_reg[36]} {u_tile.u_tile.x_reg[37]} {u_tile.u_tile.x_reg[38]} {u_tile.u_tile.x_reg[39]} {u_tile.u_tile.x_reg[40]} {u_tile.u_tile.x_reg[41]} {u_tile.u_tile.x_reg[42]} {u_tile.u_tile.x_reg[43]} {u_tile.u_tile.x_reg[44]} {u_tile.u_tile.x_reg[45]} {u_tile.u_tile.x_reg[46]} {u_tile.u_tile.x_reg[47]} {u_tile.u_tile.x_reg[48]} {u_tile.u_tile.x_reg[49]} {u_tile.u_tile.x_reg[50]} {u_tile.u_tile.x_reg[51]} {u_tile.u_tile.x_reg[52]} {u_tile.u_tile.x_reg[53]} {u_tile.u_tile.x_reg[54]} {u_tile.u_tile.x_reg[55]} {u_tile.u_tile.x_reg[56]} {u_tile.u_tile.x_reg[57]} {u_tile.u_tile.x_reg[58]} {u_tile.u_tile.x_reg[59]} {u_tile.u_tile.x_reg[60]} {u_tile.u_tile.x_reg[61]} {u_tile.u_tile.x_reg[62]} {u_tile.u_tile.x_reg[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.y_out_r[0]} {u_tile.u_tile.y_out_r[1]} {u_tile.u_tile.y_out_r[2]} {u_tile.u_tile.y_out_r[3]} {u_tile.u_tile.y_out_r[4]} {u_tile.u_tile.y_out_r[5]} {u_tile.u_tile.y_out_r[6]} {u_tile.u_tile.y_out_r[7]} {u_tile.u_tile.y_out_r[8]} {u_tile.u_tile.y_out_r[9]} {u_tile.u_tile.y_out_r[10]} {u_tile.u_tile.y_out_r[11]} {u_tile.u_tile.y_out_r[12]} {u_tile.u_tile.y_out_r[13]} {u_tile.u_tile.y_out_r[14]} {u_tile.u_tile.y_out_r[15]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.546415e-04 -duty 0.4805; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.208745e-04 -duty 0.4805; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile._i[0]} {u_tile.u_tile._i[1]} {u_tile.u_tile._i[2]} {u_tile.u_tile._i[3]} {u_tile.u_tile._i[4]} {u_tile.u_tile._i[5]} {u_tile.u_tile._i[6]} {u_tile.u_tile._i[7]} {u_tile.u_tile._i[8]} {u_tile.u_tile._i[9]} {u_tile.u_tile._i[10]} {u_tile.u_tile._i[11]} {u_tile.u_tile._i[12]} {u_tile.u_tile._i[13]} {u_tile.u_tile._i[14]} {u_tile.u_tile._i[15]} {u_tile.u_tile._i[16]} {u_tile.u_tile._i[17]} {u_tile.u_tile._i[18]} {u_tile.u_tile._i[19]} {u_tile.u_tile._i[20]} {u_tile.u_tile._i[21]} {u_tile.u_tile._i[22]} {u_tile.u_tile._i[23]} {u_tile.u_tile._i[24]} {u_tile.u_tile._i[25]} {u_tile.u_tile._i[26]} {u_tile.u_tile._i[27]} {u_tile.u_tile._i[28]} {u_tile.u_tile._i[29]} {u_tile.u_tile._i[30]} {u_tile.u_tile._i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
@@ -1103,3755 +1263,3755 @@ if {[catch {set _n [get_nets -quiet {u_tile.u_tile._i[0]} {u_tile.u_tile._i[1]} 
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.threshold[0]} {u_tile.u_tile.u_n00.threshold[1]} {u_tile.u_tile.u_n00.threshold[2]} {u_tile.u_tile.u_n00.threshold[3]} {u_tile.u_tile.u_n00.threshold[4]} {u_tile.u_tile.u_n00.threshold[5]} {u_tile.u_tile.u_n00.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.914739e-05 -duty 0.4888; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.865197e-05 -duty 0.4888; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.w[0]} {u_tile.u_tile.u_n00.w[1]} {u_tile.u_tile.u_n00.w[2]} {u_tile.u_tile.u_n00.w[3]} {u_tile.u_tile.u_n00.w[4]} {u_tile.u_tile.u_n00.w[5]} {u_tile.u_tile.u_n00.w[6]} {u_tile.u_tile.u_n00.w[7]} {u_tile.u_tile.u_n00.w[8]} {u_tile.u_tile.u_n00.w[9]} {u_tile.u_tile.u_n00.w[10]} {u_tile.u_tile.u_n00.w[11]} {u_tile.u_tile.u_n00.w[12]} {u_tile.u_tile.u_n00.w[13]} {u_tile.u_tile.u_n00.w[14]} {u_tile.u_tile.u_n00.w[15]} {u_tile.u_tile.u_n00.w[16]} {u_tile.u_tile.u_n00.w[17]} {u_tile.u_tile.u_n00.w[18]} {u_tile.u_tile.u_n00.w[19]} {u_tile.u_tile.u_n00.w[20]} {u_tile.u_tile.u_n00.w[21]} {u_tile.u_tile.u_n00.w[22]} {u_tile.u_tile.u_n00.w[23]} {u_tile.u_tile.u_n00.w[24]} {u_tile.u_tile.u_n00.w[25]} {u_tile.u_tile.u_n00.w[26]} {u_tile.u_tile.u_n00.w[27]} {u_tile.u_tile.u_n00.w[28]} {u_tile.u_tile.u_n00.w[29]} {u_tile.u_tile.u_n00.w[30]} {u_tile.u_tile.u_n00.w[31]} {u_tile.u_tile.u_n00.w[32]} {u_tile.u_tile.u_n00.w[33]} {u_tile.u_tile.u_n00.w[34]} {u_tile.u_tile.u_n00.w[35]} {u_tile.u_tile.u_n00.w[36]} {u_tile.u_tile.u_n00.w[37]} {u_tile.u_tile.u_n00.w[38]} {u_tile.u_tile.u_n00.w[39]} {u_tile.u_tile.u_n00.w[40]} {u_tile.u_tile.u_n00.w[41]} {u_tile.u_tile.u_n00.w[42]} {u_tile.u_tile.u_n00.w[43]} {u_tile.u_tile.u_n00.w[44]} {u_tile.u_tile.u_n00.w[45]} {u_tile.u_tile.u_n00.w[46]} {u_tile.u_tile.u_n00.w[47]} {u_tile.u_tile.u_n00.w[48]} {u_tile.u_tile.u_n00.w[49]} {u_tile.u_tile.u_n00.w[50]} {u_tile.u_tile.u_n00.w[51]} {u_tile.u_tile.u_n00.w[52]} {u_tile.u_tile.u_n00.w[53]} {u_tile.u_tile.u_n00.w[54]} {u_tile.u_tile.u_n00.w[55]} {u_tile.u_tile.u_n00.w[56]} {u_tile.u_tile.u_n00.w[57]} {u_tile.u_tile.u_n00.w[58]} {u_tile.u_tile.u_n00.w[59]} {u_tile.u_tile.u_n00.w[60]} {u_tile.u_tile.u_n00.w[61]} {u_tile.u_tile.u_n00.w[62]} {u_tile.u_tile.u_n00.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.140693e-04 -duty 0.5415; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.894300e-05 -duty 0.5415; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.x[0]} {u_tile.u_tile.u_n00.x[1]} {u_tile.u_tile.u_n00.x[2]} {u_tile.u_tile.u_n00.x[3]} {u_tile.u_tile.u_n00.x[4]} {u_tile.u_tile.u_n00.x[5]} {u_tile.u_tile.u_n00.x[6]} {u_tile.u_tile.u_n00.x[7]} {u_tile.u_tile.u_n00.x[8]} {u_tile.u_tile.u_n00.x[9]} {u_tile.u_tile.u_n00.x[10]} {u_tile.u_tile.u_n00.x[11]} {u_tile.u_tile.u_n00.x[12]} {u_tile.u_tile.u_n00.x[13]} {u_tile.u_tile.u_n00.x[14]} {u_tile.u_tile.u_n00.x[15]} {u_tile.u_tile.u_n00.x[16]} {u_tile.u_tile.u_n00.x[17]} {u_tile.u_tile.u_n00.x[18]} {u_tile.u_tile.u_n00.x[19]} {u_tile.u_tile.u_n00.x[20]} {u_tile.u_tile.u_n00.x[21]} {u_tile.u_tile.u_n00.x[22]} {u_tile.u_tile.u_n00.x[23]} {u_tile.u_tile.u_n00.x[24]} {u_tile.u_tile.u_n00.x[25]} {u_tile.u_tile.u_n00.x[26]} {u_tile.u_tile.u_n00.x[27]} {u_tile.u_tile.u_n00.x[28]} {u_tile.u_tile.u_n00.x[29]} {u_tile.u_tile.u_n00.x[30]} {u_tile.u_tile.u_n00.x[31]} {u_tile.u_tile.u_n00.x[32]} {u_tile.u_tile.u_n00.x[33]} {u_tile.u_tile.u_n00.x[34]} {u_tile.u_tile.u_n00.x[35]} {u_tile.u_tile.u_n00.x[36]} {u_tile.u_tile.u_n00.x[37]} {u_tile.u_tile.u_n00.x[38]} {u_tile.u_tile.u_n00.x[39]} {u_tile.u_tile.u_n00.x[40]} {u_tile.u_tile.u_n00.x[41]} {u_tile.u_tile.u_n00.x[42]} {u_tile.u_tile.u_n00.x[43]} {u_tile.u_tile.u_n00.x[44]} {u_tile.u_tile.u_n00.x[45]} {u_tile.u_tile.u_n00.x[46]} {u_tile.u_tile.u_n00.x[47]} {u_tile.u_tile.u_n00.x[48]} {u_tile.u_tile.u_n00.x[49]} {u_tile.u_tile.u_n00.x[50]} {u_tile.u_tile.u_n00.x[51]} {u_tile.u_tile.u_n00.x[52]} {u_tile.u_tile.u_n00.x[53]} {u_tile.u_tile.u_n00.x[54]} {u_tile.u_tile.u_n00.x[55]} {u_tile.u_tile.u_n00.x[56]} {u_tile.u_tile.u_n00.x[57]} {u_tile.u_tile.u_n00.x[58]} {u_tile.u_tile.u_n00.x[59]} {u_tile.u_tile.u_n00.x[60]} {u_tile.u_tile.u_n00.x[61]} {u_tile.u_tile.u_n00.x[62]} {u_tile.u_tile.u_n00.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-04 -duty 0.4781; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-04 -duty 0.4781; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.total[0]} {u_tile.u_tile.u_n00.total[1]} {u_tile.u_tile.u_n00.total[2]} {u_tile.u_tile.u_n00.total[3]} {u_tile.u_tile.u_n00.total[4]} {u_tile.u_tile.u_n00.total[5]} {u_tile.u_tile.u_n00.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.680335e-05 -duty 0.4662; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.396664e-05 -duty 0.4662; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc10[0]} {u_tile.u_tile.u_n00.pc10[1]} {u_tile.u_tile.u_n00.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0006; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0006; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc09[0]} {u_tile.u_tile.u_n00.pc09[1]} {u_tile.u_tile.u_n00.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc08[0]} {u_tile.u_tile.u_n00.pc08[1]} {u_tile.u_tile.u_n00.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc07[0]} {u_tile.u_tile.u_n00.pc07[1]} {u_tile.u_tile.u_n00.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.548448e-04 -duty 0.4774; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.343114e-04 -duty 0.4773; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc06[0]} {u_tile.u_tile.u_n00.pc06[1]} {u_tile.u_tile.u_n00.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.3370; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.3370; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc05[0]} {u_tile.u_tile.u_n00.pc05[1]} {u_tile.u_tile.u_n00.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.4679; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.4678; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc04[0]} {u_tile.u_tile.u_n00.pc04[1]} {u_tile.u_tile.u_n00.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.449006e-04 -duty 0.4204; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.256859e-04 -duty 0.4204; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc03[0]} {u_tile.u_tile.u_n00.pc03[1]} {u_tile.u_tile.u_n00.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4853; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4853; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc02[0]} {u_tile.u_tile.u_n00.pc02[1]} {u_tile.u_tile.u_n00.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.789949e-04 -duty 0.5415; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.552591e-04 -duty 0.5416; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc01[0]} {u_tile.u_tile.u_n00.pc01[1]} {u_tile.u_tile.u_n00.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.4883; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.4883; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.pc00[0]} {u_tile.u_tile.u_n00.pc00[1]} {u_tile.u_tile.u_n00.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392182e-04 -duty 0.5385; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.207571e-04 -duty 0.5386; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u00.m[0]} {u_tile.u_tile.u_n00.u00.m[1]} {u_tile.u_tile.u_n00.u00.m[2]} {u_tile.u_tile.u_n00.u00.m[3]} {u_tile.u_tile.u_n00.u00.m[4]} {u_tile.u_tile.u_n00.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.200402e-04 -duty 0.5568; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.041222e-04 -duty 0.5567; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u00.w[0]} {u_tile.u_tile.u_n00.u00.w[1]} {u_tile.u_tile.u_n00.u00.w[2]} {u_tile.u_tile.u_n00.u00.w[3]} {u_tile.u_tile.u_n00.u00.w[4]} {u_tile.u_tile.u_n00.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.129372e-04 -duty 0.3858; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.796108e-05 -duty 0.3859; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u00.x[0]} {u_tile.u_tile.u_n00.u00.x[1]} {u_tile.u_tile.u_n00.u00.x[2]} {u_tile.u_tile.u_n00.u00.x[3]} {u_tile.u_tile.u_n00.u00.x[4]} {u_tile.u_tile.u_n00.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u00.pc[0]} {u_tile.u_tile.u_n00.u00.pc[1]} {u_tile.u_tile.u_n00.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392182e-04 -duty 0.5385; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.207571e-04 -duty 0.5386; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u01.m[0]} {u_tile.u_tile.u_n00.u01.m[1]} {u_tile.u_tile.u_n00.u01.m[2]} {u_tile.u_tile.u_n00.u01.m[3]} {u_tile.u_tile.u_n00.u01.m[4]} {u_tile.u_tile.u_n00.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.768640e-04 -duty 0.5953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.534107e-04 -duty 0.5954; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u01.w[0]} {u_tile.u_tile.u_n00.u01.w[1]} {u_tile.u_tile.u_n00.u01.w[2]} {u_tile.u_tile.u_n00.u01.w[3]} {u_tile.u_tile.u_n00.u01.w[4]} {u_tile.u_tile.u_n00.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.4166; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.4165; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u01.x[0]} {u_tile.u_tile.u_n00.u01.x[1]} {u_tile.u_tile.u_n00.u01.x[2]} {u_tile.u_tile.u_n00.u01.x[3]} {u_tile.u_tile.u_n00.u01.x[4]} {u_tile.u_tile.u_n00.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u01.pc[0]} {u_tile.u_tile.u_n00.u01.pc[1]} {u_tile.u_tile.u_n00.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.4883; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.4883; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u02.m[0]} {u_tile.u_tile.u_n00.u02.m[1]} {u_tile.u_tile.u_n00.u02.m[2]} {u_tile.u_tile.u_n00.u02.m[3]} {u_tile.u_tile.u_n00.u02.m[4]} {u_tile.u_tile.u_n00.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.839669e-04 -duty 0.6041; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.595718e-04 -duty 0.6043; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u02.w[0]} {u_tile.u_tile.u_n00.u02.w[1]} {u_tile.u_tile.u_n00.u02.w[2]} {u_tile.u_tile.u_n00.u02.w[3]} {u_tile.u_tile.u_n00.u02.w[4]} {u_tile.u_tile.u_n00.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.4648; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.4647; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u02.x[0]} {u_tile.u_tile.u_n00.u02.x[1]} {u_tile.u_tile.u_n00.u02.x[2]} {u_tile.u_tile.u_n00.u02.x[3]} {u_tile.u_tile.u_n00.u02.x[4]} {u_tile.u_tile.u_n00.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u02.pc[0]} {u_tile.u_tile.u_n00.u02.pc[1]} {u_tile.u_tile.u_n00.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.789949e-04 -duty 0.5415; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.552591e-04 -duty 0.5416; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u03.m[0]} {u_tile.u_tile.u_n00.u03.m[1]} {u_tile.u_tile.u_n00.u03.m[2]} {u_tile.u_tile.u_n00.u03.m[3]} {u_tile.u_tile.u_n00.u03.m[4]} {u_tile.u_tile.u_n00.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-04 -duty 0.6219; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-04 -duty 0.6220; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u03.w[0]} {u_tile.u_tile.u_n00.u03.w[1]} {u_tile.u_tile.u_n00.u03.w[2]} {u_tile.u_tile.u_n00.u03.w[3]} {u_tile.u_tile.u_n00.u03.w[4]} {u_tile.u_tile.u_n00.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.598168e-04 -duty 0.4814; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.386242e-04 -duty 0.4814; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u03.x[0]} {u_tile.u_tile.u_n00.u03.x[1]} {u_tile.u_tile.u_n00.u03.x[2]} {u_tile.u_tile.u_n00.u03.x[3]} {u_tile.u_tile.u_n00.u03.x[4]} {u_tile.u_tile.u_n00.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u03.pc[0]} {u_tile.u_tile.u_n00.u03.pc[1]} {u_tile.u_tile.u_n00.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4853; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4853; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u04.m[0]} {u_tile.u_tile.u_n00.u04.m[1]} {u_tile.u_tile.u_n00.u04.m[2]} {u_tile.u_tile.u_n00.u04.m[3]} {u_tile.u_tile.u_n00.u04.m[4]} {u_tile.u_tile.u_n00.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.569757e-04 -duty 0.4317; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.361597e-04 -duty 0.4316; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u04.w[0]} {u_tile.u_tile.u_n00.u04.w[1]} {u_tile.u_tile.u_n00.u04.w[2]} {u_tile.u_tile.u_n00.u04.w[3]} {u_tile.u_tile.u_n00.u04.w[4]} {u_tile.u_tile.u_n00.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.3446; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.3445; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u04.x[0]} {u_tile.u_tile.u_n00.u04.x[1]} {u_tile.u_tile.u_n00.u04.x[2]} {u_tile.u_tile.u_n00.u04.x[3]} {u_tile.u_tile.u_n00.u04.x[4]} {u_tile.u_tile.u_n00.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u04.pc[0]} {u_tile.u_tile.u_n00.u04.pc[1]} {u_tile.u_tile.u_n00.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.449006e-04 -duty 0.4204; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.256859e-04 -duty 0.4204; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u05.m[0]} {u_tile.u_tile.u_n00.u05.m[1]} {u_tile.u_tile.u_n00.u05.m[2]} {u_tile.u_tile.u_n00.u05.m[3]} {u_tile.u_tile.u_n00.u05.m[4]} {u_tile.u_tile.u_n00.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.258745e-04 -duty 0.5451; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.959222e-04 -duty 0.5451; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u05.w[0]} {u_tile.u_tile.u_n00.u05.w[1]} {u_tile.u_tile.u_n00.u05.w[2]} {u_tile.u_tile.u_n00.u05.w[3]} {u_tile.u_tile.u_n00.u05.w[4]} {u_tile.u_tile.u_n00.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.038553e-04 -duty 0.3284; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.768228e-04 -duty 0.3282; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u05.x[0]} {u_tile.u_tile.u_n00.u05.x[1]} {u_tile.u_tile.u_n00.u05.x[2]} {u_tile.u_tile.u_n00.u05.x[3]} {u_tile.u_tile.u_n00.u05.x[4]} {u_tile.u_tile.u_n00.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u05.pc[0]} {u_tile.u_tile.u_n00.u05.pc[1]} {u_tile.u_tile.u_n00.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.4679; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.4678; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u06.m[0]} {u_tile.u_tile.u_n00.u06.m[1]} {u_tile.u_tile.u_n00.u06.m[2]} {u_tile.u_tile.u_n00.u06.m[3]} {u_tile.u_tile.u_n00.u06.m[4]} {u_tile.u_tile.u_n00.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.399285e-04 -duty 0.2813; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.213732e-04 -duty 0.2813; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u06.w[0]} {u_tile.u_tile.u_n00.u06.w[1]} {u_tile.u_tile.u_n00.u06.w[2]} {u_tile.u_tile.u_n00.u06.w[3]} {u_tile.u_tile.u_n00.u06.w[4]} {u_tile.u_tile.u_n00.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.150681e-04 -duty 0.3931; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.980940e-05 -duty 0.3931; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u06.x[0]} {u_tile.u_tile.u_n00.u06.x[1]} {u_tile.u_tile.u_n00.u06.x[2]} {u_tile.u_tile.u_n00.u06.x[3]} {u_tile.u_tile.u_n00.u06.x[4]} {u_tile.u_tile.u_n00.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u06.pc[0]} {u_tile.u_tile.u_n00.u06.pc[1]} {u_tile.u_tile.u_n00.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.3370; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.3370; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u07.m[0]} {u_tile.u_tile.u_n00.u07.m[1]} {u_tile.u_tile.u_n00.u07.m[2]} {u_tile.u_tile.u_n00.u07.m[3]} {u_tile.u_tile.u_n00.u07.m[4]} {u_tile.u_tile.u_n00.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.5721; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.5721; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u07.w[0]} {u_tile.u_tile.u_n00.u07.w[1]} {u_tile.u_tile.u_n00.u07.w[2]} {u_tile.u_tile.u_n00.u07.w[3]} {u_tile.u_tile.u_n00.u07.w[4]} {u_tile.u_tile.u_n00.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.3929; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.3929; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u07.x[0]} {u_tile.u_tile.u_n00.u07.x[1]} {u_tile.u_tile.u_n00.u07.x[2]} {u_tile.u_tile.u_n00.u07.x[3]} {u_tile.u_tile.u_n00.u07.x[4]} {u_tile.u_tile.u_n00.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u07.pc[0]} {u_tile.u_tile.u_n00.u07.pc[1]} {u_tile.u_tile.u_n00.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.548448e-04 -duty 0.4774; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.343114e-04 -duty 0.4773; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u08.m[0]} {u_tile.u_tile.u_n00.u08.m[1]} {u_tile.u_tile.u_n00.u08.m[2]} {u_tile.u_tile.u_n00.u08.m[3]} {u_tile.u_tile.u_n00.u08.m[4]} {u_tile.u_tile.u_n00.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u08.w[0]} {u_tile.u_tile.u_n00.u08.w[1]} {u_tile.u_tile.u_n00.u08.w[2]} {u_tile.u_tile.u_n00.u08.w[3]} {u_tile.u_tile.u_n00.u08.w[4]} {u_tile.u_tile.u_n00.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u08.pc[0]} {u_tile.u_tile.u_n00.u08.pc[1]} {u_tile.u_tile.u_n00.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u09.m[0]} {u_tile.u_tile.u_n00.u09.m[1]} {u_tile.u_tile.u_n00.u09.m[2]} {u_tile.u_tile.u_n00.u09.m[3]} {u_tile.u_tile.u_n00.u09.m[4]} {u_tile.u_tile.u_n00.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u09.w[0]} {u_tile.u_tile.u_n00.u09.w[1]} {u_tile.u_tile.u_n00.u09.w[2]} {u_tile.u_tile.u_n00.u09.w[3]} {u_tile.u_tile.u_n00.u09.w[4]} {u_tile.u_tile.u_n00.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u09.pc[0]} {u_tile.u_tile.u_n00.u09.pc[1]} {u_tile.u_tile.u_n00.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u10.m[0]} {u_tile.u_tile.u_n00.u10.m[1]} {u_tile.u_tile.u_n00.u10.m[2]} {u_tile.u_tile.u_n00.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u10.w[0]} {u_tile.u_tile.u_n00.u10.w[1]} {u_tile.u_tile.u_n00.u10.w[2]} {u_tile.u_tile.u_n00.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n00.u10.pc[0]} {u_tile.u_tile.u_n00.u10.pc[1]} {u_tile.u_tile.u_n00.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0006; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0006; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.threshold[0]} {u_tile.u_tile.u_n01.threshold[1]} {u_tile.u_tile.u_n01.threshold[2]} {u_tile.u_tile.u_n01.threshold[3]} {u_tile.u_tile.u_n01.threshold[4]} {u_tile.u_tile.u_n01.threshold[5]} {u_tile.u_tile.u_n01.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.079135e-05 -duty 0.4126; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.538217e-05 -duty 0.4126; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.w[0]} {u_tile.u_tile.u_n01.w[1]} {u_tile.u_tile.u_n01.w[2]} {u_tile.u_tile.u_n01.w[3]} {u_tile.u_tile.u_n01.w[4]} {u_tile.u_tile.u_n01.w[5]} {u_tile.u_tile.u_n01.w[6]} {u_tile.u_tile.u_n01.w[7]} {u_tile.u_tile.u_n01.w[8]} {u_tile.u_tile.u_n01.w[9]} {u_tile.u_tile.u_n01.w[10]} {u_tile.u_tile.u_n01.w[11]} {u_tile.u_tile.u_n01.w[12]} {u_tile.u_tile.u_n01.w[13]} {u_tile.u_tile.u_n01.w[14]} {u_tile.u_tile.u_n01.w[15]} {u_tile.u_tile.u_n01.w[16]} {u_tile.u_tile.u_n01.w[17]} {u_tile.u_tile.u_n01.w[18]} {u_tile.u_tile.u_n01.w[19]} {u_tile.u_tile.u_n01.w[20]} {u_tile.u_tile.u_n01.w[21]} {u_tile.u_tile.u_n01.w[22]} {u_tile.u_tile.u_n01.w[23]} {u_tile.u_tile.u_n01.w[24]} {u_tile.u_tile.u_n01.w[25]} {u_tile.u_tile.u_n01.w[26]} {u_tile.u_tile.u_n01.w[27]} {u_tile.u_tile.u_n01.w[28]} {u_tile.u_tile.u_n01.w[29]} {u_tile.u_tile.u_n01.w[30]} {u_tile.u_tile.u_n01.w[31]} {u_tile.u_tile.u_n01.w[32]} {u_tile.u_tile.u_n01.w[33]} {u_tile.u_tile.u_n01.w[34]} {u_tile.u_tile.u_n01.w[35]} {u_tile.u_tile.u_n01.w[36]} {u_tile.u_tile.u_n01.w[37]} {u_tile.u_tile.u_n01.w[38]} {u_tile.u_tile.u_n01.w[39]} {u_tile.u_tile.u_n01.w[40]} {u_tile.u_tile.u_n01.w[41]} {u_tile.u_tile.u_n01.w[42]} {u_tile.u_tile.u_n01.w[43]} {u_tile.u_tile.u_n01.w[44]} {u_tile.u_tile.u_n01.w[45]} {u_tile.u_tile.u_n01.w[46]} {u_tile.u_tile.u_n01.w[47]} {u_tile.u_tile.u_n01.w[48]} {u_tile.u_tile.u_n01.w[49]} {u_tile.u_tile.u_n01.w[50]} {u_tile.u_tile.u_n01.w[51]} {u_tile.u_tile.u_n01.w[52]} {u_tile.u_tile.u_n01.w[53]} {u_tile.u_tile.u_n01.w[54]} {u_tile.u_tile.u_n01.w[55]} {u_tile.u_tile.u_n01.w[56]} {u_tile.u_tile.u_n01.w[57]} {u_tile.u_tile.u_n01.w[58]} {u_tile.u_tile.u_n01.w[59]} {u_tile.u_tile.u_n01.w[60]} {u_tile.u_tile.u_n01.w[61]} {u_tile.u_tile.u_n01.w[62]} {u_tile.u_tile.u_n01.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.013505e-04 -duty 0.5862; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.791083e-05 -duty 0.5863; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.x[0]} {u_tile.u_tile.u_n01.x[1]} {u_tile.u_tile.u_n01.x[2]} {u_tile.u_tile.u_n01.x[3]} {u_tile.u_tile.u_n01.x[4]} {u_tile.u_tile.u_n01.x[5]} {u_tile.u_tile.u_n01.x[6]} {u_tile.u_tile.u_n01.x[7]} {u_tile.u_tile.u_n01.x[8]} {u_tile.u_tile.u_n01.x[9]} {u_tile.u_tile.u_n01.x[10]} {u_tile.u_tile.u_n01.x[11]} {u_tile.u_tile.u_n01.x[12]} {u_tile.u_tile.u_n01.x[13]} {u_tile.u_tile.u_n01.x[14]} {u_tile.u_tile.u_n01.x[15]} {u_tile.u_tile.u_n01.x[16]} {u_tile.u_tile.u_n01.x[17]} {u_tile.u_tile.u_n01.x[18]} {u_tile.u_tile.u_n01.x[19]} {u_tile.u_tile.u_n01.x[20]} {u_tile.u_tile.u_n01.x[21]} {u_tile.u_tile.u_n01.x[22]} {u_tile.u_tile.u_n01.x[23]} {u_tile.u_tile.u_n01.x[24]} {u_tile.u_tile.u_n01.x[25]} {u_tile.u_tile.u_n01.x[26]} {u_tile.u_tile.u_n01.x[27]} {u_tile.u_tile.u_n01.x[28]} {u_tile.u_tile.u_n01.x[29]} {u_tile.u_tile.u_n01.x[30]} {u_tile.u_tile.u_n01.x[31]} {u_tile.u_tile.u_n01.x[32]} {u_tile.u_tile.u_n01.x[33]} {u_tile.u_tile.u_n01.x[34]} {u_tile.u_tile.u_n01.x[35]} {u_tile.u_tile.u_n01.x[36]} {u_tile.u_tile.u_n01.x[37]} {u_tile.u_tile.u_n01.x[38]} {u_tile.u_tile.u_n01.x[39]} {u_tile.u_tile.u_n01.x[40]} {u_tile.u_tile.u_n01.x[41]} {u_tile.u_tile.u_n01.x[42]} {u_tile.u_tile.u_n01.x[43]} {u_tile.u_tile.u_n01.x[44]} {u_tile.u_tile.u_n01.x[45]} {u_tile.u_tile.u_n01.x[46]} {u_tile.u_tile.u_n01.x[47]} {u_tile.u_tile.u_n01.x[48]} {u_tile.u_tile.u_n01.x[49]} {u_tile.u_tile.u_n01.x[50]} {u_tile.u_tile.u_n01.x[51]} {u_tile.u_tile.u_n01.x[52]} {u_tile.u_tile.u_n01.x[53]} {u_tile.u_tile.u_n01.x[54]} {u_tile.u_tile.u_n01.x[55]} {u_tile.u_tile.u_n01.x[56]} {u_tile.u_tile.u_n01.x[57]} {u_tile.u_tile.u_n01.x[58]} {u_tile.u_tile.u_n01.x[59]} {u_tile.u_tile.u_n01.x[60]} {u_tile.u_tile.u_n01.x[61]} {u_tile.u_tile.u_n01.x[62]} {u_tile.u_tile.u_n01.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.130891e-04 -duty 0.4784; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.848322e-04 -duty 0.4784; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.total[0]} {u_tile.u_tile.u_n01.total[1]} {u_tile.u_tile.u_n01.total[2]} {u_tile.u_tile.u_n01.total[3]} {u_tile.u_tile.u_n01.total[4]} {u_tile.u_tile.u_n01.total[5]} {u_tile.u_tile.u_n01.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.497687e-05 -duty 0.4195; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.238236e-05 -duty 0.4195; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc10[0]} {u_tile.u_tile.u_n01.pc10[1]} {u_tile.u_tile.u_n01.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0007; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0007; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc09[0]} {u_tile.u_tile.u_n01.pc09[1]} {u_tile.u_tile.u_n01.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0014; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0014; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc08[0]} {u_tile.u_tile.u_n01.pc08[1]} {u_tile.u_tile.u_n01.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.0493; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.0492; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc07[0]} {u_tile.u_tile.u_n01.pc07[1]} {u_tile.u_tile.u_n01.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.517981e-05 -duty 0.4476; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.255839e-05 -duty 0.4475; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc06[0]} {u_tile.u_tile.u_n01.pc06[1]} {u_tile.u_tile.u_n01.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.517981e-05 -duty 0.4448; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.255839e-05 -duty 0.4447; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc05[0]} {u_tile.u_tile.u_n01.pc05[1]} {u_tile.u_tile.u_n01.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.988832e-04 -duty 0.4984; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.725101e-04 -duty 0.4984; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc04[0]} {u_tile.u_tile.u_n01.pc04[1]} {u_tile.u_tile.u_n01.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.264329e-04 -duty 0.4831; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.096671e-04 -duty 0.4831; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc03[0]} {u_tile.u_tile.u_n01.pc03[1]} {u_tile.u_tile.u_n01.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-04 -duty 0.5303; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-04 -duty 0.5303; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc02[0]} {u_tile.u_tile.u_n01.pc02[1]} {u_tile.u_tile.u_n01.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.187715e-04 -duty 0.4884; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.897611e-04 -duty 0.4884; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc01[0]} {u_tile.u_tile.u_n01.pc01[1]} {u_tile.u_tile.u_n01.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.406388e-04 -duty 0.4466; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.219893e-04 -duty 0.4467; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.pc00[0]} {u_tile.u_tile.u_n01.pc00[1]} {u_tile.u_tile.u_n01.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.321153e-04 -duty 0.4573; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.145960e-04 -duty 0.4571; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u00.m[0]} {u_tile.u_tile.u_n01.u00.m[1]} {u_tile.u_tile.u_n01.u00.m[2]} {u_tile.u_tile.u_n01.u00.m[3]} {u_tile.u_tile.u_n01.u00.m[4]} {u_tile.u_tile.u_n01.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.889390e-04 -duty 0.5444; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.638846e-04 -duty 0.5444; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u00.w[0]} {u_tile.u_tile.u_n01.u00.w[1]} {u_tile.u_tile.u_n01.u00.w[2]} {u_tile.u_tile.u_n01.u00.w[3]} {u_tile.u_tile.u_n01.u00.w[4]} {u_tile.u_tile.u_n01.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.3929; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.3929; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u00.x[0]} {u_tile.u_tile.u_n01.u00.x[1]} {u_tile.u_tile.u_n01.u00.x[2]} {u_tile.u_tile.u_n01.u00.x[3]} {u_tile.u_tile.u_n01.u00.x[4]} {u_tile.u_tile.u_n01.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u00.pc[0]} {u_tile.u_tile.u_n01.u00.pc[1]} {u_tile.u_tile.u_n01.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.321153e-04 -duty 0.4573; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.145960e-04 -duty 0.4571; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u01.m[0]} {u_tile.u_tile.u_n01.u01.m[1]} {u_tile.u_tile.u_n01.u01.m[2]} {u_tile.u_tile.u_n01.u01.m[3]} {u_tile.u_tile.u_n01.u01.m[4]} {u_tile.u_tile.u_n01.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.292741e-04 -duty 0.4819; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.121315e-04 -duty 0.4821; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u01.w[0]} {u_tile.u_tile.u_n01.u01.w[1]} {u_tile.u_tile.u_n01.u01.w[2]} {u_tile.u_tile.u_n01.u01.w[3]} {u_tile.u_tile.u_n01.u01.w[4]} {u_tile.u_tile.u_n01.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.129372e-04 -duty 0.2802; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.796108e-05 -duty 0.2801; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u01.x[0]} {u_tile.u_tile.u_n01.u01.x[1]} {u_tile.u_tile.u_n01.u01.x[2]} {u_tile.u_tile.u_n01.u01.x[3]} {u_tile.u_tile.u_n01.u01.x[4]} {u_tile.u_tile.u_n01.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u01.pc[0]} {u_tile.u_tile.u_n01.u01.pc[1]} {u_tile.u_tile.u_n01.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.406388e-04 -duty 0.4466; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.219893e-04 -duty 0.4467; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u02.m[0]} {u_tile.u_tile.u_n01.u02.m[1]} {u_tile.u_tile.u_n01.u02.m[2]} {u_tile.u_tile.u_n01.u02.m[3]} {u_tile.u_tile.u_n01.u02.m[4]} {u_tile.u_tile.u_n01.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.839669e-04 -duty 0.4874; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.595718e-04 -duty 0.4873; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u02.w[0]} {u_tile.u_tile.u_n01.u02.w[1]} {u_tile.u_tile.u_n01.u02.w[2]} {u_tile.u_tile.u_n01.u02.w[3]} {u_tile.u_tile.u_n01.u02.w[4]} {u_tile.u_tile.u_n01.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.7236; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.7239; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u02.x[0]} {u_tile.u_tile.u_n01.u02.x[1]} {u_tile.u_tile.u_n01.u02.x[2]} {u_tile.u_tile.u_n01.u02.x[3]} {u_tile.u_tile.u_n01.u02.x[4]} {u_tile.u_tile.u_n01.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u02.pc[0]} {u_tile.u_tile.u_n01.u02.pc[1]} {u_tile.u_tile.u_n01.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.187715e-04 -duty 0.4884; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.897611e-04 -duty 0.4884; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u03.m[0]} {u_tile.u_tile.u_n01.u03.m[1]} {u_tile.u_tile.u_n01.u03.m[2]} {u_tile.u_tile.u_n01.u03.m[3]} {u_tile.u_tile.u_n01.u03.m[4]} {u_tile.u_tile.u_n01.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.789949e-04 -duty 0.5788; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.552591e-04 -duty 0.5788; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u03.w[0]} {u_tile.u_tile.u_n01.u03.w[1]} {u_tile.u_tile.u_n01.u03.w[2]} {u_tile.u_tile.u_n01.u03.w[3]} {u_tile.u_tile.u_n01.u03.w[4]} {u_tile.u_tile.u_n01.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.612374e-04 -duty 0.6348; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.398564e-04 -duty 0.6350; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u03.x[0]} {u_tile.u_tile.u_n01.u03.x[1]} {u_tile.u_tile.u_n01.u03.x[2]} {u_tile.u_tile.u_n01.u03.x[3]} {u_tile.u_tile.u_n01.u03.x[4]} {u_tile.u_tile.u_n01.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u03.pc[0]} {u_tile.u_tile.u_n01.u03.pc[1]} {u_tile.u_tile.u_n01.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-04 -duty 0.5303; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-04 -duty 0.5303; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u04.m[0]} {u_tile.u_tile.u_n01.u04.m[1]} {u_tile.u_tile.u_n01.u04.m[2]} {u_tile.u_tile.u_n01.u04.m[3]} {u_tile.u_tile.u_n01.u04.m[4]} {u_tile.u_tile.u_n01.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.676793e-05 -duty 0.4550; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.791410e-05 -duty 0.4551; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u04.w[0]} {u_tile.u_tile.u_n01.u04.w[1]} {u_tile.u_tile.u_n01.u04.w[2]} {u_tile.u_tile.u_n01.u04.w[3]} {u_tile.u_tile.u_n01.u04.w[4]} {u_tile.u_tile.u_n01.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.616931e-05 -duty 0.4532; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.004698e-05 -duty 0.4532; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u04.x[0]} {u_tile.u_tile.u_n01.u04.x[1]} {u_tile.u_tile.u_n01.u04.x[2]} {u_tile.u_tile.u_n01.u04.x[3]} {u_tile.u_tile.u_n01.u04.x[4]} {u_tile.u_tile.u_n01.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u04.pc[0]} {u_tile.u_tile.u_n01.u04.pc[1]} {u_tile.u_tile.u_n01.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.264329e-04 -duty 0.4831; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.096671e-04 -duty 0.4831; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u05.m[0]} {u_tile.u_tile.u_n01.u05.m[1]} {u_tile.u_tile.u_n01.u05.m[2]} {u_tile.u_tile.u_n01.u05.m[3]} {u_tile.u_tile.u_n01.u05.m[4]} {u_tile.u_tile.u_n01.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.5648; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.5647; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u05.w[0]} {u_tile.u_tile.u_n01.u05.w[1]} {u_tile.u_tile.u_n01.u05.w[2]} {u_tile.u_tile.u_n01.u05.w[3]} {u_tile.u_tile.u_n01.u05.w[4]} {u_tile.u_tile.u_n01.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.1676; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.1675; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u05.x[0]} {u_tile.u_tile.u_n01.u05.x[1]} {u_tile.u_tile.u_n01.u05.x[2]} {u_tile.u_tile.u_n01.u05.x[3]} {u_tile.u_tile.u_n01.u05.x[4]} {u_tile.u_tile.u_n01.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u05.pc[0]} {u_tile.u_tile.u_n01.u05.pc[1]} {u_tile.u_tile.u_n01.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.988832e-04 -duty 0.4984; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.725101e-04 -duty 0.4984; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u06.m[0]} {u_tile.u_tile.u_n01.u06.m[1]} {u_tile.u_tile.u_n01.u06.m[2]} {u_tile.u_tile.u_n01.u06.m[3]} {u_tile.u_tile.u_n01.u06.m[4]} {u_tile.u_tile.u_n01.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.157784e-04 -duty 0.5359; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.004255e-04 -duty 0.5358; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u06.w[0]} {u_tile.u_tile.u_n01.u06.w[1]} {u_tile.u_tile.u_n01.u06.w[2]} {u_tile.u_tile.u_n01.u06.w[3]} {u_tile.u_tile.u_n01.u06.w[4]} {u_tile.u_tile.u_n01.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.091803e-05 -duty 0.3659; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.886175e-05 -duty 0.3658; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u06.x[0]} {u_tile.u_tile.u_n01.u06.x[1]} {u_tile.u_tile.u_n01.u06.x[2]} {u_tile.u_tile.u_n01.u06.x[3]} {u_tile.u_tile.u_n01.u06.x[4]} {u_tile.u_tile.u_n01.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u06.pc[0]} {u_tile.u_tile.u_n01.u06.pc[1]} {u_tile.u_tile.u_n01.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.517981e-05 -duty 0.4448; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.255839e-05 -duty 0.4447; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u07.m[0]} {u_tile.u_tile.u_n01.u07.m[1]} {u_tile.u_tile.u_n01.u07.m[2]} {u_tile.u_tile.u_n01.u07.m[3]} {u_tile.u_tile.u_n01.u07.m[4]} {u_tile.u_tile.u_n01.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.754434e-04 -duty 0.3562; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.521785e-04 -duty 0.3561; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u07.w[0]} {u_tile.u_tile.u_n01.u07.w[1]} {u_tile.u_tile.u_n01.u07.w[2]} {u_tile.u_tile.u_n01.u07.w[3]} {u_tile.u_tile.u_n01.u07.w[4]} {u_tile.u_tile.u_n01.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.6830; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.6831; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u07.x[0]} {u_tile.u_tile.u_n01.u07.x[1]} {u_tile.u_tile.u_n01.u07.x[2]} {u_tile.u_tile.u_n01.u07.x[3]} {u_tile.u_tile.u_n01.u07.x[4]} {u_tile.u_tile.u_n01.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u07.pc[0]} {u_tile.u_tile.u_n01.u07.pc[1]} {u_tile.u_tile.u_n01.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.517981e-05 -duty 0.4476; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.255839e-05 -duty 0.4475; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u08.m[0]} {u_tile.u_tile.u_n01.u08.m[1]} {u_tile.u_tile.u_n01.u08.m[2]} {u_tile.u_tile.u_n01.u08.m[3]} {u_tile.u_tile.u_n01.u08.m[4]} {u_tile.u_tile.u_n01.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.699129e-05 -duty 0.0261; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.341208e-05 -duty 0.0260; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u08.w[0]} {u_tile.u_tile.u_n01.u08.w[1]} {u_tile.u_tile.u_n01.u08.w[2]} {u_tile.u_tile.u_n01.u08.w[3]} {u_tile.u_tile.u_n01.u08.w[4]} {u_tile.u_tile.u_n01.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.699129e-05 -duty 0.9302; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.341208e-05 -duty 0.9303; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u08.pc[0]} {u_tile.u_tile.u_n01.u08.pc[1]} {u_tile.u_tile.u_n01.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.0493; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.0492; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u09.m[0]} {u_tile.u_tile.u_n01.u09.m[1]} {u_tile.u_tile.u_n01.u09.m[2]} {u_tile.u_tile.u_n01.u09.m[3]} {u_tile.u_tile.u_n01.u09.m[4]} {u_tile.u_tile.u_n01.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0022; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u09.w[0]} {u_tile.u_tile.u_n01.u09.w[1]} {u_tile.u_tile.u_n01.u09.w[2]} {u_tile.u_tile.u_n01.u09.w[3]} {u_tile.u_tile.u_n01.u09.w[4]} {u_tile.u_tile.u_n01.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u09.pc[0]} {u_tile.u_tile.u_n01.u09.pc[1]} {u_tile.u_tile.u_n01.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0014; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0014; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u10.m[0]} {u_tile.u_tile.u_n01.u10.m[1]} {u_tile.u_tile.u_n01.u10.m[2]} {u_tile.u_tile.u_n01.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0022; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u10.w[0]} {u_tile.u_tile.u_n01.u10.w[1]} {u_tile.u_tile.u_n01.u10.w[2]} {u_tile.u_tile.u_n01.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n01.u10.pc[0]} {u_tile.u_tile.u_n01.u10.pc[1]} {u_tile.u_tile.u_n01.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0007; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0007; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.threshold[0]} {u_tile.u_tile.u_n02.threshold[1]} {u_tile.u_tile.u_n02.threshold[2]} {u_tile.u_tile.u_n02.threshold[3]} {u_tile.u_tile.u_n02.threshold[4]} {u_tile.u_tile.u_n02.threshold[5]} {u_tile.u_tile.u_n02.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.162858e-04 -duty 0.4130; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.008656e-04 -duty 0.4130; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.w[0]} {u_tile.u_tile.u_n02.w[1]} {u_tile.u_tile.u_n02.w[2]} {u_tile.u_tile.u_n02.w[3]} {u_tile.u_tile.u_n02.w[4]} {u_tile.u_tile.u_n02.w[5]} {u_tile.u_tile.u_n02.w[6]} {u_tile.u_tile.u_n02.w[7]} {u_tile.u_tile.u_n02.w[8]} {u_tile.u_tile.u_n02.w[9]} {u_tile.u_tile.u_n02.w[10]} {u_tile.u_tile.u_n02.w[11]} {u_tile.u_tile.u_n02.w[12]} {u_tile.u_tile.u_n02.w[13]} {u_tile.u_tile.u_n02.w[14]} {u_tile.u_tile.u_n02.w[15]} {u_tile.u_tile.u_n02.w[16]} {u_tile.u_tile.u_n02.w[17]} {u_tile.u_tile.u_n02.w[18]} {u_tile.u_tile.u_n02.w[19]} {u_tile.u_tile.u_n02.w[20]} {u_tile.u_tile.u_n02.w[21]} {u_tile.u_tile.u_n02.w[22]} {u_tile.u_tile.u_n02.w[23]} {u_tile.u_tile.u_n02.w[24]} {u_tile.u_tile.u_n02.w[25]} {u_tile.u_tile.u_n02.w[26]} {u_tile.u_tile.u_n02.w[27]} {u_tile.u_tile.u_n02.w[28]} {u_tile.u_tile.u_n02.w[29]} {u_tile.u_tile.u_n02.w[30]} {u_tile.u_tile.u_n02.w[31]} {u_tile.u_tile.u_n02.w[32]} {u_tile.u_tile.u_n02.w[33]} {u_tile.u_tile.u_n02.w[34]} {u_tile.u_tile.u_n02.w[35]} {u_tile.u_tile.u_n02.w[36]} {u_tile.u_tile.u_n02.w[37]} {u_tile.u_tile.u_n02.w[38]} {u_tile.u_tile.u_n02.w[39]} {u_tile.u_tile.u_n02.w[40]} {u_tile.u_tile.u_n02.w[41]} {u_tile.u_tile.u_n02.w[42]} {u_tile.u_tile.u_n02.w[43]} {u_tile.u_tile.u_n02.w[44]} {u_tile.u_tile.u_n02.w[45]} {u_tile.u_tile.u_n02.w[46]} {u_tile.u_tile.u_n02.w[47]} {u_tile.u_tile.u_n02.w[48]} {u_tile.u_tile.u_n02.w[49]} {u_tile.u_tile.u_n02.w[50]} {u_tile.u_tile.u_n02.w[51]} {u_tile.u_tile.u_n02.w[52]} {u_tile.u_tile.u_n02.w[53]} {u_tile.u_tile.u_n02.w[54]} {u_tile.u_tile.u_n02.w[55]} {u_tile.u_tile.u_n02.w[56]} {u_tile.u_tile.u_n02.w[57]} {u_tile.u_tile.u_n02.w[58]} {u_tile.u_tile.u_n02.w[59]} {u_tile.u_tile.u_n02.w[60]} {u_tile.u_tile.u_n02.w[61]} {u_tile.u_tile.u_n02.w[62]} {u_tile.u_tile.u_n02.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.050130e-04 -duty 0.5402; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.108763e-05 -duty 0.5402; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.x[0]} {u_tile.u_tile.u_n02.x[1]} {u_tile.u_tile.u_n02.x[2]} {u_tile.u_tile.u_n02.x[3]} {u_tile.u_tile.u_n02.x[4]} {u_tile.u_tile.u_n02.x[5]} {u_tile.u_tile.u_n02.x[6]} {u_tile.u_tile.u_n02.x[7]} {u_tile.u_tile.u_n02.x[8]} {u_tile.u_tile.u_n02.x[9]} {u_tile.u_tile.u_n02.x[10]} {u_tile.u_tile.u_n02.x[11]} {u_tile.u_tile.u_n02.x[12]} {u_tile.u_tile.u_n02.x[13]} {u_tile.u_tile.u_n02.x[14]} {u_tile.u_tile.u_n02.x[15]} {u_tile.u_tile.u_n02.x[16]} {u_tile.u_tile.u_n02.x[17]} {u_tile.u_tile.u_n02.x[18]} {u_tile.u_tile.u_n02.x[19]} {u_tile.u_tile.u_n02.x[20]} {u_tile.u_tile.u_n02.x[21]} {u_tile.u_tile.u_n02.x[22]} {u_tile.u_tile.u_n02.x[23]} {u_tile.u_tile.u_n02.x[24]} {u_tile.u_tile.u_n02.x[25]} {u_tile.u_tile.u_n02.x[26]} {u_tile.u_tile.u_n02.x[27]} {u_tile.u_tile.u_n02.x[28]} {u_tile.u_tile.u_n02.x[29]} {u_tile.u_tile.u_n02.x[30]} {u_tile.u_tile.u_n02.x[31]} {u_tile.u_tile.u_n02.x[32]} {u_tile.u_tile.u_n02.x[33]} {u_tile.u_tile.u_n02.x[34]} {u_tile.u_tile.u_n02.x[35]} {u_tile.u_tile.u_n02.x[36]} {u_tile.u_tile.u_n02.x[37]} {u_tile.u_tile.u_n02.x[38]} {u_tile.u_tile.u_n02.x[39]} {u_tile.u_tile.u_n02.x[40]} {u_tile.u_tile.u_n02.x[41]} {u_tile.u_tile.u_n02.x[42]} {u_tile.u_tile.u_n02.x[43]} {u_tile.u_tile.u_n02.x[44]} {u_tile.u_tile.u_n02.x[45]} {u_tile.u_tile.u_n02.x[46]} {u_tile.u_tile.u_n02.x[47]} {u_tile.u_tile.u_n02.x[48]} {u_tile.u_tile.u_n02.x[49]} {u_tile.u_tile.u_n02.x[50]} {u_tile.u_tile.u_n02.x[51]} {u_tile.u_tile.u_n02.x[52]} {u_tile.u_tile.u_n02.x[53]} {u_tile.u_tile.u_n02.x[54]} {u_tile.u_tile.u_n02.x[55]} {u_tile.u_tile.u_n02.x[56]} {u_tile.u_tile.u_n02.x[57]} {u_tile.u_tile.u_n02.x[58]} {u_tile.u_tile.u_n02.x[59]} {u_tile.u_tile.u_n02.x[60]} {u_tile.u_tile.u_n02.x[61]} {u_tile.u_tile.u_n02.x[62]} {u_tile.u_tile.u_n02.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.983248e-04 -duty 0.5911; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.587651e-04 -duty 0.5912; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.total[0]} {u_tile.u_tile.u_n02.total[1]} {u_tile.u_tile.u_n02.total[2]} {u_tile.u_tile.u_n02.total[3]} {u_tile.u_tile.u_n02.total[4]} {u_tile.u_tile.u_n02.total[5]} {u_tile.u_tile.u_n02.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.077622e-04 -duty 0.4090; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.347230e-05 -duty 0.4090; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc10[0]} {u_tile.u_tile.u_n02.pc10[1]} {u_tile.u_tile.u_n02.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0008; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0008; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc09[0]} {u_tile.u_tile.u_n02.pc09[1]} {u_tile.u_tile.u_n02.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0017; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0016; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc08[0]} {u_tile.u_tile.u_n02.pc08[1]} {u_tile.u_tile.u_n02.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0017; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0016; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc07[0]} {u_tile.u_tile.u_n02.pc07[1]} {u_tile.u_tile.u_n02.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.505830e-04 -duty 0.5214; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306148e-04 -duty 0.5215; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc06[0]} {u_tile.u_tile.u_n02.pc06[1]} {u_tile.u_tile.u_n02.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.287157e-04 -duty 0.3821; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.983866e-04 -duty 0.3820; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc05[0]} {u_tile.u_tile.u_n02.pc05[1]} {u_tile.u_tile.u_n02.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.4566; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.4566; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc04[0]} {u_tile.u_tile.u_n02.pc04[1]} {u_tile.u_tile.u_n02.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.4952; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.4952; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc03[0]} {u_tile.u_tile.u_n02.pc03[1]} {u_tile.u_tile.u_n02.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.542864e-04 -duty 0.5101; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.205665e-04 -duty 0.5101; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc02[0]} {u_tile.u_tile.u_n02.pc02[1]} {u_tile.u_tile.u_n02.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.4707; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.4707; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc01[0]} {u_tile.u_tile.u_n02.pc01[1]} {u_tile.u_tile.u_n02.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.802100e-05 -duty 0.5183; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.502282e-05 -duty 0.5183; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.pc00[0]} {u_tile.u_tile.u_n02.pc00[1]} {u_tile.u_tile.u_n02.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.065446e-04 -duty 0.3857; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.241611e-05 -duty 0.3856; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u00.m[0]} {u_tile.u_tile.u_n02.u00.m[1]} {u_tile.u_tile.u_n02.u00.m[2]} {u_tile.u_tile.u_n02.u00.m[3]} {u_tile.u_tile.u_n02.u00.m[4]} {u_tile.u_tile.u_n02.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.434800e-04 -duty 0.3431; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.244537e-04 -duty 0.3431; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u00.w[0]} {u_tile.u_tile.u_n02.u00.w[1]} {u_tile.u_tile.u_n02.u00.w[2]} {u_tile.u_tile.u_n02.u00.w[3]} {u_tile.u_tile.u_n02.u00.w[4]} {u_tile.u_tile.u_n02.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.6419; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.6419; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u00.x[0]} {u_tile.u_tile.u_n02.u00.x[1]} {u_tile.u_tile.u_n02.u00.x[2]} {u_tile.u_tile.u_n02.u00.x[3]} {u_tile.u_tile.u_n02.u00.x[4]} {u_tile.u_tile.u_n02.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u00.pc[0]} {u_tile.u_tile.u_n02.u00.pc[1]} {u_tile.u_tile.u_n02.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.065446e-04 -duty 0.3857; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.241611e-05 -duty 0.3856; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u01.m[0]} {u_tile.u_tile.u_n02.u01.m[1]} {u_tile.u_tile.u_n02.u01.m[2]} {u_tile.u_tile.u_n02.u01.m[3]} {u_tile.u_tile.u_n02.u01.m[4]} {u_tile.u_tile.u_n02.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306947e-04 -duty 0.4300; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.133638e-04 -duty 0.4300; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u01.w[0]} {u_tile.u_tile.u_n02.u01.w[1]} {u_tile.u_tile.u_n02.u01.w[2]} {u_tile.u_tile.u_n02.u01.w[3]} {u_tile.u_tile.u_n02.u01.w[4]} {u_tile.u_tile.u_n02.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.143578e-04 -duty 0.2324; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.919329e-05 -duty 0.2323; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u01.x[0]} {u_tile.u_tile.u_n02.u01.x[1]} {u_tile.u_tile.u_n02.u01.x[2]} {u_tile.u_tile.u_n02.u01.x[3]} {u_tile.u_tile.u_n02.u01.x[4]} {u_tile.u_tile.u_n02.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u01.pc[0]} {u_tile.u_tile.u_n02.u01.pc[1]} {u_tile.u_tile.u_n02.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.802100e-05 -duty 0.5183; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.502282e-05 -duty 0.5183; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u02.m[0]} {u_tile.u_tile.u_n02.u02.m[1]} {u_tile.u_tile.u_n02.u02.m[2]} {u_tile.u_tile.u_n02.u02.m[3]} {u_tile.u_tile.u_n02.u02.m[4]} {u_tile.u_tile.u_n02.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.598168e-04 -duty 0.4723; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.386242e-04 -duty 0.4723; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u02.w[0]} {u_tile.u_tile.u_n02.u02.w[1]} {u_tile.u_tile.u_n02.u02.w[2]} {u_tile.u_tile.u_n02.u02.w[3]} {u_tile.u_tile.u_n02.u02.w[4]} {u_tile.u_tile.u_n02.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.5462; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.5463; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u02.x[0]} {u_tile.u_tile.u_n02.u02.x[1]} {u_tile.u_tile.u_n02.u02.x[2]} {u_tile.u_tile.u_n02.u02.x[3]} {u_tile.u_tile.u_n02.u02.x[4]} {u_tile.u_tile.u_n02.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u02.pc[0]} {u_tile.u_tile.u_n02.u02.pc[1]} {u_tile.u_tile.u_n02.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.4707; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.4707; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u03.m[0]} {u_tile.u_tile.u_n02.u03.m[1]} {u_tile.u_tile.u_n02.u03.m[2]} {u_tile.u_tile.u_n02.u03.m[3]} {u_tile.u_tile.u_n02.u03.m[4]} {u_tile.u_tile.u_n02.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.665625e-05 -duty 0.5167; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.516510e-05 -duty 0.5167; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u03.w[0]} {u_tile.u_tile.u_n02.u03.w[1]} {u_tile.u_tile.u_n02.u03.w[2]} {u_tile.u_tile.u_n02.u03.w[3]} {u_tile.u_tile.u_n02.u03.w[4]} {u_tile.u_tile.u_n02.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.889882e-05 -duty 0.2563; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.976242e-05 -duty 0.2562; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u03.x[0]} {u_tile.u_tile.u_n02.u03.x[1]} {u_tile.u_tile.u_n02.u03.x[2]} {u_tile.u_tile.u_n02.u03.x[3]} {u_tile.u_tile.u_n02.u03.x[4]} {u_tile.u_tile.u_n02.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u03.pc[0]} {u_tile.u_tile.u_n02.u03.pc[1]} {u_tile.u_tile.u_n02.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.542864e-04 -duty 0.5101; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.205665e-04 -duty 0.5101; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u04.m[0]} {u_tile.u_tile.u_n02.u04.m[1]} {u_tile.u_tile.u_n02.u04.m[2]} {u_tile.u_tile.u_n02.u04.m[3]} {u_tile.u_tile.u_n02.u04.m[4]} {u_tile.u_tile.u_n02.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.789949e-04 -duty 0.5802; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.552591e-04 -duty 0.5802; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u04.w[0]} {u_tile.u_tile.u_n02.u04.w[1]} {u_tile.u_tile.u_n02.u04.w[2]} {u_tile.u_tile.u_n02.u04.w[3]} {u_tile.u_tile.u_n02.u04.w[4]} {u_tile.u_tile.u_n02.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.2806; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.2805; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u04.x[0]} {u_tile.u_tile.u_n02.u04.x[1]} {u_tile.u_tile.u_n02.u04.x[2]} {u_tile.u_tile.u_n02.u04.x[3]} {u_tile.u_tile.u_n02.u04.x[4]} {u_tile.u_tile.u_n02.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u04.pc[0]} {u_tile.u_tile.u_n02.u04.pc[1]} {u_tile.u_tile.u_n02.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.4952; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.4952; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u05.m[0]} {u_tile.u_tile.u_n02.u05.m[1]} {u_tile.u_tile.u_n02.u05.m[2]} {u_tile.u_tile.u_n02.u05.m[3]} {u_tile.u_tile.u_n02.u05.m[4]} {u_tile.u_tile.u_n02.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.244539e-04 -duty 0.4373; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.946899e-04 -duty 0.4372; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u05.w[0]} {u_tile.u_tile.u_n02.u05.w[1]} {u_tile.u_tile.u_n02.u05.w[2]} {u_tile.u_tile.u_n02.u05.w[3]} {u_tile.u_tile.u_n02.u05.w[4]} {u_tile.u_tile.u_n02.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.024347e-04 -duty 0.6109; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.755906e-04 -duty 0.6111; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u05.x[0]} {u_tile.u_tile.u_n02.u05.x[1]} {u_tile.u_tile.u_n02.u05.x[2]} {u_tile.u_tile.u_n02.u05.x[3]} {u_tile.u_tile.u_n02.u05.x[4]} {u_tile.u_tile.u_n02.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u05.pc[0]} {u_tile.u_tile.u_n02.u05.pc[1]} {u_tile.u_tile.u_n02.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.4566; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.4566; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u06.m[0]} {u_tile.u_tile.u_n02.u06.m[1]} {u_tile.u_tile.u_n02.u06.m[2]} {u_tile.u_tile.u_n02.u06.m[3]} {u_tile.u_tile.u_n02.u06.m[4]} {u_tile.u_tile.u_n02.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.825464e-04 -duty 0.3710; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583396e-04 -duty 0.3708; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u06.w[0]} {u_tile.u_tile.u_n02.u06.w[1]} {u_tile.u_tile.u_n02.u06.w[2]} {u_tile.u_tile.u_n02.u06.w[3]} {u_tile.u_tile.u_n02.u06.w[4]} {u_tile.u_tile.u_n02.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.3687; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.3686; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u06.x[0]} {u_tile.u_tile.u_n02.u06.x[1]} {u_tile.u_tile.u_n02.u06.x[2]} {u_tile.u_tile.u_n02.u06.x[3]} {u_tile.u_tile.u_n02.u06.x[4]} {u_tile.u_tile.u_n02.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u06.pc[0]} {u_tile.u_tile.u_n02.u06.pc[1]} {u_tile.u_tile.u_n02.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.287157e-04 -duty 0.3821; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.983866e-04 -duty 0.3820; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u07.m[0]} {u_tile.u_tile.u_n02.u07.m[1]} {u_tile.u_tile.u_n02.u07.m[2]} {u_tile.u_tile.u_n02.u07.m[3]} {u_tile.u_tile.u_n02.u07.m[4]} {u_tile.u_tile.u_n02.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.527139e-04 -duty 0.6115; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.324631e-04 -duty 0.6116; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u07.w[0]} {u_tile.u_tile.u_n02.u07.w[1]} {u_tile.u_tile.u_n02.u07.w[2]} {u_tile.u_tile.u_n02.u07.w[3]} {u_tile.u_tile.u_n02.u07.w[4]} {u_tile.u_tile.u_n02.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.2563; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.2562; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u07.x[0]} {u_tile.u_tile.u_n02.u07.x[1]} {u_tile.u_tile.u_n02.u07.x[2]} {u_tile.u_tile.u_n02.u07.x[3]} {u_tile.u_tile.u_n02.u07.x[4]} {u_tile.u_tile.u_n02.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u07.pc[0]} {u_tile.u_tile.u_n02.u07.pc[1]} {u_tile.u_tile.u_n02.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.505830e-04 -duty 0.5214; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306148e-04 -duty 0.5215; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u08.m[0]} {u_tile.u_tile.u_n02.u08.m[1]} {u_tile.u_tile.u_n02.u08.m[2]} {u_tile.u_tile.u_n02.u08.m[3]} {u_tile.u_tile.u_n02.u08.m[4]} {u_tile.u_tile.u_n02.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0025; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u08.w[0]} {u_tile.u_tile.u_n02.u08.w[1]} {u_tile.u_tile.u_n02.u08.w[2]} {u_tile.u_tile.u_n02.u08.w[3]} {u_tile.u_tile.u_n02.u08.w[4]} {u_tile.u_tile.u_n02.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u08.pc[0]} {u_tile.u_tile.u_n02.u08.pc[1]} {u_tile.u_tile.u_n02.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0017; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0016; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u09.m[0]} {u_tile.u_tile.u_n02.u09.m[1]} {u_tile.u_tile.u_n02.u09.m[2]} {u_tile.u_tile.u_n02.u09.m[3]} {u_tile.u_tile.u_n02.u09.m[4]} {u_tile.u_tile.u_n02.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0025; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u09.w[0]} {u_tile.u_tile.u_n02.u09.w[1]} {u_tile.u_tile.u_n02.u09.w[2]} {u_tile.u_tile.u_n02.u09.w[3]} {u_tile.u_tile.u_n02.u09.w[4]} {u_tile.u_tile.u_n02.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u09.pc[0]} {u_tile.u_tile.u_n02.u09.pc[1]} {u_tile.u_tile.u_n02.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0017; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0016; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u10.m[0]} {u_tile.u_tile.u_n02.u10.m[1]} {u_tile.u_tile.u_n02.u10.m[2]} {u_tile.u_tile.u_n02.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0025; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u10.w[0]} {u_tile.u_tile.u_n02.u10.w[1]} {u_tile.u_tile.u_n02.u10.w[2]} {u_tile.u_tile.u_n02.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n02.u10.pc[0]} {u_tile.u_tile.u_n02.u10.pc[1]} {u_tile.u_tile.u_n02.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0008; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0008; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.threshold[0]} {u_tile.u_tile.u_n03.threshold[1]} {u_tile.u_tile.u_n03.threshold[2]} {u_tile.u_tile.u_n03.threshold[3]} {u_tile.u_tile.u_n03.threshold[4]} {u_tile.u_tile.u_n03.threshold[5]} {u_tile.u_tile.u_n03.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.957370e-05 -duty 0.4128; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.432598e-05 -duty 0.4128; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.w[0]} {u_tile.u_tile.u_n03.w[1]} {u_tile.u_tile.u_n03.w[2]} {u_tile.u_tile.u_n03.w[3]} {u_tile.u_tile.u_n03.w[4]} {u_tile.u_tile.u_n03.w[5]} {u_tile.u_tile.u_n03.w[6]} {u_tile.u_tile.u_n03.w[7]} {u_tile.u_tile.u_n03.w[8]} {u_tile.u_tile.u_n03.w[9]} {u_tile.u_tile.u_n03.w[10]} {u_tile.u_tile.u_n03.w[11]} {u_tile.u_tile.u_n03.w[12]} {u_tile.u_tile.u_n03.w[13]} {u_tile.u_tile.u_n03.w[14]} {u_tile.u_tile.u_n03.w[15]} {u_tile.u_tile.u_n03.w[16]} {u_tile.u_tile.u_n03.w[17]} {u_tile.u_tile.u_n03.w[18]} {u_tile.u_tile.u_n03.w[19]} {u_tile.u_tile.u_n03.w[20]} {u_tile.u_tile.u_n03.w[21]} {u_tile.u_tile.u_n03.w[22]} {u_tile.u_tile.u_n03.w[23]} {u_tile.u_tile.u_n03.w[24]} {u_tile.u_tile.u_n03.w[25]} {u_tile.u_tile.u_n03.w[26]} {u_tile.u_tile.u_n03.w[27]} {u_tile.u_tile.u_n03.w[28]} {u_tile.u_tile.u_n03.w[29]} {u_tile.u_tile.u_n03.w[30]} {u_tile.u_tile.u_n03.w[31]} {u_tile.u_tile.u_n03.w[32]} {u_tile.u_tile.u_n03.w[33]} {u_tile.u_tile.u_n03.w[34]} {u_tile.u_tile.u_n03.w[35]} {u_tile.u_tile.u_n03.w[36]} {u_tile.u_tile.u_n03.w[37]} {u_tile.u_tile.u_n03.w[38]} {u_tile.u_tile.u_n03.w[39]} {u_tile.u_tile.u_n03.w[40]} {u_tile.u_tile.u_n03.w[41]} {u_tile.u_tile.u_n03.w[42]} {u_tile.u_tile.u_n03.w[43]} {u_tile.u_tile.u_n03.w[44]} {u_tile.u_tile.u_n03.w[45]} {u_tile.u_tile.u_n03.w[46]} {u_tile.u_tile.u_n03.w[47]} {u_tile.u_tile.u_n03.w[48]} {u_tile.u_tile.u_n03.w[49]} {u_tile.u_tile.u_n03.w[50]} {u_tile.u_tile.u_n03.w[51]} {u_tile.u_tile.u_n03.w[52]} {u_tile.u_tile.u_n03.w[53]} {u_tile.u_tile.u_n03.w[54]} {u_tile.u_tile.u_n03.w[55]} {u_tile.u_tile.u_n03.w[56]} {u_tile.u_tile.u_n03.w[57]} {u_tile.u_tile.u_n03.w[58]} {u_tile.u_tile.u_n03.w[59]} {u_tile.u_tile.u_n03.w[60]} {u_tile.u_tile.u_n03.w[61]} {u_tile.u_tile.u_n03.w[62]} {u_tile.u_tile.u_n03.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.052793e-04 -duty 0.5756; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.131867e-05 -duty 0.5756; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.x[0]} {u_tile.u_tile.u_n03.x[1]} {u_tile.u_tile.u_n03.x[2]} {u_tile.u_tile.u_n03.x[3]} {u_tile.u_tile.u_n03.x[4]} {u_tile.u_tile.u_n03.x[5]} {u_tile.u_tile.u_n03.x[6]} {u_tile.u_tile.u_n03.x[7]} {u_tile.u_tile.u_n03.x[8]} {u_tile.u_tile.u_n03.x[9]} {u_tile.u_tile.u_n03.x[10]} {u_tile.u_tile.u_n03.x[11]} {u_tile.u_tile.u_n03.x[12]} {u_tile.u_tile.u_n03.x[13]} {u_tile.u_tile.u_n03.x[14]} {u_tile.u_tile.u_n03.x[15]} {u_tile.u_tile.u_n03.x[16]} {u_tile.u_tile.u_n03.x[17]} {u_tile.u_tile.u_n03.x[18]} {u_tile.u_tile.u_n03.x[19]} {u_tile.u_tile.u_n03.x[20]} {u_tile.u_tile.u_n03.x[21]} {u_tile.u_tile.u_n03.x[22]} {u_tile.u_tile.u_n03.x[23]} {u_tile.u_tile.u_n03.x[24]} {u_tile.u_tile.u_n03.x[25]} {u_tile.u_tile.u_n03.x[26]} {u_tile.u_tile.u_n03.x[27]} {u_tile.u_tile.u_n03.x[28]} {u_tile.u_tile.u_n03.x[29]} {u_tile.u_tile.u_n03.x[30]} {u_tile.u_tile.u_n03.x[31]} {u_tile.u_tile.u_n03.x[32]} {u_tile.u_tile.u_n03.x[33]} {u_tile.u_tile.u_n03.x[34]} {u_tile.u_tile.u_n03.x[35]} {u_tile.u_tile.u_n03.x[36]} {u_tile.u_tile.u_n03.x[37]} {u_tile.u_tile.u_n03.x[38]} {u_tile.u_tile.u_n03.x[39]} {u_tile.u_tile.u_n03.x[40]} {u_tile.u_tile.u_n03.x[41]} {u_tile.u_tile.u_n03.x[42]} {u_tile.u_tile.u_n03.x[43]} {u_tile.u_tile.u_n03.x[44]} {u_tile.u_tile.u_n03.x[45]} {u_tile.u_tile.u_n03.x[46]} {u_tile.u_tile.u_n03.x[47]} {u_tile.u_tile.u_n03.x[48]} {u_tile.u_tile.u_n03.x[49]} {u_tile.u_tile.u_n03.x[50]} {u_tile.u_tile.u_n03.x[51]} {u_tile.u_tile.u_n03.x[52]} {u_tile.u_tile.u_n03.x[53]} {u_tile.u_tile.u_n03.x[54]} {u_tile.u_tile.u_n03.x[55]} {u_tile.u_tile.u_n03.x[56]} {u_tile.u_tile.u_n03.x[57]} {u_tile.u_tile.u_n03.x[58]} {u_tile.u_tile.u_n03.x[59]} {u_tile.u_tile.u_n03.x[60]} {u_tile.u_tile.u_n03.x[61]} {u_tile.u_tile.u_n03.x[62]} {u_tile.u_tile.u_n03.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.088273e-04 -duty 0.6538; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.811356e-04 -duty 0.6538; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.total[0]} {u_tile.u_tile.u_n03.total[1]} {u_tile.u_tile.u_n03.total[2]} {u_tile.u_tile.u_n03.total[3]} {u_tile.u_tile.u_n03.total[4]} {u_tile.u_tile.u_n03.total[5]} {u_tile.u_tile.u_n03.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.619452e-05 -duty 0.4338; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.343855e-05 -duty 0.4338; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc10[0]} {u_tile.u_tile.u_n03.pc10[1]} {u_tile.u_tile.u_n03.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0009; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0009; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc09[0]} {u_tile.u_tile.u_n03.pc09[1]} {u_tile.u_tile.u_n03.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0019; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0019; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc08[0]} {u_tile.u_tile.u_n03.pc08[1]} {u_tile.u_tile.u_n03.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.1455; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc07[0]} {u_tile.u_tile.u_n03.pc07[1]} {u_tile.u_tile.u_n03.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.3887; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.3886; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc06[0]} {u_tile.u_tile.u_n03.pc06[1]} {u_tile.u_tile.u_n03.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.562654e-04 -duty 0.4516; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.355436e-04 -duty 0.4515; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc05[0]} {u_tile.u_tile.u_n03.pc05[1]} {u_tile.u_tile.u_n03.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.875184e-04 -duty 0.4543; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.626524e-04 -duty 0.4543; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc04[0]} {u_tile.u_tile.u_n03.pc04[1]} {u_tile.u_tile.u_n03.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.974626e-04 -duty 0.5018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.712779e-04 -duty 0.5018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc03[0]} {u_tile.u_tile.u_n03.pc03[1]} {u_tile.u_tile.u_n03.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.463212e-04 -duty 0.5272; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.269181e-04 -duty 0.5272; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc02[0]} {u_tile.u_tile.u_n03.pc02[1]} {u_tile.u_tile.u_n03.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.5192; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.5192; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc01[0]} {u_tile.u_tile.u_n03.pc01[1]} {u_tile.u_tile.u_n03.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.449006e-04 -duty 0.5196; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.256859e-04 -duty 0.5196; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.pc00[0]} {u_tile.u_tile.u_n03.pc00[1]} {u_tile.u_tile.u_n03.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.091803e-05 -duty 0.5784; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.886175e-05 -duty 0.5784; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u00.m[0]} {u_tile.u_tile.u_n03.u00.m[1]} {u_tile.u_tile.u_n03.u00.m[2]} {u_tile.u_tile.u_n03.u00.m[3]} {u_tile.u_tile.u_n03.u00.m[4]} {u_tile.u_tile.u_n03.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.214608e-04 -duty 0.5132; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.053544e-04 -duty 0.5131; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u00.w[0]} {u_tile.u_tile.u_n03.u00.w[1]} {u_tile.u_tile.u_n03.u00.w[2]} {u_tile.u_tile.u_n03.u00.w[3]} {u_tile.u_tile.u_n03.u00.w[4]} {u_tile.u_tile.u_n03.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.143578e-04 -duty 0.4334; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.919329e-05 -duty 0.4334; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u00.x[0]} {u_tile.u_tile.u_n03.u00.x[1]} {u_tile.u_tile.u_n03.u00.x[2]} {u_tile.u_tile.u_n03.u00.x[3]} {u_tile.u_tile.u_n03.u00.x[4]} {u_tile.u_tile.u_n03.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u00.pc[0]} {u_tile.u_tile.u_n03.u00.pc[1]} {u_tile.u_tile.u_n03.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.091803e-05 -duty 0.5784; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.886175e-05 -duty 0.5784; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u01.m[0]} {u_tile.u_tile.u_n03.u01.m[1]} {u_tile.u_tile.u_n03.u01.m[2]} {u_tile.u_tile.u_n03.u01.m[3]} {u_tile.u_tile.u_n03.u01.m[4]} {u_tile.u_tile.u_n03.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.594595e-05 -duty 0.7161; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.454900e-05 -duty 0.7161; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u01.w[0]} {u_tile.u_tile.u_n03.u01.w[1]} {u_tile.u_tile.u_n03.u01.w[2]} {u_tile.u_tile.u_n03.u01.w[3]} {u_tile.u_tile.u_n03.u01.w[4]} {u_tile.u_tile.u_n03.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.960911e-05 -duty 0.3448; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.037853e-05 -duty 0.3447; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u01.x[0]} {u_tile.u_tile.u_n03.u01.x[1]} {u_tile.u_tile.u_n03.u01.x[2]} {u_tile.u_tile.u_n03.u01.x[3]} {u_tile.u_tile.u_n03.u01.x[4]} {u_tile.u_tile.u_n03.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u01.pc[0]} {u_tile.u_tile.u_n03.u01.pc[1]} {u_tile.u_tile.u_n03.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.449006e-04 -duty 0.5196; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.256859e-04 -duty 0.5196; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u02.m[0]} {u_tile.u_tile.u_n03.u02.m[1]} {u_tile.u_tile.u_n03.u02.m[2]} {u_tile.u_tile.u_n03.u02.m[3]} {u_tile.u_tile.u_n03.u02.m[4]} {u_tile.u_tile.u_n03.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.853875e-04 -duty 0.5826; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.608040e-04 -duty 0.5826; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u02.w[0]} {u_tile.u_tile.u_n03.u02.w[1]} {u_tile.u_tile.u_n03.u02.w[2]} {u_tile.u_tile.u_n03.u02.w[3]} {u_tile.u_tile.u_n03.u02.w[4]} {u_tile.u_tile.u_n03.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.5941; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.5942; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u02.x[0]} {u_tile.u_tile.u_n03.u02.x[1]} {u_tile.u_tile.u_n03.u02.x[2]} {u_tile.u_tile.u_n03.u02.x[3]} {u_tile.u_tile.u_n03.u02.x[4]} {u_tile.u_tile.u_n03.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u02.pc[0]} {u_tile.u_tile.u_n03.u02.pc[1]} {u_tile.u_tile.u_n03.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.5192; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.5192; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u03.m[0]} {u_tile.u_tile.u_n03.u03.m[1]} {u_tile.u_tile.u_n03.u03.m[2]} {u_tile.u_tile.u_n03.u03.m[3]} {u_tile.u_tile.u_n03.u03.m[4]} {u_tile.u_tile.u_n03.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.761537e-04 -duty 0.6321; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.527946e-04 -duty 0.6321; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u03.w[0]} {u_tile.u_tile.u_n03.u03.w[1]} {u_tile.u_tile.u_n03.u03.w[2]} {u_tile.u_tile.u_n03.u03.w[3]} {u_tile.u_tile.u_n03.u03.w[4]} {u_tile.u_tile.u_n03.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.5535; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.5534; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u03.x[0]} {u_tile.u_tile.u_n03.u03.x[1]} {u_tile.u_tile.u_n03.u03.x[2]} {u_tile.u_tile.u_n03.u03.x[3]} {u_tile.u_tile.u_n03.u03.x[4]} {u_tile.u_tile.u_n03.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u03.pc[0]} {u_tile.u_tile.u_n03.u03.pc[1]} {u_tile.u_tile.u_n03.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.463212e-04 -duty 0.5272; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.269181e-04 -duty 0.5272; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u04.m[0]} {u_tile.u_tile.u_n03.u04.m[1]} {u_tile.u_tile.u_n03.u04.m[2]} {u_tile.u_tile.u_n03.u04.m[3]} {u_tile.u_tile.u_n03.u04.m[4]} {u_tile.u_tile.u_n03.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.230333e-04 -duty 0.5337; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.934577e-04 -duty 0.5336; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u04.w[0]} {u_tile.u_tile.u_n03.u04.w[1]} {u_tile.u_tile.u_n03.u04.w[2]} {u_tile.u_tile.u_n03.u04.w[3]} {u_tile.u_tile.u_n03.u04.w[4]} {u_tile.u_tile.u_n03.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.024347e-04 -duty 0.4575; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.755906e-04 -duty 0.4575; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u04.x[0]} {u_tile.u_tile.u_n03.u04.x[1]} {u_tile.u_tile.u_n03.u04.x[2]} {u_tile.u_tile.u_n03.u04.x[3]} {u_tile.u_tile.u_n03.u04.x[4]} {u_tile.u_tile.u_n03.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u04.pc[0]} {u_tile.u_tile.u_n03.u04.pc[1]} {u_tile.u_tile.u_n03.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.974626e-04 -duty 0.5018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.712779e-04 -duty 0.5018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u05.m[0]} {u_tile.u_tile.u_n03.u05.m[1]} {u_tile.u_tile.u_n03.u05.m[2]} {u_tile.u_tile.u_n03.u05.m[3]} {u_tile.u_tile.u_n03.u05.m[4]} {u_tile.u_tile.u_n03.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.569757e-04 -duty 0.4668; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.361597e-04 -duty 0.4667; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u05.w[0]} {u_tile.u_tile.u_n03.u05.w[1]} {u_tile.u_tile.u_n03.u05.w[2]} {u_tile.u_tile.u_n03.u05.w[3]} {u_tile.u_tile.u_n03.u05.w[4]} {u_tile.u_tile.u_n03.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.2970; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.2970; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u05.x[0]} {u_tile.u_tile.u_n03.u05.x[1]} {u_tile.u_tile.u_n03.u05.x[2]} {u_tile.u_tile.u_n03.u05.x[3]} {u_tile.u_tile.u_n03.u05.x[4]} {u_tile.u_tile.u_n03.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u05.pc[0]} {u_tile.u_tile.u_n03.u05.pc[1]} {u_tile.u_tile.u_n03.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.875184e-04 -duty 0.4543; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.626524e-04 -duty 0.4543; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u06.m[0]} {u_tile.u_tile.u_n03.u06.m[1]} {u_tile.u_tile.u_n03.u06.m[2]} {u_tile.u_tile.u_n03.u06.m[3]} {u_tile.u_tile.u_n03.u06.m[4]} {u_tile.u_tile.u_n03.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.4651; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.4650; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u06.w[0]} {u_tile.u_tile.u_n03.u06.w[1]} {u_tile.u_tile.u_n03.u06.w[2]} {u_tile.u_tile.u_n03.u06.w[3]} {u_tile.u_tile.u_n03.u06.w[4]} {u_tile.u_tile.u_n03.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.2561; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.2560; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u06.x[0]} {u_tile.u_tile.u_n03.u06.x[1]} {u_tile.u_tile.u_n03.u06.x[2]} {u_tile.u_tile.u_n03.u06.x[3]} {u_tile.u_tile.u_n03.u06.x[4]} {u_tile.u_tile.u_n03.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u06.pc[0]} {u_tile.u_tile.u_n03.u06.pc[1]} {u_tile.u_tile.u_n03.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.562654e-04 -duty 0.4516; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.355436e-04 -duty 0.4515; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u07.m[0]} {u_tile.u_tile.u_n03.u07.m[1]} {u_tile.u_tile.u_n03.u07.m[2]} {u_tile.u_tile.u_n03.u07.m[3]} {u_tile.u_tile.u_n03.u07.m[4]} {u_tile.u_tile.u_n03.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.314050e-04 -duty 0.3126; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.139799e-04 -duty 0.3125; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u07.w[0]} {u_tile.u_tile.u_n03.u07.w[1]} {u_tile.u_tile.u_n03.u07.w[2]} {u_tile.u_tile.u_n03.u07.w[3]} {u_tile.u_tile.u_n03.u07.w[4]} {u_tile.u_tile.u_n03.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.143578e-04 -duty 0.7069; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.919329e-05 -duty 0.7070; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u07.x[0]} {u_tile.u_tile.u_n03.u07.x[1]} {u_tile.u_tile.u_n03.u07.x[2]} {u_tile.u_tile.u_n03.u07.x[3]} {u_tile.u_tile.u_n03.u07.x[4]} {u_tile.u_tile.u_n03.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u07.pc[0]} {u_tile.u_tile.u_n03.u07.pc[1]} {u_tile.u_tile.u_n03.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.3887; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.3886; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u08.m[0]} {u_tile.u_tile.u_n03.u08.m[1]} {u_tile.u_tile.u_n03.u08.m[2]} {u_tile.u_tile.u_n03.u08.m[3]} {u_tile.u_tile.u_n03.u08.m[4]} {u_tile.u_tile.u_n03.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-05 -duty 0.0747; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-05 -duty 0.0746; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u08.w[0]} {u_tile.u_tile.u_n03.u08.w[1]} {u_tile.u_tile.u_n03.u08.w[2]} {u_tile.u_tile.u_n03.u08.w[3]} {u_tile.u_tile.u_n03.u08.w[4]} {u_tile.u_tile.u_n03.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-05 -duty 0.8913; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-05 -duty 0.8914; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u08.pc[0]} {u_tile.u_tile.u_n03.u08.pc[1]} {u_tile.u_tile.u_n03.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.1455; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u09.m[0]} {u_tile.u_tile.u_n03.u09.m[1]} {u_tile.u_tile.u_n03.u09.m[2]} {u_tile.u_tile.u_n03.u09.m[3]} {u_tile.u_tile.u_n03.u09.m[4]} {u_tile.u_tile.u_n03.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0028; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0028; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u09.w[0]} {u_tile.u_tile.u_n03.u09.w[1]} {u_tile.u_tile.u_n03.u09.w[2]} {u_tile.u_tile.u_n03.u09.w[3]} {u_tile.u_tile.u_n03.u09.w[4]} {u_tile.u_tile.u_n03.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u09.pc[0]} {u_tile.u_tile.u_n03.u09.pc[1]} {u_tile.u_tile.u_n03.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0019; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0019; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u10.m[0]} {u_tile.u_tile.u_n03.u10.m[1]} {u_tile.u_tile.u_n03.u10.m[2]} {u_tile.u_tile.u_n03.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0028; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0028; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u10.w[0]} {u_tile.u_tile.u_n03.u10.w[1]} {u_tile.u_tile.u_n03.u10.w[2]} {u_tile.u_tile.u_n03.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n03.u10.pc[0]} {u_tile.u_tile.u_n03.u10.pc[1]} {u_tile.u_tile.u_n03.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0009; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0009; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.threshold[0]} {u_tile.u_tile.u_n04.threshold[1]} {u_tile.u_tile.u_n04.threshold[2]} {u_tile.u_tile.u_n04.threshold[3]} {u_tile.u_tile.u_n04.threshold[4]} {u_tile.u_tile.u_n04.threshold[5]} {u_tile.u_tile.u_n04.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.905613e-05 -duty 0.3921; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.122493e-05 -duty 0.3922; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.w[0]} {u_tile.u_tile.u_n04.w[1]} {u_tile.u_tile.u_n04.w[2]} {u_tile.u_tile.u_n04.w[3]} {u_tile.u_tile.u_n04.w[4]} {u_tile.u_tile.u_n04.w[5]} {u_tile.u_tile.u_n04.w[6]} {u_tile.u_tile.u_n04.w[7]} {u_tile.u_tile.u_n04.w[8]} {u_tile.u_tile.u_n04.w[9]} {u_tile.u_tile.u_n04.w[10]} {u_tile.u_tile.u_n04.w[11]} {u_tile.u_tile.u_n04.w[12]} {u_tile.u_tile.u_n04.w[13]} {u_tile.u_tile.u_n04.w[14]} {u_tile.u_tile.u_n04.w[15]} {u_tile.u_tile.u_n04.w[16]} {u_tile.u_tile.u_n04.w[17]} {u_tile.u_tile.u_n04.w[18]} {u_tile.u_tile.u_n04.w[19]} {u_tile.u_tile.u_n04.w[20]} {u_tile.u_tile.u_n04.w[21]} {u_tile.u_tile.u_n04.w[22]} {u_tile.u_tile.u_n04.w[23]} {u_tile.u_tile.u_n04.w[24]} {u_tile.u_tile.u_n04.w[25]} {u_tile.u_tile.u_n04.w[26]} {u_tile.u_tile.u_n04.w[27]} {u_tile.u_tile.u_n04.w[28]} {u_tile.u_tile.u_n04.w[29]} {u_tile.u_tile.u_n04.w[30]} {u_tile.u_tile.u_n04.w[31]} {u_tile.u_tile.u_n04.w[32]} {u_tile.u_tile.u_n04.w[33]} {u_tile.u_tile.u_n04.w[34]} {u_tile.u_tile.u_n04.w[35]} {u_tile.u_tile.u_n04.w[36]} {u_tile.u_tile.u_n04.w[37]} {u_tile.u_tile.u_n04.w[38]} {u_tile.u_tile.u_n04.w[39]} {u_tile.u_tile.u_n04.w[40]} {u_tile.u_tile.u_n04.w[41]} {u_tile.u_tile.u_n04.w[42]} {u_tile.u_tile.u_n04.w[43]} {u_tile.u_tile.u_n04.w[44]} {u_tile.u_tile.u_n04.w[45]} {u_tile.u_tile.u_n04.w[46]} {u_tile.u_tile.u_n04.w[47]} {u_tile.u_tile.u_n04.w[48]} {u_tile.u_tile.u_n04.w[49]} {u_tile.u_tile.u_n04.w[50]} {u_tile.u_tile.u_n04.w[51]} {u_tile.u_tile.u_n04.w[52]} {u_tile.u_tile.u_n04.w[53]} {u_tile.u_tile.u_n04.w[54]} {u_tile.u_tile.u_n04.w[55]} {u_tile.u_tile.u_n04.w[56]} {u_tile.u_tile.u_n04.w[57]} {u_tile.u_tile.u_n04.w[58]} {u_tile.u_tile.u_n04.w[59]} {u_tile.u_tile.u_n04.w[60]} {u_tile.u_tile.u_n04.w[61]} {u_tile.u_tile.u_n04.w[62]} {u_tile.u_tile.u_n04.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.404847e-05 -duty 0.6087; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.422920e-05 -duty 0.6087; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.x[0]} {u_tile.u_tile.u_n04.x[1]} {u_tile.u_tile.u_n04.x[2]} {u_tile.u_tile.u_n04.x[3]} {u_tile.u_tile.u_n04.x[4]} {u_tile.u_tile.u_n04.x[5]} {u_tile.u_tile.u_n04.x[6]} {u_tile.u_tile.u_n04.x[7]} {u_tile.u_tile.u_n04.x[8]} {u_tile.u_tile.u_n04.x[9]} {u_tile.u_tile.u_n04.x[10]} {u_tile.u_tile.u_n04.x[11]} {u_tile.u_tile.u_n04.x[12]} {u_tile.u_tile.u_n04.x[13]} {u_tile.u_tile.u_n04.x[14]} {u_tile.u_tile.u_n04.x[15]} {u_tile.u_tile.u_n04.x[16]} {u_tile.u_tile.u_n04.x[17]} {u_tile.u_tile.u_n04.x[18]} {u_tile.u_tile.u_n04.x[19]} {u_tile.u_tile.u_n04.x[20]} {u_tile.u_tile.u_n04.x[21]} {u_tile.u_tile.u_n04.x[22]} {u_tile.u_tile.u_n04.x[23]} {u_tile.u_tile.u_n04.x[24]} {u_tile.u_tile.u_n04.x[25]} {u_tile.u_tile.u_n04.x[26]} {u_tile.u_tile.u_n04.x[27]} {u_tile.u_tile.u_n04.x[28]} {u_tile.u_tile.u_n04.x[29]} {u_tile.u_tile.u_n04.x[30]} {u_tile.u_tile.u_n04.x[31]} {u_tile.u_tile.u_n04.x[32]} {u_tile.u_tile.u_n04.x[33]} {u_tile.u_tile.u_n04.x[34]} {u_tile.u_tile.u_n04.x[35]} {u_tile.u_tile.u_n04.x[36]} {u_tile.u_tile.u_n04.x[37]} {u_tile.u_tile.u_n04.x[38]} {u_tile.u_tile.u_n04.x[39]} {u_tile.u_tile.u_n04.x[40]} {u_tile.u_tile.u_n04.x[41]} {u_tile.u_tile.u_n04.x[42]} {u_tile.u_tile.u_n04.x[43]} {u_tile.u_tile.u_n04.x[44]} {u_tile.u_tile.u_n04.x[45]} {u_tile.u_tile.u_n04.x[46]} {u_tile.u_tile.u_n04.x[47]} {u_tile.u_tile.u_n04.x[48]} {u_tile.u_tile.u_n04.x[49]} {u_tile.u_tile.u_n04.x[50]} {u_tile.u_tile.u_n04.x[51]} {u_tile.u_tile.u_n04.x[52]} {u_tile.u_tile.u_n04.x[53]} {u_tile.u_tile.u_n04.x[54]} {u_tile.u_tile.u_n04.x[55]} {u_tile.u_tile.u_n04.x[56]} {u_tile.u_tile.u_n04.x[57]} {u_tile.u_tile.u_n04.x[58]} {u_tile.u_tile.u_n04.x[59]} {u_tile.u_tile.u_n04.x[60]} {u_tile.u_tile.u_n04.x[61]} {u_tile.u_tile.u_n04.x[62]} {u_tile.u_tile.u_n04.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.642305e-04 -duty 0.5717; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.291920e-04 -duty 0.5717; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.total[0]} {u_tile.u_tile.u_n04.total[1]} {u_tile.u_tile.u_n04.total[2]} {u_tile.u_tile.u_n04.total[3]} {u_tile.u_tile.u_n04.total[4]} {u_tile.u_tile.u_n04.total[5]} {u_tile.u_tile.u_n04.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.041093e-04 -duty 0.4411; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.030374e-05 -duty 0.4411; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc10[0]} {u_tile.u_tile.u_n04.pc10[1]} {u_tile.u_tile.u_n04.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0011; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0010; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc09[0]} {u_tile.u_tile.u_n04.pc09[1]} {u_tile.u_tile.u_n04.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc08[0]} {u_tile.u_tile.u_n04.pc08[1]} {u_tile.u_tile.u_n04.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc07[0]} {u_tile.u_tile.u_n04.pc07[1]} {u_tile.u_tile.u_n04.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.093858e-04 -duty 0.3198; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.488054e-05 -duty 0.3198; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc06[0]} {u_tile.u_tile.u_n04.pc06[1]} {u_tile.u_tile.u_n04.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.4274; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.4274; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc05[0]} {u_tile.u_tile.u_n04.pc05[1]} {u_tile.u_tile.u_n04.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.292741e-04 -duty 0.4585; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.121315e-04 -duty 0.4585; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc04[0]} {u_tile.u_tile.u_n04.pc04[1]} {u_tile.u_tile.u_n04.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-04 -duty 0.4206; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-04 -duty 0.4206; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc03[0]} {u_tile.u_tile.u_n04.pc03[1]} {u_tile.u_tile.u_n04.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.264329e-04 -duty 0.5184; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.096671e-04 -duty 0.5184; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc02[0]} {u_tile.u_tile.u_n04.pc02[1]} {u_tile.u_tile.u_n04.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.102479e-04 -duty 0.5152; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.823678e-04 -duty 0.5152; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc01[0]} {u_tile.u_tile.u_n04.pc01[1]} {u_tile.u_tile.u_n04.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.903596e-04 -duty 0.5393; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.651168e-04 -duty 0.5394; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.pc00[0]} {u_tile.u_tile.u_n04.pc00[1]} {u_tile.u_tile.u_n04.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.5816; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.5816; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u00.m[0]} {u_tile.u_tile.u_n04.u00.m[1]} {u_tile.u_tile.u_n04.u00.m[2]} {u_tile.u_tile.u_n04.u00.m[3]} {u_tile.u_tile.u_n04.u00.m[4]} {u_tile.u_tile.u_n04.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.873130e-05 -duty 0.7478; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.563893e-05 -duty 0.7478; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u00.w[0]} {u_tile.u_tile.u_n04.u00.w[1]} {u_tile.u_tile.u_n04.u00.w[2]} {u_tile.u_tile.u_n04.u00.w[3]} {u_tile.u_tile.u_n04.u00.w[4]} {u_tile.u_tile.u_n04.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.162832e-05 -duty 0.2081; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.947786e-05 -duty 0.2081; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u00.x[0]} {u_tile.u_tile.u_n04.u00.x[1]} {u_tile.u_tile.u_n04.u00.x[2]} {u_tile.u_tile.u_n04.u00.x[3]} {u_tile.u_tile.u_n04.u00.x[4]} {u_tile.u_tile.u_n04.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u00.pc[0]} {u_tile.u_tile.u_n04.u00.pc[1]} {u_tile.u_tile.u_n04.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.5816; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.5816; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u01.m[0]} {u_tile.u_tile.u_n04.u01.m[1]} {u_tile.u_tile.u_n04.u01.m[2]} {u_tile.u_tile.u_n04.u01.m[3]} {u_tile.u_tile.u_n04.u01.m[4]} {u_tile.u_tile.u_n04.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.548448e-04 -duty 0.6418; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.343114e-04 -duty 0.6419; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u01.w[0]} {u_tile.u_tile.u_n04.u01.w[1]} {u_tile.u_tile.u_n04.u01.w[2]} {u_tile.u_tile.u_n04.u01.w[3]} {u_tile.u_tile.u_n04.u01.w[4]} {u_tile.u_tile.u_n04.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.385079e-04 -duty 0.5534; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.201409e-04 -duty 0.5534; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u01.x[0]} {u_tile.u_tile.u_n04.u01.x[1]} {u_tile.u_tile.u_n04.u01.x[2]} {u_tile.u_tile.u_n04.u01.x[3]} {u_tile.u_tile.u_n04.u01.x[4]} {u_tile.u_tile.u_n04.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u01.pc[0]} {u_tile.u_tile.u_n04.u01.pc[1]} {u_tile.u_tile.u_n04.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.903596e-04 -duty 0.5393; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.651168e-04 -duty 0.5394; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u02.m[0]} {u_tile.u_tile.u_n04.u02.m[1]} {u_tile.u_tile.u_n04.u02.m[2]} {u_tile.u_tile.u_n04.u02.m[3]} {u_tile.u_tile.u_n04.u02.m[4]} {u_tile.u_tile.u_n04.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.171990e-04 -duty 0.5314; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.016577e-04 -duty 0.5315; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u02.w[0]} {u_tile.u_tile.u_n04.u02.w[1]} {u_tile.u_tile.u_n04.u02.w[2]} {u_tile.u_tile.u_n04.u02.w[3]} {u_tile.u_tile.u_n04.u02.w[4]} {u_tile.u_tile.u_n04.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.233862e-05 -duty 0.6901; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.009396e-05 -duty 0.6901; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u02.x[0]} {u_tile.u_tile.u_n04.u02.x[1]} {u_tile.u_tile.u_n04.u02.x[2]} {u_tile.u_tile.u_n04.u02.x[3]} {u_tile.u_tile.u_n04.u02.x[4]} {u_tile.u_tile.u_n04.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u02.pc[0]} {u_tile.u_tile.u_n04.u02.pc[1]} {u_tile.u_tile.u_n04.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.102479e-04 -duty 0.5152; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.823678e-04 -duty 0.5152; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u03.m[0]} {u_tile.u_tile.u_n04.u03.m[1]} {u_tile.u_tile.u_n04.u03.m[2]} {u_tile.u_tile.u_n04.u03.m[3]} {u_tile.u_tile.u_n04.u03.m[4]} {u_tile.u_tile.u_n04.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.665625e-05 -duty 0.4606; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.516510e-05 -duty 0.4606; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u03.w[0]} {u_tile.u_tile.u_n04.u03.w[1]} {u_tile.u_tile.u_n04.u03.w[2]} {u_tile.u_tile.u_n04.u03.w[3]} {u_tile.u_tile.u_n04.u03.w[4]} {u_tile.u_tile.u_n04.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.889882e-05 -duty 0.7069; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.976242e-05 -duty 0.7070; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u03.x[0]} {u_tile.u_tile.u_n04.u03.x[1]} {u_tile.u_tile.u_n04.u03.x[2]} {u_tile.u_tile.u_n04.u03.x[3]} {u_tile.u_tile.u_n04.u03.x[4]} {u_tile.u_tile.u_n04.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u03.pc[0]} {u_tile.u_tile.u_n04.u03.pc[1]} {u_tile.u_tile.u_n04.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.264329e-04 -duty 0.5184; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.096671e-04 -duty 0.5184; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u04.m[0]} {u_tile.u_tile.u_n04.u04.m[1]} {u_tile.u_tile.u_n04.u04.m[2]} {u_tile.u_tile.u_n04.u04.m[3]} {u_tile.u_tile.u_n04.u04.m[4]} {u_tile.u_tile.u_n04.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.115166e-04 -duty 0.4530; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.672886e-05 -duty 0.4529; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u04.w[0]} {u_tile.u_tile.u_n04.u04.w[1]} {u_tile.u_tile.u_n04.u04.w[2]} {u_tile.u_tile.u_n04.u04.w[3]} {u_tile.u_tile.u_n04.u04.w[4]} {u_tile.u_tile.u_n04.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.091803e-05 -duty 0.3932; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.886175e-05 -duty 0.3931; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u04.x[0]} {u_tile.u_tile.u_n04.u04.x[1]} {u_tile.u_tile.u_n04.u04.x[2]} {u_tile.u_tile.u_n04.u04.x[3]} {u_tile.u_tile.u_n04.u04.x[4]} {u_tile.u_tile.u_n04.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u04.pc[0]} {u_tile.u_tile.u_n04.u04.pc[1]} {u_tile.u_tile.u_n04.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-04 -duty 0.4206; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-04 -duty 0.4206; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u05.m[0]} {u_tile.u_tile.u_n04.u05.m[1]} {u_tile.u_tile.u_n04.u05.m[2]} {u_tile.u_tile.u_n04.u05.m[3]} {u_tile.u_tile.u_n04.u05.m[4]} {u_tile.u_tile.u_n04.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.136475e-04 -duty 0.5590; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.857719e-05 -duty 0.5590; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u05.w[0]} {u_tile.u_tile.u_n04.u05.w[1]} {u_tile.u_tile.u_n04.u05.w[2]} {u_tile.u_tile.u_n04.u05.w[3]} {u_tile.u_tile.u_n04.u05.w[4]} {u_tile.u_tile.u_n04.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.162832e-05 -duty 0.2565; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.947786e-05 -duty 0.2564; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u05.x[0]} {u_tile.u_tile.u_n04.u05.x[1]} {u_tile.u_tile.u_n04.u05.x[2]} {u_tile.u_tile.u_n04.u05.x[3]} {u_tile.u_tile.u_n04.u05.x[4]} {u_tile.u_tile.u_n04.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u05.pc[0]} {u_tile.u_tile.u_n04.u05.pc[1]} {u_tile.u_tile.u_n04.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.292741e-04 -duty 0.4585; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.121315e-04 -duty 0.4585; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u06.m[0]} {u_tile.u_tile.u_n04.u06.m[1]} {u_tile.u_tile.u_n04.u06.m[2]} {u_tile.u_tile.u_n04.u06.m[3]} {u_tile.u_tile.u_n04.u06.m[4]} {u_tile.u_tile.u_n04.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.4129; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.4128; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u06.w[0]} {u_tile.u_tile.u_n04.u06.w[1]} {u_tile.u_tile.u_n04.u06.w[2]} {u_tile.u_tile.u_n04.u06.w[3]} {u_tile.u_tile.u_n04.u06.w[4]} {u_tile.u_tile.u_n04.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.5390; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.5393; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u06.x[0]} {u_tile.u_tile.u_n04.u06.x[1]} {u_tile.u_tile.u_n04.u06.x[2]} {u_tile.u_tile.u_n04.u06.x[3]} {u_tile.u_tile.u_n04.u06.x[4]} {u_tile.u_tile.u_n04.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u06.pc[0]} {u_tile.u_tile.u_n04.u06.pc[1]} {u_tile.u_tile.u_n04.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.4274; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.4274; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u07.m[0]} {u_tile.u_tile.u_n04.u07.m[1]} {u_tile.u_tile.u_n04.u07.m[2]} {u_tile.u_tile.u_n04.u07.m[3]} {u_tile.u_tile.u_n04.u07.m[4]} {u_tile.u_tile.u_n04.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.665625e-05 -duty 0.2553; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.516510e-05 -duty 0.2554; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u07.w[0]} {u_tile.u_tile.u_n04.u07.w[1]} {u_tile.u_tile.u_n04.u07.w[2]} {u_tile.u_tile.u_n04.u07.w[3]} {u_tile.u_tile.u_n04.u07.w[4]} {u_tile.u_tile.u_n04.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.960911e-05 -duty 0.7381; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.037853e-05 -duty 0.7380; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u07.x[0]} {u_tile.u_tile.u_n04.u07.x[1]} {u_tile.u_tile.u_n04.u07.x[2]} {u_tile.u_tile.u_n04.u07.x[3]} {u_tile.u_tile.u_n04.u07.x[4]} {u_tile.u_tile.u_n04.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u07.pc[0]} {u_tile.u_tile.u_n04.u07.pc[1]} {u_tile.u_tile.u_n04.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.093858e-04 -duty 0.3198; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.488054e-05 -duty 0.3198; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u08.m[0]} {u_tile.u_tile.u_n04.u08.m[1]} {u_tile.u_tile.u_n04.u08.m[2]} {u_tile.u_tile.u_n04.u08.m[3]} {u_tile.u_tile.u_n04.u08.m[4]} {u_tile.u_tile.u_n04.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.551485e-06 -duty 0.0032; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.080537e-06 -duty 0.0031; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u08.w[0]} {u_tile.u_tile.u_n04.u08.w[1]} {u_tile.u_tile.u_n04.u08.w[2]} {u_tile.u_tile.u_n04.u08.w[3]} {u_tile.u_tile.u_n04.u08.w[4]} {u_tile.u_tile.u_n04.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.551485e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.080537e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u08.pc[0]} {u_tile.u_tile.u_n04.u08.pc[1]} {u_tile.u_tile.u_n04.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u09.m[0]} {u_tile.u_tile.u_n04.u09.m[1]} {u_tile.u_tile.u_n04.u09.m[2]} {u_tile.u_tile.u_n04.u09.m[3]} {u_tile.u_tile.u_n04.u09.m[4]} {u_tile.u_tile.u_n04.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0032; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0031; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u09.w[0]} {u_tile.u_tile.u_n04.u09.w[1]} {u_tile.u_tile.u_n04.u09.w[2]} {u_tile.u_tile.u_n04.u09.w[3]} {u_tile.u_tile.u_n04.u09.w[4]} {u_tile.u_tile.u_n04.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u09.pc[0]} {u_tile.u_tile.u_n04.u09.pc[1]} {u_tile.u_tile.u_n04.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u10.m[0]} {u_tile.u_tile.u_n04.u10.m[1]} {u_tile.u_tile.u_n04.u10.m[2]} {u_tile.u_tile.u_n04.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0032; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0031; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u10.w[0]} {u_tile.u_tile.u_n04.u10.w[1]} {u_tile.u_tile.u_n04.u10.w[2]} {u_tile.u_tile.u_n04.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n04.u10.pc[0]} {u_tile.u_tile.u_n04.u10.pc[1]} {u_tile.u_tile.u_n04.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0011; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0010; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.threshold[0]} {u_tile.u_tile.u_n05.threshold[1]} {u_tile.u_tile.u_n05.threshold[2]} {u_tile.u_tile.u_n05.threshold[3]} {u_tile.u_tile.u_n05.threshold[4]} {u_tile.u_tile.u_n05.threshold[5]} {u_tile.u_tile.u_n05.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.175034e-04 -duty 0.4331; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.019218e-04 -duty 0.4331; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.w[0]} {u_tile.u_tile.u_n05.w[1]} {u_tile.u_tile.u_n05.w[2]} {u_tile.u_tile.u_n05.w[3]} {u_tile.u_tile.u_n05.w[4]} {u_tile.u_tile.u_n05.w[5]} {u_tile.u_tile.u_n05.w[6]} {u_tile.u_tile.u_n05.w[7]} {u_tile.u_tile.u_n05.w[8]} {u_tile.u_tile.u_n05.w[9]} {u_tile.u_tile.u_n05.w[10]} {u_tile.u_tile.u_n05.w[11]} {u_tile.u_tile.u_n05.w[12]} {u_tile.u_tile.u_n05.w[13]} {u_tile.u_tile.u_n05.w[14]} {u_tile.u_tile.u_n05.w[15]} {u_tile.u_tile.u_n05.w[16]} {u_tile.u_tile.u_n05.w[17]} {u_tile.u_tile.u_n05.w[18]} {u_tile.u_tile.u_n05.w[19]} {u_tile.u_tile.u_n05.w[20]} {u_tile.u_tile.u_n05.w[21]} {u_tile.u_tile.u_n05.w[22]} {u_tile.u_tile.u_n05.w[23]} {u_tile.u_tile.u_n05.w[24]} {u_tile.u_tile.u_n05.w[25]} {u_tile.u_tile.u_n05.w[26]} {u_tile.u_tile.u_n05.w[27]} {u_tile.u_tile.u_n05.w[28]} {u_tile.u_tile.u_n05.w[29]} {u_tile.u_tile.u_n05.w[30]} {u_tile.u_tile.u_n05.w[31]} {u_tile.u_tile.u_n05.w[32]} {u_tile.u_tile.u_n05.w[33]} {u_tile.u_tile.u_n05.w[34]} {u_tile.u_tile.u_n05.w[35]} {u_tile.u_tile.u_n05.w[36]} {u_tile.u_tile.u_n05.w[37]} {u_tile.u_tile.u_n05.w[38]} {u_tile.u_tile.u_n05.w[39]} {u_tile.u_tile.u_n05.w[40]} {u_tile.u_tile.u_n05.w[41]} {u_tile.u_tile.u_n05.w[42]} {u_tile.u_tile.u_n05.w[43]} {u_tile.u_tile.u_n05.w[44]} {u_tile.u_tile.u_n05.w[45]} {u_tile.u_tile.u_n05.w[46]} {u_tile.u_tile.u_n05.w[47]} {u_tile.u_tile.u_n05.w[48]} {u_tile.u_tile.u_n05.w[49]} {u_tile.u_tile.u_n05.w[50]} {u_tile.u_tile.u_n05.w[51]} {u_tile.u_tile.u_n05.w[52]} {u_tile.u_tile.u_n05.w[53]} {u_tile.u_tile.u_n05.w[54]} {u_tile.u_tile.u_n05.w[55]} {u_tile.u_tile.u_n05.w[56]} {u_tile.u_tile.u_n05.w[57]} {u_tile.u_tile.u_n05.w[58]} {u_tile.u_tile.u_n05.w[59]} {u_tile.u_tile.u_n05.w[60]} {u_tile.u_tile.u_n05.w[61]} {u_tile.u_tile.u_n05.w[62]} {u_tile.u_tile.u_n05.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.075434e-04 -duty 0.5815; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.328251e-05 -duty 0.5815; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.x[0]} {u_tile.u_tile.u_n05.x[1]} {u_tile.u_tile.u_n05.x[2]} {u_tile.u_tile.u_n05.x[3]} {u_tile.u_tile.u_n05.x[4]} {u_tile.u_tile.u_n05.x[5]} {u_tile.u_tile.u_n05.x[6]} {u_tile.u_tile.u_n05.x[7]} {u_tile.u_tile.u_n05.x[8]} {u_tile.u_tile.u_n05.x[9]} {u_tile.u_tile.u_n05.x[10]} {u_tile.u_tile.u_n05.x[11]} {u_tile.u_tile.u_n05.x[12]} {u_tile.u_tile.u_n05.x[13]} {u_tile.u_tile.u_n05.x[14]} {u_tile.u_tile.u_n05.x[15]} {u_tile.u_tile.u_n05.x[16]} {u_tile.u_tile.u_n05.x[17]} {u_tile.u_tile.u_n05.x[18]} {u_tile.u_tile.u_n05.x[19]} {u_tile.u_tile.u_n05.x[20]} {u_tile.u_tile.u_n05.x[21]} {u_tile.u_tile.u_n05.x[22]} {u_tile.u_tile.u_n05.x[23]} {u_tile.u_tile.u_n05.x[24]} {u_tile.u_tile.u_n05.x[25]} {u_tile.u_tile.u_n05.x[26]} {u_tile.u_tile.u_n05.x[27]} {u_tile.u_tile.u_n05.x[28]} {u_tile.u_tile.u_n05.x[29]} {u_tile.u_tile.u_n05.x[30]} {u_tile.u_tile.u_n05.x[31]} {u_tile.u_tile.u_n05.x[32]} {u_tile.u_tile.u_n05.x[33]} {u_tile.u_tile.u_n05.x[34]} {u_tile.u_tile.u_n05.x[35]} {u_tile.u_tile.u_n05.x[36]} {u_tile.u_tile.u_n05.x[37]} {u_tile.u_tile.u_n05.x[38]} {u_tile.u_tile.u_n05.x[39]} {u_tile.u_tile.u_n05.x[40]} {u_tile.u_tile.u_n05.x[41]} {u_tile.u_tile.u_n05.x[42]} {u_tile.u_tile.u_n05.x[43]} {u_tile.u_tile.u_n05.x[44]} {u_tile.u_tile.u_n05.x[45]} {u_tile.u_tile.u_n05.x[46]} {u_tile.u_tile.u_n05.x[47]} {u_tile.u_tile.u_n05.x[48]} {u_tile.u_tile.u_n05.x[49]} {u_tile.u_tile.u_n05.x[50]} {u_tile.u_tile.u_n05.x[51]} {u_tile.u_tile.u_n05.x[52]} {u_tile.u_tile.u_n05.x[53]} {u_tile.u_tile.u_n05.x[54]} {u_tile.u_tile.u_n05.x[55]} {u_tile.u_tile.u_n05.x[56]} {u_tile.u_tile.u_n05.x[57]} {u_tile.u_tile.u_n05.x[58]} {u_tile.u_tile.u_n05.x[59]} {u_tile.u_tile.u_n05.x[60]} {u_tile.u_tile.u_n05.x[61]} {u_tile.u_tile.u_n05.x[62]} {u_tile.u_tile.u_n05.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.812776e-04 -duty 0.5472; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.439785e-04 -duty 0.5472; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.total[0]} {u_tile.u_tile.u_n05.total[1]} {u_tile.u_tile.u_n05.total[2]} {u_tile.u_tile.u_n05.total[3]} {u_tile.u_tile.u_n05.total[4]} {u_tile.u_tile.u_n05.total[5]} {u_tile.u_tile.u_n05.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.077622e-04 -duty 0.4006; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.347230e-05 -duty 0.4006; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc10[0]} {u_tile.u_tile.u_n05.pc10[1]} {u_tile.u_tile.u_n05.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc09[0]} {u_tile.u_tile.u_n05.pc09[1]} {u_tile.u_tile.u_n05.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0023; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0023; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc08[0]} {u_tile.u_tile.u_n05.pc08[1]} {u_tile.u_tile.u_n05.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.972080e-05 -duty 0.2274; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.312752e-05 -duty 0.2275; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc07[0]} {u_tile.u_tile.u_n05.pc07[1]} {u_tile.u_tile.u_n05.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.079652e-04 -duty 0.5432; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.364833e-05 -duty 0.5432; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc06[0]} {u_tile.u_tile.u_n05.pc06[1]} {u_tile.u_tile.u_n05.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.3796; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.3795; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc05[0]} {u_tile.u_tile.u_n05.pc05[1]} {u_tile.u_tile.u_n05.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.733125e-04 -duty 0.4227; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.503302e-04 -duty 0.4226; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc04[0]} {u_tile.u_tile.u_n05.pc04[1]} {u_tile.u_tile.u_n05.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.3917; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.3917; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc03[0]} {u_tile.u_tile.u_n05.pc03[1]} {u_tile.u_tile.u_n05.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.505830e-04 -duty 0.4224; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306148e-04 -duty 0.4224; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc02[0]} {u_tile.u_tile.u_n05.pc02[1]} {u_tile.u_tile.u_n05.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860978e-04 -duty 0.4120; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.614201e-04 -duty 0.4119; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc01[0]} {u_tile.u_tile.u_n05.pc01[1]} {u_tile.u_tile.u_n05.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-04 -duty 0.4402; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-04 -duty 0.4402; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.pc00[0]} {u_tile.u_tile.u_n05.pc00[1]} {u_tile.u_tile.u_n05.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.065446e-04 -duty 0.3382; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.241611e-05 -duty 0.3382; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u00.m[0]} {u_tile.u_tile.u_n05.u00.m[1]} {u_tile.u_tile.u_n05.u00.m[2]} {u_tile.u_tile.u_n05.u00.m[3]} {u_tile.u_tile.u_n05.u00.m[4]} {u_tile.u_tile.u_n05.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.434800e-04 -duty 0.4345; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.244537e-04 -duty 0.4347; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u00.w[0]} {u_tile.u_tile.u_n05.u00.w[1]} {u_tile.u_tile.u_n05.u00.w[2]} {u_tile.u_tile.u_n05.u00.w[3]} {u_tile.u_tile.u_n05.u00.w[4]} {u_tile.u_tile.u_n05.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.5367; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.5365; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u00.x[0]} {u_tile.u_tile.u_n05.u00.x[1]} {u_tile.u_tile.u_n05.u00.x[2]} {u_tile.u_tile.u_n05.u00.x[3]} {u_tile.u_tile.u_n05.u00.x[4]} {u_tile.u_tile.u_n05.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u00.pc[0]} {u_tile.u_tile.u_n05.u00.pc[1]} {u_tile.u_tile.u_n05.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.065446e-04 -duty 0.3382; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.241611e-05 -duty 0.3382; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u01.m[0]} {u_tile.u_tile.u_n05.u01.m[1]} {u_tile.u_tile.u_n05.u01.m[2]} {u_tile.u_tile.u_n05.u01.m[3]} {u_tile.u_tile.u_n05.u01.m[4]} {u_tile.u_tile.u_n05.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.960420e-04 -duty 0.4386; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.700456e-04 -duty 0.4385; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u01.w[0]} {u_tile.u_tile.u_n05.u01.w[1]} {u_tile.u_tile.u_n05.u01.w[2]} {u_tile.u_tile.u_n05.u01.w[3]} {u_tile.u_tile.u_n05.u01.w[4]} {u_tile.u_tile.u_n05.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.797052e-04 -duty 0.4814; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.558752e-04 -duty 0.4814; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u01.x[0]} {u_tile.u_tile.u_n05.u01.x[1]} {u_tile.u_tile.u_n05.u01.x[2]} {u_tile.u_tile.u_n05.u01.x[3]} {u_tile.u_tile.u_n05.u01.x[4]} {u_tile.u_tile.u_n05.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u01.pc[0]} {u_tile.u_tile.u_n05.u01.pc[1]} {u_tile.u_tile.u_n05.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-04 -duty 0.4402; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-04 -duty 0.4402; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u02.m[0]} {u_tile.u_tile.u_n05.u02.m[1]} {u_tile.u_tile.u_n05.u02.m[2]} {u_tile.u_tile.u_n05.u02.m[3]} {u_tile.u_tile.u_n05.u02.m[4]} {u_tile.u_tile.u_n05.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.5092; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.5091; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u02.w[0]} {u_tile.u_tile.u_n05.u02.w[1]} {u_tile.u_tile.u_n05.u02.w[2]} {u_tile.u_tile.u_n05.u02.w[3]} {u_tile.u_tile.u_n05.u02.w[4]} {u_tile.u_tile.u_n05.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u02.x[0]} {u_tile.u_tile.u_n05.u02.x[1]} {u_tile.u_tile.u_n05.u02.x[2]} {u_tile.u_tile.u_n05.u02.x[3]} {u_tile.u_tile.u_n05.u02.x[4]} {u_tile.u_tile.u_n05.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u02.pc[0]} {u_tile.u_tile.u_n05.u02.pc[1]} {u_tile.u_tile.u_n05.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860978e-04 -duty 0.4120; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.614201e-04 -duty 0.4119; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u03.m[0]} {u_tile.u_tile.u_n05.u03.m[1]} {u_tile.u_tile.u_n05.u03.m[2]} {u_tile.u_tile.u_n05.u03.m[3]} {u_tile.u_tile.u_n05.u03.m[4]} {u_tile.u_tile.u_n05.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.541345e-04 -duty 0.5122; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.336953e-04 -duty 0.5122; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u03.w[0]} {u_tile.u_tile.u_n05.u03.w[1]} {u_tile.u_tile.u_n05.u03.w[2]} {u_tile.u_tile.u_n05.u03.w[3]} {u_tile.u_tile.u_n05.u03.w[4]} {u_tile.u_tile.u_n05.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.4408; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.4406; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u03.x[0]} {u_tile.u_tile.u_n05.u03.x[1]} {u_tile.u_tile.u_n05.u03.x[2]} {u_tile.u_tile.u_n05.u03.x[3]} {u_tile.u_tile.u_n05.u03.x[4]} {u_tile.u_tile.u_n05.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u03.pc[0]} {u_tile.u_tile.u_n05.u03.pc[1]} {u_tile.u_tile.u_n05.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.505830e-04 -duty 0.4224; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306148e-04 -duty 0.4224; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u04.m[0]} {u_tile.u_tile.u_n05.u04.m[1]} {u_tile.u_tile.u_n05.u04.m[2]} {u_tile.u_tile.u_n05.u04.m[3]} {u_tile.u_tile.u_n05.u04.m[4]} {u_tile.u_tile.u_n05.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.3852; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.3852; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u04.w[0]} {u_tile.u_tile.u_n05.u04.w[1]} {u_tile.u_tile.u_n05.u04.w[2]} {u_tile.u_tile.u_n05.u04.w[3]} {u_tile.u_tile.u_n05.u04.w[4]} {u_tile.u_tile.u_n05.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.157784e-04 -duty 0.5053; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.004255e-04 -duty 0.5053; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u04.x[0]} {u_tile.u_tile.u_n05.u04.x[1]} {u_tile.u_tile.u_n05.u04.x[2]} {u_tile.u_tile.u_n05.u04.x[3]} {u_tile.u_tile.u_n05.u04.x[4]} {u_tile.u_tile.u_n05.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u04.pc[0]} {u_tile.u_tile.u_n05.u04.pc[1]} {u_tile.u_tile.u_n05.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.3917; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.3917; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u05.m[0]} {u_tile.u_tile.u_n05.u05.m[1]} {u_tile.u_tile.u_n05.u05.m[2]} {u_tile.u_tile.u_n05.u05.m[3]} {u_tile.u_tile.u_n05.u05.m[4]} {u_tile.u_tile.u_n05.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.612374e-04 -duty 0.4121; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.398564e-04 -duty 0.4119; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u05.w[0]} {u_tile.u_tile.u_n05.u05.w[1]} {u_tile.u_tile.u_n05.u05.w[2]} {u_tile.u_tile.u_n05.u05.w[3]} {u_tile.u_tile.u_n05.u05.w[4]} {u_tile.u_tile.u_n05.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392182e-04 -duty 0.5937; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.207571e-04 -duty 0.5938; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u05.x[0]} {u_tile.u_tile.u_n05.u05.x[1]} {u_tile.u_tile.u_n05.u05.x[2]} {u_tile.u_tile.u_n05.u05.x[3]} {u_tile.u_tile.u_n05.u05.x[4]} {u_tile.u_tile.u_n05.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u05.pc[0]} {u_tile.u_tile.u_n05.u05.pc[1]} {u_tile.u_tile.u_n05.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.733125e-04 -duty 0.4227; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.503302e-04 -duty 0.4226; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u06.m[0]} {u_tile.u_tile.u_n05.u06.m[1]} {u_tile.u_tile.u_n05.u06.m[2]} {u_tile.u_tile.u_n05.u06.m[3]} {u_tile.u_tile.u_n05.u06.m[4]} {u_tile.u_tile.u_n05.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.612374e-04 -duty 0.3728; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.398564e-04 -duty 0.3726; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u06.w[0]} {u_tile.u_tile.u_n05.u06.w[1]} {u_tile.u_tile.u_n05.u06.w[2]} {u_tile.u_tile.u_n05.u06.w[3]} {u_tile.u_tile.u_n05.u06.w[4]} {u_tile.u_tile.u_n05.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.2971; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.2972; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u06.x[0]} {u_tile.u_tile.u_n05.u06.x[1]} {u_tile.u_tile.u_n05.u06.x[2]} {u_tile.u_tile.u_n05.u06.x[3]} {u_tile.u_tile.u_n05.u06.x[4]} {u_tile.u_tile.u_n05.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u06.pc[0]} {u_tile.u_tile.u_n05.u06.pc[1]} {u_tile.u_tile.u_n05.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.3796; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.3795; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u07.m[0]} {u_tile.u_tile.u_n05.u07.m[1]} {u_tile.u_tile.u_n05.u07.m[2]} {u_tile.u_tile.u_n05.u07.m[3]} {u_tile.u_tile.u_n05.u07.m[4]} {u_tile.u_tile.u_n05.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.512933e-04 -duty 0.5029; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.312309e-04 -duty 0.5029; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u07.w[0]} {u_tile.u_tile.u_n05.u07.w[1]} {u_tile.u_tile.u_n05.u07.w[2]} {u_tile.u_tile.u_n05.u07.w[3]} {u_tile.u_tile.u_n05.u07.w[4]} {u_tile.u_tile.u_n05.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.342462e-04 -duty 0.4338; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.164443e-04 -duty 0.4339; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u07.x[0]} {u_tile.u_tile.u_n05.u07.x[1]} {u_tile.u_tile.u_n05.u07.x[2]} {u_tile.u_tile.u_n05.u07.x[3]} {u_tile.u_tile.u_n05.u07.x[4]} {u_tile.u_tile.u_n05.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u07.pc[0]} {u_tile.u_tile.u_n05.u07.pc[1]} {u_tile.u_tile.u_n05.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.079652e-04 -duty 0.5432; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.364833e-05 -duty 0.5432; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u08.m[0]} {u_tile.u_tile.u_n05.u08.m[1]} {u_tile.u_tile.u_n05.u08.m[2]} {u_tile.u_tile.u_n05.u08.m[3]} {u_tile.u_tile.u_n05.u08.m[4]} {u_tile.u_tile.u_n05.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.628099e-05 -duty 0.1161; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.279597e-05 -duty 0.1161; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u08.w[0]} {u_tile.u_tile.u_n05.u08.w[1]} {u_tile.u_tile.u_n05.u08.w[2]} {u_tile.u_tile.u_n05.u08.w[3]} {u_tile.u_tile.u_n05.u08.w[4]} {u_tile.u_tile.u_n05.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.628099e-05 -duty 0.8506; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.279597e-05 -duty 0.8506; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u08.pc[0]} {u_tile.u_tile.u_n05.u08.pc[1]} {u_tile.u_tile.u_n05.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.972080e-05 -duty 0.2274; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.312752e-05 -duty 0.2275; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u09.m[0]} {u_tile.u_tile.u_n05.u09.m[1]} {u_tile.u_tile.u_n05.u09.m[2]} {u_tile.u_tile.u_n05.u09.m[3]} {u_tile.u_tile.u_n05.u09.m[4]} {u_tile.u_tile.u_n05.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0035; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0035; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u09.w[0]} {u_tile.u_tile.u_n05.u09.w[1]} {u_tile.u_tile.u_n05.u09.w[2]} {u_tile.u_tile.u_n05.u09.w[3]} {u_tile.u_tile.u_n05.u09.w[4]} {u_tile.u_tile.u_n05.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u09.pc[0]} {u_tile.u_tile.u_n05.u09.pc[1]} {u_tile.u_tile.u_n05.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0023; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0023; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u10.m[0]} {u_tile.u_tile.u_n05.u10.m[1]} {u_tile.u_tile.u_n05.u10.m[2]} {u_tile.u_tile.u_n05.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0035; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0035; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u10.w[0]} {u_tile.u_tile.u_n05.u10.w[1]} {u_tile.u_tile.u_n05.u10.w[2]} {u_tile.u_tile.u_n05.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n05.u10.pc[0]} {u_tile.u_tile.u_n05.u10.pc[1]} {u_tile.u_tile.u_n05.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0012; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.threshold[0]} {u_tile.u_tile.u_n06.threshold[1]} {u_tile.u_tile.u_n06.threshold[2]} {u_tile.u_tile.u_n06.threshold[3]} {u_tile.u_tile.u_n06.threshold[4]} {u_tile.u_tile.u_n06.threshold[5]} {u_tile.u_tile.u_n06.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.088261e-05 -duty 0.5247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.280921e-05 -duty 0.5248; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.w[0]} {u_tile.u_tile.u_n06.w[1]} {u_tile.u_tile.u_n06.w[2]} {u_tile.u_tile.u_n06.w[3]} {u_tile.u_tile.u_n06.w[4]} {u_tile.u_tile.u_n06.w[5]} {u_tile.u_tile.u_n06.w[6]} {u_tile.u_tile.u_n06.w[7]} {u_tile.u_tile.u_n06.w[8]} {u_tile.u_tile.u_n06.w[9]} {u_tile.u_tile.u_n06.w[10]} {u_tile.u_tile.u_n06.w[11]} {u_tile.u_tile.u_n06.w[12]} {u_tile.u_tile.u_n06.w[13]} {u_tile.u_tile.u_n06.w[14]} {u_tile.u_tile.u_n06.w[15]} {u_tile.u_tile.u_n06.w[16]} {u_tile.u_tile.u_n06.w[17]} {u_tile.u_tile.u_n06.w[18]} {u_tile.u_tile.u_n06.w[19]} {u_tile.u_tile.u_n06.w[20]} {u_tile.u_tile.u_n06.w[21]} {u_tile.u_tile.u_n06.w[22]} {u_tile.u_tile.u_n06.w[23]} {u_tile.u_tile.u_n06.w[24]} {u_tile.u_tile.u_n06.w[25]} {u_tile.u_tile.u_n06.w[26]} {u_tile.u_tile.u_n06.w[27]} {u_tile.u_tile.u_n06.w[28]} {u_tile.u_tile.u_n06.w[29]} {u_tile.u_tile.u_n06.w[30]} {u_tile.u_tile.u_n06.w[31]} {u_tile.u_tile.u_n06.w[32]} {u_tile.u_tile.u_n06.w[33]} {u_tile.u_tile.u_n06.w[34]} {u_tile.u_tile.u_n06.w[35]} {u_tile.u_tile.u_n06.w[36]} {u_tile.u_tile.u_n06.w[37]} {u_tile.u_tile.u_n06.w[38]} {u_tile.u_tile.u_n06.w[39]} {u_tile.u_tile.u_n06.w[40]} {u_tile.u_tile.u_n06.w[41]} {u_tile.u_tile.u_n06.w[42]} {u_tile.u_tile.u_n06.w[43]} {u_tile.u_tile.u_n06.w[44]} {u_tile.u_tile.u_n06.w[45]} {u_tile.u_tile.u_n06.w[46]} {u_tile.u_tile.u_n06.w[47]} {u_tile.u_tile.u_n06.w[48]} {u_tile.u_tile.u_n06.w[49]} {u_tile.u_tile.u_n06.w[50]} {u_tile.u_tile.u_n06.w[51]} {u_tile.u_tile.u_n06.w[52]} {u_tile.u_tile.u_n06.w[53]} {u_tile.u_tile.u_n06.w[54]} {u_tile.u_tile.u_n06.w[55]} {u_tile.u_tile.u_n06.w[56]} {u_tile.u_tile.u_n06.w[57]} {u_tile.u_tile.u_n06.w[58]} {u_tile.u_tile.u_n06.w[59]} {u_tile.u_tile.u_n06.w[60]} {u_tile.u_tile.u_n06.w[61]} {u_tile.u_tile.u_n06.w[62]} {u_tile.u_tile.u_n06.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.177317e-04 -duty 0.5809; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.021198e-04 -duty 0.5808; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.x[0]} {u_tile.u_tile.u_n06.x[1]} {u_tile.u_tile.u_n06.x[2]} {u_tile.u_tile.u_n06.x[3]} {u_tile.u_tile.u_n06.x[4]} {u_tile.u_tile.u_n06.x[5]} {u_tile.u_tile.u_n06.x[6]} {u_tile.u_tile.u_n06.x[7]} {u_tile.u_tile.u_n06.x[8]} {u_tile.u_tile.u_n06.x[9]} {u_tile.u_tile.u_n06.x[10]} {u_tile.u_tile.u_n06.x[11]} {u_tile.u_tile.u_n06.x[12]} {u_tile.u_tile.u_n06.x[13]} {u_tile.u_tile.u_n06.x[14]} {u_tile.u_tile.u_n06.x[15]} {u_tile.u_tile.u_n06.x[16]} {u_tile.u_tile.u_n06.x[17]} {u_tile.u_tile.u_n06.x[18]} {u_tile.u_tile.u_n06.x[19]} {u_tile.u_tile.u_n06.x[20]} {u_tile.u_tile.u_n06.x[21]} {u_tile.u_tile.u_n06.x[22]} {u_tile.u_tile.u_n06.x[23]} {u_tile.u_tile.u_n06.x[24]} {u_tile.u_tile.u_n06.x[25]} {u_tile.u_tile.u_n06.x[26]} {u_tile.u_tile.u_n06.x[27]} {u_tile.u_tile.u_n06.x[28]} {u_tile.u_tile.u_n06.x[29]} {u_tile.u_tile.u_n06.x[30]} {u_tile.u_tile.u_n06.x[31]} {u_tile.u_tile.u_n06.x[32]} {u_tile.u_tile.u_n06.x[33]} {u_tile.u_tile.u_n06.x[34]} {u_tile.u_tile.u_n06.x[35]} {u_tile.u_tile.u_n06.x[36]} {u_tile.u_tile.u_n06.x[37]} {u_tile.u_tile.u_n06.x[38]} {u_tile.u_tile.u_n06.x[39]} {u_tile.u_tile.u_n06.x[40]} {u_tile.u_tile.u_n06.x[41]} {u_tile.u_tile.u_n06.x[42]} {u_tile.u_tile.u_n06.x[43]} {u_tile.u_tile.u_n06.x[44]} {u_tile.u_tile.u_n06.x[45]} {u_tile.u_tile.u_n06.x[46]} {u_tile.u_tile.u_n06.x[47]} {u_tile.u_tile.u_n06.x[48]} {u_tile.u_tile.u_n06.x[49]} {u_tile.u_tile.u_n06.x[50]} {u_tile.u_tile.u_n06.x[51]} {u_tile.u_tile.u_n06.x[52]} {u_tile.u_tile.u_n06.x[53]} {u_tile.u_tile.u_n06.x[54]} {u_tile.u_tile.u_n06.x[55]} {u_tile.u_tile.u_n06.x[56]} {u_tile.u_tile.u_n06.x[57]} {u_tile.u_tile.u_n06.x[58]} {u_tile.u_tile.u_n06.x[59]} {u_tile.u_tile.u_n06.x[60]} {u_tile.u_tile.u_n06.x[61]} {u_tile.u_tile.u_n06.x[62]} {u_tile.u_tile.u_n06.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.025866e-04 -duty 0.3390; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.624618e-04 -duty 0.3388; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.total[0]} {u_tile.u_tile.u_n06.total[1]} {u_tile.u_tile.u_n06.total[2]} {u_tile.u_tile.u_n06.total[3]} {u_tile.u_tile.u_n06.total[4]} {u_tile.u_tile.u_n06.total[5]} {u_tile.u_tile.u_n06.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.217652e-04 -duty 0.4329; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.056184e-04 -duty 0.4329; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc10[0]} {u_tile.u_tile.u_n06.pc10[1]} {u_tile.u_tile.u_n06.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0013; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0013; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc09[0]} {u_tile.u_tile.u_n06.pc09[1]} {u_tile.u_tile.u_n06.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0026; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc08[0]} {u_tile.u_tile.u_n06.pc08[1]} {u_tile.u_tile.u_n06.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.375922e-05 -duty 0.0985; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.132618e-05 -duty 0.0984; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc07[0]} {u_tile.u_tile.u_n06.pc07[1]} {u_tile.u_tile.u_n06.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.145097e-04 -duty 0.3889; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860644e-04 -duty 0.3889; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc06[0]} {u_tile.u_tile.u_n06.pc06[1]} {u_tile.u_tile.u_n06.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860978e-04 -duty 0.3695; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.614201e-04 -duty 0.3695; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc05[0]} {u_tile.u_tile.u_n06.pc05[1]} {u_tile.u_tile.u_n06.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.4699; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.4699; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc04[0]} {u_tile.u_tile.u_n06.pc04[1]} {u_tile.u_tile.u_n06.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.5306; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.5306; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc03[0]} {u_tile.u_tile.u_n06.pc03[1]} {u_tile.u_tile.u_n06.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.670717e-04 -duty 0.4518; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.316564e-04 -duty 0.4517; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc02[0]} {u_tile.u_tile.u_n06.pc02[1]} {u_tile.u_tile.u_n06.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.4240; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.4239; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc01[0]} {u_tile.u_tile.u_n06.pc01[1]} {u_tile.u_tile.u_n06.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860978e-04 -duty 0.5464; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.614201e-04 -duty 0.5464; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.pc00[0]} {u_tile.u_tile.u_n06.pc00[1]} {u_tile.u_tile.u_n06.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.917802e-04 -duty 0.4281; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.663490e-04 -duty 0.4280; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u00.m[0]} {u_tile.u_tile.u_n06.u00.m[1]} {u_tile.u_tile.u_n06.u00.m[2]} {u_tile.u_tile.u_n06.u00.m[3]} {u_tile.u_tile.u_n06.u00.m[4]} {u_tile.u_tile.u_n06.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.640786e-04 -duty 0.3991; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.423208e-04 -duty 0.3989; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u00.w[0]} {u_tile.u_tile.u_n06.u00.w[1]} {u_tile.u_tile.u_n06.u00.w[2]} {u_tile.u_tile.u_n06.u00.w[3]} {u_tile.u_tile.u_n06.u00.w[4]} {u_tile.u_tile.u_n06.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.569757e-04 -duty 0.5870; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.361597e-04 -duty 0.5873; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u00.x[0]} {u_tile.u_tile.u_n06.u00.x[1]} {u_tile.u_tile.u_n06.u00.x[2]} {u_tile.u_tile.u_n06.u00.x[3]} {u_tile.u_tile.u_n06.u00.x[4]} {u_tile.u_tile.u_n06.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u00.pc[0]} {u_tile.u_tile.u_n06.u00.pc[1]} {u_tile.u_tile.u_n06.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.917802e-04 -duty 0.4281; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.663490e-04 -duty 0.4280; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u01.m[0]} {u_tile.u_tile.u_n06.u01.m[1]} {u_tile.u_tile.u_n06.u01.m[2]} {u_tile.u_tile.u_n06.u01.m[3]} {u_tile.u_tile.u_n06.u01.m[4]} {u_tile.u_tile.u_n06.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.079652e-04 -duty 0.6149; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.364833e-05 -duty 0.6148; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u01.w[0]} {u_tile.u_tile.u_n06.u01.w[1]} {u_tile.u_tile.u_n06.u01.w[2]} {u_tile.u_tile.u_n06.u01.w[3]} {u_tile.u_tile.u_n06.u01.w[4]} {u_tile.u_tile.u_n06.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.162832e-05 -duty 0.5535; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.947786e-05 -duty 0.5534; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u01.x[0]} {u_tile.u_tile.u_n06.u01.x[1]} {u_tile.u_tile.u_n06.u01.x[2]} {u_tile.u_tile.u_n06.u01.x[3]} {u_tile.u_tile.u_n06.u01.x[4]} {u_tile.u_tile.u_n06.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u01.pc[0]} {u_tile.u_tile.u_n06.u01.pc[1]} {u_tile.u_tile.u_n06.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860978e-04 -duty 0.5464; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.614201e-04 -duty 0.5464; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u02.m[0]} {u_tile.u_tile.u_n06.u02.m[1]} {u_tile.u_tile.u_n06.u02.m[2]} {u_tile.u_tile.u_n06.u02.m[3]} {u_tile.u_tile.u_n06.u02.m[4]} {u_tile.u_tile.u_n06.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.832566e-04 -duty 0.5012; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.589557e-04 -duty 0.5011; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u02.w[0]} {u_tile.u_tile.u_n06.u02.w[1]} {u_tile.u_tile.u_n06.u02.w[2]} {u_tile.u_tile.u_n06.u02.w[3]} {u_tile.u_tile.u_n06.u02.w[4]} {u_tile.u_tile.u_n06.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.2326; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.2325; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u02.x[0]} {u_tile.u_tile.u_n06.u02.x[1]} {u_tile.u_tile.u_n06.u02.x[2]} {u_tile.u_tile.u_n06.u02.x[3]} {u_tile.u_tile.u_n06.u02.x[4]} {u_tile.u_tile.u_n06.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u02.pc[0]} {u_tile.u_tile.u_n06.u02.pc[1]} {u_tile.u_tile.u_n06.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.4240; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.4239; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u03.m[0]} {u_tile.u_tile.u_n06.u03.m[1]} {u_tile.u_tile.u_n06.u03.m[2]} {u_tile.u_tile.u_n06.u03.m[3]} {u_tile.u_tile.u_n06.u03.m[4]} {u_tile.u_tile.u_n06.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.995935e-04 -duty 0.5571; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.731262e-04 -duty 0.5571; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u03.w[0]} {u_tile.u_tile.u_n06.u03.w[1]} {u_tile.u_tile.u_n06.u03.w[2]} {u_tile.u_tile.u_n06.u03.w[3]} {u_tile.u_tile.u_n06.u03.w[4]} {u_tile.u_tile.u_n06.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.4646; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.4645; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u03.x[0]} {u_tile.u_tile.u_n06.u03.x[1]} {u_tile.u_tile.u_n06.u03.x[2]} {u_tile.u_tile.u_n06.u03.x[3]} {u_tile.u_tile.u_n06.u03.x[4]} {u_tile.u_tile.u_n06.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u03.pc[0]} {u_tile.u_tile.u_n06.u03.pc[1]} {u_tile.u_tile.u_n06.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.670717e-04 -duty 0.4518; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.316564e-04 -duty 0.4517; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u04.m[0]} {u_tile.u_tile.u_n06.u04.m[1]} {u_tile.u_tile.u_n06.u04.m[2]} {u_tile.u_tile.u_n06.u04.m[3]} {u_tile.u_tile.u_n06.u04.m[4]} {u_tile.u_tile.u_n06.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.335359e-04 -duty 0.6665; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.158282e-04 -duty 0.6665; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u04.w[0]} {u_tile.u_tile.u_n06.u04.w[1]} {u_tile.u_tile.u_n06.u04.w[2]} {u_tile.u_tile.u_n06.u04.w[3]} {u_tile.u_tile.u_n06.u04.w[4]} {u_tile.u_tile.u_n06.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.129372e-04 -duty 0.4579; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.796108e-05 -duty 0.4579; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u04.x[0]} {u_tile.u_tile.u_n06.u04.x[1]} {u_tile.u_tile.u_n06.u04.x[2]} {u_tile.u_tile.u_n06.u04.x[3]} {u_tile.u_tile.u_n06.u04.x[4]} {u_tile.u_tile.u_n06.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u04.pc[0]} {u_tile.u_tile.u_n06.u04.pc[1]} {u_tile.u_tile.u_n06.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.5306; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.5306; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u05.m[0]} {u_tile.u_tile.u_n06.u05.m[1]} {u_tile.u_tile.u_n06.u05.m[2]} {u_tile.u_tile.u_n06.u05.m[3]} {u_tile.u_tile.u_n06.u05.m[4]} {u_tile.u_tile.u_n06.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.569757e-04 -duty 0.5734; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.361597e-04 -duty 0.5735; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u05.w[0]} {u_tile.u_tile.u_n06.u05.w[1]} {u_tile.u_tile.u_n06.u05.w[2]} {u_tile.u_tile.u_n06.u05.w[3]} {u_tile.u_tile.u_n06.u05.w[4]} {u_tile.u_tile.u_n06.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.4982; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.4983; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u05.x[0]} {u_tile.u_tile.u_n06.u05.x[1]} {u_tile.u_tile.u_n06.u05.x[2]} {u_tile.u_tile.u_n06.u05.x[3]} {u_tile.u_tile.u_n06.u05.x[4]} {u_tile.u_tile.u_n06.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u05.pc[0]} {u_tile.u_tile.u_n06.u05.pc[1]} {u_tile.u_tile.u_n06.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.4699; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.4699; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u06.m[0]} {u_tile.u_tile.u_n06.u06.m[1]} {u_tile.u_tile.u_n06.u06.m[2]} {u_tile.u_tile.u_n06.u06.m[3]} {u_tile.u_tile.u_n06.u06.m[4]} {u_tile.u_tile.u_n06.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.280054e-04 -duty 0.3746; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.977705e-04 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u06.w[0]} {u_tile.u_tile.u_n06.u06.w[1]} {u_tile.u_tile.u_n06.u06.w[2]} {u_tile.u_tile.u_n06.u06.w[3]} {u_tile.u_tile.u_n06.u06.w[4]} {u_tile.u_tile.u_n06.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.031450e-04 -duty 0.3687; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.762067e-04 -duty 0.3686; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u06.x[0]} {u_tile.u_tile.u_n06.u06.x[1]} {u_tile.u_tile.u_n06.u06.x[2]} {u_tile.u_tile.u_n06.u06.x[3]} {u_tile.u_tile.u_n06.u06.x[4]} {u_tile.u_tile.u_n06.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u06.pc[0]} {u_tile.u_tile.u_n06.u06.pc[1]} {u_tile.u_tile.u_n06.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860978e-04 -duty 0.3695; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.614201e-04 -duty 0.3695; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u07.m[0]} {u_tile.u_tile.u_n06.u07.m[1]} {u_tile.u_tile.u_n06.u07.m[2]} {u_tile.u_tile.u_n06.u07.m[3]} {u_tile.u_tile.u_n06.u07.m[4]} {u_tile.u_tile.u_n06.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-04 -duty 0.4843; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-04 -duty 0.4844; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u07.w[0]} {u_tile.u_tile.u_n06.u07.w[1]} {u_tile.u_tile.u_n06.u07.w[2]} {u_tile.u_tile.u_n06.u07.w[3]} {u_tile.u_tile.u_n06.u07.w[4]} {u_tile.u_tile.u_n06.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.5128; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.5126; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u07.x[0]} {u_tile.u_tile.u_n06.u07.x[1]} {u_tile.u_tile.u_n06.u07.x[2]} {u_tile.u_tile.u_n06.u07.x[3]} {u_tile.u_tile.u_n06.u07.x[4]} {u_tile.u_tile.u_n06.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u07.pc[0]} {u_tile.u_tile.u_n06.u07.pc[1]} {u_tile.u_tile.u_n06.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.145097e-04 -duty 0.3889; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860644e-04 -duty 0.3889; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u08.m[0]} {u_tile.u_tile.u_n06.u08.m[1]} {u_tile.u_tile.u_n06.u08.m[2]} {u_tile.u_tile.u_n06.u08.m[3]} {u_tile.u_tile.u_n06.u08.m[4]} {u_tile.u_tile.u_n06.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.0518; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.0517; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u08.w[0]} {u_tile.u_tile.u_n06.u08.w[1]} {u_tile.u_tile.u_n06.u08.w[2]} {u_tile.u_tile.u_n06.u08.w[3]} {u_tile.u_tile.u_n06.u08.w[4]} {u_tile.u_tile.u_n06.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.9152; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.9153; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u08.pc[0]} {u_tile.u_tile.u_n06.u08.pc[1]} {u_tile.u_tile.u_n06.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.375922e-05 -duty 0.0985; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.132618e-05 -duty 0.0984; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u09.m[0]} {u_tile.u_tile.u_n06.u09.m[1]} {u_tile.u_tile.u_n06.u09.m[2]} {u_tile.u_tile.u_n06.u09.m[3]} {u_tile.u_tile.u_n06.u09.m[4]} {u_tile.u_tile.u_n06.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0038; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u09.w[0]} {u_tile.u_tile.u_n06.u09.w[1]} {u_tile.u_tile.u_n06.u09.w[2]} {u_tile.u_tile.u_n06.u09.w[3]} {u_tile.u_tile.u_n06.u09.w[4]} {u_tile.u_tile.u_n06.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u09.pc[0]} {u_tile.u_tile.u_n06.u09.pc[1]} {u_tile.u_tile.u_n06.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0026; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0025; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u10.m[0]} {u_tile.u_tile.u_n06.u10.m[1]} {u_tile.u_tile.u_n06.u10.m[2]} {u_tile.u_tile.u_n06.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0038; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u10.w[0]} {u_tile.u_tile.u_n06.u10.w[1]} {u_tile.u_tile.u_n06.u10.w[2]} {u_tile.u_tile.u_n06.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n06.u10.pc[0]} {u_tile.u_tile.u_n06.u10.pc[1]} {u_tile.u_tile.u_n06.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0013; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0013; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.threshold[0]} {u_tile.u_tile.u_n07.threshold[1]} {u_tile.u_tile.u_n07.threshold[2]} {u_tile.u_tile.u_n07.threshold[3]} {u_tile.u_tile.u_n07.threshold[4]} {u_tile.u_tile.u_n07.threshold[5]} {u_tile.u_tile.u_n07.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.853856e-05 -duty 0.4126; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.812388e-05 -duty 0.4126; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.w[0]} {u_tile.u_tile.u_n07.w[1]} {u_tile.u_tile.u_n07.w[2]} {u_tile.u_tile.u_n07.w[3]} {u_tile.u_tile.u_n07.w[4]} {u_tile.u_tile.u_n07.w[5]} {u_tile.u_tile.u_n07.w[6]} {u_tile.u_tile.u_n07.w[7]} {u_tile.u_tile.u_n07.w[8]} {u_tile.u_tile.u_n07.w[9]} {u_tile.u_tile.u_n07.w[10]} {u_tile.u_tile.u_n07.w[11]} {u_tile.u_tile.u_n07.w[12]} {u_tile.u_tile.u_n07.w[13]} {u_tile.u_tile.u_n07.w[14]} {u_tile.u_tile.u_n07.w[15]} {u_tile.u_tile.u_n07.w[16]} {u_tile.u_tile.u_n07.w[17]} {u_tile.u_tile.u_n07.w[18]} {u_tile.u_tile.u_n07.w[19]} {u_tile.u_tile.u_n07.w[20]} {u_tile.u_tile.u_n07.w[21]} {u_tile.u_tile.u_n07.w[22]} {u_tile.u_tile.u_n07.w[23]} {u_tile.u_tile.u_n07.w[24]} {u_tile.u_tile.u_n07.w[25]} {u_tile.u_tile.u_n07.w[26]} {u_tile.u_tile.u_n07.w[27]} {u_tile.u_tile.u_n07.w[28]} {u_tile.u_tile.u_n07.w[29]} {u_tile.u_tile.u_n07.w[30]} {u_tile.u_tile.u_n07.w[31]} {u_tile.u_tile.u_n07.w[32]} {u_tile.u_tile.u_n07.w[33]} {u_tile.u_tile.u_n07.w[34]} {u_tile.u_tile.u_n07.w[35]} {u_tile.u_tile.u_n07.w[36]} {u_tile.u_tile.u_n07.w[37]} {u_tile.u_tile.u_n07.w[38]} {u_tile.u_tile.u_n07.w[39]} {u_tile.u_tile.u_n07.w[40]} {u_tile.u_tile.u_n07.w[41]} {u_tile.u_tile.u_n07.w[42]} {u_tile.u_tile.u_n07.w[43]} {u_tile.u_tile.u_n07.w[44]} {u_tile.u_tile.u_n07.w[45]} {u_tile.u_tile.u_n07.w[46]} {u_tile.u_tile.u_n07.w[47]} {u_tile.u_tile.u_n07.w[48]} {u_tile.u_tile.u_n07.w[49]} {u_tile.u_tile.u_n07.w[50]} {u_tile.u_tile.u_n07.w[51]} {u_tile.u_tile.u_n07.w[52]} {u_tile.u_tile.u_n07.w[53]} {u_tile.u_tile.u_n07.w[54]} {u_tile.u_tile.u_n07.w[55]} {u_tile.u_tile.u_n07.w[56]} {u_tile.u_tile.u_n07.w[57]} {u_tile.u_tile.u_n07.w[58]} {u_tile.u_tile.u_n07.w[59]} {u_tile.u_tile.u_n07.w[60]} {u_tile.u_tile.u_n07.w[61]} {u_tile.u_tile.u_n07.w[62]} {u_tile.u_tile.u_n07.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.298512e-04 -duty 0.6284; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.126321e-04 -duty 0.6285; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.x[0]} {u_tile.u_tile.u_n07.x[1]} {u_tile.u_tile.u_n07.x[2]} {u_tile.u_tile.u_n07.x[3]} {u_tile.u_tile.u_n07.x[4]} {u_tile.u_tile.u_n07.x[5]} {u_tile.u_tile.u_n07.x[6]} {u_tile.u_tile.u_n07.x[7]} {u_tile.u_tile.u_n07.x[8]} {u_tile.u_tile.u_n07.x[9]} {u_tile.u_tile.u_n07.x[10]} {u_tile.u_tile.u_n07.x[11]} {u_tile.u_tile.u_n07.x[12]} {u_tile.u_tile.u_n07.x[13]} {u_tile.u_tile.u_n07.x[14]} {u_tile.u_tile.u_n07.x[15]} {u_tile.u_tile.u_n07.x[16]} {u_tile.u_tile.u_n07.x[17]} {u_tile.u_tile.u_n07.x[18]} {u_tile.u_tile.u_n07.x[19]} {u_tile.u_tile.u_n07.x[20]} {u_tile.u_tile.u_n07.x[21]} {u_tile.u_tile.u_n07.x[22]} {u_tile.u_tile.u_n07.x[23]} {u_tile.u_tile.u_n07.x[24]} {u_tile.u_tile.u_n07.x[25]} {u_tile.u_tile.u_n07.x[26]} {u_tile.u_tile.u_n07.x[27]} {u_tile.u_tile.u_n07.x[28]} {u_tile.u_tile.u_n07.x[29]} {u_tile.u_tile.u_n07.x[30]} {u_tile.u_tile.u_n07.x[31]} {u_tile.u_tile.u_n07.x[32]} {u_tile.u_tile.u_n07.x[33]} {u_tile.u_tile.u_n07.x[34]} {u_tile.u_tile.u_n07.x[35]} {u_tile.u_tile.u_n07.x[36]} {u_tile.u_tile.u_n07.x[37]} {u_tile.u_tile.u_n07.x[38]} {u_tile.u_tile.u_n07.x[39]} {u_tile.u_tile.u_n07.x[40]} {u_tile.u_tile.u_n07.x[41]} {u_tile.u_tile.u_n07.x[42]} {u_tile.u_tile.u_n07.x[43]} {u_tile.u_tile.u_n07.x[44]} {u_tile.u_tile.u_n07.x[45]} {u_tile.u_tile.u_n07.x[46]} {u_tile.u_tile.u_n07.x[47]} {u_tile.u_tile.u_n07.x[48]} {u_tile.u_tile.u_n07.x[49]} {u_tile.u_tile.u_n07.x[50]} {u_tile.u_tile.u_n07.x[51]} {u_tile.u_tile.u_n07.x[52]} {u_tile.u_tile.u_n07.x[53]} {u_tile.u_tile.u_n07.x[54]} {u_tile.u_tile.u_n07.x[55]} {u_tile.u_tile.u_n07.x[56]} {u_tile.u_tile.u_n07.x[57]} {u_tile.u_tile.u_n07.x[58]} {u_tile.u_tile.u_n07.x[59]} {u_tile.u_tile.u_n07.x[60]} {u_tile.u_tile.u_n07.x[61]} {u_tile.u_tile.u_n07.x[62]} {u_tile.u_tile.u_n07.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.940630e-04 -duty 0.5302; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.550685e-04 -duty 0.5302; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.total[0]} {u_tile.u_tile.u_n07.total[1]} {u_tile.u_tile.u_n07.total[2]} {u_tile.u_tile.u_n07.total[3]} {u_tile.u_tile.u_n07.total[4]} {u_tile.u_tile.u_n07.total[5]} {u_tile.u_tile.u_n07.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.071534e-04 -duty 0.4234; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.294420e-05 -duty 0.4235; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc10[0]} {u_tile.u_tile.u_n07.pc10[1]} {u_tile.u_tile.u_n07.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0014; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0014; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc09[0]} {u_tile.u_tile.u_n07.pc09[1]} {u_tile.u_tile.u_n07.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0028; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0028; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc08[0]} {u_tile.u_tile.u_n07.pc08[1]} {u_tile.u_tile.u_n07.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.0506; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.0505; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc07[0]} {u_tile.u_tile.u_n07.pc07[1]} {u_tile.u_tile.u_n07.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306947e-04 -duty 0.5048; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.133638e-04 -duty 0.5048; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc06[0]} {u_tile.u_tile.u_n07.pc06[1]} {u_tile.u_tile.u_n07.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4177; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4176; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc05[0]} {u_tile.u_tile.u_n07.pc05[1]} {u_tile.u_tile.u_n07.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.889390e-04 -duty 0.4683; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.638846e-04 -duty 0.4683; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc04[0]} {u_tile.u_tile.u_n07.pc04[1]} {u_tile.u_tile.u_n07.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.505830e-04 -duty 0.4298; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306148e-04 -duty 0.4298; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc03[0]} {u_tile.u_tile.u_n07.pc03[1]} {u_tile.u_tile.u_n07.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.4718; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.4719; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc02[0]} {u_tile.u_tile.u_n07.pc02[1]} {u_tile.u_tile.u_n07.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.4132; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.4132; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc01[0]} {u_tile.u_tile.u_n07.pc01[1]} {u_tile.u_tile.u_n07.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-04 -duty 0.3942; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-04 -duty 0.3942; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.pc00[0]} {u_tile.u_tile.u_n07.pc00[1]} {u_tile.u_tile.u_n07.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.449006e-04 -duty 0.2332; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.256859e-04 -duty 0.2330; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u00.m[0]} {u_tile.u_tile.u_n07.u00.m[1]} {u_tile.u_tile.u_n07.u00.m[2]} {u_tile.u_tile.u_n07.u00.m[3]} {u_tile.u_tile.u_n07.u00.m[4]} {u_tile.u_tile.u_n07.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.875184e-04 -duty 0.2270; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.626524e-04 -duty 0.2268; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u00.w[0]} {u_tile.u_tile.u_n07.u00.w[1]} {u_tile.u_tile.u_n07.u00.w[2]} {u_tile.u_tile.u_n07.u00.w[3]} {u_tile.u_tile.u_n07.u00.w[4]} {u_tile.u_tile.u_n07.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.7715; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.7717; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u00.x[0]} {u_tile.u_tile.u_n07.u00.x[1]} {u_tile.u_tile.u_n07.u00.x[2]} {u_tile.u_tile.u_n07.u00.x[3]} {u_tile.u_tile.u_n07.u00.x[4]} {u_tile.u_tile.u_n07.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u00.pc[0]} {u_tile.u_tile.u_n07.u00.pc[1]} {u_tile.u_tile.u_n07.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.449006e-04 -duty 0.2332; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.256859e-04 -duty 0.2330; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u01.m[0]} {u_tile.u_tile.u_n07.u01.m[1]} {u_tile.u_tile.u_n07.u01.m[2]} {u_tile.u_tile.u_n07.u01.m[3]} {u_tile.u_tile.u_n07.u01.m[4]} {u_tile.u_tile.u_n07.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.967523e-04 -duty 0.4374; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.706618e-04 -duty 0.4374; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u01.w[0]} {u_tile.u_tile.u_n07.u01.w[1]} {u_tile.u_tile.u_n07.u01.w[2]} {u_tile.u_tile.u_n07.u01.w[3]} {u_tile.u_tile.u_n07.u01.w[4]} {u_tile.u_tile.u_n07.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.5943; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.5944; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u01.x[0]} {u_tile.u_tile.u_n07.u01.x[1]} {u_tile.u_tile.u_n07.u01.x[2]} {u_tile.u_tile.u_n07.u01.x[3]} {u_tile.u_tile.u_n07.u01.x[4]} {u_tile.u_tile.u_n07.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u01.pc[0]} {u_tile.u_tile.u_n07.u01.pc[1]} {u_tile.u_tile.u_n07.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-04 -duty 0.3942; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-04 -duty 0.3942; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u02.m[0]} {u_tile.u_tile.u_n07.u02.m[1]} {u_tile.u_tile.u_n07.u02.m[2]} {u_tile.u_tile.u_n07.u02.m[3]} {u_tile.u_tile.u_n07.u02.m[4]} {u_tile.u_tile.u_n07.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.832566e-04 -duty 0.5990; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.589557e-04 -duty 0.5990; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u02.w[0]} {u_tile.u_tile.u_n07.u02.w[1]} {u_tile.u_tile.u_n07.u02.w[2]} {u_tile.u_tile.u_n07.u02.w[3]} {u_tile.u_tile.u_n07.u02.w[4]} {u_tile.u_tile.u_n07.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.3278; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.3276; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u02.x[0]} {u_tile.u_tile.u_n07.u02.x[1]} {u_tile.u_tile.u_n07.u02.x[2]} {u_tile.u_tile.u_n07.u02.x[3]} {u_tile.u_tile.u_n07.u02.x[4]} {u_tile.u_tile.u_n07.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u02.pc[0]} {u_tile.u_tile.u_n07.u02.pc[1]} {u_tile.u_tile.u_n07.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.4132; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.4132; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u03.m[0]} {u_tile.u_tile.u_n07.u03.m[1]} {u_tile.u_tile.u_n07.u03.m[2]} {u_tile.u_tile.u_n07.u03.m[3]} {u_tile.u_tile.u_n07.u03.m[4]} {u_tile.u_tile.u_n07.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.194818e-04 -duty 0.6138; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.903772e-04 -duty 0.6140; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u03.w[0]} {u_tile.u_tile.u_n07.u03.w[1]} {u_tile.u_tile.u_n07.u03.w[2]} {u_tile.u_tile.u_n07.u03.w[3]} {u_tile.u_tile.u_n07.u03.w[4]} {u_tile.u_tile.u_n07.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.017244e-04 -duty 0.4980; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.749745e-04 -duty 0.4981; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u03.x[0]} {u_tile.u_tile.u_n07.u03.x[1]} {u_tile.u_tile.u_n07.u03.x[2]} {u_tile.u_tile.u_n07.u03.x[3]} {u_tile.u_tile.u_n07.u03.x[4]} {u_tile.u_tile.u_n07.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u03.pc[0]} {u_tile.u_tile.u_n07.u03.pc[1]} {u_tile.u_tile.u_n07.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.4718; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.4719; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u04.m[0]} {u_tile.u_tile.u_n07.u04.m[1]} {u_tile.u_tile.u_n07.u04.m[2]} {u_tile.u_tile.u_n07.u04.m[3]} {u_tile.u_tile.u_n07.u04.m[4]} {u_tile.u_tile.u_n07.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.569757e-04 -duty 0.4372; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.361597e-04 -duty 0.4371; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u04.w[0]} {u_tile.u_tile.u_n07.u04.w[1]} {u_tile.u_tile.u_n07.u04.w[2]} {u_tile.u_tile.u_n07.u04.w[3]} {u_tile.u_tile.u_n07.u04.w[4]} {u_tile.u_tile.u_n07.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.6997; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.7000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u04.x[0]} {u_tile.u_tile.u_n07.u04.x[1]} {u_tile.u_tile.u_n07.u04.x[2]} {u_tile.u_tile.u_n07.u04.x[3]} {u_tile.u_tile.u_n07.u04.x[4]} {u_tile.u_tile.u_n07.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u04.pc[0]} {u_tile.u_tile.u_n07.u04.pc[1]} {u_tile.u_tile.u_n07.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.505830e-04 -duty 0.4298; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306148e-04 -duty 0.4298; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u05.m[0]} {u_tile.u_tile.u_n07.u05.m[1]} {u_tile.u_tile.u_n07.u05.m[2]} {u_tile.u_tile.u_n07.u05.m[3]} {u_tile.u_tile.u_n07.u05.m[4]} {u_tile.u_tile.u_n07.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.010141e-04 -duty 0.5738; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.743584e-04 -duty 0.5738; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u05.w[0]} {u_tile.u_tile.u_n07.u05.w[1]} {u_tile.u_tile.u_n07.u05.w[2]} {u_tile.u_tile.u_n07.u05.w[3]} {u_tile.u_tile.u_n07.u05.w[4]} {u_tile.u_tile.u_n07.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.789949e-04 -duty 0.4746; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.552591e-04 -duty 0.4748; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u05.x[0]} {u_tile.u_tile.u_n07.u05.x[1]} {u_tile.u_tile.u_n07.u05.x[2]} {u_tile.u_tile.u_n07.u05.x[3]} {u_tile.u_tile.u_n07.u05.x[4]} {u_tile.u_tile.u_n07.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u05.pc[0]} {u_tile.u_tile.u_n07.u05.pc[1]} {u_tile.u_tile.u_n07.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.889390e-04 -duty 0.4683; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.638846e-04 -duty 0.4683; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u06.m[0]} {u_tile.u_tile.u_n07.u06.m[1]} {u_tile.u_tile.u_n07.u06.m[2]} {u_tile.u_tile.u_n07.u06.m[3]} {u_tile.u_tile.u_n07.u06.m[4]} {u_tile.u_tile.u_n07.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.825464e-04 -duty 0.4678; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583396e-04 -duty 0.4676; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u06.w[0]} {u_tile.u_tile.u_n07.u06.w[1]} {u_tile.u_tile.u_n07.u06.w[2]} {u_tile.u_tile.u_n07.u06.w[3]} {u_tile.u_tile.u_n07.u06.w[4]} {u_tile.u_tile.u_n07.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.4650; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.4649; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u06.x[0]} {u_tile.u_tile.u_n07.u06.x[1]} {u_tile.u_tile.u_n07.u06.x[2]} {u_tile.u_tile.u_n07.u06.x[3]} {u_tile.u_tile.u_n07.u06.x[4]} {u_tile.u_tile.u_n07.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u06.pc[0]} {u_tile.u_tile.u_n07.u06.pc[1]} {u_tile.u_tile.u_n07.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4177; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4176; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u07.m[0]} {u_tile.u_tile.u_n07.u07.m[1]} {u_tile.u_tile.u_n07.u07.m[2]} {u_tile.u_tile.u_n07.u07.m[3]} {u_tile.u_tile.u_n07.u07.m[4]} {u_tile.u_tile.u_n07.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.754434e-04 -duty 0.5565; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.521785e-04 -duty 0.5566; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u07.w[0]} {u_tile.u_tile.u_n07.u07.w[1]} {u_tile.u_tile.u_n07.u07.w[2]} {u_tile.u_tile.u_n07.u07.w[3]} {u_tile.u_tile.u_n07.u07.w[4]} {u_tile.u_tile.u_n07.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.3278; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.3276; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u07.x[0]} {u_tile.u_tile.u_n07.u07.x[1]} {u_tile.u_tile.u_n07.u07.x[2]} {u_tile.u_tile.u_n07.u07.x[3]} {u_tile.u_tile.u_n07.u07.x[4]} {u_tile.u_tile.u_n07.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u07.pc[0]} {u_tile.u_tile.u_n07.u07.pc[1]} {u_tile.u_tile.u_n07.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306947e-04 -duty 0.5048; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.133638e-04 -duty 0.5048; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u08.m[0]} {u_tile.u_tile.u_n07.u08.m[1]} {u_tile.u_tile.u_n07.u08.m[2]} {u_tile.u_tile.u_n07.u08.m[3]} {u_tile.u_tile.u_n07.u08.m[4]} {u_tile.u_tile.u_n07.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-05 -duty 0.0281; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-05 -duty 0.0280; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u08.w[0]} {u_tile.u_tile.u_n07.u08.w[1]} {u_tile.u_tile.u_n07.u08.w[2]} {u_tile.u_tile.u_n07.u08.w[3]} {u_tile.u_tile.u_n07.u08.w[4]} {u_tile.u_tile.u_n07.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-05 -duty 0.9213; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-05 -duty 0.9213; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u08.pc[0]} {u_tile.u_tile.u_n07.u08.pc[1]} {u_tile.u_tile.u_n07.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.0506; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.0505; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u09.m[0]} {u_tile.u_tile.u_n07.u09.m[1]} {u_tile.u_tile.u_n07.u09.m[2]} {u_tile.u_tile.u_n07.u09.m[3]} {u_tile.u_tile.u_n07.u09.m[4]} {u_tile.u_tile.u_n07.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0042; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0042; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u09.w[0]} {u_tile.u_tile.u_n07.u09.w[1]} {u_tile.u_tile.u_n07.u09.w[2]} {u_tile.u_tile.u_n07.u09.w[3]} {u_tile.u_tile.u_n07.u09.w[4]} {u_tile.u_tile.u_n07.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u09.pc[0]} {u_tile.u_tile.u_n07.u09.pc[1]} {u_tile.u_tile.u_n07.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0028; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0028; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u10.m[0]} {u_tile.u_tile.u_n07.u10.m[1]} {u_tile.u_tile.u_n07.u10.m[2]} {u_tile.u_tile.u_n07.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0042; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0042; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u10.w[0]} {u_tile.u_tile.u_n07.u10.w[1]} {u_tile.u_tile.u_n07.u10.w[2]} {u_tile.u_tile.u_n07.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n07.u10.pc[0]} {u_tile.u_tile.u_n07.u10.pc[1]} {u_tile.u_tile.u_n07.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0014; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0014; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.threshold[0]} {u_tile.u_tile.u_n08.threshold[1]} {u_tile.u_tile.u_n08.threshold[2]} {u_tile.u_tile.u_n08.threshold[3]} {u_tile.u_tile.u_n08.threshold[4]} {u_tile.u_tile.u_n08.threshold[5]} {u_tile.u_tile.u_n08.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.732091e-05 -duty 0.3718; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.706769e-05 -duty 0.3719; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.w[0]} {u_tile.u_tile.u_n08.w[1]} {u_tile.u_tile.u_n08.w[2]} {u_tile.u_tile.u_n08.w[3]} {u_tile.u_tile.u_n08.w[4]} {u_tile.u_tile.u_n08.w[5]} {u_tile.u_tile.u_n08.w[6]} {u_tile.u_tile.u_n08.w[7]} {u_tile.u_tile.u_n08.w[8]} {u_tile.u_tile.u_n08.w[9]} {u_tile.u_tile.u_n08.w[10]} {u_tile.u_tile.u_n08.w[11]} {u_tile.u_tile.u_n08.w[12]} {u_tile.u_tile.u_n08.w[13]} {u_tile.u_tile.u_n08.w[14]} {u_tile.u_tile.u_n08.w[15]} {u_tile.u_tile.u_n08.w[16]} {u_tile.u_tile.u_n08.w[17]} {u_tile.u_tile.u_n08.w[18]} {u_tile.u_tile.u_n08.w[19]} {u_tile.u_tile.u_n08.w[20]} {u_tile.u_tile.u_n08.w[21]} {u_tile.u_tile.u_n08.w[22]} {u_tile.u_tile.u_n08.w[23]} {u_tile.u_tile.u_n08.w[24]} {u_tile.u_tile.u_n08.w[25]} {u_tile.u_tile.u_n08.w[26]} {u_tile.u_tile.u_n08.w[27]} {u_tile.u_tile.u_n08.w[28]} {u_tile.u_tile.u_n08.w[29]} {u_tile.u_tile.u_n08.w[30]} {u_tile.u_tile.u_n08.w[31]} {u_tile.u_tile.u_n08.w[32]} {u_tile.u_tile.u_n08.w[33]} {u_tile.u_tile.u_n08.w[34]} {u_tile.u_tile.u_n08.w[35]} {u_tile.u_tile.u_n08.w[36]} {u_tile.u_tile.u_n08.w[37]} {u_tile.u_tile.u_n08.w[38]} {u_tile.u_tile.u_n08.w[39]} {u_tile.u_tile.u_n08.w[40]} {u_tile.u_tile.u_n08.w[41]} {u_tile.u_tile.u_n08.w[42]} {u_tile.u_tile.u_n08.w[43]} {u_tile.u_tile.u_n08.w[44]} {u_tile.u_tile.u_n08.w[45]} {u_tile.u_tile.u_n08.w[46]} {u_tile.u_tile.u_n08.w[47]} {u_tile.u_tile.u_n08.w[48]} {u_tile.u_tile.u_n08.w[49]} {u_tile.u_tile.u_n08.w[50]} {u_tile.u_tile.u_n08.w[51]} {u_tile.u_tile.u_n08.w[52]} {u_tile.u_tile.u_n08.w[53]} {u_tile.u_tile.u_n08.w[54]} {u_tile.u_tile.u_n08.w[55]} {u_tile.u_tile.u_n08.w[56]} {u_tile.u_tile.u_n08.w[57]} {u_tile.u_tile.u_n08.w[58]} {u_tile.u_tile.u_n08.w[59]} {u_tile.u_tile.u_n08.w[60]} {u_tile.u_tile.u_n08.w[61]} {u_tile.u_tile.u_n08.w[62]} {u_tile.u_tile.u_n08.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.072771e-04 -duty 0.6381; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.305147e-05 -duty 0.6381; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.x[0]} {u_tile.u_tile.u_n08.x[1]} {u_tile.u_tile.u_n08.x[2]} {u_tile.u_tile.u_n08.x[3]} {u_tile.u_tile.u_n08.x[4]} {u_tile.u_tile.u_n08.x[5]} {u_tile.u_tile.u_n08.x[6]} {u_tile.u_tile.u_n08.x[7]} {u_tile.u_tile.u_n08.x[8]} {u_tile.u_tile.u_n08.x[9]} {u_tile.u_tile.u_n08.x[10]} {u_tile.u_tile.u_n08.x[11]} {u_tile.u_tile.u_n08.x[12]} {u_tile.u_tile.u_n08.x[13]} {u_tile.u_tile.u_n08.x[14]} {u_tile.u_tile.u_n08.x[15]} {u_tile.u_tile.u_n08.x[16]} {u_tile.u_tile.u_n08.x[17]} {u_tile.u_tile.u_n08.x[18]} {u_tile.u_tile.u_n08.x[19]} {u_tile.u_tile.u_n08.x[20]} {u_tile.u_tile.u_n08.x[21]} {u_tile.u_tile.u_n08.x[22]} {u_tile.u_tile.u_n08.x[23]} {u_tile.u_tile.u_n08.x[24]} {u_tile.u_tile.u_n08.x[25]} {u_tile.u_tile.u_n08.x[26]} {u_tile.u_tile.u_n08.x[27]} {u_tile.u_tile.u_n08.x[28]} {u_tile.u_tile.u_n08.x[29]} {u_tile.u_tile.u_n08.x[30]} {u_tile.u_tile.u_n08.x[31]} {u_tile.u_tile.u_n08.x[32]} {u_tile.u_tile.u_n08.x[33]} {u_tile.u_tile.u_n08.x[34]} {u_tile.u_tile.u_n08.x[35]} {u_tile.u_tile.u_n08.x[36]} {u_tile.u_tile.u_n08.x[37]} {u_tile.u_tile.u_n08.x[38]} {u_tile.u_tile.u_n08.x[39]} {u_tile.u_tile.u_n08.x[40]} {u_tile.u_tile.u_n08.x[41]} {u_tile.u_tile.u_n08.x[42]} {u_tile.u_tile.u_n08.x[43]} {u_tile.u_tile.u_n08.x[44]} {u_tile.u_tile.u_n08.x[45]} {u_tile.u_tile.u_n08.x[46]} {u_tile.u_tile.u_n08.x[47]} {u_tile.u_tile.u_n08.x[48]} {u_tile.u_tile.u_n08.x[49]} {u_tile.u_tile.u_n08.x[50]} {u_tile.u_tile.u_n08.x[51]} {u_tile.u_tile.u_n08.x[52]} {u_tile.u_tile.u_n08.x[53]} {u_tile.u_tile.u_n08.x[54]} {u_tile.u_tile.u_n08.x[55]} {u_tile.u_tile.u_n08.x[56]} {u_tile.u_tile.u_n08.x[57]} {u_tile.u_tile.u_n08.x[58]} {u_tile.u_tile.u_n08.x[59]} {u_tile.u_tile.u_n08.x[60]} {u_tile.u_tile.u_n08.x[61]} {u_tile.u_tile.u_n08.x[62]} {u_tile.u_tile.u_n08.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-04 -duty 0.4304; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-04 -duty 0.4304; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.total[0]} {u_tile.u_tile.u_n08.total[1]} {u_tile.u_tile.u_n08.total[2]} {u_tile.u_tile.u_n08.total[3]} {u_tile.u_tile.u_n08.total[4]} {u_tile.u_tile.u_n08.total[5]} {u_tile.u_tile.u_n08.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.266358e-04 -duty 0.3880; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.098432e-04 -duty 0.3880; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc10[0]} {u_tile.u_tile.u_n08.pc10[1]} {u_tile.u_tile.u_n08.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0015; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0015; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc09[0]} {u_tile.u_tile.u_n08.pc09[1]} {u_tile.u_tile.u_n08.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0030; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0030; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc08[0]} {u_tile.u_tile.u_n08.pc08[1]} {u_tile.u_tile.u_n08.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.375922e-05 -duty 0.0990; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.132618e-05 -duty 0.0989; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc07[0]} {u_tile.u_tile.u_n08.pc07[1]} {u_tile.u_tile.u_n08.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.150681e-04 -duty 0.3392; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.980940e-05 -duty 0.3391; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc06[0]} {u_tile.u_tile.u_n08.pc06[1]} {u_tile.u_tile.u_n08.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.832566e-04 -duty 0.4181; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.589557e-04 -duty 0.4181; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc05[0]} {u_tile.u_tile.u_n08.pc05[1]} {u_tile.u_tile.u_n08.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.477418e-04 -duty 0.3663; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.281503e-04 -duty 0.3662; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc04[0]} {u_tile.u_tile.u_n08.pc04[1]} {u_tile.u_tile.u_n08.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306947e-04 -duty 0.3922; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.133638e-04 -duty 0.3922; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc03[0]} {u_tile.u_tile.u_n08.pc03[1]} {u_tile.u_tile.u_n08.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.3109; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.3108; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc02[0]} {u_tile.u_tile.u_n08.pc02[1]} {u_tile.u_tile.u_n08.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.321153e-04 -duty 0.3936; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.145960e-04 -duty 0.3935; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc01[0]} {u_tile.u_tile.u_n08.pc01[1]} {u_tile.u_tile.u_n08.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.534242e-04 -duty 0.4443; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.330792e-04 -duty 0.4443; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.pc00[0]} {u_tile.u_tile.u_n08.pc00[1]} {u_tile.u_tile.u_n08.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.660040e-05 -duty 0.6213; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.379061e-05 -duty 0.6213; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u00.m[0]} {u_tile.u_tile.u_n08.u00.m[1]} {u_tile.u_tile.u_n08.u00.m[2]} {u_tile.u_tile.u_n08.u00.m[3]} {u_tile.u_tile.u_n08.u00.m[4]} {u_tile.u_tile.u_n08.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.200402e-04 -duty 0.5597; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.041222e-04 -duty 0.5596; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u00.w[0]} {u_tile.u_tile.u_n08.u00.w[1]} {u_tile.u_tile.u_n08.u00.w[2]} {u_tile.u_tile.u_n08.u00.w[3]} {u_tile.u_tile.u_n08.u00.w[4]} {u_tile.u_tile.u_n08.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.129372e-04 -duty 0.3856; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.796108e-05 -duty 0.3857; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u00.x[0]} {u_tile.u_tile.u_n08.u00.x[1]} {u_tile.u_tile.u_n08.u00.x[2]} {u_tile.u_tile.u_n08.u00.x[3]} {u_tile.u_tile.u_n08.u00.x[4]} {u_tile.u_tile.u_n08.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u00.pc[0]} {u_tile.u_tile.u_n08.u00.pc[1]} {u_tile.u_tile.u_n08.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.660040e-05 -duty 0.6213; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.379061e-05 -duty 0.6213; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u01.m[0]} {u_tile.u_tile.u_n08.u01.m[1]} {u_tile.u_tile.u_n08.u01.m[2]} {u_tile.u_tile.u_n08.u01.m[3]} {u_tile.u_tile.u_n08.u01.m[4]} {u_tile.u_tile.u_n08.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.086755e-04 -duty 0.6019; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.426443e-05 -duty 0.6020; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u01.w[0]} {u_tile.u_tile.u_n08.u01.w[1]} {u_tile.u_tile.u_n08.u01.w[2]} {u_tile.u_tile.u_n08.u01.w[3]} {u_tile.u_tile.u_n08.u01.w[4]} {u_tile.u_tile.u_n08.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.233862e-05 -duty 0.6180; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.009396e-05 -duty 0.6181; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u01.x[0]} {u_tile.u_tile.u_n08.u01.x[1]} {u_tile.u_tile.u_n08.u01.x[2]} {u_tile.u_tile.u_n08.u01.x[3]} {u_tile.u_tile.u_n08.u01.x[4]} {u_tile.u_tile.u_n08.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u01.pc[0]} {u_tile.u_tile.u_n08.u01.pc[1]} {u_tile.u_tile.u_n08.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.534242e-04 -duty 0.4443; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.330792e-04 -duty 0.4443; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u02.m[0]} {u_tile.u_tile.u_n08.u02.m[1]} {u_tile.u_tile.u_n08.u02.m[2]} {u_tile.u_tile.u_n08.u02.m[3]} {u_tile.u_tile.u_n08.u02.m[4]} {u_tile.u_tile.u_n08.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.4479; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.4479; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u02.w[0]} {u_tile.u_tile.u_n08.u02.w[1]} {u_tile.u_tile.u_n08.u02.w[2]} {u_tile.u_tile.u_n08.u02.w[3]} {u_tile.u_tile.u_n08.u02.w[4]} {u_tile.u_tile.u_n08.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.5055; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.5055; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u02.x[0]} {u_tile.u_tile.u_n08.u02.x[1]} {u_tile.u_tile.u_n08.u02.x[2]} {u_tile.u_tile.u_n08.u02.x[3]} {u_tile.u_tile.u_n08.u02.x[4]} {u_tile.u_tile.u_n08.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u02.pc[0]} {u_tile.u_tile.u_n08.u02.pc[1]} {u_tile.u_tile.u_n08.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.321153e-04 -duty 0.3936; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.145960e-04 -duty 0.3935; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u03.m[0]} {u_tile.u_tile.u_n08.u03.m[1]} {u_tile.u_tile.u_n08.u03.m[2]} {u_tile.u_tile.u_n08.u03.m[3]} {u_tile.u_tile.u_n08.u03.m[4]} {u_tile.u_tile.u_n08.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.541345e-04 -duty 0.3001; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.336953e-04 -duty 0.2999; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u03.w[0]} {u_tile.u_tile.u_n08.u03.w[1]} {u_tile.u_tile.u_n08.u03.w[2]} {u_tile.u_tile.u_n08.u03.w[3]} {u_tile.u_tile.u_n08.u03.w[4]} {u_tile.u_tile.u_n08.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.4409; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.4408; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u03.x[0]} {u_tile.u_tile.u_n08.u03.x[1]} {u_tile.u_tile.u_n08.u03.x[2]} {u_tile.u_tile.u_n08.u03.x[3]} {u_tile.u_tile.u_n08.u03.x[4]} {u_tile.u_tile.u_n08.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u03.pc[0]} {u_tile.u_tile.u_n08.u03.pc[1]} {u_tile.u_tile.u_n08.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.3109; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.3108; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u04.m[0]} {u_tile.u_tile.u_n08.u04.m[1]} {u_tile.u_tile.u_n08.u04.m[2]} {u_tile.u_tile.u_n08.u04.m[3]} {u_tile.u_tile.u_n08.u04.m[4]} {u_tile.u_tile.u_n08.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.478937e-04 -duty 0.4924; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.150215e-04 -duty 0.4925; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u04.w[0]} {u_tile.u_tile.u_n08.u04.w[1]} {u_tile.u_tile.u_n08.u04.w[2]} {u_tile.u_tile.u_n08.u04.w[3]} {u_tile.u_tile.u_n08.u04.w[4]} {u_tile.u_tile.u_n08.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.272951e-04 -duty 0.5940; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.971544e-04 -duty 0.5940; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u04.x[0]} {u_tile.u_tile.u_n08.u04.x[1]} {u_tile.u_tile.u_n08.u04.x[2]} {u_tile.u_tile.u_n08.u04.x[3]} {u_tile.u_tile.u_n08.u04.x[4]} {u_tile.u_tile.u_n08.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u04.pc[0]} {u_tile.u_tile.u_n08.u04.pc[1]} {u_tile.u_tile.u_n08.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306947e-04 -duty 0.3922; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.133638e-04 -duty 0.3922; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u05.m[0]} {u_tile.u_tile.u_n08.u05.m[1]} {u_tile.u_tile.u_n08.u05.m[2]} {u_tile.u_tile.u_n08.u05.m[3]} {u_tile.u_tile.u_n08.u05.m[4]} {u_tile.u_tile.u_n08.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.3450; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.3448; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u05.w[0]} {u_tile.u_tile.u_n08.u05.w[1]} {u_tile.u_tile.u_n08.u05.w[2]} {u_tile.u_tile.u_n08.u05.w[3]} {u_tile.u_tile.u_n08.u05.w[4]} {u_tile.u_tile.u_n08.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.136475e-04 -duty 0.4166; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.857719e-05 -duty 0.4165; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u05.x[0]} {u_tile.u_tile.u_n08.u05.x[1]} {u_tile.u_tile.u_n08.u05.x[2]} {u_tile.u_tile.u_n08.u05.x[3]} {u_tile.u_tile.u_n08.u05.x[4]} {u_tile.u_tile.u_n08.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u05.pc[0]} {u_tile.u_tile.u_n08.u05.pc[1]} {u_tile.u_tile.u_n08.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.477418e-04 -duty 0.3663; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.281503e-04 -duty 0.3662; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u06.m[0]} {u_tile.u_tile.u_n08.u06.m[1]} {u_tile.u_tile.u_n08.u06.m[2]} {u_tile.u_tile.u_n08.u06.m[3]} {u_tile.u_tile.u_n08.u06.m[4]} {u_tile.u_tile.u_n08.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.4045; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.4044; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u06.w[0]} {u_tile.u_tile.u_n08.u06.w[1]} {u_tile.u_tile.u_n08.u06.w[2]} {u_tile.u_tile.u_n08.u06.w[3]} {u_tile.u_tile.u_n08.u06.w[4]} {u_tile.u_tile.u_n08.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.555551e-04 -duty 0.6594; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349275e-04 -duty 0.6596; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u06.x[0]} {u_tile.u_tile.u_n08.u06.x[1]} {u_tile.u_tile.u_n08.u06.x[2]} {u_tile.u_tile.u_n08.u06.x[3]} {u_tile.u_tile.u_n08.u06.x[4]} {u_tile.u_tile.u_n08.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u06.pc[0]} {u_tile.u_tile.u_n08.u06.pc[1]} {u_tile.u_tile.u_n08.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.832566e-04 -duty 0.4181; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.589557e-04 -duty 0.4181; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u07.m[0]} {u_tile.u_tile.u_n08.u07.m[1]} {u_tile.u_tile.u_n08.u07.m[2]} {u_tile.u_tile.u_n08.u07.m[3]} {u_tile.u_tile.u_n08.u07.m[4]} {u_tile.u_tile.u_n08.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.321153e-04 -duty 0.3082; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.145960e-04 -duty 0.3081; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u07.w[0]} {u_tile.u_tile.u_n08.u07.w[1]} {u_tile.u_tile.u_n08.u07.w[2]} {u_tile.u_tile.u_n08.u07.w[3]} {u_tile.u_tile.u_n08.u07.w[4]} {u_tile.u_tile.u_n08.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.150681e-04 -duty 0.6660; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.980940e-05 -duty 0.6660; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u07.x[0]} {u_tile.u_tile.u_n08.u07.x[1]} {u_tile.u_tile.u_n08.u07.x[2]} {u_tile.u_tile.u_n08.u07.x[3]} {u_tile.u_tile.u_n08.u07.x[4]} {u_tile.u_tile.u_n08.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u07.pc[0]} {u_tile.u_tile.u_n08.u07.pc[1]} {u_tile.u_tile.u_n08.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.150681e-04 -duty 0.3392; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.980940e-05 -duty 0.3391; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u08.m[0]} {u_tile.u_tile.u_n08.u08.m[1]} {u_tile.u_tile.u_n08.u08.m[2]} {u_tile.u_tile.u_n08.u08.m[3]} {u_tile.u_tile.u_n08.u08.m[4]} {u_tile.u_tile.u_n08.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.0525; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.0524; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u08.w[0]} {u_tile.u_tile.u_n08.u08.w[1]} {u_tile.u_tile.u_n08.u08.w[2]} {u_tile.u_tile.u_n08.u08.w[3]} {u_tile.u_tile.u_n08.u08.w[4]} {u_tile.u_tile.u_n08.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.9152; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.9153; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u08.pc[0]} {u_tile.u_tile.u_n08.u08.pc[1]} {u_tile.u_tile.u_n08.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.375922e-05 -duty 0.0990; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.132618e-05 -duty 0.0989; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u09.m[0]} {u_tile.u_tile.u_n08.u09.m[1]} {u_tile.u_tile.u_n08.u09.m[2]} {u_tile.u_tile.u_n08.u09.m[3]} {u_tile.u_tile.u_n08.u09.m[4]} {u_tile.u_tile.u_n08.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0045; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0045; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u09.w[0]} {u_tile.u_tile.u_n08.u09.w[1]} {u_tile.u_tile.u_n08.u09.w[2]} {u_tile.u_tile.u_n08.u09.w[3]} {u_tile.u_tile.u_n08.u09.w[4]} {u_tile.u_tile.u_n08.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u09.pc[0]} {u_tile.u_tile.u_n08.u09.pc[1]} {u_tile.u_tile.u_n08.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0030; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0030; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u10.m[0]} {u_tile.u_tile.u_n08.u10.m[1]} {u_tile.u_tile.u_n08.u10.m[2]} {u_tile.u_tile.u_n08.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0045; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0045; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u10.w[0]} {u_tile.u_tile.u_n08.u10.w[1]} {u_tile.u_tile.u_n08.u10.w[2]} {u_tile.u_tile.u_n08.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n08.u10.pc[0]} {u_tile.u_tile.u_n08.u10.pc[1]} {u_tile.u_tile.u_n08.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0015; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0015; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.threshold[0]} {u_tile.u_tile.u_n09.threshold[1]} {u_tile.u_tile.u_n09.threshold[2]} {u_tile.u_tile.u_n09.threshold[3]} {u_tile.u_tile.u_n09.threshold[4]} {u_tile.u_tile.u_n09.threshold[5]} {u_tile.u_tile.u_n09.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.905613e-05 -duty 0.3884; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.122493e-05 -duty 0.3885; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.w[0]} {u_tile.u_tile.u_n09.w[1]} {u_tile.u_tile.u_n09.w[2]} {u_tile.u_tile.u_n09.w[3]} {u_tile.u_tile.u_n09.w[4]} {u_tile.u_tile.u_n09.w[5]} {u_tile.u_tile.u_n09.w[6]} {u_tile.u_tile.u_n09.w[7]} {u_tile.u_tile.u_n09.w[8]} {u_tile.u_tile.u_n09.w[9]} {u_tile.u_tile.u_n09.w[10]} {u_tile.u_tile.u_n09.w[11]} {u_tile.u_tile.u_n09.w[12]} {u_tile.u_tile.u_n09.w[13]} {u_tile.u_tile.u_n09.w[14]} {u_tile.u_tile.u_n09.w[15]} {u_tile.u_tile.u_n09.w[16]} {u_tile.u_tile.u_n09.w[17]} {u_tile.u_tile.u_n09.w[18]} {u_tile.u_tile.u_n09.w[19]} {u_tile.u_tile.u_n09.w[20]} {u_tile.u_tile.u_n09.w[21]} {u_tile.u_tile.u_n09.w[22]} {u_tile.u_tile.u_n09.w[23]} {u_tile.u_tile.u_n09.w[24]} {u_tile.u_tile.u_n09.w[25]} {u_tile.u_tile.u_n09.w[26]} {u_tile.u_tile.u_n09.w[27]} {u_tile.u_tile.u_n09.w[28]} {u_tile.u_tile.u_n09.w[29]} {u_tile.u_tile.u_n09.w[30]} {u_tile.u_tile.u_n09.w[31]} {u_tile.u_tile.u_n09.w[32]} {u_tile.u_tile.u_n09.w[33]} {u_tile.u_tile.u_n09.w[34]} {u_tile.u_tile.u_n09.w[35]} {u_tile.u_tile.u_n09.w[36]} {u_tile.u_tile.u_n09.w[37]} {u_tile.u_tile.u_n09.w[38]} {u_tile.u_tile.u_n09.w[39]} {u_tile.u_tile.u_n09.w[40]} {u_tile.u_tile.u_n09.w[41]} {u_tile.u_tile.u_n09.w[42]} {u_tile.u_tile.u_n09.w[43]} {u_tile.u_tile.u_n09.w[44]} {u_tile.u_tile.u_n09.w[45]} {u_tile.u_tile.u_n09.w[46]} {u_tile.u_tile.u_n09.w[47]} {u_tile.u_tile.u_n09.w[48]} {u_tile.u_tile.u_n09.w[49]} {u_tile.u_tile.u_n09.w[50]} {u_tile.u_tile.u_n09.w[51]} {u_tile.u_tile.u_n09.w[52]} {u_tile.u_tile.u_n09.w[53]} {u_tile.u_tile.u_n09.w[54]} {u_tile.u_tile.u_n09.w[55]} {u_tile.u_tile.u_n09.w[56]} {u_tile.u_tile.u_n09.w[57]} {u_tile.u_tile.u_n09.w[58]} {u_tile.u_tile.u_n09.w[59]} {u_tile.u_tile.u_n09.w[60]} {u_tile.u_tile.u_n09.w[61]} {u_tile.u_tile.u_n09.w[62]} {u_tile.u_tile.u_n09.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.210590e-05 -duty 0.6360; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.121817e-05 -duty 0.6360; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.x[0]} {u_tile.u_tile.u_n09.x[1]} {u_tile.u_tile.u_n09.x[2]} {u_tile.u_tile.u_n09.x[3]} {u_tile.u_tile.u_n09.x[4]} {u_tile.u_tile.u_n09.x[5]} {u_tile.u_tile.u_n09.x[6]} {u_tile.u_tile.u_n09.x[7]} {u_tile.u_tile.u_n09.x[8]} {u_tile.u_tile.u_n09.x[9]} {u_tile.u_tile.u_n09.x[10]} {u_tile.u_tile.u_n09.x[11]} {u_tile.u_tile.u_n09.x[12]} {u_tile.u_tile.u_n09.x[13]} {u_tile.u_tile.u_n09.x[14]} {u_tile.u_tile.u_n09.x[15]} {u_tile.u_tile.u_n09.x[16]} {u_tile.u_tile.u_n09.x[17]} {u_tile.u_tile.u_n09.x[18]} {u_tile.u_tile.u_n09.x[19]} {u_tile.u_tile.u_n09.x[20]} {u_tile.u_tile.u_n09.x[21]} {u_tile.u_tile.u_n09.x[22]} {u_tile.u_tile.u_n09.x[23]} {u_tile.u_tile.u_n09.x[24]} {u_tile.u_tile.u_n09.x[25]} {u_tile.u_tile.u_n09.x[26]} {u_tile.u_tile.u_n09.x[27]} {u_tile.u_tile.u_n09.x[28]} {u_tile.u_tile.u_n09.x[29]} {u_tile.u_tile.u_n09.x[30]} {u_tile.u_tile.u_n09.x[31]} {u_tile.u_tile.u_n09.x[32]} {u_tile.u_tile.u_n09.x[33]} {u_tile.u_tile.u_n09.x[34]} {u_tile.u_tile.u_n09.x[35]} {u_tile.u_tile.u_n09.x[36]} {u_tile.u_tile.u_n09.x[37]} {u_tile.u_tile.u_n09.x[38]} {u_tile.u_tile.u_n09.x[39]} {u_tile.u_tile.u_n09.x[40]} {u_tile.u_tile.u_n09.x[41]} {u_tile.u_tile.u_n09.x[42]} {u_tile.u_tile.u_n09.x[43]} {u_tile.u_tile.u_n09.x[44]} {u_tile.u_tile.u_n09.x[45]} {u_tile.u_tile.u_n09.x[46]} {u_tile.u_tile.u_n09.x[47]} {u_tile.u_tile.u_n09.x[48]} {u_tile.u_tile.u_n09.x[49]} {u_tile.u_tile.u_n09.x[50]} {u_tile.u_tile.u_n09.x[51]} {u_tile.u_tile.u_n09.x[52]} {u_tile.u_tile.u_n09.x[53]} {u_tile.u_tile.u_n09.x[54]} {u_tile.u_tile.u_n09.x[55]} {u_tile.u_tile.u_n09.x[56]} {u_tile.u_tile.u_n09.x[57]} {u_tile.u_tile.u_n09.x[58]} {u_tile.u_tile.u_n09.x[59]} {u_tile.u_tile.u_n09.x[60]} {u_tile.u_tile.u_n09.x[61]} {u_tile.u_tile.u_n09.x[62]} {u_tile.u_tile.u_n09.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.088273e-04 -duty 0.3872; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.811356e-04 -duty 0.3872; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.total[0]} {u_tile.u_tile.u_n09.total[1]} {u_tile.u_tile.u_n09.total[2]} {u_tile.u_tile.u_n09.total[3]} {u_tile.u_tile.u_n09.total[4]} {u_tile.u_tile.u_n09.total[5]} {u_tile.u_tile.u_n09.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.071509e-05 -duty 0.3899; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.868572e-05 -duty 0.3899; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc10[0]} {u_tile.u_tile.u_n09.pc10[1]} {u_tile.u_tile.u_n09.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0016; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0016; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc09[0]} {u_tile.u_tile.u_n09.pc09[1]} {u_tile.u_tile.u_n09.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0032; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0032; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc08[0]} {u_tile.u_tile.u_n09.pc08[1]} {u_tile.u_tile.u_n09.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.0988; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.0987; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc07[0]} {u_tile.u_tile.u_n09.pc07[1]} {u_tile.u_tile.u_n09.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.4259; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.4258; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc06[0]} {u_tile.u_tile.u_n09.pc06[1]} {u_tile.u_tile.u_n09.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.832566e-04 -duty 0.4597; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.589557e-04 -duty 0.4596; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc05[0]} {u_tile.u_tile.u_n09.pc05[1]} {u_tile.u_tile.u_n09.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.690507e-04 -duty 0.5113; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.466336e-04 -duty 0.5113; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc04[0]} {u_tile.u_tile.u_n09.pc04[1]} {u_tile.u_tile.u_n09.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-04 -duty 0.5320; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-04 -duty 0.5321; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc03[0]} {u_tile.u_tile.u_n09.pc03[1]} {u_tile.u_tile.u_n09.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4827; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4827; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc02[0]} {u_tile.u_tile.u_n09.pc02[1]} {u_tile.u_tile.u_n09.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.434800e-04 -duty 0.4156; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.244537e-04 -duty 0.4155; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc01[0]} {u_tile.u_tile.u_n09.pc01[1]} {u_tile.u_tile.u_n09.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.097387e-05 -duty 0.3313; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.023625e-05 -duty 0.3313; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.pc00[0]} {u_tile.u_tile.u_n09.pc00[1]} {u_tile.u_tile.u_n09.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.079652e-04 -duty 0.1912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.364833e-05 -duty 0.1910; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u00.m[0]} {u_tile.u_tile.u_n09.u00.m[1]} {u_tile.u_tile.u_n09.u00.m[2]} {u_tile.u_tile.u_n09.u00.m[3]} {u_tile.u_tile.u_n09.u00.m[4]} {u_tile.u_tile.u_n09.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.813268e-05 -duty 0.1495; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.777182e-05 -duty 0.1494; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u00.w[0]} {u_tile.u_tile.u_n09.u00.w[1]} {u_tile.u_tile.u_n09.u00.w[2]} {u_tile.u_tile.u_n09.u00.w[3]} {u_tile.u_tile.u_n09.u00.w[4]} {u_tile.u_tile.u_n09.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-05 -duty 0.8585; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-05 -duty 0.8587; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u00.x[0]} {u_tile.u_tile.u_n09.u00.x[1]} {u_tile.u_tile.u_n09.u00.x[2]} {u_tile.u_tile.u_n09.u00.x[3]} {u_tile.u_tile.u_n09.u00.x[4]} {u_tile.u_tile.u_n09.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u00.pc[0]} {u_tile.u_tile.u_n09.u00.pc[1]} {u_tile.u_tile.u_n09.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.079652e-04 -duty 0.1912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.364833e-05 -duty 0.1910; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u01.m[0]} {u_tile.u_tile.u_n09.u01.m[1]} {u_tile.u_tile.u_n09.u01.m[2]} {u_tile.u_tile.u_n09.u01.m[3]} {u_tile.u_tile.u_n09.u01.m[4]} {u_tile.u_tile.u_n09.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.314050e-04 -duty 0.3264; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.139799e-04 -duty 0.3264; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u01.w[0]} {u_tile.u_tile.u_n09.u01.w[1]} {u_tile.u_tile.u_n09.u01.w[2]} {u_tile.u_tile.u_n09.u01.w[3]} {u_tile.u_tile.u_n09.u01.w[4]} {u_tile.u_tile.u_n09.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.150681e-04 -duty 0.4170; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.980940e-05 -duty 0.4169; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u01.x[0]} {u_tile.u_tile.u_n09.u01.x[1]} {u_tile.u_tile.u_n09.u01.x[2]} {u_tile.u_tile.u_n09.u01.x[3]} {u_tile.u_tile.u_n09.u01.x[4]} {u_tile.u_tile.u_n09.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u01.pc[0]} {u_tile.u_tile.u_n09.u01.pc[1]} {u_tile.u_tile.u_n09.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.097387e-05 -duty 0.3313; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.023625e-05 -duty 0.3313; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u02.m[0]} {u_tile.u_tile.u_n09.u02.m[1]} {u_tile.u_tile.u_n09.u02.m[2]} {u_tile.u_tile.u_n09.u02.m[3]} {u_tile.u_tile.u_n09.u02.m[4]} {u_tile.u_tile.u_n09.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.136475e-04 -duty 0.4819; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.857719e-05 -duty 0.4818; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u02.w[0]} {u_tile.u_tile.u_n09.u02.w[1]} {u_tile.u_tile.u_n09.u02.w[2]} {u_tile.u_tile.u_n09.u02.w[3]} {u_tile.u_tile.u_n09.u02.w[4]} {u_tile.u_tile.u_n09.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.878714e-05 -duty 0.6352; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.701343e-05 -duty 0.6354; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u02.x[0]} {u_tile.u_tile.u_n09.u02.x[1]} {u_tile.u_tile.u_n09.u02.x[2]} {u_tile.u_tile.u_n09.u02.x[3]} {u_tile.u_tile.u_n09.u02.x[4]} {u_tile.u_tile.u_n09.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u02.pc[0]} {u_tile.u_tile.u_n09.u02.pc[1]} {u_tile.u_tile.u_n09.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.434800e-04 -duty 0.4156; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.244537e-04 -duty 0.4155; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u03.m[0]} {u_tile.u_tile.u_n09.u03.m[1]} {u_tile.u_tile.u_n09.u03.m[2]} {u_tile.u_tile.u_n09.u03.m[3]} {u_tile.u_tile.u_n09.u03.m[4]} {u_tile.u_tile.u_n09.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.079652e-04 -duty 0.4505; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.364833e-05 -duty 0.4504; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u03.w[0]} {u_tile.u_tile.u_n09.u03.w[1]} {u_tile.u_tile.u_n09.u03.w[2]} {u_tile.u_tile.u_n09.u03.w[3]} {u_tile.u_tile.u_n09.u03.w[4]} {u_tile.u_tile.u_n09.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.020773e-05 -duty 0.4579; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.824564e-05 -duty 0.4579; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u03.x[0]} {u_tile.u_tile.u_n09.u03.x[1]} {u_tile.u_tile.u_n09.u03.x[2]} {u_tile.u_tile.u_n09.u03.x[3]} {u_tile.u_tile.u_n09.u03.x[4]} {u_tile.u_tile.u_n09.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u03.pc[0]} {u_tile.u_tile.u_n09.u03.pc[1]} {u_tile.u_tile.u_n09.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4827; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4827; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u04.m[0]} {u_tile.u_tile.u_n09.u04.m[1]} {u_tile.u_tile.u_n09.u04.m[2]} {u_tile.u_tile.u_n09.u04.m[3]} {u_tile.u_tile.u_n09.u04.m[4]} {u_tile.u_tile.u_n09.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.5785; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.5785; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u04.w[0]} {u_tile.u_tile.u_n09.u04.w[1]} {u_tile.u_tile.u_n09.u04.w[2]} {u_tile.u_tile.u_n09.u04.w[3]} {u_tile.u_tile.u_n09.u04.w[4]} {u_tile.u_tile.u_n09.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.370873e-04 -duty 0.5536; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.189087e-04 -duty 0.5536; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u04.x[0]} {u_tile.u_tile.u_n09.u04.x[1]} {u_tile.u_tile.u_n09.u04.x[2]} {u_tile.u_tile.u_n09.u04.x[3]} {u_tile.u_tile.u_n09.u04.x[4]} {u_tile.u_tile.u_n09.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u04.pc[0]} {u_tile.u_tile.u_n09.u04.pc[1]} {u_tile.u_tile.u_n09.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-04 -duty 0.5320; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-04 -duty 0.5321; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u05.m[0]} {u_tile.u_tile.u_n09.u05.m[1]} {u_tile.u_tile.u_n09.u05.m[2]} {u_tile.u_tile.u_n09.u05.m[3]} {u_tile.u_tile.u_n09.u05.m[4]} {u_tile.u_tile.u_n09.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.377976e-04 -duty 0.6524; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.195248e-04 -duty 0.6525; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u05.w[0]} {u_tile.u_tile.u_n09.u05.w[1]} {u_tile.u_tile.u_n09.u05.w[2]} {u_tile.u_tile.u_n09.u05.w[3]} {u_tile.u_tile.u_n09.u05.w[4]} {u_tile.u_tile.u_n09.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.157784e-04 -duty 0.4814; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.004255e-04 -duty 0.4814; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u05.x[0]} {u_tile.u_tile.u_n09.u05.x[1]} {u_tile.u_tile.u_n09.u05.x[2]} {u_tile.u_tile.u_n09.u05.x[3]} {u_tile.u_tile.u_n09.u05.x[4]} {u_tile.u_tile.u_n09.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u05.pc[0]} {u_tile.u_tile.u_n09.u05.pc[1]} {u_tile.u_tile.u_n09.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.690507e-04 -duty 0.5113; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.466336e-04 -duty 0.5113; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u06.m[0]} {u_tile.u_tile.u_n09.u06.m[1]} {u_tile.u_tile.u_n09.u06.m[2]} {u_tile.u_tile.u_n09.u06.m[3]} {u_tile.u_tile.u_n09.u06.m[4]} {u_tile.u_tile.u_n09.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.385079e-04 -duty 0.5434; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.201409e-04 -duty 0.5433; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u06.w[0]} {u_tile.u_tile.u_n09.u06.w[1]} {u_tile.u_tile.u_n09.u06.w[2]} {u_tile.u_tile.u_n09.u06.w[3]} {u_tile.u_tile.u_n09.u06.w[4]} {u_tile.u_tile.u_n09.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.136475e-04 -duty 0.2153; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.857719e-05 -duty 0.2150; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u06.x[0]} {u_tile.u_tile.u_n09.u06.x[1]} {u_tile.u_tile.u_n09.u06.x[2]} {u_tile.u_tile.u_n09.u06.x[3]} {u_tile.u_tile.u_n09.u06.x[4]} {u_tile.u_tile.u_n09.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u06.pc[0]} {u_tile.u_tile.u_n09.u06.pc[1]} {u_tile.u_tile.u_n09.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.832566e-04 -duty 0.4597; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.589557e-04 -duty 0.4596; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u07.m[0]} {u_tile.u_tile.u_n09.u07.m[1]} {u_tile.u_tile.u_n09.u07.m[2]} {u_tile.u_tile.u_n09.u07.m[3]} {u_tile.u_tile.u_n09.u07.m[4]} {u_tile.u_tile.u_n09.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.285638e-04 -duty 0.3504; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.115154e-04 -duty 0.3503; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u07.w[0]} {u_tile.u_tile.u_n09.u07.w[1]} {u_tile.u_tile.u_n09.u07.w[2]} {u_tile.u_tile.u_n09.u07.w[3]} {u_tile.u_tile.u_n09.u07.w[4]} {u_tile.u_tile.u_n09.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.115166e-04 -duty 0.6350; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.672886e-05 -duty 0.6352; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u07.x[0]} {u_tile.u_tile.u_n09.u07.x[1]} {u_tile.u_tile.u_n09.u07.x[2]} {u_tile.u_tile.u_n09.u07.x[3]} {u_tile.u_tile.u_n09.u07.x[4]} {u_tile.u_tile.u_n09.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u07.pc[0]} {u_tile.u_tile.u_n09.u07.pc[1]} {u_tile.u_tile.u_n09.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.4259; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.4258; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u08.m[0]} {u_tile.u_tile.u_n09.u08.m[1]} {u_tile.u_tile.u_n09.u08.m[2]} {u_tile.u_tile.u_n09.u08.m[3]} {u_tile.u_tile.u_n09.u08.m[4]} {u_tile.u_tile.u_n09.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-05 -duty 0.0527; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-05 -duty 0.0526; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u08.w[0]} {u_tile.u_tile.u_n09.u08.w[1]} {u_tile.u_tile.u_n09.u08.w[2]} {u_tile.u_tile.u_n09.u08.w[3]} {u_tile.u_tile.u_n09.u08.w[4]} {u_tile.u_tile.u_n09.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-05 -duty 0.9063; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-05 -duty 0.9064; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u08.pc[0]} {u_tile.u_tile.u_n09.u08.pc[1]} {u_tile.u_tile.u_n09.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.0988; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.0987; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u09.m[0]} {u_tile.u_tile.u_n09.u09.m[1]} {u_tile.u_tile.u_n09.u09.m[2]} {u_tile.u_tile.u_n09.u09.m[3]} {u_tile.u_tile.u_n09.u09.m[4]} {u_tile.u_tile.u_n09.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0049; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0048; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u09.w[0]} {u_tile.u_tile.u_n09.u09.w[1]} {u_tile.u_tile.u_n09.u09.w[2]} {u_tile.u_tile.u_n09.u09.w[3]} {u_tile.u_tile.u_n09.u09.w[4]} {u_tile.u_tile.u_n09.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u09.pc[0]} {u_tile.u_tile.u_n09.u09.pc[1]} {u_tile.u_tile.u_n09.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0032; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0032; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u10.m[0]} {u_tile.u_tile.u_n09.u10.m[1]} {u_tile.u_tile.u_n09.u10.m[2]} {u_tile.u_tile.u_n09.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0049; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0048; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u10.w[0]} {u_tile.u_tile.u_n09.u10.w[1]} {u_tile.u_tile.u_n09.u10.w[2]} {u_tile.u_tile.u_n09.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n09.u10.pc[0]} {u_tile.u_tile.u_n09.u10.pc[1]} {u_tile.u_tile.u_n09.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0016; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0016; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.threshold[0]} {u_tile.u_tile.u_n10.threshold[1]} {u_tile.u_tile.u_n10.threshold[2]} {u_tile.u_tile.u_n10.threshold[3]} {u_tile.u_tile.u_n10.threshold[4]} {u_tile.u_tile.u_n10.threshold[5]} {u_tile.u_tile.u_n10.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.732091e-05 -duty 0.3925; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.706769e-05 -duty 0.3925; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.w[0]} {u_tile.u_tile.u_n10.w[1]} {u_tile.u_tile.u_n10.w[2]} {u_tile.u_tile.u_n10.w[3]} {u_tile.u_tile.u_n10.w[4]} {u_tile.u_tile.u_n10.w[5]} {u_tile.u_tile.u_n10.w[6]} {u_tile.u_tile.u_n10.w[7]} {u_tile.u_tile.u_n10.w[8]} {u_tile.u_tile.u_n10.w[9]} {u_tile.u_tile.u_n10.w[10]} {u_tile.u_tile.u_n10.w[11]} {u_tile.u_tile.u_n10.w[12]} {u_tile.u_tile.u_n10.w[13]} {u_tile.u_tile.u_n10.w[14]} {u_tile.u_tile.u_n10.w[15]} {u_tile.u_tile.u_n10.w[16]} {u_tile.u_tile.u_n10.w[17]} {u_tile.u_tile.u_n10.w[18]} {u_tile.u_tile.u_n10.w[19]} {u_tile.u_tile.u_n10.w[20]} {u_tile.u_tile.u_n10.w[21]} {u_tile.u_tile.u_n10.w[22]} {u_tile.u_tile.u_n10.w[23]} {u_tile.u_tile.u_n10.w[24]} {u_tile.u_tile.u_n10.w[25]} {u_tile.u_tile.u_n10.w[26]} {u_tile.u_tile.u_n10.w[27]} {u_tile.u_tile.u_n10.w[28]} {u_tile.u_tile.u_n10.w[29]} {u_tile.u_tile.u_n10.w[30]} {u_tile.u_tile.u_n10.w[31]} {u_tile.u_tile.u_n10.w[32]} {u_tile.u_tile.u_n10.w[33]} {u_tile.u_tile.u_n10.w[34]} {u_tile.u_tile.u_n10.w[35]} {u_tile.u_tile.u_n10.w[36]} {u_tile.u_tile.u_n10.w[37]} {u_tile.u_tile.u_n10.w[38]} {u_tile.u_tile.u_n10.w[39]} {u_tile.u_tile.u_n10.w[40]} {u_tile.u_tile.u_n10.w[41]} {u_tile.u_tile.u_n10.w[42]} {u_tile.u_tile.u_n10.w[43]} {u_tile.u_tile.u_n10.w[44]} {u_tile.u_tile.u_n10.w[45]} {u_tile.u_tile.u_n10.w[46]} {u_tile.u_tile.u_n10.w[47]} {u_tile.u_tile.u_n10.w[48]} {u_tile.u_tile.u_n10.w[49]} {u_tile.u_tile.u_n10.w[50]} {u_tile.u_tile.u_n10.w[51]} {u_tile.u_tile.u_n10.w[52]} {u_tile.u_tile.u_n10.w[53]} {u_tile.u_tile.u_n10.w[54]} {u_tile.u_tile.u_n10.w[55]} {u_tile.u_tile.u_n10.w[56]} {u_tile.u_tile.u_n10.w[57]} {u_tile.u_tile.u_n10.w[58]} {u_tile.u_tile.u_n10.w[59]} {u_tile.u_tile.u_n10.w[60]} {u_tile.u_tile.u_n10.w[61]} {u_tile.u_tile.u_n10.w[62]} {u_tile.u_tile.u_n10.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.076766e-04 -duty 0.6607; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.339803e-05 -duty 0.6607; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.x[0]} {u_tile.u_tile.u_n10.x[1]} {u_tile.u_tile.u_n10.x[2]} {u_tile.u_tile.u_n10.x[3]} {u_tile.u_tile.u_n10.x[4]} {u_tile.u_tile.u_n10.x[5]} {u_tile.u_tile.u_n10.x[6]} {u_tile.u_tile.u_n10.x[7]} {u_tile.u_tile.u_n10.x[8]} {u_tile.u_tile.u_n10.x[9]} {u_tile.u_tile.u_n10.x[10]} {u_tile.u_tile.u_n10.x[11]} {u_tile.u_tile.u_n10.x[12]} {u_tile.u_tile.u_n10.x[13]} {u_tile.u_tile.u_n10.x[14]} {u_tile.u_tile.u_n10.x[15]} {u_tile.u_tile.u_n10.x[16]} {u_tile.u_tile.u_n10.x[17]} {u_tile.u_tile.u_n10.x[18]} {u_tile.u_tile.u_n10.x[19]} {u_tile.u_tile.u_n10.x[20]} {u_tile.u_tile.u_n10.x[21]} {u_tile.u_tile.u_n10.x[22]} {u_tile.u_tile.u_n10.x[23]} {u_tile.u_tile.u_n10.x[24]} {u_tile.u_tile.u_n10.x[25]} {u_tile.u_tile.u_n10.x[26]} {u_tile.u_tile.u_n10.x[27]} {u_tile.u_tile.u_n10.x[28]} {u_tile.u_tile.u_n10.x[29]} {u_tile.u_tile.u_n10.x[30]} {u_tile.u_tile.u_n10.x[31]} {u_tile.u_tile.u_n10.x[32]} {u_tile.u_tile.u_n10.x[33]} {u_tile.u_tile.u_n10.x[34]} {u_tile.u_tile.u_n10.x[35]} {u_tile.u_tile.u_n10.x[36]} {u_tile.u_tile.u_n10.x[37]} {u_tile.u_tile.u_n10.x[38]} {u_tile.u_tile.u_n10.x[39]} {u_tile.u_tile.u_n10.x[40]} {u_tile.u_tile.u_n10.x[41]} {u_tile.u_tile.u_n10.x[42]} {u_tile.u_tile.u_n10.x[43]} {u_tile.u_tile.u_n10.x[44]} {u_tile.u_tile.u_n10.x[45]} {u_tile.u_tile.u_n10.x[46]} {u_tile.u_tile.u_n10.x[47]} {u_tile.u_tile.u_n10.x[48]} {u_tile.u_tile.u_n10.x[49]} {u_tile.u_tile.u_n10.x[50]} {u_tile.u_tile.u_n10.x[51]} {u_tile.u_tile.u_n10.x[52]} {u_tile.u_tile.u_n10.x[53]} {u_tile.u_tile.u_n10.x[54]} {u_tile.u_tile.u_n10.x[55]} {u_tile.u_tile.u_n10.x[56]} {u_tile.u_tile.u_n10.x[57]} {u_tile.u_tile.u_n10.x[58]} {u_tile.u_tile.u_n10.x[59]} {u_tile.u_tile.u_n10.x[60]} {u_tile.u_tile.u_n10.x[61]} {u_tile.u_tile.u_n10.x[62]} {u_tile.u_tile.u_n10.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.045656e-04 -duty 0.5066; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.774389e-04 -duty 0.5066; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.total[0]} {u_tile.u_tile.u_n10.total[1]} {u_tile.u_tile.u_n10.total[2]} {u_tile.u_tile.u_n10.total[3]} {u_tile.u_tile.u_n10.total[4]} {u_tile.u_tile.u_n10.total[5]} {u_tile.u_tile.u_n10.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.984748e-05 -duty 0.3850; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.660710e-05 -duty 0.3850; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc10[0]} {u_tile.u_tile.u_n10.pc10[1]} {u_tile.u_tile.u_n10.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0017; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0017; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc09[0]} {u_tile.u_tile.u_n10.pc09[1]} {u_tile.u_tile.u_n10.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0035; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0034; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc08[0]} {u_tile.u_tile.u_n10.pc08[1]} {u_tile.u_tile.u_n10.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0035; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0034; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc07[0]} {u_tile.u_tile.u_n10.pc07[1]} {u_tile.u_tile.u_n10.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.5086; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.5086; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc06[0]} {u_tile.u_tile.u_n10.pc06[1]} {u_tile.u_tile.u_n10.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.207505e-04 -duty 0.5002; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.047383e-04 -duty 0.5002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc05[0]} {u_tile.u_tile.u_n10.pc05[1]} {u_tile.u_tile.u_n10.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860978e-04 -duty 0.4554; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.614201e-04 -duty 0.4553; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc04[0]} {u_tile.u_tile.u_n10.pc04[1]} {u_tile.u_tile.u_n10.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.4772; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.4772; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc03[0]} {u_tile.u_tile.u_n10.pc03[1]} {u_tile.u_tile.u_n10.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306947e-04 -duty 0.4091; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.133638e-04 -duty 0.4090; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc02[0]} {u_tile.u_tile.u_n10.pc02[1]} {u_tile.u_tile.u_n10.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.065446e-04 -duty 0.2820; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.241611e-05 -duty 0.2819; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc01[0]} {u_tile.u_tile.u_n10.pc01[1]} {u_tile.u_tile.u_n10.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.377976e-04 -duty 0.3239; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.195248e-04 -duty 0.3238; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.pc00[0]} {u_tile.u_tile.u_n10.pc00[1]} {u_tile.u_tile.u_n10.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.022828e-04 -duty 0.1884; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.871947e-05 -duty 0.1882; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u00.m[0]} {u_tile.u_tile.u_n10.u00.m[1]} {u_tile.u_tile.u_n10.u00.m[2]} {u_tile.u_tile.u_n10.u00.m[3]} {u_tile.u_tile.u_n10.u00.m[4]} {u_tile.u_tile.u_n10.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.235917e-04 -duty 0.1827; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.072027e-04 -duty 0.1825; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u00.w[0]} {u_tile.u_tile.u_n10.u00.w[1]} {u_tile.u_tile.u_n10.u00.w[2]} {u_tile.u_tile.u_n10.u00.w[3]} {u_tile.u_tile.u_n10.u00.w[4]} {u_tile.u_tile.u_n10.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.164887e-04 -duty 0.8107; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.010416e-04 -duty 0.8109; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u00.x[0]} {u_tile.u_tile.u_n10.u00.x[1]} {u_tile.u_tile.u_n10.u00.x[2]} {u_tile.u_tile.u_n10.u00.x[3]} {u_tile.u_tile.u_n10.u00.x[4]} {u_tile.u_tile.u_n10.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u00.pc[0]} {u_tile.u_tile.u_n10.u00.pc[1]} {u_tile.u_tile.u_n10.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.022828e-04 -duty 0.1884; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.871947e-05 -duty 0.1882; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u01.m[0]} {u_tile.u_tile.u_n10.u01.m[1]} {u_tile.u_tile.u_n10.u01.m[2]} {u_tile.u_tile.u_n10.u01.m[3]} {u_tile.u_tile.u_n10.u01.m[4]} {u_tile.u_tile.u_n10.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.740228e-04 -duty 0.3009; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.509463e-04 -duty 0.3007; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u01.w[0]} {u_tile.u_tile.u_n10.u01.w[1]} {u_tile.u_tile.u_n10.u01.w[2]} {u_tile.u_tile.u_n10.u01.w[3]} {u_tile.u_tile.u_n10.u01.w[4]} {u_tile.u_tile.u_n10.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.6184; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.6184; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u01.x[0]} {u_tile.u_tile.u_n10.u01.x[1]} {u_tile.u_tile.u_n10.u01.x[2]} {u_tile.u_tile.u_n10.u01.x[3]} {u_tile.u_tile.u_n10.u01.x[4]} {u_tile.u_tile.u_n10.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u01.pc[0]} {u_tile.u_tile.u_n10.u01.pc[1]} {u_tile.u_tile.u_n10.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.377976e-04 -duty 0.3239; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.195248e-04 -duty 0.3238; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u02.m[0]} {u_tile.u_tile.u_n10.u02.m[1]} {u_tile.u_tile.u_n10.u02.m[2]} {u_tile.u_tile.u_n10.u02.m[3]} {u_tile.u_tile.u_n10.u02.m[4]} {u_tile.u_tile.u_n10.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.3174; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.3172; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u02.w[0]} {u_tile.u_tile.u_n10.u02.w[1]} {u_tile.u_tile.u_n10.u02.w[2]} {u_tile.u_tile.u_n10.u02.w[3]} {u_tile.u_tile.u_n10.u02.w[4]} {u_tile.u_tile.u_n10.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.4812; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.4812; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u02.x[0]} {u_tile.u_tile.u_n10.u02.x[1]} {u_tile.u_tile.u_n10.u02.x[2]} {u_tile.u_tile.u_n10.u02.x[3]} {u_tile.u_tile.u_n10.u02.x[4]} {u_tile.u_tile.u_n10.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u02.pc[0]} {u_tile.u_tile.u_n10.u02.pc[1]} {u_tile.u_tile.u_n10.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.065446e-04 -duty 0.2820; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.241611e-05 -duty 0.2819; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u03.m[0]} {u_tile.u_tile.u_n10.u03.m[1]} {u_tile.u_tile.u_n10.u03.m[2]} {u_tile.u_tile.u_n10.u03.m[3]} {u_tile.u_tile.u_n10.u03.m[4]} {u_tile.u_tile.u_n10.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.995935e-04 -duty 0.5383; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.731262e-04 -duty 0.5383; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u03.w[0]} {u_tile.u_tile.u_n10.u03.w[1]} {u_tile.u_tile.u_n10.u03.w[2]} {u_tile.u_tile.u_n10.u03.w[3]} {u_tile.u_tile.u_n10.u03.w[4]} {u_tile.u_tile.u_n10.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.4648; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.4647; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u03.x[0]} {u_tile.u_tile.u_n10.u03.x[1]} {u_tile.u_tile.u_n10.u03.x[2]} {u_tile.u_tile.u_n10.u03.x[3]} {u_tile.u_tile.u_n10.u03.x[4]} {u_tile.u_tile.u_n10.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u03.pc[0]} {u_tile.u_tile.u_n10.u03.pc[1]} {u_tile.u_tile.u_n10.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306947e-04 -duty 0.4091; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.133638e-04 -duty 0.4090; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u04.m[0]} {u_tile.u_tile.u_n10.u04.m[1]} {u_tile.u_tile.u_n10.u04.m[2]} {u_tile.u_tile.u_n10.u04.m[3]} {u_tile.u_tile.u_n10.u04.m[4]} {u_tile.u_tile.u_n10.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.4624; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.4623; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u04.w[0]} {u_tile.u_tile.u_n10.u04.w[1]} {u_tile.u_tile.u_n10.u04.w[2]} {u_tile.u_tile.u_n10.u04.w[3]} {u_tile.u_tile.u_n10.u04.w[4]} {u_tile.u_tile.u_n10.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.143578e-04 -duty 0.7789; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.919329e-05 -duty 0.7790; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u04.x[0]} {u_tile.u_tile.u_n10.u04.x[1]} {u_tile.u_tile.u_n10.u04.x[2]} {u_tile.u_tile.u_n10.u04.x[3]} {u_tile.u_tile.u_n10.u04.x[4]} {u_tile.u_tile.u_n10.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u04.pc[0]} {u_tile.u_tile.u_n10.u04.pc[1]} {u_tile.u_tile.u_n10.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.4772; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.4772; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u05.m[0]} {u_tile.u_tile.u_n10.u05.m[1]} {u_tile.u_tile.u_n10.u05.m[2]} {u_tile.u_tile.u_n10.u05.m[3]} {u_tile.u_tile.u_n10.u05.m[4]} {u_tile.u_tile.u_n10.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.4538; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.4537; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u05.w[0]} {u_tile.u_tile.u_n10.u05.w[1]} {u_tile.u_tile.u_n10.u05.w[2]} {u_tile.u_tile.u_n10.u05.w[3]} {u_tile.u_tile.u_n10.u05.w[4]} {u_tile.u_tile.u_n10.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.598168e-04 -duty 0.7309; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.386242e-04 -duty 0.7310; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u05.x[0]} {u_tile.u_tile.u_n10.u05.x[1]} {u_tile.u_tile.u_n10.u05.x[2]} {u_tile.u_tile.u_n10.u05.x[3]} {u_tile.u_tile.u_n10.u05.x[4]} {u_tile.u_tile.u_n10.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u05.pc[0]} {u_tile.u_tile.u_n10.u05.pc[1]} {u_tile.u_tile.u_n10.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.860978e-04 -duty 0.4554; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.614201e-04 -duty 0.4553; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u06.m[0]} {u_tile.u_tile.u_n10.u06.m[1]} {u_tile.u_tile.u_n10.u06.m[2]} {u_tile.u_tile.u_n10.u06.m[3]} {u_tile.u_tile.u_n10.u06.m[4]} {u_tile.u_tile.u_n10.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.5486; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.5486; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u06.w[0]} {u_tile.u_tile.u_n10.u06.w[1]} {u_tile.u_tile.u_n10.u06.w[2]} {u_tile.u_tile.u_n10.u06.w[3]} {u_tile.u_tile.u_n10.u06.w[4]} {u_tile.u_tile.u_n10.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.2569; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.2568; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u06.x[0]} {u_tile.u_tile.u_n10.u06.x[1]} {u_tile.u_tile.u_n10.u06.x[2]} {u_tile.u_tile.u_n10.u06.x[3]} {u_tile.u_tile.u_n10.u06.x[4]} {u_tile.u_tile.u_n10.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u06.pc[0]} {u_tile.u_tile.u_n10.u06.pc[1]} {u_tile.u_tile.u_n10.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.207505e-04 -duty 0.5002; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.047383e-04 -duty 0.5002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u07.m[0]} {u_tile.u_tile.u_n10.u07.m[1]} {u_tile.u_tile.u_n10.u07.m[2]} {u_tile.u_tile.u_n10.u07.m[3]} {u_tile.u_tile.u_n10.u07.m[4]} {u_tile.u_tile.u_n10.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.527139e-04 -duty 0.5634; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.324631e-04 -duty 0.5635; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u07.w[0]} {u_tile.u_tile.u_n10.u07.w[1]} {u_tile.u_tile.u_n10.u07.w[2]} {u_tile.u_tile.u_n10.u07.w[3]} {u_tile.u_tile.u_n10.u07.w[4]} {u_tile.u_tile.u_n10.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.3282; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.3280; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u07.x[0]} {u_tile.u_tile.u_n10.u07.x[1]} {u_tile.u_tile.u_n10.u07.x[2]} {u_tile.u_tile.u_n10.u07.x[3]} {u_tile.u_tile.u_n10.u07.x[4]} {u_tile.u_tile.u_n10.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u07.pc[0]} {u_tile.u_tile.u_n10.u07.pc[1]} {u_tile.u_tile.u_n10.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.5086; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.5086; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u08.m[0]} {u_tile.u_tile.u_n10.u08.m[1]} {u_tile.u_tile.u_n10.u08.m[2]} {u_tile.u_tile.u_n10.u08.m[3]} {u_tile.u_tile.u_n10.u08.m[4]} {u_tile.u_tile.u_n10.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0052; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0052; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u08.w[0]} {u_tile.u_tile.u_n10.u08.w[1]} {u_tile.u_tile.u_n10.u08.w[2]} {u_tile.u_tile.u_n10.u08.w[3]} {u_tile.u_tile.u_n10.u08.w[4]} {u_tile.u_tile.u_n10.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u08.pc[0]} {u_tile.u_tile.u_n10.u08.pc[1]} {u_tile.u_tile.u_n10.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0035; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0034; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u09.m[0]} {u_tile.u_tile.u_n10.u09.m[1]} {u_tile.u_tile.u_n10.u09.m[2]} {u_tile.u_tile.u_n10.u09.m[3]} {u_tile.u_tile.u_n10.u09.m[4]} {u_tile.u_tile.u_n10.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0052; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0052; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u09.w[0]} {u_tile.u_tile.u_n10.u09.w[1]} {u_tile.u_tile.u_n10.u09.w[2]} {u_tile.u_tile.u_n10.u09.w[3]} {u_tile.u_tile.u_n10.u09.w[4]} {u_tile.u_tile.u_n10.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u09.pc[0]} {u_tile.u_tile.u_n10.u09.pc[1]} {u_tile.u_tile.u_n10.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0035; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0034; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u10.m[0]} {u_tile.u_tile.u_n10.u10.m[1]} {u_tile.u_tile.u_n10.u10.m[2]} {u_tile.u_tile.u_n10.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0052; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0052; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u10.w[0]} {u_tile.u_tile.u_n10.u10.w[1]} {u_tile.u_tile.u_n10.u10.w[2]} {u_tile.u_tile.u_n10.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n10.u10.pc[0]} {u_tile.u_tile.u_n10.u10.pc[1]} {u_tile.u_tile.u_n10.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0017; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0017; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.threshold[0]} {u_tile.u_tile.u_n11.threshold[1]} {u_tile.u_tile.u_n11.threshold[2]} {u_tile.u_tile.u_n11.threshold[3]} {u_tile.u_tile.u_n11.threshold[4]} {u_tile.u_tile.u_n11.threshold[5]} {u_tile.u_tile.u_n11.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.802100e-05 -duty 0.4128; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.502282e-05 -duty 0.4128; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.w[0]} {u_tile.u_tile.u_n11.w[1]} {u_tile.u_tile.u_n11.w[2]} {u_tile.u_tile.u_n11.w[3]} {u_tile.u_tile.u_n11.w[4]} {u_tile.u_tile.u_n11.w[5]} {u_tile.u_tile.u_n11.w[6]} {u_tile.u_tile.u_n11.w[7]} {u_tile.u_tile.u_n11.w[8]} {u_tile.u_tile.u_n11.w[9]} {u_tile.u_tile.u_n11.w[10]} {u_tile.u_tile.u_n11.w[11]} {u_tile.u_tile.u_n11.w[12]} {u_tile.u_tile.u_n11.w[13]} {u_tile.u_tile.u_n11.w[14]} {u_tile.u_tile.u_n11.w[15]} {u_tile.u_tile.u_n11.w[16]} {u_tile.u_tile.u_n11.w[17]} {u_tile.u_tile.u_n11.w[18]} {u_tile.u_tile.u_n11.w[19]} {u_tile.u_tile.u_n11.w[20]} {u_tile.u_tile.u_n11.w[21]} {u_tile.u_tile.u_n11.w[22]} {u_tile.u_tile.u_n11.w[23]} {u_tile.u_tile.u_n11.w[24]} {u_tile.u_tile.u_n11.w[25]} {u_tile.u_tile.u_n11.w[26]} {u_tile.u_tile.u_n11.w[27]} {u_tile.u_tile.u_n11.w[28]} {u_tile.u_tile.u_n11.w[29]} {u_tile.u_tile.u_n11.w[30]} {u_tile.u_tile.u_n11.w[31]} {u_tile.u_tile.u_n11.w[32]} {u_tile.u_tile.u_n11.w[33]} {u_tile.u_tile.u_n11.w[34]} {u_tile.u_tile.u_n11.w[35]} {u_tile.u_tile.u_n11.w[36]} {u_tile.u_tile.u_n11.w[37]} {u_tile.u_tile.u_n11.w[38]} {u_tile.u_tile.u_n11.w[39]} {u_tile.u_tile.u_n11.w[40]} {u_tile.u_tile.u_n11.w[41]} {u_tile.u_tile.u_n11.w[42]} {u_tile.u_tile.u_n11.w[43]} {u_tile.u_tile.u_n11.w[44]} {u_tile.u_tile.u_n11.w[45]} {u_tile.u_tile.u_n11.w[46]} {u_tile.u_tile.u_n11.w[47]} {u_tile.u_tile.u_n11.w[48]} {u_tile.u_tile.u_n11.w[49]} {u_tile.u_tile.u_n11.w[50]} {u_tile.u_tile.u_n11.w[51]} {u_tile.u_tile.u_n11.w[52]} {u_tile.u_tile.u_n11.w[53]} {u_tile.u_tile.u_n11.w[54]} {u_tile.u_tile.u_n11.w[55]} {u_tile.u_tile.u_n11.w[56]} {u_tile.u_tile.u_n11.w[57]} {u_tile.u_tile.u_n11.w[58]} {u_tile.u_tile.u_n11.w[59]} {u_tile.u_tile.u_n11.w[60]} {u_tile.u_tile.u_n11.w[61]} {u_tile.u_tile.u_n11.w[62]} {u_tile.u_tile.u_n11.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.265883e-04 -duty 0.5536; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.098019e-04 -duty 0.5536; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.x[0]} {u_tile.u_tile.u_n11.x[1]} {u_tile.u_tile.u_n11.x[2]} {u_tile.u_tile.u_n11.x[3]} {u_tile.u_tile.u_n11.x[4]} {u_tile.u_tile.u_n11.x[5]} {u_tile.u_tile.u_n11.x[6]} {u_tile.u_tile.u_n11.x[7]} {u_tile.u_tile.u_n11.x[8]} {u_tile.u_tile.u_n11.x[9]} {u_tile.u_tile.u_n11.x[10]} {u_tile.u_tile.u_n11.x[11]} {u_tile.u_tile.u_n11.x[12]} {u_tile.u_tile.u_n11.x[13]} {u_tile.u_tile.u_n11.x[14]} {u_tile.u_tile.u_n11.x[15]} {u_tile.u_tile.u_n11.x[16]} {u_tile.u_tile.u_n11.x[17]} {u_tile.u_tile.u_n11.x[18]} {u_tile.u_tile.u_n11.x[19]} {u_tile.u_tile.u_n11.x[20]} {u_tile.u_tile.u_n11.x[21]} {u_tile.u_tile.u_n11.x[22]} {u_tile.u_tile.u_n11.x[23]} {u_tile.u_tile.u_n11.x[24]} {u_tile.u_tile.u_n11.x[25]} {u_tile.u_tile.u_n11.x[26]} {u_tile.u_tile.u_n11.x[27]} {u_tile.u_tile.u_n11.x[28]} {u_tile.u_tile.u_n11.x[29]} {u_tile.u_tile.u_n11.x[30]} {u_tile.u_tile.u_n11.x[31]} {u_tile.u_tile.u_n11.x[32]} {u_tile.u_tile.u_n11.x[33]} {u_tile.u_tile.u_n11.x[34]} {u_tile.u_tile.u_n11.x[35]} {u_tile.u_tile.u_n11.x[36]} {u_tile.u_tile.u_n11.x[37]} {u_tile.u_tile.u_n11.x[38]} {u_tile.u_tile.u_n11.x[39]} {u_tile.u_tile.u_n11.x[40]} {u_tile.u_tile.u_n11.x[41]} {u_tile.u_tile.u_n11.x[42]} {u_tile.u_tile.u_n11.x[43]} {u_tile.u_tile.u_n11.x[44]} {u_tile.u_tile.u_n11.x[45]} {u_tile.u_tile.u_n11.x[46]} {u_tile.u_tile.u_n11.x[47]} {u_tile.u_tile.u_n11.x[48]} {u_tile.u_tile.u_n11.x[49]} {u_tile.u_tile.u_n11.x[50]} {u_tile.u_tile.u_n11.x[51]} {u_tile.u_tile.u_n11.x[52]} {u_tile.u_tile.u_n11.x[53]} {u_tile.u_tile.u_n11.x[54]} {u_tile.u_tile.u_n11.x[55]} {u_tile.u_tile.u_n11.x[56]} {u_tile.u_tile.u_n11.x[57]} {u_tile.u_tile.u_n11.x[58]} {u_tile.u_tile.u_n11.x[59]} {u_tile.u_tile.u_n11.x[60]} {u_tile.u_tile.u_n11.x[61]} {u_tile.u_tile.u_n11.x[62]} {u_tile.u_tile.u_n11.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-04 -duty 0.3951; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-04 -duty 0.3950; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.total[0]} {u_tile.u_tile.u_n11.total[1]} {u_tile.u_tile.u_n11.total[2]} {u_tile.u_tile.u_n11.total[3]} {u_tile.u_tile.u_n11.total[4]} {u_tile.u_tile.u_n11.total[5]} {u_tile.u_tile.u_n11.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.156770e-04 -duty 0.4194; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.003375e-04 -duty 0.4194; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc10[0]} {u_tile.u_tile.u_n11.pc10[1]} {u_tile.u_tile.u_n11.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc09[0]} {u_tile.u_tile.u_n11.pc09[1]} {u_tile.u_tile.u_n11.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0037; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0037; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc08[0]} {u_tile.u_tile.u_n11.pc08[1]} {u_tile.u_tile.u_n11.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.687961e-05 -duty 0.2261; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.066309e-05 -duty 0.2262; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc07[0]} {u_tile.u_tile.u_n11.pc07[1]} {u_tile.u_tile.u_n11.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.3608; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.3607; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc06[0]} {u_tile.u_tile.u_n11.pc06[1]} {u_tile.u_tile.u_n11.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.4328; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.4328; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc05[0]} {u_tile.u_tile.u_n11.pc05[1]} {u_tile.u_tile.u_n11.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.875184e-04 -duty 0.4367; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.626524e-04 -duty 0.4366; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc04[0]} {u_tile.u_tile.u_n11.pc04[1]} {u_tile.u_tile.u_n11.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.690507e-04 -duty 0.4925; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.466336e-04 -duty 0.4925; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc03[0]} {u_tile.u_tile.u_n11.pc03[1]} {u_tile.u_tile.u_n11.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.4099; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.4098; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc02[0]} {u_tile.u_tile.u_n11.pc02[1]} {u_tile.u_tile.u_n11.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.789949e-04 -duty 0.5015; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.552591e-04 -duty 0.5014; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc01[0]} {u_tile.u_tile.u_n11.pc01[1]} {u_tile.u_tile.u_n11.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.4484; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.4483; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.pc00[0]} {u_tile.u_tile.u_n11.pc00[1]} {u_tile.u_tile.u_n11.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.4992; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.4993; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u00.m[0]} {u_tile.u_tile.u_n11.u00.m[1]} {u_tile.u_tile.u_n11.u00.m[2]} {u_tile.u_tile.u_n11.u00.m[3]} {u_tile.u_tile.u_n11.u00.m[4]} {u_tile.u_tile.u_n11.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.343980e-04 -duty 0.6831; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.033154e-04 -duty 0.6833; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u00.w[0]} {u_tile.u_tile.u_n11.u00.w[1]} {u_tile.u_tile.u_n11.u00.w[2]} {u_tile.u_tile.u_n11.u00.w[3]} {u_tile.u_tile.u_n11.u00.w[4]} {u_tile.u_tile.u_n11.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.272951e-04 -duty 0.2636; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.971544e-04 -duty 0.2633; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u00.x[0]} {u_tile.u_tile.u_n11.u00.x[1]} {u_tile.u_tile.u_n11.u00.x[2]} {u_tile.u_tile.u_n11.u00.x[3]} {u_tile.u_tile.u_n11.u00.x[4]} {u_tile.u_tile.u_n11.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u00.pc[0]} {u_tile.u_tile.u_n11.u00.pc[1]} {u_tile.u_tile.u_n11.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.4992; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.4993; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u01.m[0]} {u_tile.u_tile.u_n11.u01.m[1]} {u_tile.u_tile.u_n11.u01.m[2]} {u_tile.u_tile.u_n11.u01.m[3]} {u_tile.u_tile.u_n11.u01.m[4]} {u_tile.u_tile.u_n11.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.194818e-04 -duty 0.4776; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.903772e-04 -duty 0.4775; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u01.w[0]} {u_tile.u_tile.u_n11.u01.w[1]} {u_tile.u_tile.u_n11.u01.w[2]} {u_tile.u_tile.u_n11.u01.w[3]} {u_tile.u_tile.u_n11.u01.w[4]} {u_tile.u_tile.u_n11.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.031450e-04 -duty 0.3687; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.762067e-04 -duty 0.3686; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u01.x[0]} {u_tile.u_tile.u_n11.u01.x[1]} {u_tile.u_tile.u_n11.u01.x[2]} {u_tile.u_tile.u_n11.u01.x[3]} {u_tile.u_tile.u_n11.u01.x[4]} {u_tile.u_tile.u_n11.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u01.pc[0]} {u_tile.u_tile.u_n11.u01.pc[1]} {u_tile.u_tile.u_n11.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.4484; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.4483; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u02.m[0]} {u_tile.u_tile.u_n11.u02.m[1]} {u_tile.u_tile.u_n11.u02.m[2]} {u_tile.u_tile.u_n11.u02.m[3]} {u_tile.u_tile.u_n11.u02.m[4]} {u_tile.u_tile.u_n11.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.825464e-04 -duty 0.4543; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583396e-04 -duty 0.4541; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u02.w[0]} {u_tile.u_tile.u_n11.u02.w[1]} {u_tile.u_tile.u_n11.u02.w[2]} {u_tile.u_tile.u_n11.u02.w[3]} {u_tile.u_tile.u_n11.u02.w[4]} {u_tile.u_tile.u_n11.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.3451; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.3451; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u02.x[0]} {u_tile.u_tile.u_n11.u02.x[1]} {u_tile.u_tile.u_n11.u02.x[2]} {u_tile.u_tile.u_n11.u02.x[3]} {u_tile.u_tile.u_n11.u02.x[4]} {u_tile.u_tile.u_n11.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u02.pc[0]} {u_tile.u_tile.u_n11.u02.pc[1]} {u_tile.u_tile.u_n11.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.789949e-04 -duty 0.5015; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.552591e-04 -duty 0.5014; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u03.m[0]} {u_tile.u_tile.u_n11.u03.m[1]} {u_tile.u_tile.u_n11.u03.m[2]} {u_tile.u_tile.u_n11.u03.m[3]} {u_tile.u_tile.u_n11.u03.m[4]} {u_tile.u_tile.u_n11.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.548448e-04 -duty 0.3624; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.343114e-04 -duty 0.3622; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u03.w[0]} {u_tile.u_tile.u_n11.u03.w[1]} {u_tile.u_tile.u_n11.u03.w[2]} {u_tile.u_tile.u_n11.u03.w[3]} {u_tile.u_tile.u_n11.u03.w[4]} {u_tile.u_tile.u_n11.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.370873e-04 -duty 0.4816; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.189087e-04 -duty 0.4816; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u03.x[0]} {u_tile.u_tile.u_n11.u03.x[1]} {u_tile.u_tile.u_n11.u03.x[2]} {u_tile.u_tile.u_n11.u03.x[3]} {u_tile.u_tile.u_n11.u03.x[4]} {u_tile.u_tile.u_n11.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u03.pc[0]} {u_tile.u_tile.u_n11.u03.pc[1]} {u_tile.u_tile.u_n11.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.804155e-04 -duty 0.4099; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.564913e-04 -duty 0.4098; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u04.m[0]} {u_tile.u_tile.u_n11.u04.m[1]} {u_tile.u_tile.u_n11.u04.m[2]} {u_tile.u_tile.u_n11.u04.m[3]} {u_tile.u_tile.u_n11.u04.m[4]} {u_tile.u_tile.u_n11.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.5752; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.5752; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u04.w[0]} {u_tile.u_tile.u_n11.u04.w[1]} {u_tile.u_tile.u_n11.u04.w[2]} {u_tile.u_tile.u_n11.u04.w[3]} {u_tile.u_tile.u_n11.u04.w[4]} {u_tile.u_tile.u_n11.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.143578e-04 -duty 0.5057; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.919329e-05 -duty 0.5057; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u04.x[0]} {u_tile.u_tile.u_n11.u04.x[1]} {u_tile.u_tile.u_n11.u04.x[2]} {u_tile.u_tile.u_n11.u04.x[3]} {u_tile.u_tile.u_n11.u04.x[4]} {u_tile.u_tile.u_n11.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u04.pc[0]} {u_tile.u_tile.u_n11.u04.pc[1]} {u_tile.u_tile.u_n11.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.690507e-04 -duty 0.4925; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.466336e-04 -duty 0.4925; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u05.m[0]} {u_tile.u_tile.u_n11.u05.m[1]} {u_tile.u_tile.u_n11.u05.m[2]} {u_tile.u_tile.u_n11.u05.m[3]} {u_tile.u_tile.u_n11.u05.m[4]} {u_tile.u_tile.u_n11.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.251642e-04 -duty 0.4220; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.953061e-04 -duty 0.4219; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u05.w[0]} {u_tile.u_tile.u_n11.u05.w[1]} {u_tile.u_tile.u_n11.u05.w[2]} {u_tile.u_tile.u_n11.u05.w[3]} {u_tile.u_tile.u_n11.u05.w[4]} {u_tile.u_tile.u_n11.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.031450e-04 -duty 0.3689; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.762067e-04 -duty 0.3688; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u05.x[0]} {u_tile.u_tile.u_n11.u05.x[1]} {u_tile.u_tile.u_n11.u05.x[2]} {u_tile.u_tile.u_n11.u05.x[3]} {u_tile.u_tile.u_n11.u05.x[4]} {u_tile.u_tile.u_n11.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u05.pc[0]} {u_tile.u_tile.u_n11.u05.pc[1]} {u_tile.u_tile.u_n11.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.875184e-04 -duty 0.4367; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.626524e-04 -duty 0.4366; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u06.m[0]} {u_tile.u_tile.u_n11.u06.m[1]} {u_tile.u_tile.u_n11.u06.m[2]} {u_tile.u_tile.u_n11.u06.m[3]} {u_tile.u_tile.u_n11.u06.m[4]} {u_tile.u_tile.u_n11.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.612374e-04 -duty 0.5103; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.398564e-04 -duty 0.5105; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u06.w[0]} {u_tile.u_tile.u_n11.u06.w[1]} {u_tile.u_tile.u_n11.u06.w[2]} {u_tile.u_tile.u_n11.u06.w[3]} {u_tile.u_tile.u_n11.u06.w[4]} {u_tile.u_tile.u_n11.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.5220; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.5222; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u06.x[0]} {u_tile.u_tile.u_n11.u06.x[1]} {u_tile.u_tile.u_n11.u06.x[2]} {u_tile.u_tile.u_n11.u06.x[3]} {u_tile.u_tile.u_n11.u06.x[4]} {u_tile.u_tile.u_n11.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u06.pc[0]} {u_tile.u_tile.u_n11.u06.pc[1]} {u_tile.u_tile.u_n11.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.4328; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.4328; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u07.m[0]} {u_tile.u_tile.u_n11.u07.m[1]} {u_tile.u_tile.u_n11.u07.m[2]} {u_tile.u_tile.u_n11.u07.m[3]} {u_tile.u_tile.u_n11.u07.m[4]} {u_tile.u_tile.u_n11.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.548448e-04 -duty 0.3332; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.343114e-04 -duty 0.3331; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u07.w[0]} {u_tile.u_tile.u_n11.u07.w[1]} {u_tile.u_tile.u_n11.u07.w[2]} {u_tile.u_tile.u_n11.u07.w[3]} {u_tile.u_tile.u_n11.u07.w[4]} {u_tile.u_tile.u_n11.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.377976e-04 -duty 0.5940; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.195248e-04 -duty 0.5940; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u07.x[0]} {u_tile.u_tile.u_n11.u07.x[1]} {u_tile.u_tile.u_n11.u07.x[2]} {u_tile.u_tile.u_n11.u07.x[3]} {u_tile.u_tile.u_n11.u07.x[4]} {u_tile.u_tile.u_n11.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u07.pc[0]} {u_tile.u_tile.u_n11.u07.pc[1]} {u_tile.u_tile.u_n11.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.3608; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.3607; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u08.m[0]} {u_tile.u_tile.u_n11.u08.m[1]} {u_tile.u_tile.u_n11.u08.m[2]} {u_tile.u_tile.u_n11.u08.m[3]} {u_tile.u_tile.u_n11.u08.m[4]} {u_tile.u_tile.u_n11.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.628099e-05 -duty 0.1168; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.279597e-05 -duty 0.1168; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u08.w[0]} {u_tile.u_tile.u_n11.u08.w[1]} {u_tile.u_tile.u_n11.u08.w[2]} {u_tile.u_tile.u_n11.u08.w[3]} {u_tile.u_tile.u_n11.u08.w[4]} {u_tile.u_tile.u_n11.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.628099e-05 -duty 0.8429; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.279597e-05 -duty 0.8429; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u08.pc[0]} {u_tile.u_tile.u_n11.u08.pc[1]} {u_tile.u_tile.u_n11.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.687961e-05 -duty 0.2261; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.066309e-05 -duty 0.2262; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u09.m[0]} {u_tile.u_tile.u_n11.u09.m[1]} {u_tile.u_tile.u_n11.u09.m[2]} {u_tile.u_tile.u_n11.u09.m[3]} {u_tile.u_tile.u_n11.u09.m[4]} {u_tile.u_tile.u_n11.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0055; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0055; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u09.w[0]} {u_tile.u_tile.u_n11.u09.w[1]} {u_tile.u_tile.u_n11.u09.w[2]} {u_tile.u_tile.u_n11.u09.w[3]} {u_tile.u_tile.u_n11.u09.w[4]} {u_tile.u_tile.u_n11.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u09.pc[0]} {u_tile.u_tile.u_n11.u09.pc[1]} {u_tile.u_tile.u_n11.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0037; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0037; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u10.m[0]} {u_tile.u_tile.u_n11.u10.m[1]} {u_tile.u_tile.u_n11.u10.m[2]} {u_tile.u_tile.u_n11.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0055; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0055; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u10.w[0]} {u_tile.u_tile.u_n11.u10.w[1]} {u_tile.u_tile.u_n11.u10.w[2]} {u_tile.u_tile.u_n11.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n11.u10.pc[0]} {u_tile.u_tile.u_n11.u10.pc[1]} {u_tile.u_tile.u_n11.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.threshold[0]} {u_tile.u_tile.u_n12.threshold[1]} {u_tile.u_tile.u_n12.threshold[2]} {u_tile.u_tile.u_n12.threshold[3]} {u_tile.u_tile.u_n12.threshold[4]} {u_tile.u_tile.u_n12.threshold[5]} {u_tile.u_tile.u_n12.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.741217e-05 -duty 0.5093; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.449473e-05 -duty 0.5093; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.w[0]} {u_tile.u_tile.u_n12.w[1]} {u_tile.u_tile.u_n12.w[2]} {u_tile.u_tile.u_n12.w[3]} {u_tile.u_tile.u_n12.w[4]} {u_tile.u_tile.u_n12.w[5]} {u_tile.u_tile.u_n12.w[6]} {u_tile.u_tile.u_n12.w[7]} {u_tile.u_tile.u_n12.w[8]} {u_tile.u_tile.u_n12.w[9]} {u_tile.u_tile.u_n12.w[10]} {u_tile.u_tile.u_n12.w[11]} {u_tile.u_tile.u_n12.w[12]} {u_tile.u_tile.u_n12.w[13]} {u_tile.u_tile.u_n12.w[14]} {u_tile.u_tile.u_n12.w[15]} {u_tile.u_tile.u_n12.w[16]} {u_tile.u_tile.u_n12.w[17]} {u_tile.u_tile.u_n12.w[18]} {u_tile.u_tile.u_n12.w[19]} {u_tile.u_tile.u_n12.w[20]} {u_tile.u_tile.u_n12.w[21]} {u_tile.u_tile.u_n12.w[22]} {u_tile.u_tile.u_n12.w[23]} {u_tile.u_tile.u_n12.w[24]} {u_tile.u_tile.u_n12.w[25]} {u_tile.u_tile.u_n12.w[26]} {u_tile.u_tile.u_n12.w[27]} {u_tile.u_tile.u_n12.w[28]} {u_tile.u_tile.u_n12.w[29]} {u_tile.u_tile.u_n12.w[30]} {u_tile.u_tile.u_n12.w[31]} {u_tile.u_tile.u_n12.w[32]} {u_tile.u_tile.u_n12.w[33]} {u_tile.u_tile.u_n12.w[34]} {u_tile.u_tile.u_n12.w[35]} {u_tile.u_tile.u_n12.w[36]} {u_tile.u_tile.u_n12.w[37]} {u_tile.u_tile.u_n12.w[38]} {u_tile.u_tile.u_n12.w[39]} {u_tile.u_tile.u_n12.w[40]} {u_tile.u_tile.u_n12.w[41]} {u_tile.u_tile.u_n12.w[42]} {u_tile.u_tile.u_n12.w[43]} {u_tile.u_tile.u_n12.w[44]} {u_tile.u_tile.u_n12.w[45]} {u_tile.u_tile.u_n12.w[46]} {u_tile.u_tile.u_n12.w[47]} {u_tile.u_tile.u_n12.w[48]} {u_tile.u_tile.u_n12.w[49]} {u_tile.u_tile.u_n12.w[50]} {u_tile.u_tile.u_n12.w[51]} {u_tile.u_tile.u_n12.w[52]} {u_tile.u_tile.u_n12.w[53]} {u_tile.u_tile.u_n12.w[54]} {u_tile.u_tile.u_n12.w[55]} {u_tile.u_tile.u_n12.w[56]} {u_tile.u_tile.u_n12.w[57]} {u_tile.u_tile.u_n12.w[58]} {u_tile.u_tile.u_n12.w[59]} {u_tile.u_tile.u_n12.w[60]} {u_tile.u_tile.u_n12.w[61]} {u_tile.u_tile.u_n12.w[62]} {u_tile.u_tile.u_n12.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.183976e-04 -duty 0.6111; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.026974e-04 -duty 0.6111; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.x[0]} {u_tile.u_tile.u_n12.x[1]} {u_tile.u_tile.u_n12.x[2]} {u_tile.u_tile.u_n12.x[3]} {u_tile.u_tile.u_n12.x[4]} {u_tile.u_tile.u_n12.x[5]} {u_tile.u_tile.u_n12.x[6]} {u_tile.u_tile.u_n12.x[7]} {u_tile.u_tile.u_n12.x[8]} {u_tile.u_tile.u_n12.x[9]} {u_tile.u_tile.u_n12.x[10]} {u_tile.u_tile.u_n12.x[11]} {u_tile.u_tile.u_n12.x[12]} {u_tile.u_tile.u_n12.x[13]} {u_tile.u_tile.u_n12.x[14]} {u_tile.u_tile.u_n12.x[15]} {u_tile.u_tile.u_n12.x[16]} {u_tile.u_tile.u_n12.x[17]} {u_tile.u_tile.u_n12.x[18]} {u_tile.u_tile.u_n12.x[19]} {u_tile.u_tile.u_n12.x[20]} {u_tile.u_tile.u_n12.x[21]} {u_tile.u_tile.u_n12.x[22]} {u_tile.u_tile.u_n12.x[23]} {u_tile.u_tile.u_n12.x[24]} {u_tile.u_tile.u_n12.x[25]} {u_tile.u_tile.u_n12.x[26]} {u_tile.u_tile.u_n12.x[27]} {u_tile.u_tile.u_n12.x[28]} {u_tile.u_tile.u_n12.x[29]} {u_tile.u_tile.u_n12.x[30]} {u_tile.u_tile.u_n12.x[31]} {u_tile.u_tile.u_n12.x[32]} {u_tile.u_tile.u_n12.x[33]} {u_tile.u_tile.u_n12.x[34]} {u_tile.u_tile.u_n12.x[35]} {u_tile.u_tile.u_n12.x[36]} {u_tile.u_tile.u_n12.x[37]} {u_tile.u_tile.u_n12.x[38]} {u_tile.u_tile.u_n12.x[39]} {u_tile.u_tile.u_n12.x[40]} {u_tile.u_tile.u_n12.x[41]} {u_tile.u_tile.u_n12.x[42]} {u_tile.u_tile.u_n12.x[43]} {u_tile.u_tile.u_n12.x[44]} {u_tile.u_tile.u_n12.x[45]} {u_tile.u_tile.u_n12.x[46]} {u_tile.u_tile.u_n12.x[47]} {u_tile.u_tile.u_n12.x[48]} {u_tile.u_tile.u_n12.x[49]} {u_tile.u_tile.u_n12.x[50]} {u_tile.u_tile.u_n12.x[51]} {u_tile.u_tile.u_n12.x[52]} {u_tile.u_tile.u_n12.x[53]} {u_tile.u_tile.u_n12.x[54]} {u_tile.u_tile.u_n12.x[55]} {u_tile.u_tile.u_n12.x[56]} {u_tile.u_tile.u_n12.x[57]} {u_tile.u_tile.u_n12.x[58]} {u_tile.u_tile.u_n12.x[59]} {u_tile.u_tile.u_n12.x[60]} {u_tile.u_tile.u_n12.x[61]} {u_tile.u_tile.u_n12.x[62]} {u_tile.u_tile.u_n12.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.557070e-04 -duty 0.3203; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.217987e-04 -duty 0.3201; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.total[0]} {u_tile.u_tile.u_n12.total[1]} {u_tile.u_tile.u_n12.total[2]} {u_tile.u_tile.u_n12.total[3]} {u_tile.u_tile.u_n12.total[4]} {u_tile.u_tile.u_n12.total[5]} {u_tile.u_tile.u_n12.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.254182e-04 -duty 0.4315; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.087870e-04 -duty 0.4315; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc10[0]} {u_tile.u_tile.u_n12.pc10[1]} {u_tile.u_tile.u_n12.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0020; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0019; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc09[0]} {u_tile.u_tile.u_n12.pc09[1]} {u_tile.u_tile.u_n12.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc08[0]} {u_tile.u_tile.u_n12.pc08[1]} {u_tile.u_tile.u_n12.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc07[0]} {u_tile.u_tile.u_n12.pc07[1]} {u_tile.u_tile.u_n12.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.4323; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.4322; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc06[0]} {u_tile.u_tile.u_n12.pc06[1]} {u_tile.u_tile.u_n12.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.5073; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.5074; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc05[0]} {u_tile.u_tile.u_n12.pc05[1]} {u_tile.u_tile.u_n12.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.4912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.4912; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc04[0]} {u_tile.u_tile.u_n12.pc04[1]} {u_tile.u_tile.u_n12.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.4251; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.4250; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc03[0]} {u_tile.u_tile.u_n12.pc03[1]} {u_tile.u_tile.u_n12.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.5404; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.5404; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc02[0]} {u_tile.u_tile.u_n12.pc02[1]} {u_tile.u_tile.u_n12.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.662095e-04 -duty 0.4113; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.441691e-04 -duty 0.4112; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc01[0]} {u_tile.u_tile.u_n12.pc01[1]} {u_tile.u_tile.u_n12.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.088273e-04 -duty 0.3273; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.811356e-04 -duty 0.3272; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.pc00[0]} {u_tile.u_tile.u_n12.pc00[1]} {u_tile.u_tile.u_n12.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.449006e-04 -duty 0.4995; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.256859e-04 -duty 0.4996; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u00.m[0]} {u_tile.u_tile.u_n12.u00.m[1]} {u_tile.u_tile.u_n12.u00.m[2]} {u_tile.u_tile.u_n12.u00.m[3]} {u_tile.u_tile.u_n12.u00.m[4]} {u_tile.u_tile.u_n12.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.910699e-04 -duty 0.4349; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.657329e-04 -duty 0.4349; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u00.w[0]} {u_tile.u_tile.u_n12.u00.w[1]} {u_tile.u_tile.u_n12.u00.w[2]} {u_tile.u_tile.u_n12.u00.w[3]} {u_tile.u_tile.u_n12.u00.w[4]} {u_tile.u_tile.u_n12.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.839669e-04 -duty 0.5536; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.595718e-04 -duty 0.5536; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u00.x[0]} {u_tile.u_tile.u_n12.u00.x[1]} {u_tile.u_tile.u_n12.u00.x[2]} {u_tile.u_tile.u_n12.u00.x[3]} {u_tile.u_tile.u_n12.u00.x[4]} {u_tile.u_tile.u_n12.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u00.pc[0]} {u_tile.u_tile.u_n12.u00.pc[1]} {u_tile.u_tile.u_n12.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.449006e-04 -duty 0.4995; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.256859e-04 -duty 0.4996; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u01.m[0]} {u_tile.u_tile.u_n12.u01.m[1]} {u_tile.u_tile.u_n12.u01.m[2]} {u_tile.u_tile.u_n12.u01.m[3]} {u_tile.u_tile.u_n12.u01.m[4]} {u_tile.u_tile.u_n12.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.314050e-04 -duty 0.3213; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.139799e-04 -duty 0.3211; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u01.w[0]} {u_tile.u_tile.u_n12.u01.w[1]} {u_tile.u_tile.u_n12.u01.w[2]} {u_tile.u_tile.u_n12.u01.w[3]} {u_tile.u_tile.u_n12.u01.w[4]} {u_tile.u_tile.u_n12.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.150681e-04 -duty 0.5945; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.980940e-05 -duty 0.5946; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u01.x[0]} {u_tile.u_tile.u_n12.u01.x[1]} {u_tile.u_tile.u_n12.u01.x[2]} {u_tile.u_tile.u_n12.u01.x[3]} {u_tile.u_tile.u_n12.u01.x[4]} {u_tile.u_tile.u_n12.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u01.pc[0]} {u_tile.u_tile.u_n12.u01.pc[1]} {u_tile.u_tile.u_n12.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.088273e-04 -duty 0.3273; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.811356e-04 -duty 0.3272; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u02.m[0]} {u_tile.u_tile.u_n12.u02.m[1]} {u_tile.u_tile.u_n12.u02.m[2]} {u_tile.u_tile.u_n12.u02.m[3]} {u_tile.u_tile.u_n12.u02.m[4]} {u_tile.u_tile.u_n12.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.4540; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.4539; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u02.w[0]} {u_tile.u_tile.u_n12.u02.w[1]} {u_tile.u_tile.u_n12.u02.w[2]} {u_tile.u_tile.u_n12.u02.w[3]} {u_tile.u_tile.u_n12.u02.w[4]} {u_tile.u_tile.u_n12.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.598168e-04 -duty 0.5294; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.386242e-04 -duty 0.5293; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u02.x[0]} {u_tile.u_tile.u_n12.u02.x[1]} {u_tile.u_tile.u_n12.u02.x[2]} {u_tile.u_tile.u_n12.u02.x[3]} {u_tile.u_tile.u_n12.u02.x[4]} {u_tile.u_tile.u_n12.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u02.pc[0]} {u_tile.u_tile.u_n12.u02.pc[1]} {u_tile.u_tile.u_n12.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.662095e-04 -duty 0.4113; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.441691e-04 -duty 0.4112; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u03.m[0]} {u_tile.u_tile.u_n12.u03.m[1]} {u_tile.u_tile.u_n12.u03.m[2]} {u_tile.u_tile.u_n12.u03.m[3]} {u_tile.u_tile.u_n12.u03.m[4]} {u_tile.u_tile.u_n12.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.974626e-04 -duty 0.5083; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.712779e-04 -duty 0.5082; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u03.w[0]} {u_tile.u_tile.u_n12.u03.w[1]} {u_tile.u_tile.u_n12.u03.w[2]} {u_tile.u_tile.u_n12.u03.w[3]} {u_tile.u_tile.u_n12.u03.w[4]} {u_tile.u_tile.u_n12.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.797052e-04 -duty 0.4816; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.558752e-04 -duty 0.4816; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u03.x[0]} {u_tile.u_tile.u_n12.u03.x[1]} {u_tile.u_tile.u_n12.u03.x[2]} {u_tile.u_tile.u_n12.u03.x[3]} {u_tile.u_tile.u_n12.u03.x[4]} {u_tile.u_tile.u_n12.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u03.pc[0]} {u_tile.u_tile.u_n12.u03.pc[1]} {u_tile.u_tile.u_n12.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.349564e-04 -duty 0.5404; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.170604e-04 -duty 0.5404; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u04.m[0]} {u_tile.u_tile.u_n12.u04.m[1]} {u_tile.u_tile.u_n12.u04.m[2]} {u_tile.u_tile.u_n12.u04.m[3]} {u_tile.u_tile.u_n12.u04.m[4]} {u_tile.u_tile.u_n12.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.4507; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.4505; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u04.w[0]} {u_tile.u_tile.u_n12.u04.w[1]} {u_tile.u_tile.u_n12.u04.w[2]} {u_tile.u_tile.u_n12.u04.w[3]} {u_tile.u_tile.u_n12.u04.w[4]} {u_tile.u_tile.u_n12.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.377976e-04 -duty 0.5945; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.195248e-04 -duty 0.5946; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u04.x[0]} {u_tile.u_tile.u_n12.u04.x[1]} {u_tile.u_tile.u_n12.u04.x[2]} {u_tile.u_tile.u_n12.u04.x[3]} {u_tile.u_tile.u_n12.u04.x[4]} {u_tile.u_tile.u_n12.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u04.pc[0]} {u_tile.u_tile.u_n12.u04.pc[1]} {u_tile.u_tile.u_n12.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.846772e-04 -duty 0.4251; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.601879e-04 -duty 0.4250; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u05.m[0]} {u_tile.u_tile.u_n12.u05.m[1]} {u_tile.u_tile.u_n12.u05.m[2]} {u_tile.u_tile.u_n12.u05.m[3]} {u_tile.u_tile.u_n12.u05.m[4]} {u_tile.u_tile.u_n12.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.031450e-04 -duty 0.5842; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.762067e-04 -duty 0.5842; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u05.w[0]} {u_tile.u_tile.u_n12.u05.w[1]} {u_tile.u_tile.u_n12.u05.w[2]} {u_tile.u_tile.u_n12.u05.w[3]} {u_tile.u_tile.u_n12.u05.w[4]} {u_tile.u_tile.u_n12.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.811258e-04 -duty 0.5058; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.571074e-04 -duty 0.5058; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u05.x[0]} {u_tile.u_tile.u_n12.u05.x[1]} {u_tile.u_tile.u_n12.u05.x[2]} {u_tile.u_tile.u_n12.u05.x[3]} {u_tile.u_tile.u_n12.u05.x[4]} {u_tile.u_tile.u_n12.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u05.pc[0]} {u_tile.u_tile.u_n12.u05.pc[1]} {u_tile.u_tile.u_n12.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.4912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.4912; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u06.m[0]} {u_tile.u_tile.u_n12.u06.m[1]} {u_tile.u_tile.u_n12.u06.m[2]} {u_tile.u_tile.u_n12.u06.m[3]} {u_tile.u_tile.u_n12.u06.m[4]} {u_tile.u_tile.u_n12.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.832566e-04 -duty 0.6221; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.589557e-04 -duty 0.6223; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u06.w[0]} {u_tile.u_tile.u_n12.u06.w[1]} {u_tile.u_tile.u_n12.u06.w[2]} {u_tile.u_tile.u_n12.u06.w[3]} {u_tile.u_tile.u_n12.u06.w[4]} {u_tile.u_tile.u_n12.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.4581; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u06.x[0]} {u_tile.u_tile.u_n12.u06.x[1]} {u_tile.u_tile.u_n12.u06.x[2]} {u_tile.u_tile.u_n12.u06.x[3]} {u_tile.u_tile.u_n12.u06.x[4]} {u_tile.u_tile.u_n12.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u06.pc[0]} {u_tile.u_tile.u_n12.u06.pc[1]} {u_tile.u_tile.u_n12.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.747331e-04 -duty 0.5073; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.515624e-04 -duty 0.5074; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u07.m[0]} {u_tile.u_tile.u_n12.u07.m[1]} {u_tile.u_tile.u_n12.u07.m[2]} {u_tile.u_tile.u_n12.u07.m[3]} {u_tile.u_tile.u_n12.u07.m[4]} {u_tile.u_tile.u_n12.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.534242e-04 -duty 0.5436; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.330792e-04 -duty 0.5436; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u07.w[0]} {u_tile.u_tile.u_n12.u07.w[1]} {u_tile.u_tile.u_n12.u07.w[2]} {u_tile.u_tile.u_n12.u07.w[3]} {u_tile.u_tile.u_n12.u07.w[4]} {u_tile.u_tile.u_n12.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.3930; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.3929; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u07.x[0]} {u_tile.u_tile.u_n12.u07.x[1]} {u_tile.u_tile.u_n12.u07.x[2]} {u_tile.u_tile.u_n12.u07.x[3]} {u_tile.u_tile.u_n12.u07.x[4]} {u_tile.u_tile.u_n12.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u07.pc[0]} {u_tile.u_tile.u_n12.u07.pc[1]} {u_tile.u_tile.u_n12.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.520036e-04 -duty 0.4323; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.318470e-04 -duty 0.4322; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u08.m[0]} {u_tile.u_tile.u_n12.u08.m[1]} {u_tile.u_tile.u_n12.u08.m[2]} {u_tile.u_tile.u_n12.u08.m[3]} {u_tile.u_tile.u_n12.u08.m[4]} {u_tile.u_tile.u_n12.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.551485e-06 -duty 0.0059; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.080537e-06 -duty 0.0058; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u08.w[0]} {u_tile.u_tile.u_n12.u08.w[1]} {u_tile.u_tile.u_n12.u08.w[2]} {u_tile.u_tile.u_n12.u08.w[3]} {u_tile.u_tile.u_n12.u08.w[4]} {u_tile.u_tile.u_n12.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.551485e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.080537e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u08.pc[0]} {u_tile.u_tile.u_n12.u08.pc[1]} {u_tile.u_tile.u_n12.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u09.m[0]} {u_tile.u_tile.u_n12.u09.m[1]} {u_tile.u_tile.u_n12.u09.m[2]} {u_tile.u_tile.u_n12.u09.m[3]} {u_tile.u_tile.u_n12.u09.m[4]} {u_tile.u_tile.u_n12.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0059; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0058; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u09.w[0]} {u_tile.u_tile.u_n12.u09.w[1]} {u_tile.u_tile.u_n12.u09.w[2]} {u_tile.u_tile.u_n12.u09.w[3]} {u_tile.u_tile.u_n12.u09.w[4]} {u_tile.u_tile.u_n12.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u09.pc[0]} {u_tile.u_tile.u_n12.u09.pc[1]} {u_tile.u_tile.u_n12.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0039; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u10.m[0]} {u_tile.u_tile.u_n12.u10.m[1]} {u_tile.u_tile.u_n12.u10.m[2]} {u_tile.u_tile.u_n12.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0059; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0058; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u10.w[0]} {u_tile.u_tile.u_n12.u10.w[1]} {u_tile.u_tile.u_n12.u10.w[2]} {u_tile.u_tile.u_n12.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n12.u10.pc[0]} {u_tile.u_tile.u_n12.u10.pc[1]} {u_tile.u_tile.u_n12.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0020; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0019; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.threshold[0]} {u_tile.u_tile.u_n13.threshold[1]} {u_tile.u_tile.u_n13.threshold[2]} {u_tile.u_tile.u_n13.threshold[3]} {u_tile.u_tile.u_n13.threshold[4]} {u_tile.u_tile.u_n13.threshold[5]} {u_tile.u_tile.u_n13.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.027378e-05 -duty 0.4128; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.228111e-05 -duty 0.4128; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.w[0]} {u_tile.u_tile.u_n13.w[1]} {u_tile.u_tile.u_n13.w[2]} {u_tile.u_tile.u_n13.w[3]} {u_tile.u_tile.u_n13.w[4]} {u_tile.u_tile.u_n13.w[5]} {u_tile.u_tile.u_n13.w[6]} {u_tile.u_tile.u_n13.w[7]} {u_tile.u_tile.u_n13.w[8]} {u_tile.u_tile.u_n13.w[9]} {u_tile.u_tile.u_n13.w[10]} {u_tile.u_tile.u_n13.w[11]} {u_tile.u_tile.u_n13.w[12]} {u_tile.u_tile.u_n13.w[13]} {u_tile.u_tile.u_n13.w[14]} {u_tile.u_tile.u_n13.w[15]} {u_tile.u_tile.u_n13.w[16]} {u_tile.u_tile.u_n13.w[17]} {u_tile.u_tile.u_n13.w[18]} {u_tile.u_tile.u_n13.w[19]} {u_tile.u_tile.u_n13.w[20]} {u_tile.u_tile.u_n13.w[21]} {u_tile.u_tile.u_n13.w[22]} {u_tile.u_tile.u_n13.w[23]} {u_tile.u_tile.u_n13.w[24]} {u_tile.u_tile.u_n13.w[25]} {u_tile.u_tile.u_n13.w[26]} {u_tile.u_tile.u_n13.w[27]} {u_tile.u_tile.u_n13.w[28]} {u_tile.u_tile.u_n13.w[29]} {u_tile.u_tile.u_n13.w[30]} {u_tile.u_tile.u_n13.w[31]} {u_tile.u_tile.u_n13.w[32]} {u_tile.u_tile.u_n13.w[33]} {u_tile.u_tile.u_n13.w[34]} {u_tile.u_tile.u_n13.w[35]} {u_tile.u_tile.u_n13.w[36]} {u_tile.u_tile.u_n13.w[37]} {u_tile.u_tile.u_n13.w[38]} {u_tile.u_tile.u_n13.w[39]} {u_tile.u_tile.u_n13.w[40]} {u_tile.u_tile.u_n13.w[41]} {u_tile.u_tile.u_n13.w[42]} {u_tile.u_tile.u_n13.w[43]} {u_tile.u_tile.u_n13.w[44]} {u_tile.u_tile.u_n13.w[45]} {u_tile.u_tile.u_n13.w[46]} {u_tile.u_tile.u_n13.w[47]} {u_tile.u_tile.u_n13.w[48]} {u_tile.u_tile.u_n13.w[49]} {u_tile.u_tile.u_n13.w[50]} {u_tile.u_tile.u_n13.w[51]} {u_tile.u_tile.u_n13.w[52]} {u_tile.u_tile.u_n13.w[53]} {u_tile.u_tile.u_n13.w[54]} {u_tile.u_tile.u_n13.w[55]} {u_tile.u_tile.u_n13.w[56]} {u_tile.u_tile.u_n13.w[57]} {u_tile.u_tile.u_n13.w[58]} {u_tile.u_tile.u_n13.w[59]} {u_tile.u_tile.u_n13.w[60]} {u_tile.u_tile.u_n13.w[61]} {u_tile.u_tile.u_n13.w[62]} {u_tile.u_tile.u_n13.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.276036e-05 -duty 0.6170; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.045978e-05 -duty 0.6170; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.x[0]} {u_tile.u_tile.u_n13.x[1]} {u_tile.u_tile.u_n13.x[2]} {u_tile.u_tile.u_n13.x[3]} {u_tile.u_tile.u_n13.x[4]} {u_tile.u_tile.u_n13.x[5]} {u_tile.u_tile.u_n13.x[6]} {u_tile.u_tile.u_n13.x[7]} {u_tile.u_tile.u_n13.x[8]} {u_tile.u_tile.u_n13.x[9]} {u_tile.u_tile.u_n13.x[10]} {u_tile.u_tile.u_n13.x[11]} {u_tile.u_tile.u_n13.x[12]} {u_tile.u_tile.u_n13.x[13]} {u_tile.u_tile.u_n13.x[14]} {u_tile.u_tile.u_n13.x[15]} {u_tile.u_tile.u_n13.x[16]} {u_tile.u_tile.u_n13.x[17]} {u_tile.u_tile.u_n13.x[18]} {u_tile.u_tile.u_n13.x[19]} {u_tile.u_tile.u_n13.x[20]} {u_tile.u_tile.u_n13.x[21]} {u_tile.u_tile.u_n13.x[22]} {u_tile.u_tile.u_n13.x[23]} {u_tile.u_tile.u_n13.x[24]} {u_tile.u_tile.u_n13.x[25]} {u_tile.u_tile.u_n13.x[26]} {u_tile.u_tile.u_n13.x[27]} {u_tile.u_tile.u_n13.x[28]} {u_tile.u_tile.u_n13.x[29]} {u_tile.u_tile.u_n13.x[30]} {u_tile.u_tile.u_n13.x[31]} {u_tile.u_tile.u_n13.x[32]} {u_tile.u_tile.u_n13.x[33]} {u_tile.u_tile.u_n13.x[34]} {u_tile.u_tile.u_n13.x[35]} {u_tile.u_tile.u_n13.x[36]} {u_tile.u_tile.u_n13.x[37]} {u_tile.u_tile.u_n13.x[38]} {u_tile.u_tile.u_n13.x[39]} {u_tile.u_tile.u_n13.x[40]} {u_tile.u_tile.u_n13.x[41]} {u_tile.u_tile.u_n13.x[42]} {u_tile.u_tile.u_n13.x[43]} {u_tile.u_tile.u_n13.x[44]} {u_tile.u_tile.u_n13.x[45]} {u_tile.u_tile.u_n13.x[46]} {u_tile.u_tile.u_n13.x[47]} {u_tile.u_tile.u_n13.x[48]} {u_tile.u_tile.u_n13.x[49]} {u_tile.u_tile.u_n13.x[50]} {u_tile.u_tile.u_n13.x[51]} {u_tile.u_tile.u_n13.x[52]} {u_tile.u_tile.u_n13.x[53]} {u_tile.u_tile.u_n13.x[54]} {u_tile.u_tile.u_n13.x[55]} {u_tile.u_tile.u_n13.x[56]} {u_tile.u_tile.u_n13.x[57]} {u_tile.u_tile.u_n13.x[58]} {u_tile.u_tile.u_n13.x[59]} {u_tile.u_tile.u_n13.x[60]} {u_tile.u_tile.u_n13.x[61]} {u_tile.u_tile.u_n13.x[62]} {u_tile.u_tile.u_n13.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.386598e-04 -duty 0.3779; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.070121e-04 -duty 0.3778; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.total[0]} {u_tile.u_tile.u_n13.total[1]} {u_tile.u_tile.u_n13.total[2]} {u_tile.u_tile.u_n13.total[3]} {u_tile.u_tile.u_n13.total[4]} {u_tile.u_tile.u_n13.total[5]} {u_tile.u_tile.u_n13.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.315039e-05 -duty 0.3766; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.079809e-05 -duty 0.3766; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc10[0]} {u_tile.u_tile.u_n13.pc10[1]} {u_tile.u_tile.u_n13.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc09[0]} {u_tile.u_tile.u_n13.pc09[1]} {u_tile.u_tile.u_n13.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0041; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0041; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc08[0]} {u_tile.u_tile.u_n13.pc08[1]} {u_tile.u_tile.u_n13.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.687961e-05 -duty 0.2714; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.066309e-05 -duty 0.2715; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc07[0]} {u_tile.u_tile.u_n13.pc07[1]} {u_tile.u_tile.u_n13.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.647889e-04 -duty 0.5301; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.429369e-04 -duty 0.5301; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc06[0]} {u_tile.u_tile.u_n13.pc06[1]} {u_tile.u_tile.u_n13.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.733125e-04 -duty 0.4680; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.503302e-04 -duty 0.4680; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc05[0]} {u_tile.u_tile.u_n13.pc05[1]} {u_tile.u_tile.u_n13.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.4132; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.4132; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc04[0]} {u_tile.u_tile.u_n13.pc04[1]} {u_tile.u_tile.u_n13.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.955327e-05 -duty 0.3846; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.900403e-05 -duty 0.3846; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc03[0]} {u_tile.u_tile.u_n13.pc03[1]} {u_tile.u_tile.u_n13.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.974626e-04 -duty 0.4780; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.712779e-04 -duty 0.4780; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc02[0]} {u_tile.u_tile.u_n13.pc02[1]} {u_tile.u_tile.u_n13.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.534242e-04 -duty 0.4276; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.330792e-04 -duty 0.4276; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc01[0]} {u_tile.u_tile.u_n13.pc01[1]} {u_tile.u_tile.u_n13.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.406388e-04 -duty 0.2733; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.219893e-04 -duty 0.2733; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.pc00[0]} {u_tile.u_tile.u_n13.pc00[1]} {u_tile.u_tile.u_n13.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.008622e-04 -duty 0.3042; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.748725e-05 -duty 0.3042; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u00.m[0]} {u_tile.u_tile.u_n13.u00.m[1]} {u_tile.u_tile.u_n13.u00.m[2]} {u_tile.u_tile.u_n13.u00.m[3]} {u_tile.u_tile.u_n13.u00.m[4]} {u_tile.u_tile.u_n13.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.540317e-05 -duty 0.2599; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.805638e-05 -duty 0.2599; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u00.w[0]} {u_tile.u_tile.u_n13.u00.w[1]} {u_tile.u_tile.u_n13.u00.w[2]} {u_tile.u_tile.u_n13.u00.w[3]} {u_tile.u_tile.u_n13.u00.w[4]} {u_tile.u_tile.u_n13.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.7379; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.7378; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u00.x[0]} {u_tile.u_tile.u_n13.u00.x[1]} {u_tile.u_tile.u_n13.u00.x[2]} {u_tile.u_tile.u_n13.u00.x[3]} {u_tile.u_tile.u_n13.u00.x[4]} {u_tile.u_tile.u_n13.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u00.pc[0]} {u_tile.u_tile.u_n13.u00.pc[1]} {u_tile.u_tile.u_n13.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.008622e-04 -duty 0.3042; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.748725e-05 -duty 0.3042; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u01.m[0]} {u_tile.u_tile.u_n13.u01.m[1]} {u_tile.u_tile.u_n13.u01.m[2]} {u_tile.u_tile.u_n13.u01.m[3]} {u_tile.u_tile.u_n13.u01.m[4]} {u_tile.u_tile.u_n13.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.740228e-04 -duty 0.2691; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.509463e-04 -duty 0.2690; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u01.w[0]} {u_tile.u_tile.u_n13.u01.w[1]} {u_tile.u_tile.u_n13.u01.w[2]} {u_tile.u_tile.u_n13.u01.w[3]} {u_tile.u_tile.u_n13.u01.w[4]} {u_tile.u_tile.u_n13.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.5701; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.5701; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u01.x[0]} {u_tile.u_tile.u_n13.u01.x[1]} {u_tile.u_tile.u_n13.u01.x[2]} {u_tile.u_tile.u_n13.u01.x[3]} {u_tile.u_tile.u_n13.u01.x[4]} {u_tile.u_tile.u_n13.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u01.pc[0]} {u_tile.u_tile.u_n13.u01.pc[1]} {u_tile.u_tile.u_n13.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.406388e-04 -duty 0.2733; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.219893e-04 -duty 0.2733; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u02.m[0]} {u_tile.u_tile.u_n13.u02.m[1]} {u_tile.u_tile.u_n13.u02.m[2]} {u_tile.u_tile.u_n13.u02.m[3]} {u_tile.u_tile.u_n13.u02.m[4]} {u_tile.u_tile.u_n13.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.839669e-04 -duty 0.3493; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.595718e-04 -duty 0.3492; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u02.w[0]} {u_tile.u_tile.u_n13.u02.w[1]} {u_tile.u_tile.u_n13.u02.w[2]} {u_tile.u_tile.u_n13.u02.w[3]} {u_tile.u_tile.u_n13.u02.w[4]} {u_tile.u_tile.u_n13.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.5704; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.5705; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u02.x[0]} {u_tile.u_tile.u_n13.u02.x[1]} {u_tile.u_tile.u_n13.u02.x[2]} {u_tile.u_tile.u_n13.u02.x[3]} {u_tile.u_tile.u_n13.u02.x[4]} {u_tile.u_tile.u_n13.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u02.pc[0]} {u_tile.u_tile.u_n13.u02.pc[1]} {u_tile.u_tile.u_n13.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.534242e-04 -duty 0.4276; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.330792e-04 -duty 0.4276; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u03.m[0]} {u_tile.u_tile.u_n13.u03.m[1]} {u_tile.u_tile.u_n13.u03.m[2]} {u_tile.u_tile.u_n13.u03.m[3]} {u_tile.u_tile.u_n13.u03.m[4]} {u_tile.u_tile.u_n13.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.665625e-05 -duty 0.4111; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.516510e-05 -duty 0.4111; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u03.w[0]} {u_tile.u_tile.u_n13.u03.w[1]} {u_tile.u_tile.u_n13.u03.w[2]} {u_tile.u_tile.u_n13.u03.w[3]} {u_tile.u_tile.u_n13.u03.w[4]} {u_tile.u_tile.u_n13.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.889882e-05 -duty 0.5296; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.976242e-05 -duty 0.5295; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u03.x[0]} {u_tile.u_tile.u_n13.u03.x[1]} {u_tile.u_tile.u_n13.u03.x[2]} {u_tile.u_tile.u_n13.u03.x[3]} {u_tile.u_tile.u_n13.u03.x[4]} {u_tile.u_tile.u_n13.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u03.pc[0]} {u_tile.u_tile.u_n13.u03.pc[1]} {u_tile.u_tile.u_n13.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.974626e-04 -duty 0.4780; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.712779e-04 -duty 0.4780; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u04.m[0]} {u_tile.u_tile.u_n13.u04.m[1]} {u_tile.u_tile.u_n13.u04.m[2]} {u_tile.u_tile.u_n13.u04.m[3]} {u_tile.u_tile.u_n13.u04.m[4]} {u_tile.u_tile.u_n13.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.100960e-04 -duty 0.4629; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.549665e-05 -duty 0.4629; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u04.w[0]} {u_tile.u_tile.u_n13.u04.w[1]} {u_tile.u_tile.u_n13.u04.w[2]} {u_tile.u_tile.u_n13.u04.w[3]} {u_tile.u_tile.u_n13.u04.w[4]} {u_tile.u_tile.u_n13.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.949743e-05 -duty 0.3151; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.762953e-05 -duty 0.3151; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u04.x[0]} {u_tile.u_tile.u_n13.u04.x[1]} {u_tile.u_tile.u_n13.u04.x[2]} {u_tile.u_tile.u_n13.u04.x[3]} {u_tile.u_tile.u_n13.u04.x[4]} {u_tile.u_tile.u_n13.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u04.pc[0]} {u_tile.u_tile.u_n13.u04.pc[1]} {u_tile.u_tile.u_n13.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.955327e-05 -duty 0.3846; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.900403e-05 -duty 0.3846; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u05.m[0]} {u_tile.u_tile.u_n13.u05.m[1]} {u_tile.u_tile.u_n13.u05.m[2]} {u_tile.u_tile.u_n13.u05.m[3]} {u_tile.u_tile.u_n13.u05.m[4]} {u_tile.u_tile.u_n13.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.583963e-04 -duty 0.3582; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.373920e-04 -duty 0.3581; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u05.w[0]} {u_tile.u_tile.u_n13.u05.w[1]} {u_tile.u_tile.u_n13.u05.w[2]} {u_tile.u_tile.u_n13.u05.w[3]} {u_tile.u_tile.u_n13.u05.w[4]} {u_tile.u_tile.u_n13.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.4407; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.4406; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u05.x[0]} {u_tile.u_tile.u_n13.u05.x[1]} {u_tile.u_tile.u_n13.u05.x[2]} {u_tile.u_tile.u_n13.u05.x[3]} {u_tile.u_tile.u_n13.u05.x[4]} {u_tile.u_tile.u_n13.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u05.pc[0]} {u_tile.u_tile.u_n13.u05.pc[1]} {u_tile.u_tile.u_n13.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.591065e-04 -duty 0.4132; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.380081e-04 -duty 0.4132; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u06.m[0]} {u_tile.u_tile.u_n13.u06.m[1]} {u_tile.u_tile.u_n13.u06.m[2]} {u_tile.u_tile.u_n13.u06.m[3]} {u_tile.u_tile.u_n13.u06.m[4]} {u_tile.u_tile.u_n13.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.868081e-04 -duty 0.5802; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.620362e-04 -duty 0.5803; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u06.w[0]} {u_tile.u_tile.u_n13.u06.w[1]} {u_tile.u_tile.u_n13.u06.w[2]} {u_tile.u_tile.u_n13.u06.w[3]} {u_tile.u_tile.u_n13.u06.w[4]} {u_tile.u_tile.u_n13.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619477e-04 -duty 0.6176; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404725e-04 -duty 0.6177; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u06.x[0]} {u_tile.u_tile.u_n13.u06.x[1]} {u_tile.u_tile.u_n13.u06.x[2]} {u_tile.u_tile.u_n13.u06.x[3]} {u_tile.u_tile.u_n13.u06.x[4]} {u_tile.u_tile.u_n13.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u06.pc[0]} {u_tile.u_tile.u_n13.u06.pc[1]} {u_tile.u_tile.u_n13.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.733125e-04 -duty 0.4680; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.503302e-04 -duty 0.4680; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u07.m[0]} {u_tile.u_tile.u_n13.u07.m[1]} {u_tile.u_tile.u_n13.u07.m[2]} {u_tile.u_tile.u_n13.u07.m[3]} {u_tile.u_tile.u_n13.u07.m[4]} {u_tile.u_tile.u_n13.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.512933e-04 -duty 0.5421; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.312309e-04 -duty 0.5419; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u07.w[0]} {u_tile.u_tile.u_n13.u07.w[1]} {u_tile.u_tile.u_n13.u07.w[2]} {u_tile.u_tile.u_n13.u07.w[3]} {u_tile.u_tile.u_n13.u07.w[4]} {u_tile.u_tile.u_n13.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.342462e-04 -duty 0.3619; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.164443e-04 -duty 0.3620; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u07.x[0]} {u_tile.u_tile.u_n13.u07.x[1]} {u_tile.u_tile.u_n13.u07.x[2]} {u_tile.u_tile.u_n13.u07.x[3]} {u_tile.u_tile.u_n13.u07.x[4]} {u_tile.u_tile.u_n13.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u07.pc[0]} {u_tile.u_tile.u_n13.u07.pc[1]} {u_tile.u_tile.u_n13.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.647889e-04 -duty 0.5301; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.429369e-04 -duty 0.5301; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u08.m[0]} {u_tile.u_tile.u_n13.u08.m[1]} {u_tile.u_tile.u_n13.u08.m[2]} {u_tile.u_tile.u_n13.u08.m[3]} {u_tile.u_tile.u_n13.u08.m[4]} {u_tile.u_tile.u_n13.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.628099e-05 -duty 0.1399; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.279597e-05 -duty 0.1398; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u08.w[0]} {u_tile.u_tile.u_n13.u08.w[1]} {u_tile.u_tile.u_n13.u08.w[2]} {u_tile.u_tile.u_n13.u08.w[3]} {u_tile.u_tile.u_n13.u08.w[4]} {u_tile.u_tile.u_n13.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.628099e-05 -duty 0.8115; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.279597e-05 -duty 0.8115; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u08.pc[0]} {u_tile.u_tile.u_n13.u08.pc[1]} {u_tile.u_tile.u_n13.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.687961e-05 -duty 0.2714; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.066309e-05 -duty 0.2715; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u09.m[0]} {u_tile.u_tile.u_n13.u09.m[1]} {u_tile.u_tile.u_n13.u09.m[2]} {u_tile.u_tile.u_n13.u09.m[3]} {u_tile.u_tile.u_n13.u09.m[4]} {u_tile.u_tile.u_n13.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0062; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0062; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u09.w[0]} {u_tile.u_tile.u_n13.u09.w[1]} {u_tile.u_tile.u_n13.u09.w[2]} {u_tile.u_tile.u_n13.u09.w[3]} {u_tile.u_tile.u_n13.u09.w[4]} {u_tile.u_tile.u_n13.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u09.pc[0]} {u_tile.u_tile.u_n13.u09.pc[1]} {u_tile.u_tile.u_n13.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0041; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0041; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u10.m[0]} {u_tile.u_tile.u_n13.u10.m[1]} {u_tile.u_tile.u_n13.u10.m[2]} {u_tile.u_tile.u_n13.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0062; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0062; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u10.w[0]} {u_tile.u_tile.u_n13.u10.w[1]} {u_tile.u_tile.u_n13.u10.w[2]} {u_tile.u_tile.u_n13.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n13.u10.pc[0]} {u_tile.u_tile.u_n13.u10.pc[1]} {u_tile.u_tile.u_n13.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0021; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.threshold[0]} {u_tile.u_tile.u_n14.threshold[1]} {u_tile.u_tile.u_n14.threshold[2]} {u_tile.u_tile.u_n14.threshold[3]} {u_tile.u_tile.u_n14.threshold[4]} {u_tile.u_tile.u_n14.threshold[5]} {u_tile.u_tile.u_n14.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.966496e-05 -duty 0.3368; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.175302e-05 -duty 0.3367; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.w[0]} {u_tile.u_tile.u_n14.w[1]} {u_tile.u_tile.u_n14.w[2]} {u_tile.u_tile.u_n14.w[3]} {u_tile.u_tile.u_n14.w[4]} {u_tile.u_tile.u_n14.w[5]} {u_tile.u_tile.u_n14.w[6]} {u_tile.u_tile.u_n14.w[7]} {u_tile.u_tile.u_n14.w[8]} {u_tile.u_tile.u_n14.w[9]} {u_tile.u_tile.u_n14.w[10]} {u_tile.u_tile.u_n14.w[11]} {u_tile.u_tile.u_n14.w[12]} {u_tile.u_tile.u_n14.w[13]} {u_tile.u_tile.u_n14.w[14]} {u_tile.u_tile.u_n14.w[15]} {u_tile.u_tile.u_n14.w[16]} {u_tile.u_tile.u_n14.w[17]} {u_tile.u_tile.u_n14.w[18]} {u_tile.u_tile.u_n14.w[19]} {u_tile.u_tile.u_n14.w[20]} {u_tile.u_tile.u_n14.w[21]} {u_tile.u_tile.u_n14.w[22]} {u_tile.u_tile.u_n14.w[23]} {u_tile.u_tile.u_n14.w[24]} {u_tile.u_tile.u_n14.w[25]} {u_tile.u_tile.u_n14.w[26]} {u_tile.u_tile.u_n14.w[27]} {u_tile.u_tile.u_n14.w[28]} {u_tile.u_tile.u_n14.w[29]} {u_tile.u_tile.u_n14.w[30]} {u_tile.u_tile.u_n14.w[31]} {u_tile.u_tile.u_n14.w[32]} {u_tile.u_tile.u_n14.w[33]} {u_tile.u_tile.u_n14.w[34]} {u_tile.u_tile.u_n14.w[35]} {u_tile.u_tile.u_n14.w[36]} {u_tile.u_tile.u_n14.w[37]} {u_tile.u_tile.u_n14.w[38]} {u_tile.u_tile.u_n14.w[39]} {u_tile.u_tile.u_n14.w[40]} {u_tile.u_tile.u_n14.w[41]} {u_tile.u_tile.u_n14.w[42]} {u_tile.u_tile.u_n14.w[43]} {u_tile.u_tile.u_n14.w[44]} {u_tile.u_tile.u_n14.w[45]} {u_tile.u_tile.u_n14.w[46]} {u_tile.u_tile.u_n14.w[47]} {u_tile.u_tile.u_n14.w[48]} {u_tile.u_tile.u_n14.w[49]} {u_tile.u_tile.u_n14.w[50]} {u_tile.u_tile.u_n14.w[51]} {u_tile.u_tile.u_n14.w[52]} {u_tile.u_tile.u_n14.w[53]} {u_tile.u_tile.u_n14.w[54]} {u_tile.u_tile.u_n14.w[55]} {u_tile.u_tile.u_n14.w[56]} {u_tile.u_tile.u_n14.w[57]} {u_tile.u_tile.u_n14.w[58]} {u_tile.u_tile.u_n14.w[59]} {u_tile.u_tile.u_n14.w[60]} {u_tile.u_tile.u_n14.w[61]} {u_tile.u_tile.u_n14.w[62]} {u_tile.u_tile.u_n14.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.202787e-05 -duty 0.5940; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.982442e-05 -duty 0.5941; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.x[0]} {u_tile.u_tile.u_n14.x[1]} {u_tile.u_tile.u_n14.x[2]} {u_tile.u_tile.u_n14.x[3]} {u_tile.u_tile.u_n14.x[4]} {u_tile.u_tile.u_n14.x[5]} {u_tile.u_tile.u_n14.x[6]} {u_tile.u_tile.u_n14.x[7]} {u_tile.u_tile.u_n14.x[8]} {u_tile.u_tile.u_n14.x[9]} {u_tile.u_tile.u_n14.x[10]} {u_tile.u_tile.u_n14.x[11]} {u_tile.u_tile.u_n14.x[12]} {u_tile.u_tile.u_n14.x[13]} {u_tile.u_tile.u_n14.x[14]} {u_tile.u_tile.u_n14.x[15]} {u_tile.u_tile.u_n14.x[16]} {u_tile.u_tile.u_n14.x[17]} {u_tile.u_tile.u_n14.x[18]} {u_tile.u_tile.u_n14.x[19]} {u_tile.u_tile.u_n14.x[20]} {u_tile.u_tile.u_n14.x[21]} {u_tile.u_tile.u_n14.x[22]} {u_tile.u_tile.u_n14.x[23]} {u_tile.u_tile.u_n14.x[24]} {u_tile.u_tile.u_n14.x[25]} {u_tile.u_tile.u_n14.x[26]} {u_tile.u_tile.u_n14.x[27]} {u_tile.u_tile.u_n14.x[28]} {u_tile.u_tile.u_n14.x[29]} {u_tile.u_tile.u_n14.x[30]} {u_tile.u_tile.u_n14.x[31]} {u_tile.u_tile.u_n14.x[32]} {u_tile.u_tile.u_n14.x[33]} {u_tile.u_tile.u_n14.x[34]} {u_tile.u_tile.u_n14.x[35]} {u_tile.u_tile.u_n14.x[36]} {u_tile.u_tile.u_n14.x[37]} {u_tile.u_tile.u_n14.x[38]} {u_tile.u_tile.u_n14.x[39]} {u_tile.u_tile.u_n14.x[40]} {u_tile.u_tile.u_n14.x[41]} {u_tile.u_tile.u_n14.x[42]} {u_tile.u_tile.u_n14.x[43]} {u_tile.u_tile.u_n14.x[44]} {u_tile.u_tile.u_n14.x[45]} {u_tile.u_tile.u_n14.x[46]} {u_tile.u_tile.u_n14.x[47]} {u_tile.u_tile.u_n14.x[48]} {u_tile.u_tile.u_n14.x[49]} {u_tile.u_tile.u_n14.x[50]} {u_tile.u_tile.u_n14.x[51]} {u_tile.u_tile.u_n14.x[52]} {u_tile.u_tile.u_n14.x[53]} {u_tile.u_tile.u_n14.x[54]} {u_tile.u_tile.u_n14.x[55]} {u_tile.u_tile.u_n14.x[56]} {u_tile.u_tile.u_n14.x[57]} {u_tile.u_tile.u_n14.x[58]} {u_tile.u_tile.u_n14.x[59]} {u_tile.u_tile.u_n14.x[60]} {u_tile.u_tile.u_n14.x[61]} {u_tile.u_tile.u_n14.x[62]} {u_tile.u_tile.u_n14.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.812776e-04 -duty 0.4437; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.439785e-04 -duty 0.4437; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.total[0]} {u_tile.u_tile.u_n14.total[1]} {u_tile.u_tile.u_n14.total[2]} {u_tile.u_tile.u_n14.total[3]} {u_tile.u_tile.u_n14.total[4]} {u_tile.u_tile.u_n14.total[5]} {u_tile.u_tile.u_n14.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.010651e-04 -duty 0.3938; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.766328e-05 -duty 0.3937; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc10[0]} {u_tile.u_tile.u_n14.pc10[1]} {u_tile.u_tile.u_n14.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0022; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0022; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc09[0]} {u_tile.u_tile.u_n14.pc09[1]} {u_tile.u_tile.u_n14.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0044; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0043; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc08[0]} {u_tile.u_tile.u_n14.pc08[1]} {u_tile.u_tile.u_n14.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.1004; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.1002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc07[0]} {u_tile.u_tile.u_n14.pc07[1]} {u_tile.u_tile.u_n14.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.5211; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.5211; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc06[0]} {u_tile.u_tile.u_n14.pc06[1]} {u_tile.u_tile.u_n14.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.179093e-04 -duty 0.4752; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.022738e-04 -duty 0.4752; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc05[0]} {u_tile.u_tile.u_n14.pc05[1]} {u_tile.u_tile.u_n14.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.386598e-04 -duty 0.4781; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.070121e-04 -duty 0.4781; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc04[0]} {u_tile.u_tile.u_n14.pc04[1]} {u_tile.u_tile.u_n14.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.264329e-04 -duty 0.4308; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.096671e-04 -duty 0.4307; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc03[0]} {u_tile.u_tile.u_n14.pc03[1]} {u_tile.u_tile.u_n14.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.665625e-05 -duty 0.5018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.516510e-05 -duty 0.5018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc02[0]} {u_tile.u_tile.u_n14.pc02[1]} {u_tile.u_tile.u_n14.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.207505e-04 -duty 0.4104; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.047383e-04 -duty 0.4104; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc01[0]} {u_tile.u_tile.u_n14.pc01[1]} {u_tile.u_tile.u_n14.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4424; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4425; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.pc00[0]} {u_tile.u_tile.u_n14.pc00[1]} {u_tile.u_tile.u_n14.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-04 -duty 0.2314; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-04 -duty 0.2312; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u00.m[0]} {u_tile.u_tile.u_n14.u00.m[1]} {u_tile.u_tile.u_n14.u00.m[2]} {u_tile.u_tile.u_n14.u00.m[3]} {u_tile.u_tile.u_n14.u00.m[4]} {u_tile.u_tile.u_n14.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619477e-04 -duty 0.2290; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404725e-04 -duty 0.2288; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u00.w[0]} {u_tile.u_tile.u_n14.u00.w[1]} {u_tile.u_tile.u_n14.u00.w[2]} {u_tile.u_tile.u_n14.u00.w[3]} {u_tile.u_tile.u_n14.u00.w[4]} {u_tile.u_tile.u_n14.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.548448e-04 -duty 0.7719; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.343114e-04 -duty 0.7721; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u00.x[0]} {u_tile.u_tile.u_n14.u00.x[1]} {u_tile.u_tile.u_n14.u00.x[2]} {u_tile.u_tile.u_n14.u00.x[3]} {u_tile.u_tile.u_n14.u00.x[4]} {u_tile.u_tile.u_n14.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u00.pc[0]} {u_tile.u_tile.u_n14.u00.pc[1]} {u_tile.u_tile.u_n14.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-04 -duty 0.2314; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-04 -duty 0.2312; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u01.m[0]} {u_tile.u_tile.u_n14.u01.m[1]} {u_tile.u_tile.u_n14.u01.m[2]} {u_tile.u_tile.u_n14.u01.m[3]} {u_tile.u_tile.u_n14.u01.m[4]} {u_tile.u_tile.u_n14.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.065446e-04 -duty 0.3707; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.241611e-05 -duty 0.3708; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u01.w[0]} {u_tile.u_tile.u_n14.u01.w[1]} {u_tile.u_tile.u_n14.u01.w[2]} {u_tile.u_tile.u_n14.u01.w[3]} {u_tile.u_tile.u_n14.u01.w[4]} {u_tile.u_tile.u_n14.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.020773e-05 -duty 0.2565; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.824564e-05 -duty 0.2564; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u01.x[0]} {u_tile.u_tile.u_n14.u01.x[1]} {u_tile.u_tile.u_n14.u01.x[2]} {u_tile.u_tile.u_n14.u01.x[3]} {u_tile.u_tile.u_n14.u01.x[4]} {u_tile.u_tile.u_n14.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u01.pc[0]} {u_tile.u_tile.u_n14.u01.pc[1]} {u_tile.u_tile.u_n14.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4424; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4425; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u02.m[0]} {u_tile.u_tile.u_n14.u02.m[1]} {u_tile.u_tile.u_n14.u02.m[2]} {u_tile.u_tile.u_n14.u02.m[3]} {u_tile.u_tile.u_n14.u02.m[4]} {u_tile.u_tile.u_n14.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.377976e-04 -duty 0.5286; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.195248e-04 -duty 0.5287; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u02.w[0]} {u_tile.u_tile.u_n14.u02.w[1]} {u_tile.u_tile.u_n14.u02.w[2]} {u_tile.u_tile.u_n14.u02.w[3]} {u_tile.u_tile.u_n14.u02.w[4]} {u_tile.u_tile.u_n14.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.129372e-04 -duty 0.6832; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.796108e-05 -duty 0.6833; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u02.x[0]} {u_tile.u_tile.u_n14.u02.x[1]} {u_tile.u_tile.u_n14.u02.x[2]} {u_tile.u_tile.u_n14.u02.x[3]} {u_tile.u_tile.u_n14.u02.x[4]} {u_tile.u_tile.u_n14.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u02.pc[0]} {u_tile.u_tile.u_n14.u02.pc[1]} {u_tile.u_tile.u_n14.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.207505e-04 -duty 0.4104; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.047383e-04 -duty 0.4104; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u03.m[0]} {u_tile.u_tile.u_n14.u03.m[1]} {u_tile.u_tile.u_n14.u03.m[2]} {u_tile.u_tile.u_n14.u03.m[3]} {u_tile.u_tile.u_n14.u03.m[4]} {u_tile.u_tile.u_n14.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.306947e-04 -duty 0.3997; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.133638e-04 -duty 0.3997; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u03.w[0]} {u_tile.u_tile.u_n14.u03.w[1]} {u_tile.u_tile.u_n14.u03.w[2]} {u_tile.u_tile.u_n14.u03.w[3]} {u_tile.u_tile.u_n14.u03.w[4]} {u_tile.u_tile.u_n14.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.129372e-04 -duty 0.4816; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.796108e-05 -duty 0.4816; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u03.x[0]} {u_tile.u_tile.u_n14.u03.x[1]} {u_tile.u_tile.u_n14.u03.x[2]} {u_tile.u_tile.u_n14.u03.x[3]} {u_tile.u_tile.u_n14.u03.x[4]} {u_tile.u_tile.u_n14.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u03.pc[0]} {u_tile.u_tile.u_n14.u03.pc[1]} {u_tile.u_tile.u_n14.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.665625e-05 -duty 0.5018; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.516510e-05 -duty 0.5018; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u04.m[0]} {u_tile.u_tile.u_n14.u04.m[1]} {u_tile.u_tile.u_n14.u04.m[2]} {u_tile.u_tile.u_n14.u04.m[3]} {u_tile.u_tile.u_n14.u04.m[4]} {u_tile.u_tile.u_n14.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.091803e-05 -duty 0.3997; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.886175e-05 -duty 0.3996; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u04.w[0]} {u_tile.u_tile.u_n14.u04.w[1]} {u_tile.u_tile.u_n14.u04.w[2]} {u_tile.u_tile.u_n14.u04.w[3]} {u_tile.u_tile.u_n14.u04.w[4]} {u_tile.u_tile.u_n14.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.031941e-05 -duty 0.4097; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.099463e-05 -duty 0.4098; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u04.x[0]} {u_tile.u_tile.u_n14.u04.x[1]} {u_tile.u_tile.u_n14.u04.x[2]} {u_tile.u_tile.u_n14.u04.x[3]} {u_tile.u_tile.u_n14.u04.x[4]} {u_tile.u_tile.u_n14.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u04.pc[0]} {u_tile.u_tile.u_n14.u04.pc[1]} {u_tile.u_tile.u_n14.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.264329e-04 -duty 0.4308; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.096671e-04 -duty 0.4307; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u05.m[0]} {u_tile.u_tile.u_n14.u05.m[1]} {u_tile.u_tile.u_n14.u05.m[2]} {u_tile.u_tile.u_n14.u05.m[3]} {u_tile.u_tile.u_n14.u05.m[4]} {u_tile.u_tile.u_n14.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.797052e-04 -duty 0.5375; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.558752e-04 -duty 0.5375; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u05.w[0]} {u_tile.u_tile.u_n14.u05.w[1]} {u_tile.u_tile.u_n14.u05.w[2]} {u_tile.u_tile.u_n14.u05.w[3]} {u_tile.u_tile.u_n14.u05.w[4]} {u_tile.u_tile.u_n14.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.576860e-04 -duty 0.3690; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.367758e-04 -duty 0.3690; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u05.x[0]} {u_tile.u_tile.u_n14.u05.x[1]} {u_tile.u_tile.u_n14.u05.x[2]} {u_tile.u_tile.u_n14.u05.x[3]} {u_tile.u_tile.u_n14.u05.x[4]} {u_tile.u_tile.u_n14.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u05.pc[0]} {u_tile.u_tile.u_n14.u05.pc[1]} {u_tile.u_tile.u_n14.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.386598e-04 -duty 0.4781; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.070121e-04 -duty 0.4781; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u06.m[0]} {u_tile.u_tile.u_n14.u06.m[1]} {u_tile.u_tile.u_n14.u06.m[2]} {u_tile.u_tile.u_n14.u06.m[3]} {u_tile.u_tile.u_n14.u06.m[4]} {u_tile.u_tile.u_n14.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.5410; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.5409; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u06.w[0]} {u_tile.u_tile.u_n14.u06.w[1]} {u_tile.u_tile.u_n14.u06.w[2]} {u_tile.u_tile.u_n14.u06.w[3]} {u_tile.u_tile.u_n14.u06.w[4]} {u_tile.u_tile.u_n14.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.6111; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.6113; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u06.x[0]} {u_tile.u_tile.u_n14.u06.x[1]} {u_tile.u_tile.u_n14.u06.x[2]} {u_tile.u_tile.u_n14.u06.x[3]} {u_tile.u_tile.u_n14.u06.x[4]} {u_tile.u_tile.u_n14.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u06.pc[0]} {u_tile.u_tile.u_n14.u06.pc[1]} {u_tile.u_tile.u_n14.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.179093e-04 -duty 0.4752; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.022738e-04 -duty 0.4752; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u07.m[0]} {u_tile.u_tile.u_n14.u07.m[1]} {u_tile.u_tile.u_n14.u07.m[2]} {u_tile.u_tile.u_n14.u07.m[3]} {u_tile.u_tile.u_n14.u07.m[4]} {u_tile.u_tile.u_n14.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.299844e-04 -duty 0.6688; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.127477e-04 -duty 0.6688; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u07.w[0]} {u_tile.u_tile.u_n14.u07.w[1]} {u_tile.u_tile.u_n14.u07.w[2]} {u_tile.u_tile.u_n14.u07.w[3]} {u_tile.u_tile.u_n14.u07.w[4]} {u_tile.u_tile.u_n14.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.129372e-04 -duty 0.2328; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.796108e-05 -duty 0.2327; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u07.x[0]} {u_tile.u_tile.u_n14.u07.x[1]} {u_tile.u_tile.u_n14.u07.x[2]} {u_tile.u_tile.u_n14.u07.x[3]} {u_tile.u_tile.u_n14.u07.x[4]} {u_tile.u_tile.u_n14.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u07.pc[0]} {u_tile.u_tile.u_n14.u07.pc[1]} {u_tile.u_tile.u_n14.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.818361e-04 -duty 0.5211; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.577235e-04 -duty 0.5211; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u08.m[0]} {u_tile.u_tile.u_n14.u08.m[1]} {u_tile.u_tile.u_n14.u08.m[2]} {u_tile.u_tile.u_n14.u08.m[3]} {u_tile.u_tile.u_n14.u08.m[4]} {u_tile.u_tile.u_n14.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.699129e-05 -duty 0.0545; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.341208e-05 -duty 0.0544; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u08.w[0]} {u_tile.u_tile.u_n14.u08.w[1]} {u_tile.u_tile.u_n14.u08.w[2]} {u_tile.u_tile.u_n14.u08.w[3]} {u_tile.u_tile.u_n14.u08.w[4]} {u_tile.u_tile.u_n14.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.699129e-05 -duty 0.9152; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.341208e-05 -duty 0.9152; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u08.pc[0]} {u_tile.u_tile.u_n14.u08.pc[1]} {u_tile.u_tile.u_n14.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.830020e-05 -duty 0.1004; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.189530e-05 -duty 0.1002; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u09.m[0]} {u_tile.u_tile.u_n14.u09.m[1]} {u_tile.u_tile.u_n14.u09.m[2]} {u_tile.u_tile.u_n14.u09.m[3]} {u_tile.u_tile.u_n14.u09.m[4]} {u_tile.u_tile.u_n14.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0066; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0065; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u09.w[0]} {u_tile.u_tile.u_n14.u09.w[1]} {u_tile.u_tile.u_n14.u09.w[2]} {u_tile.u_tile.u_n14.u09.w[3]} {u_tile.u_tile.u_n14.u09.w[4]} {u_tile.u_tile.u_n14.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u09.pc[0]} {u_tile.u_tile.u_n14.u09.pc[1]} {u_tile.u_tile.u_n14.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0044; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0043; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u10.m[0]} {u_tile.u_tile.u_n14.u10.m[1]} {u_tile.u_tile.u_n14.u10.m[2]} {u_tile.u_tile.u_n14.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0066; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0065; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u10.w[0]} {u_tile.u_tile.u_n14.u10.w[1]} {u_tile.u_tile.u_n14.u10.w[2]} {u_tile.u_tile.u_n14.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n14.u10.pc[0]} {u_tile.u_tile.u_n14.u10.pc[1]} {u_tile.u_tile.u_n14.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0022; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0022; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.threshold[0]} {u_tile.u_tile.u_n15.threshold[1]} {u_tile.u_tile.u_n15.threshold[2]} {u_tile.u_tile.u_n15.threshold[3]} {u_tile.u_tile.u_n15.threshold[4]} {u_tile.u_tile.u_n15.threshold[5]} {u_tile.u_tile.u_n15.threshold[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.375947e-04 -duty 0.4885; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.193488e-04 -duty 0.4885; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.w[0]} {u_tile.u_tile.u_n15.w[1]} {u_tile.u_tile.u_n15.w[2]} {u_tile.u_tile.u_n15.w[3]} {u_tile.u_tile.u_n15.w[4]} {u_tile.u_tile.u_n15.w[5]} {u_tile.u_tile.u_n15.w[6]} {u_tile.u_tile.u_n15.w[7]} {u_tile.u_tile.u_n15.w[8]} {u_tile.u_tile.u_n15.w[9]} {u_tile.u_tile.u_n15.w[10]} {u_tile.u_tile.u_n15.w[11]} {u_tile.u_tile.u_n15.w[12]} {u_tile.u_tile.u_n15.w[13]} {u_tile.u_tile.u_n15.w[14]} {u_tile.u_tile.u_n15.w[15]} {u_tile.u_tile.u_n15.w[16]} {u_tile.u_tile.u_n15.w[17]} {u_tile.u_tile.u_n15.w[18]} {u_tile.u_tile.u_n15.w[19]} {u_tile.u_tile.u_n15.w[20]} {u_tile.u_tile.u_n15.w[21]} {u_tile.u_tile.u_n15.w[22]} {u_tile.u_tile.u_n15.w[23]} {u_tile.u_tile.u_n15.w[24]} {u_tile.u_tile.u_n15.w[25]} {u_tile.u_tile.u_n15.w[26]} {u_tile.u_tile.u_n15.w[27]} {u_tile.u_tile.u_n15.w[28]} {u_tile.u_tile.u_n15.w[29]} {u_tile.u_tile.u_n15.w[30]} {u_tile.u_tile.u_n15.w[31]} {u_tile.u_tile.u_n15.w[32]} {u_tile.u_tile.u_n15.w[33]} {u_tile.u_tile.u_n15.w[34]} {u_tile.u_tile.u_n15.w[35]} {u_tile.u_tile.u_n15.w[36]} {u_tile.u_tile.u_n15.w[37]} {u_tile.u_tile.u_n15.w[38]} {u_tile.u_tile.u_n15.w[39]} {u_tile.u_tile.u_n15.w[40]} {u_tile.u_tile.u_n15.w[41]} {u_tile.u_tile.u_n15.w[42]} {u_tile.u_tile.u_n15.w[43]} {u_tile.u_tile.u_n15.w[44]} {u_tile.u_tile.u_n15.w[45]} {u_tile.u_tile.u_n15.w[46]} {u_tile.u_tile.u_n15.w[47]} {u_tile.u_tile.u_n15.w[48]} {u_tile.u_tile.u_n15.w[49]} {u_tile.u_tile.u_n15.w[50]} {u_tile.u_tile.u_n15.w[51]} {u_tile.u_tile.u_n15.w[52]} {u_tile.u_tile.u_n15.w[53]} {u_tile.u_tile.u_n15.w[54]} {u_tile.u_tile.u_n15.w[55]} {u_tile.u_tile.u_n15.w[56]} {u_tile.u_tile.u_n15.w[57]} {u_tile.u_tile.u_n15.w[58]} {u_tile.u_tile.u_n15.w[59]} {u_tile.u_tile.u_n15.w[60]} {u_tile.u_tile.u_n15.w[61]} {u_tile.u_tile.u_n15.w[62]} {u_tile.u_tile.u_n15.w[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.138486e-05 -duty 0.5153; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.191880e-05 -duty 0.5153; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.x[0]} {u_tile.u_tile.u_n15.x[1]} {u_tile.u_tile.u_n15.x[2]} {u_tile.u_tile.u_n15.x[3]} {u_tile.u_tile.u_n15.x[4]} {u_tile.u_tile.u_n15.x[5]} {u_tile.u_tile.u_n15.x[6]} {u_tile.u_tile.u_n15.x[7]} {u_tile.u_tile.u_n15.x[8]} {u_tile.u_tile.u_n15.x[9]} {u_tile.u_tile.u_n15.x[10]} {u_tile.u_tile.u_n15.x[11]} {u_tile.u_tile.u_n15.x[12]} {u_tile.u_tile.u_n15.x[13]} {u_tile.u_tile.u_n15.x[14]} {u_tile.u_tile.u_n15.x[15]} {u_tile.u_tile.u_n15.x[16]} {u_tile.u_tile.u_n15.x[17]} {u_tile.u_tile.u_n15.x[18]} {u_tile.u_tile.u_n15.x[19]} {u_tile.u_tile.u_n15.x[20]} {u_tile.u_tile.u_n15.x[21]} {u_tile.u_tile.u_n15.x[22]} {u_tile.u_tile.u_n15.x[23]} {u_tile.u_tile.u_n15.x[24]} {u_tile.u_tile.u_n15.x[25]} {u_tile.u_tile.u_n15.x[26]} {u_tile.u_tile.u_n15.x[27]} {u_tile.u_tile.u_n15.x[28]} {u_tile.u_tile.u_n15.x[29]} {u_tile.u_tile.u_n15.x[30]} {u_tile.u_tile.u_n15.x[31]} {u_tile.u_tile.u_n15.x[32]} {u_tile.u_tile.u_n15.x[33]} {u_tile.u_tile.u_n15.x[34]} {u_tile.u_tile.u_n15.x[35]} {u_tile.u_tile.u_n15.x[36]} {u_tile.u_tile.u_n15.x[37]} {u_tile.u_tile.u_n15.x[38]} {u_tile.u_tile.u_n15.x[39]} {u_tile.u_tile.u_n15.x[40]} {u_tile.u_tile.u_n15.x[41]} {u_tile.u_tile.u_n15.x[42]} {u_tile.u_tile.u_n15.x[43]} {u_tile.u_tile.u_n15.x[44]} {u_tile.u_tile.u_n15.x[45]} {u_tile.u_tile.u_n15.x[46]} {u_tile.u_tile.u_n15.x[47]} {u_tile.u_tile.u_n15.x[48]} {u_tile.u_tile.u_n15.x[49]} {u_tile.u_tile.u_n15.x[50]} {u_tile.u_tile.u_n15.x[51]} {u_tile.u_tile.u_n15.x[52]} {u_tile.u_tile.u_n15.x[53]} {u_tile.u_tile.u_n15.x[54]} {u_tile.u_tile.u_n15.x[55]} {u_tile.u_tile.u_n15.x[56]} {u_tile.u_tile.u_n15.x[57]} {u_tile.u_tile.u_n15.x[58]} {u_tile.u_tile.u_n15.x[59]} {u_tile.u_tile.u_n15.x[60]} {u_tile.u_tile.u_n15.x[61]} {u_tile.u_tile.u_n15.x[62]} {u_tile.u_tile.u_n15.x[63]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.411715e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.224513e-05 -duty 0.2555; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.y}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.875184e-04 -duty 0.5849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.626524e-04 -duty 0.5850; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.total[0]} {u_tile.u_tile.u_n15.total[1]} {u_tile.u_tile.u_n15.total[2]} {u_tile.u_tile.u_n15.total[3]} {u_tile.u_tile.u_n15.total[4]} {u_tile.u_tile.u_n15.total[5]} {u_tile.u_tile.u_n15.total[6]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.260270e-04 -duty 0.4620; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.093151e-04 -duty 0.4620; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc10[0]} {u_tile.u_tile.u_n15.pc10[1]} {u_tile.u_tile.u_n15.pc10[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0023; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0023; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc09[0]} {u_tile.u_tile.u_n15.pc09[1]} {u_tile.u_tile.u_n15.pc09[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0046; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0046; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc08[0]} {u_tile.u_tile.u_n15.pc08[1]} {u_tile.u_tile.u_n15.pc08[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0046; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0046; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc07[0]} {u_tile.u_tile.u_n15.pc07[1]} {u_tile.u_tile.u_n15.pc07[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.093858e-04 -duty 0.4446; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.488054e-05 -duty 0.4446; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc06[0]} {u_tile.u_tile.u_n15.pc06[1]} {u_tile.u_tile.u_n15.pc06[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4347; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4347; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc05[0]} {u_tile.u_tile.u_n15.pc05[1]} {u_tile.u_tile.u_n15.pc05[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.917802e-04 -duty 0.4972; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.663490e-04 -duty 0.4972; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc04[0]} {u_tile.u_tile.u_n15.pc04[1]} {u_tile.u_tile.u_n15.pc04[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.662095e-04 -duty 0.5107; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.441691e-04 -duty 0.5107; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc03[0]} {u_tile.u_tile.u_n15.pc03[1]} {u_tile.u_tile.u_n15.pc03[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.477418e-04 -duty 0.4344; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.281503e-04 -duty 0.4343; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc02[0]} {u_tile.u_tile.u_n15.pc02[1]} {u_tile.u_tile.u_n15.pc02[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.136475e-04 -duty 0.4640; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.857719e-05 -duty 0.4640; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc01[0]} {u_tile.u_tile.u_n15.pc01[1]} {u_tile.u_tile.u_n15.pc01[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.733125e-04 -duty 0.5297; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.503302e-04 -duty 0.5297; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.pc00[0]} {u_tile.u_tile.u_n15.pc00[1]} {u_tile.u_tile.u_n15.pc00[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.079652e-04 -duty 0.5841; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.364833e-05 -duty 0.5841; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u00.m[0]} {u_tile.u_tile.u_n15.u00.m[1]} {u_tile.u_tile.u_n15.u00.m[2]} {u_tile.u_tile.u_n15.u00.m[3]} {u_tile.u_tile.u_n15.u00.m[4]} {u_tile.u_tile.u_n15.u00.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.327228e-05 -duty 0.7607; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.620806e-05 -duty 0.7606; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u00.w[0]} {u_tile.u_tile.u_n15.u00.w[1]} {u_tile.u_tile.u_n15.u00.w[2]} {u_tile.u_tile.u_n15.u00.w[3]} {u_tile.u_tile.u_n15.u00.w[4]} {u_tile.u_tile.u_n15.u00.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.616931e-05 -duty 0.1604; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.004698e-05 -duty 0.1603; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u00.x[0]} {u_tile.u_tile.u_n15.u00.x[1]} {u_tile.u_tile.u_n15.u00.x[2]} {u_tile.u_tile.u_n15.u00.x[3]} {u_tile.u_tile.u_n15.u00.x[4]} {u_tile.u_tile.u_n15.u00.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.102971e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.161074e-06 -duty 0.0520; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u00.pc[0]} {u_tile.u_tile.u_n15.u00.pc[1]} {u_tile.u_tile.u_n15.u00.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.079652e-04 -duty 0.5841; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.364833e-05 -duty 0.5841; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u01.m[0]} {u_tile.u_tile.u_n15.u01.m[1]} {u_tile.u_tile.u_n15.u01.m[2]} {u_tile.u_tile.u_n15.u01.m[3]} {u_tile.u_tile.u_n15.u01.m[4]} {u_tile.u_tile.u_n15.u01.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.072549e-04 -duty 0.7191; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.303222e-05 -duty 0.7191; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u01.w[0]} {u_tile.u_tile.u_n15.u01.w[1]} {u_tile.u_tile.u_n15.u01.w[2]} {u_tile.u_tile.u_n15.u01.w[3]} {u_tile.u_tile.u_n15.u01.w[4]} {u_tile.u_tile.u_n15.u01.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.091803e-05 -duty 0.3691; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.886175e-05 -duty 0.3690; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u01.x[0]} {u_tile.u_tile.u_n15.u01.x[1]} {u_tile.u_tile.u_n15.u01.x[2]} {u_tile.u_tile.u_n15.u01.x[3]} {u_tile.u_tile.u_n15.u01.x[4]} {u_tile.u_tile.u_n15.u01.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.633683e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.417047e-05 -duty 0.3745; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u01.pc[0]} {u_tile.u_tile.u_n15.u01.pc[1]} {u_tile.u_tile.u_n15.u01.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.733125e-04 -duty 0.5297; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.503302e-04 -duty 0.5297; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u02.m[0]} {u_tile.u_tile.u_n15.u02.m[1]} {u_tile.u_tile.u_n15.u02.m[2]} {u_tile.u_tile.u_n15.u02.m[3]} {u_tile.u_tile.u_n15.u02.m[4]} {u_tile.u_tile.u_n15.u02.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.901050e-05 -duty 0.4046; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.251141e-05 -duty 0.4045; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u02.w[0]} {u_tile.u_tile.u_n15.u02.w[1]} {u_tile.u_tile.u_n15.u02.w[2]} {u_tile.u_tile.u_n15.u02.w[3]} {u_tile.u_tile.u_n15.u02.w[4]} {u_tile.u_tile.u_n15.u02.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.415010e-05 -duty 0.3691; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.094765e-05 -duty 0.3690; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u02.x[0]} {u_tile.u_tile.u_n15.u02.x[1]} {u_tile.u_tile.u_n15.u02.x[2]} {u_tile.u_tile.u_n15.u02.x[3]} {u_tile.u_tile.u_n15.u02.x[4]} {u_tile.u_tile.u_n15.u02.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.3953; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u02.pc[0]} {u_tile.u_tile.u_n15.u02.pc[1]} {u_tile.u_tile.u_n15.u02.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.136475e-04 -duty 0.4640; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.857719e-05 -duty 0.4640; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u03.m[0]} {u_tile.u_tile.u_n15.u03.m[1]} {u_tile.u_tile.u_n15.u03.m[2]} {u_tile.u_tile.u_n15.u03.m[3]} {u_tile.u_tile.u_n15.u03.m[4]} {u_tile.u_tile.u_n15.u03.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.541345e-04 -duty 0.5103; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.336953e-04 -duty 0.5103; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u03.w[0]} {u_tile.u_tile.u_n15.u03.w[1]} {u_tile.u_tile.u_n15.u03.w[2]} {u_tile.u_tile.u_n15.u03.w[3]} {u_tile.u_tile.u_n15.u03.w[4]} {u_tile.u_tile.u_n15.u03.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.363770e-04 -duty 0.6184; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.182926e-04 -duty 0.6184; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u03.x[0]} {u_tile.u_tile.u_n15.u03.x[1]} {u_tile.u_tile.u_n15.u03.x[2]} {u_tile.u_tile.u_n15.u03.x[3]} {u_tile.u_tile.u_n15.u03.x[4]} {u_tile.u_tile.u_n15.u03.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.775743e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.540269e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u03.pc[0]} {u_tile.u_tile.u_n15.u03.pc[1]} {u_tile.u_tile.u_n15.u03.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.477418e-04 -duty 0.4344; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.281503e-04 -duty 0.4343; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u04.m[0]} {u_tile.u_tile.u_n15.u04.m[1]} {u_tile.u_tile.u_n15.u04.m[2]} {u_tile.u_tile.u_n15.u04.m[3]} {u_tile.u_tile.u_n15.u04.m[4]} {u_tile.u_tile.u_n15.u04.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.562654e-04 -duty 0.6138; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.355436e-04 -duty 0.6138; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u04.w[0]} {u_tile.u_tile.u_n15.u04.w[1]} {u_tile.u_tile.u_n15.u04.w[2]} {u_tile.u_tile.u_n15.u04.w[3]} {u_tile.u_tile.u_n15.u04.w[4]} {u_tile.u_tile.u_n15.u04.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.3523; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.3521; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u04.x[0]} {u_tile.u_tile.u_n15.u04.x[1]} {u_tile.u_tile.u_n15.u04.x[2]} {u_tile.u_tile.u_n15.u04.x[3]} {u_tile.u_tile.u_n15.u04.x[4]} {u_tile.u_tile.u_n15.u04.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.059862e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.786711e-05 -duty 0.3849; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u04.pc[0]} {u_tile.u_tile.u_n15.u04.pc[1]} {u_tile.u_tile.u_n15.u04.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.662095e-04 -duty 0.5107; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.441691e-04 -duty 0.5107; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u05.m[0]} {u_tile.u_tile.u_n15.u05.m[1]} {u_tile.u_tile.u_n15.u05.m[2]} {u_tile.u_tile.u_n15.u05.m[3]} {u_tile.u_tile.u_n15.u05.m[4]} {u_tile.u_tile.u_n15.u05.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.091803e-05 -duty 0.6177; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.886175e-05 -duty 0.6176; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u05.w[0]} {u_tile.u_tile.u_n15.u05.w[1]} {u_tile.u_tile.u_n15.u05.w[2]} {u_tile.u_tile.u_n15.u05.w[3]} {u_tile.u_tile.u_n15.u05.w[4]} {u_tile.u_tile.u_n15.u05.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.889882e-05 -duty 0.2565; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.976242e-05 -duty 0.2564; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u05.x[0]} {u_tile.u_tile.u_n15.u05.x[1]} {u_tile.u_tile.u_n15.u05.x[2]} {u_tile.u_tile.u_n15.u05.x[3]} {u_tile.u_tile.u_n15.u05.x[4]} {u_tile.u_tile.u_n15.u05.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.201921e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.909933e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u05.pc[0]} {u_tile.u_tile.u_n15.u05.pc[1]} {u_tile.u_tile.u_n15.u05.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.917802e-04 -duty 0.4972; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.663490e-04 -duty 0.4972; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u06.m[0]} {u_tile.u_tile.u_n15.u06.m[1]} {u_tile.u_tile.u_n15.u06.m[2]} {u_tile.u_tile.u_n15.u06.m[3]} {u_tile.u_tile.u_n15.u06.m[4]} {u_tile.u_tile.u_n15.u06.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.605271e-04 -duty 0.4731; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.392403e-04 -duty 0.4729; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u06.w[0]} {u_tile.u_tile.u_n15.u06.w[1]} {u_tile.u_tile.u_n15.u06.w[2]} {u_tile.u_tile.u_n15.u06.w[3]} {u_tile.u_tile.u_n15.u06.w[4]} {u_tile.u_tile.u_n15.u06.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.356667e-04 -duty 0.4334; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.176765e-04 -duty 0.4335; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u06.x[0]} {u_tile.u_tile.u_n15.u06.x[1]} {u_tile.u_tile.u_n15.u06.x[2]} {u_tile.u_tile.u_n15.u06.x[3]} {u_tile.u_tile.u_n15.u06.x[4]} {u_tile.u_tile.u_n15.u06.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.486040e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.156376e-05 -duty 0.4577; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u06.pc[0]} {u_tile.u_tile.u_n15.u06.pc[1]} {u_tile.u_tile.u_n15.u06.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.718919e-04 -duty 0.4347; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.490980e-04 -duty 0.4347; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u07.m[0]} {u_tile.u_tile.u_n15.u07.m[1]} {u_tile.u_tile.u_n15.u07.m[2]} {u_tile.u_tile.u_n15.u07.m[3]} {u_tile.u_tile.u_n15.u07.m[4]} {u_tile.u_tile.u_n15.u07.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.292741e-04 -duty 0.6336; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.121315e-04 -duty 0.6336; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u07.w[0]} {u_tile.u_tile.u_n15.u07.w[1]} {u_tile.u_tile.u_n15.u07.w[2]} {u_tile.u_tile.u_n15.u07.w[3]} {u_tile.u_tile.u_n15.u07.w[4]} {u_tile.u_tile.u_n15.u07.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.122269e-04 -duty 0.3693; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.734497e-05 -duty 0.3692; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u07.x[0]} {u_tile.u_tile.u_n15.u07.x[1]} {u_tile.u_tile.u_n15.u07.x[2]} {u_tile.u_tile.u_n15.u07.x[3]} {u_tile.u_tile.u_n15.u07.x[4]} {u_tile.u_tile.u_n15.u07.x[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.704713e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.478658e-05 -duty 0.1457; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u07.pc[0]} {u_tile.u_tile.u_n15.u07.pc[1]} {u_tile.u_tile.u_n15.u07.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.093858e-04 -duty 0.4446; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 9.488054e-05 -duty 0.4446; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u08.m[0]} {u_tile.u_tile.u_n15.u08.m[1]} {u_tile.u_tile.u_n15.u08.m[2]} {u_tile.u_tile.u_n15.u08.m[3]} {u_tile.u_tile.u_n15.u08.m[4]} {u_tile.u_tile.u_n15.u08.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0069; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0068; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u08.w[0]} {u_tile.u_tile.u_n15.u08.w[1]} {u_tile.u_tile.u_n15.u08.w[2]} {u_tile.u_tile.u_n15.u08.w[3]} {u_tile.u_tile.u_n15.u08.w[4]} {u_tile.u_tile.u_n15.u08.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u08.pc[0]} {u_tile.u_tile.u_n15.u08.pc[1]} {u_tile.u_tile.u_n15.u08.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0046; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0046; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u09.m[0]} {u_tile.u_tile.u_n15.u09.m[1]} {u_tile.u_tile.u_n15.u09.m[2]} {u_tile.u_tile.u_n15.u09.m[3]} {u_tile.u_tile.u_n15.u09.m[4]} {u_tile.u_tile.u_n15.u09.m[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0069; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0068; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u09.w[0]} {u_tile.u_tile.u_n15.u09.w[1]} {u_tile.u_tile.u_n15.u09.w[2]} {u_tile.u_tile.u_n15.u09.w[3]} {u_tile.u_tile.u_n15.u09.w[4]} {u_tile.u_tile.u_n15.u09.w[5]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u09.pc[0]} {u_tile.u_tile.u_n15.u09.pc[1]} {u_tile.u_tile.u_n15.u09.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.841188e-06 -duty 0.0046; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.464430e-06 -duty 0.0046; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u10.m[0]} {u_tile.u_tile.u_n15.u10.m[1]} {u_tile.u_tile.u_n15.u10.m[2]} {u_tile.u_tile.u_n15.u10.m[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0069; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0068; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u10.w[0]} {u_tile.u_tile.u_n15.u10.w[1]} {u_tile.u_tile.u_n15.u10.w[2]} {u_tile.u_tile.u_n15.u10.w[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.261783e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.696644e-06 -duty 0.0000; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_tile.u_tile.u_n15.u10.pc[0]} {u_tile.u_tile.u_n15.u10.pc[1]} {u_tile.u_tile.u_n15.u10.pc[2]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.420594e-06 -duty 0.0023; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.232215e-06 -duty 0.0023; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.m_adr_i[0]} {u_xbar.m_adr_i[1]} {u_xbar.m_adr_i[2]} {u_xbar.m_adr_i[3]} {u_xbar.m_adr_i[4]} {u_xbar.m_adr_i[5]} {u_xbar.m_adr_i[6]} {u_xbar.m_adr_i[7]} {u_xbar.m_adr_i[8]} {u_xbar.m_adr_i[9]} {u_xbar.m_adr_i[10]} {u_xbar.m_adr_i[11]} {u_xbar.m_adr_i[12]} {u_xbar.m_adr_i[13]} {u_xbar.m_adr_i[14]} {u_xbar.m_adr_i[15]} {u_xbar.m_adr_i[16]} {u_xbar.m_adr_i[17]} {u_xbar.m_adr_i[18]} {u_xbar.m_adr_i[19]} {u_xbar.m_adr_i[20]} {u_xbar.m_adr_i[21]} {u_xbar.m_adr_i[22]} {u_xbar.m_adr_i[23]} {u_xbar.m_adr_i[24]} {u_xbar.m_adr_i[25]} {u_xbar.m_adr_i[26]} {u_xbar.m_adr_i[27]} {u_xbar.m_adr_i[28]} {u_xbar.m_adr_i[29]} {u_xbar.m_adr_i[30]} {u_xbar.m_adr_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.m_dat_i[0]} {u_xbar.m_dat_i[1]} {u_xbar.m_dat_i[2]} {u_xbar.m_dat_i[3]} {u_xbar.m_dat_i[4]} {u_xbar.m_dat_i[5]} {u_xbar.m_dat_i[6]} {u_xbar.m_dat_i[7]} {u_xbar.m_dat_i[8]} {u_xbar.m_dat_i[9]} {u_xbar.m_dat_i[10]} {u_xbar.m_dat_i[11]} {u_xbar.m_dat_i[12]} {u_xbar.m_dat_i[13]} {u_xbar.m_dat_i[14]} {u_xbar.m_dat_i[15]} {u_xbar.m_dat_i[16]} {u_xbar.m_dat_i[17]} {u_xbar.m_dat_i[18]} {u_xbar.m_dat_i[19]} {u_xbar.m_dat_i[20]} {u_xbar.m_dat_i[21]} {u_xbar.m_dat_i[22]} {u_xbar.m_dat_i[23]} {u_xbar.m_dat_i[24]} {u_xbar.m_dat_i[25]} {u_xbar.m_dat_i[26]} {u_xbar.m_dat_i[27]} {u_xbar.m_dat_i[28]} {u_xbar.m_dat_i[29]} {u_xbar.m_dat_i[30]} {u_xbar.m_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.m_sel_i[0]} {u_xbar.m_sel_i[1]} {u_xbar.m_sel_i[2]} {u_xbar.m_sel_i[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s0_adr_o[0]} {u_xbar.s0_adr_o[1]} {u_xbar.s0_adr_o[2]} {u_xbar.s0_adr_o[3]} {u_xbar.s0_adr_o[4]} {u_xbar.s0_adr_o[5]} {u_xbar.s0_adr_o[6]} {u_xbar.s0_adr_o[7]} {u_xbar.s0_adr_o[8]} {u_xbar.s0_adr_o[9]} {u_xbar.s0_adr_o[10]} {u_xbar.s0_adr_o[11]} {u_xbar.s0_adr_o[12]} {u_xbar.s0_adr_o[13]} {u_xbar.s0_adr_o[14]} {u_xbar.s0_adr_o[15]} {u_xbar.s0_adr_o[16]} {u_xbar.s0_adr_o[17]} {u_xbar.s0_adr_o[18]} {u_xbar.s0_adr_o[19]} {u_xbar.s0_adr_o[20]} {u_xbar.s0_adr_o[21]} {u_xbar.s0_adr_o[22]} {u_xbar.s0_adr_o[23]} {u_xbar.s0_adr_o[24]} {u_xbar.s0_adr_o[25]} {u_xbar.s0_adr_o[26]} {u_xbar.s0_adr_o[27]} {u_xbar.s0_adr_o[28]} {u_xbar.s0_adr_o[29]} {u_xbar.s0_adr_o[30]} {u_xbar.s0_adr_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s0_dat_i[0]} {u_xbar.s0_dat_i[1]} {u_xbar.s0_dat_i[2]} {u_xbar.s0_dat_i[3]} {u_xbar.s0_dat_i[4]} {u_xbar.s0_dat_i[5]} {u_xbar.s0_dat_i[6]} {u_xbar.s0_dat_i[7]} {u_xbar.s0_dat_i[8]} {u_xbar.s0_dat_i[9]} {u_xbar.s0_dat_i[10]} {u_xbar.s0_dat_i[11]} {u_xbar.s0_dat_i[12]} {u_xbar.s0_dat_i[13]} {u_xbar.s0_dat_i[14]} {u_xbar.s0_dat_i[15]} {u_xbar.s0_dat_i[16]} {u_xbar.s0_dat_i[17]} {u_xbar.s0_dat_i[18]} {u_xbar.s0_dat_i[19]} {u_xbar.s0_dat_i[20]} {u_xbar.s0_dat_i[21]} {u_xbar.s0_dat_i[22]} {u_xbar.s0_dat_i[23]} {u_xbar.s0_dat_i[24]} {u_xbar.s0_dat_i[25]} {u_xbar.s0_dat_i[26]} {u_xbar.s0_dat_i[27]} {u_xbar.s0_dat_i[28]} {u_xbar.s0_dat_i[29]} {u_xbar.s0_dat_i[30]} {u_xbar.s0_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.147462e-02 -duty 0.3945; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.717611e-02 -duty 0.4113; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s0_dat_o[0]} {u_xbar.s0_dat_o[1]} {u_xbar.s0_dat_o[2]} {u_xbar.s0_dat_o[3]} {u_xbar.s0_dat_o[4]} {u_xbar.s0_dat_o[5]} {u_xbar.s0_dat_o[6]} {u_xbar.s0_dat_o[7]} {u_xbar.s0_dat_o[8]} {u_xbar.s0_dat_o[9]} {u_xbar.s0_dat_o[10]} {u_xbar.s0_dat_o[11]} {u_xbar.s0_dat_o[12]} {u_xbar.s0_dat_o[13]} {u_xbar.s0_dat_o[14]} {u_xbar.s0_dat_o[15]} {u_xbar.s0_dat_o[16]} {u_xbar.s0_dat_o[17]} {u_xbar.s0_dat_o[18]} {u_xbar.s0_dat_o[19]} {u_xbar.s0_dat_o[20]} {u_xbar.s0_dat_o[21]} {u_xbar.s0_dat_o[22]} {u_xbar.s0_dat_o[23]} {u_xbar.s0_dat_o[24]} {u_xbar.s0_dat_o[25]} {u_xbar.s0_dat_o[26]} {u_xbar.s0_dat_o[27]} {u_xbar.s0_dat_o[28]} {u_xbar.s0_dat_o[29]} {u_xbar.s0_dat_o[30]} {u_xbar.s0_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s0_sel_o[0]} {u_xbar.s0_sel_o[1]} {u_xbar.s0_sel_o[2]} {u_xbar.s0_sel_o[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s1_adr_o[0]} {u_xbar.s1_adr_o[1]} {u_xbar.s1_adr_o[2]} {u_xbar.s1_adr_o[3]} {u_xbar.s1_adr_o[4]} {u_xbar.s1_adr_o[5]} {u_xbar.s1_adr_o[6]} {u_xbar.s1_adr_o[7]} {u_xbar.s1_adr_o[8]} {u_xbar.s1_adr_o[9]} {u_xbar.s1_adr_o[10]} {u_xbar.s1_adr_o[11]} {u_xbar.s1_adr_o[12]} {u_xbar.s1_adr_o[13]} {u_xbar.s1_adr_o[14]} {u_xbar.s1_adr_o[15]} {u_xbar.s1_adr_o[16]} {u_xbar.s1_adr_o[17]} {u_xbar.s1_adr_o[18]} {u_xbar.s1_adr_o[19]} {u_xbar.s1_adr_o[20]} {u_xbar.s1_adr_o[21]} {u_xbar.s1_adr_o[22]} {u_xbar.s1_adr_o[23]} {u_xbar.s1_adr_o[24]} {u_xbar.s1_adr_o[25]} {u_xbar.s1_adr_o[26]} {u_xbar.s1_adr_o[27]} {u_xbar.s1_adr_o[28]} {u_xbar.s1_adr_o[29]} {u_xbar.s1_adr_o[30]} {u_xbar.s1_adr_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s1_dat_i[0]} {u_xbar.s1_dat_i[1]} {u_xbar.s1_dat_i[2]} {u_xbar.s1_dat_i[3]} {u_xbar.s1_dat_i[4]} {u_xbar.s1_dat_i[5]} {u_xbar.s1_dat_i[6]} {u_xbar.s1_dat_i[7]} {u_xbar.s1_dat_i[8]} {u_xbar.s1_dat_i[9]} {u_xbar.s1_dat_i[10]} {u_xbar.s1_dat_i[11]} {u_xbar.s1_dat_i[12]} {u_xbar.s1_dat_i[13]} {u_xbar.s1_dat_i[14]} {u_xbar.s1_dat_i[15]} {u_xbar.s1_dat_i[16]} {u_xbar.s1_dat_i[17]} {u_xbar.s1_dat_i[18]} {u_xbar.s1_dat_i[19]} {u_xbar.s1_dat_i[20]} {u_xbar.s1_dat_i[21]} {u_xbar.s1_dat_i[22]} {u_xbar.s1_dat_i[23]} {u_xbar.s1_dat_i[24]} {u_xbar.s1_dat_i[25]} {u_xbar.s1_dat_i[26]} {u_xbar.s1_dat_i[27]} {u_xbar.s1_dat_i[28]} {u_xbar.s1_dat_i[29]} {u_xbar.s1_dat_i[30]} {u_xbar.s1_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.472157e-03 -duty 0.0249; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.498008e-04 -duty 0.2855; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s1_dat_o[0]} {u_xbar.s1_dat_o[1]} {u_xbar.s1_dat_o[2]} {u_xbar.s1_dat_o[3]} {u_xbar.s1_dat_o[4]} {u_xbar.s1_dat_o[5]} {u_xbar.s1_dat_o[6]} {u_xbar.s1_dat_o[7]} {u_xbar.s1_dat_o[8]} {u_xbar.s1_dat_o[9]} {u_xbar.s1_dat_o[10]} {u_xbar.s1_dat_o[11]} {u_xbar.s1_dat_o[12]} {u_xbar.s1_dat_o[13]} {u_xbar.s1_dat_o[14]} {u_xbar.s1_dat_o[15]} {u_xbar.s1_dat_o[16]} {u_xbar.s1_dat_o[17]} {u_xbar.s1_dat_o[18]} {u_xbar.s1_dat_o[19]} {u_xbar.s1_dat_o[20]} {u_xbar.s1_dat_o[21]} {u_xbar.s1_dat_o[22]} {u_xbar.s1_dat_o[23]} {u_xbar.s1_dat_o[24]} {u_xbar.s1_dat_o[25]} {u_xbar.s1_dat_o[26]} {u_xbar.s1_dat_o[27]} {u_xbar.s1_dat_o[28]} {u_xbar.s1_dat_o[29]} {u_xbar.s1_dat_o[30]} {u_xbar.s1_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s1_sel_o[0]} {u_xbar.s1_sel_o[1]} {u_xbar.s1_sel_o[2]} {u_xbar.s1_sel_o[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s2_adr_o[0]} {u_xbar.s2_adr_o[1]} {u_xbar.s2_adr_o[2]} {u_xbar.s2_adr_o[3]} {u_xbar.s2_adr_o[4]} {u_xbar.s2_adr_o[5]} {u_xbar.s2_adr_o[6]} {u_xbar.s2_adr_o[7]} {u_xbar.s2_adr_o[8]} {u_xbar.s2_adr_o[9]} {u_xbar.s2_adr_o[10]} {u_xbar.s2_adr_o[11]} {u_xbar.s2_adr_o[12]} {u_xbar.s2_adr_o[13]} {u_xbar.s2_adr_o[14]} {u_xbar.s2_adr_o[15]} {u_xbar.s2_adr_o[16]} {u_xbar.s2_adr_o[17]} {u_xbar.s2_adr_o[18]} {u_xbar.s2_adr_o[19]} {u_xbar.s2_adr_o[20]} {u_xbar.s2_adr_o[21]} {u_xbar.s2_adr_o[22]} {u_xbar.s2_adr_o[23]} {u_xbar.s2_adr_o[24]} {u_xbar.s2_adr_o[25]} {u_xbar.s2_adr_o[26]} {u_xbar.s2_adr_o[27]} {u_xbar.s2_adr_o[28]} {u_xbar.s2_adr_o[29]} {u_xbar.s2_adr_o[30]} {u_xbar.s2_adr_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s2_dat_i[0]} {u_xbar.s2_dat_i[1]} {u_xbar.s2_dat_i[2]} {u_xbar.s2_dat_i[3]} {u_xbar.s2_dat_i[4]} {u_xbar.s2_dat_i[5]} {u_xbar.s2_dat_i[6]} {u_xbar.s2_dat_i[7]} {u_xbar.s2_dat_i[8]} {u_xbar.s2_dat_i[9]} {u_xbar.s2_dat_i[10]} {u_xbar.s2_dat_i[11]} {u_xbar.s2_dat_i[12]} {u_xbar.s2_dat_i[13]} {u_xbar.s2_dat_i[14]} {u_xbar.s2_dat_i[15]} {u_xbar.s2_dat_i[16]} {u_xbar.s2_dat_i[17]} {u_xbar.s2_dat_i[18]} {u_xbar.s2_dat_i[19]} {u_xbar.s2_dat_i[20]} {u_xbar.s2_dat_i[21]} {u_xbar.s2_dat_i[22]} {u_xbar.s2_dat_i[23]} {u_xbar.s2_dat_i[24]} {u_xbar.s2_dat_i[25]} {u_xbar.s2_dat_i[26]} {u_xbar.s2_dat_i[27]} {u_xbar.s2_dat_i[28]} {u_xbar.s2_dat_i[29]} {u_xbar.s2_dat_i[30]} {u_xbar.s2_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 4.192688e-02 -duty 0.1697; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.636713e-02 -duty 0.1644; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s2_dat_o[0]} {u_xbar.s2_dat_o[1]} {u_xbar.s2_dat_o[2]} {u_xbar.s2_dat_o[3]} {u_xbar.s2_dat_o[4]} {u_xbar.s2_dat_o[5]} {u_xbar.s2_dat_o[6]} {u_xbar.s2_dat_o[7]} {u_xbar.s2_dat_o[8]} {u_xbar.s2_dat_o[9]} {u_xbar.s2_dat_o[10]} {u_xbar.s2_dat_o[11]} {u_xbar.s2_dat_o[12]} {u_xbar.s2_dat_o[13]} {u_xbar.s2_dat_o[14]} {u_xbar.s2_dat_o[15]} {u_xbar.s2_dat_o[16]} {u_xbar.s2_dat_o[17]} {u_xbar.s2_dat_o[18]} {u_xbar.s2_dat_o[19]} {u_xbar.s2_dat_o[20]} {u_xbar.s2_dat_o[21]} {u_xbar.s2_dat_o[22]} {u_xbar.s2_dat_o[23]} {u_xbar.s2_dat_o[24]} {u_xbar.s2_dat_o[25]} {u_xbar.s2_dat_o[26]} {u_xbar.s2_dat_o[27]} {u_xbar.s2_dat_o[28]} {u_xbar.s2_dat_o[29]} {u_xbar.s2_dat_o[30]} {u_xbar.s2_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s2_sel_o[0]} {u_xbar.s2_sel_o[1]} {u_xbar.s2_sel_o[2]} {u_xbar.s2_sel_o[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s3_adr_o[0]} {u_xbar.s3_adr_o[1]} {u_xbar.s3_adr_o[2]} {u_xbar.s3_adr_o[3]} {u_xbar.s3_adr_o[4]} {u_xbar.s3_adr_o[5]} {u_xbar.s3_adr_o[6]} {u_xbar.s3_adr_o[7]} {u_xbar.s3_adr_o[8]} {u_xbar.s3_adr_o[9]} {u_xbar.s3_adr_o[10]} {u_xbar.s3_adr_o[11]} {u_xbar.s3_adr_o[12]} {u_xbar.s3_adr_o[13]} {u_xbar.s3_adr_o[14]} {u_xbar.s3_adr_o[15]} {u_xbar.s3_adr_o[16]} {u_xbar.s3_adr_o[17]} {u_xbar.s3_adr_o[18]} {u_xbar.s3_adr_o[19]} {u_xbar.s3_adr_o[20]} {u_xbar.s3_adr_o[21]} {u_xbar.s3_adr_o[22]} {u_xbar.s3_adr_o[23]} {u_xbar.s3_adr_o[24]} {u_xbar.s3_adr_o[25]} {u_xbar.s3_adr_o[26]} {u_xbar.s3_adr_o[27]} {u_xbar.s3_adr_o[28]} {u_xbar.s3_adr_o[29]} {u_xbar.s3_adr_o[30]} {u_xbar.s3_adr_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.619051e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.404355e-02 -duty 0.1247; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s3_dat_i[0]} {u_xbar.s3_dat_i[1]} {u_xbar.s3_dat_i[2]} {u_xbar.s3_dat_i[3]} {u_xbar.s3_dat_i[4]} {u_xbar.s3_dat_i[5]} {u_xbar.s3_dat_i[6]} {u_xbar.s3_dat_i[7]} {u_xbar.s3_dat_i[8]} {u_xbar.s3_dat_i[9]} {u_xbar.s3_dat_i[10]} {u_xbar.s3_dat_i[11]} {u_xbar.s3_dat_i[12]} {u_xbar.s3_dat_i[13]} {u_xbar.s3_dat_i[14]} {u_xbar.s3_dat_i[15]} {u_xbar.s3_dat_i[16]} {u_xbar.s3_dat_i[17]} {u_xbar.s3_dat_i[18]} {u_xbar.s3_dat_i[19]} {u_xbar.s3_dat_i[20]} {u_xbar.s3_dat_i[21]} {u_xbar.s3_dat_i[22]} {u_xbar.s3_dat_i[23]} {u_xbar.s3_dat_i[24]} {u_xbar.s3_dat_i[25]} {u_xbar.s3_dat_i[26]} {u_xbar.s3_dat_i[27]} {u_xbar.s3_dat_i[28]} {u_xbar.s3_dat_i[29]} {u_xbar.s3_dat_i[30]} {u_xbar.s3_dat_i[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.275019e-02 -duty 0.0860; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 1.973338e-02 -duty 0.0856; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s3_dat_o[0]} {u_xbar.s3_dat_o[1]} {u_xbar.s3_dat_o[2]} {u_xbar.s3_dat_o[3]} {u_xbar.s3_dat_o[4]} {u_xbar.s3_dat_o[5]} {u_xbar.s3_dat_o[6]} {u_xbar.s3_dat_o[7]} {u_xbar.s3_dat_o[8]} {u_xbar.s3_dat_o[9]} {u_xbar.s3_dat_o[10]} {u_xbar.s3_dat_o[11]} {u_xbar.s3_dat_o[12]} {u_xbar.s3_dat_o[13]} {u_xbar.s3_dat_o[14]} {u_xbar.s3_dat_o[15]} {u_xbar.s3_dat_o[16]} {u_xbar.s3_dat_o[17]} {u_xbar.s3_dat_o[18]} {u_xbar.s3_dat_o[19]} {u_xbar.s3_dat_o[20]} {u_xbar.s3_dat_o[21]} {u_xbar.s3_dat_o[22]} {u_xbar.s3_dat_o[23]} {u_xbar.s3_dat_o[24]} {u_xbar.s3_dat_o[25]} {u_xbar.s3_dat_o[26]} {u_xbar.s3_dat_o[27]} {u_xbar.s3_dat_o[28]} {u_xbar.s3_dat_o[29]} {u_xbar.s3_dat_o[30]} {u_xbar.s3_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.849829e-03 -duty 0.4580; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.074107e-03 -duty 0.4583; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.s3_sel_o[0]} {u_xbar.s3_sel_o[1]} {u_xbar.s3_sel_o[2]} {u_xbar.s3_sel_o[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.039077e-02 -duty 0.0912; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.636077e-02 -duty 0.0791; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.xact}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.435167e-01 -duty 0.3435; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.979643e-01 -duty 0.4333; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.sel3}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.770159e-04 -duty 0.0008; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.402819e-04 -duty 0.0007; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.sel2}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.836642e-02 -duty 0.0851; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.460487e-02 -duty 0.0738; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.sel1}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.838642e-03 -duty 0.0175; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 5.064403e-03 -duty 0.0165; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.sel0}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 3.448208e-02 -duty 0.8966; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 2.990955e-02 -duty 0.9090; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.m_dat_o[0]} {u_xbar.m_dat_o[1]} {u_xbar.m_dat_o[2]} {u_xbar.m_dat_o[3]} {u_xbar.m_dat_o[4]} {u_xbar.m_dat_o[5]} {u_xbar.m_dat_o[6]} {u_xbar.m_dat_o[7]} {u_xbar.m_dat_o[8]} {u_xbar.m_dat_o[9]} {u_xbar.m_dat_o[10]} {u_xbar.m_dat_o[11]} {u_xbar.m_dat_o[12]} {u_xbar.m_dat_o[13]} {u_xbar.m_dat_o[14]} {u_xbar.m_dat_o[15]} {u_xbar.m_dat_o[16]} {u_xbar.m_dat_o[17]} {u_xbar.m_dat_o[18]} {u_xbar.m_dat_o[19]} {u_xbar.m_dat_o[20]} {u_xbar.m_dat_o[21]} {u_xbar.m_dat_o[22]} {u_xbar.m_dat_o[23]} {u_xbar.m_dat_o[24]} {u_xbar.m_dat_o[25]} {u_xbar.m_dat_o[26]} {u_xbar.m_dat_o[27]} {u_xbar.m_dat_o[28]} {u_xbar.m_dat_o[29]} {u_xbar.m_dat_o[30]} {u_xbar.m_dat_o[31]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.713972e-02 -duty 0.4030; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 6.603547e-02 -duty 0.4032; incr _ann_count } else { incr _miss_count }
 }
 if {[catch {set _n [get_nets -quiet {u_xbar.dec[0]} {u_xbar.dec[1]} {u_xbar.dec[2]} {u_xbar.dec[3]}]}] || $_n eq ""} { incr _miss_count } else {
   set _p [get_pins -quiet -of_objects $_n -filter "direction == input"]
-  if {$_p ne ""} { set_power_activity -pins $_p -activity 8.689775e-03 -duty 0.0261; incr _ann_count } else { incr _miss_count }
+  if {$_p ne ""} { set_power_activity -pins $_p -activity 7.537458e-03 -duty 0.0229; incr _ann_count } else { incr _miss_count }
 }
 
 puts "set_power_activity: annotated $_ann_count nets, $_miss_count signals had no matching net or no input pins."

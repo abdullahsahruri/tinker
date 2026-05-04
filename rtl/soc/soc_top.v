@@ -121,7 +121,14 @@ module soc_top #(
         .s3_dat_i   (s3_dat_r), .s3_ack_i(s3_ack), .s3_err_i(s3_err)
     );
 
-    wb_imem #(.INIT_HEX(INIT_HEX)) u_imem (
+    // Session 3.5 (OpenRAM): wb_imem no longer takes INIT_HEX as a Verilog
+    // parameter — Yosys would create a $paramod\wb_imem\... variant on the
+    // string override, which trips LibreLane's unmapped-cell checker. Sim
+    // firmware is now loaded via the `IMEM_INIT_HEX preprocessor define
+    // passed to iverilog at compile time (see scripts/run_soc_*.sh). The
+    // soc_top INIT_HEX parameter above is kept (vestigial) for testbench
+    // compatibility — its value is not used.
+    wb_imem u_imem (
         .clk      (clk),
         .rst_n    (rst_n),
         .wb_cyc_i (s0_cyc),

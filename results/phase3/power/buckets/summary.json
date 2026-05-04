@@ -1,13 +1,13 @@
 {
-  "total_power_relevant_cells": 53436,
+  "total_power_relevant_cells": 24340,
   "buckets": {
-    "u_cpu": 4288,
+    "u_cpu": 4290,
     "u_xbar": 0,
-    "u_imem": 0,
-    "u_dmem": 18773,
-    "u_tile": 6578,
-    "u_gpio": 176,
-    "shared": 22055,
-    "clock_tree": 1566
+    "u_imem": 38,
+    "u_dmem": 41,
+    "u_tile": 6519,
+    "u_gpio": 174,
+    "shared": 12786,
+    "clock_tree": 492
   }
 }

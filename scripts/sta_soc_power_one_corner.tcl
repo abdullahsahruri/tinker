@@ -41,6 +41,17 @@ set_cmd_units \
 
 define_corners $corner_name
 read_liberty -corner $corner_name $lib_file
+# Macro Liberties — LibreLane 3.x ships these only for the TT corner; all
+# 9 corners load the same TT macro lib (documented limitation, see
+# PHASE3_5_NOTES.md).
+if {[info exists ::env(STA_EXTRA_LIBS)]} {
+    foreach extra_lib [split $::env(STA_EXTRA_LIBS) ":"] {
+        if {$extra_lib ne ""} {
+            puts "Reading extra Liberty: $extra_lib"
+            read_liberty -corner $corner_name $extra_lib
+        }
+    }
+}
 read_verilog $netlist_file
 link_design $top_module
 read_sdc $sdc_file
@@ -67,13 +78,28 @@ set d_leakage   [lindex $design_pw 2]
 set d_total     [lindex $design_pw 3]
 
 # ---- Per-group power (Sequential / Combinational / Clock / Macro / Pad)
-# For comparison with the bucket-based decomposition.
+# OpenSTA's `sta::group_power` doesn't return what we expect; the
+# documented public API is `sta::report_power_design_json` which dumps
+# the same five-row breakdown that `report_power` prints, in JSON.
 set group_totals [dict create]
-foreach grp {Sequential Combinational Clock Macro Pad} {
-    if {[catch {sta::group_power $corner_obj $grp} gp]} {
-        continue
+set json_err [catch {sta::report_power_design_json $corner_obj 6} json_str]
+puts "DBG: json_err=$json_err json_str_len=[string length $json_str]"
+if {$json_err == 0} {
+    # json_str looks like:
+    #   {"sequential":{"internal":...,"switching":...,"leakage":...,"total":...},
+    #    "combinational":{...}, "clock":{...}, "macro":{...}, "pad":{...}}
+    # We do a tiny regex parse — TCL has no built-in JSON. The inner
+    # objects' field order is fixed by OpenSTA's emitter.
+    # Strip newlines to make the regex match across the multi-line JSON.
+    # `regsub` returns the substitution count; the rewritten string is via
+    # the -all flag and assigned to varName ($json_oneline).
+    regsub -all {\s+} $json_str " " json_oneline
+    foreach grp {Sequential Combinational Clock Macro Pad} {
+        set rx "\"$grp\": \\{ \"internal\": (\[-+0-9.eE\]+) , \"switching\": (\[-+0-9.eE\]+) , \"leakage\": (\[-+0-9.eE\]+) , \"total\": (\[-+0-9.eE\]+)"
+        if {[regexp $rx $json_oneline -> gi gs gl gt]} {
+            dict set group_totals $grp [list $gi $gs $gl $gt]
+        }
     }
-    dict set group_totals $grp $gp
 }
 
 # ---- Per-bucket power --------------------------------------------------

@@ -39,14 +39,14 @@ BUCKETS = ["u_cpu", "u_xbar", "u_imem", "u_dmem", "u_tile", "u_gpio", "shared"]
 def parse_cells(text):
     """Yield (cell_inst, cell_type, output_net, [all_nets]) tuples.
 
-    A cell instance is `^ +sky130_fd_sc_hd__<type> +<inst> *(...)` and may
-    span multiple lines until the closing `);`. We capture the type, the
-    instance name, the output net (.X/.Y/.Q), and the full list of pin
-    nets so callers can use input-pin nets for fallback bucketing when
-    the output net doesn't carry hierarchy information.
+    Captures both std cells (`sky130_fd_sc_hd__*`) and macros
+    (`sky130_sram_*`). For macros, the instance name itself carries the
+    hierarchical bucket (`\\u_imem.u_macro` / `\\u_dmem.u_macro`); the
+    output_net is set to a synthetic value so the bucket_for_net pass
+    routes the macro to the matching IMEM/DMEM bucket.
     """
     cell_re = re.compile(
-        r"^\s+sky130_fd_sc_hd__(\S+?)\s+(\S+)\s*\(", re.MULTILINE
+        r"^\s+sky130_(?:fd_sc_hd__|sram_)(\S+?)\s+(\S+)\s*\(", re.MULTILINE
     )
     pos = 0
     while True:
@@ -77,6 +77,15 @@ def parse_cells(text):
             continue
         # All pin nets, in order of appearance.
         all_nets = [n.strip() for n in re.findall(r"\.[A-Z0-9]+\(([^)]+)\)", body)]
+        # For OpenRAM macros (`2kbyte_1rw1r_32x512_8` etc.), use the
+        # instance name itself to derive the hierarchy bucket. Yield a
+        # synthetic "output_net" that carries the macro's hierarchy
+        # prefix so bucket_for_net classifies it correctly.
+        if cell_type.endswith("byte_1rw1r_32x512_8") or cell_type.endswith(
+            "byte_1rw1r_32x256_8"
+        ):
+            yield inst_name, cell_type, inst_name, all_nets
+            continue
         # Output pin: prefer .X, then .Q, then .Y.
         output_net = None
         for pin_re in (
@@ -127,6 +136,11 @@ def main():
     n_total = 0
     for inst, ctype, out_net, all_nets in cells:
         n_total += 1
+        # Strip Verilog escape from hierarchical instance names (`\u_imem.u_macro`
+        # → `u_imem.u_macro`). OpenSTA's get_cells uses literal names without
+        # the backslash escape.
+        if inst.startswith("\\"):
+            inst = inst.lstrip("\\").rstrip()
         # Clock-tree first: clk-named output → clock_tree.
         if is_clock_net(out_net):
             bucket_cells["clock_tree"].append(inst)

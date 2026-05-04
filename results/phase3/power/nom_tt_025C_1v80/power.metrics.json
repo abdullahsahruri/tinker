@@ -1,27 +1,27 @@
 {
   "corner": "nom_tt_025C_1v80",
   "top": "soc_top",
-  "power__internal__total": 0.07035236060619354,
-  "power__switching__total": 0.020023422315716743,
-  "power__leakage__total": 1.010949404189887e-6,
-  "power__total": 0.09037679433822632,
+  "power__internal__total": 0.033459633588790894,
+  "power__switching__total": 0.008054453879594803,
+  "power__leakage__total": 2.8449121600715443e-5,
+  "power__total": 0.04154253751039505,
   "groups": {
   },
   "buckets": {
-    "u_cpu": { "internal": 0.006256455481068475, "switching": 0.00045094402622361453, "leakage": 2.7699310631762913e-8, "total": 0.006707427315789613, "cells_found": 4288, "cells_missing": 0 }
+    "u_cpu": { "internal": 0.006240789878018993, "switching": 0.00039898351207095205, "leakage": 2.758993403013539e-8, "total": 0.00663980108342311, "cells_found": 4290, "cells_missing": 0 }
     ,
     "u_xbar": { "internal": 0.0, "switching": 0.0, "leakage": 0.0, "total": 0.0, "cells_found": 0, "cells_missing": 0 }
     ,
-    "u_imem": { "internal": 0.0, "switching": 0.0, "leakage": 0.0, "total": 0.0, "cells_found": 0, "cells_missing": 0 }
+    "u_imem": { "internal": 0.005533334293332359, "switching": 6.816006589360768e-6, "leakage": 1.772622810222946e-5, "total": 0.005557876389899961, "cells_found": 38, "cells_missing": 0 }
     ,
-    "u_dmem": { "internal": 0.033326029777526855, "switching": 0.0, "leakage": 1.3827508322334855e-7, "total": 0.03332616864161448, "cells_found": 18773, "cells_missing": 0 }
+    "u_dmem": { "internal": 0.003839895953192541, "switching": 2.8089513381956976e-8, "leakage": 9.516227944511677e-6, "total": 0.0038494402916419727, "cells_found": 41, "cells_missing": 0 }
     ,
-    "u_tile": { "internal": 0.009904607179624405, "switching": 6.524276502879313e-10, "leakage": 4.076270382287516e-8, "total": 0.009904648767386507, "cells_found": 6578, "cells_missing": 0 }
+    "u_tile": { "internal": 0.00990700626642286, "switching": 6.073871191361644e-10, "leakage": 3.9633395692385614e-8, "total": 0.009907046681904268, "cells_found": 6519, "cells_missing": 0 }
     ,
-    "u_gpio": { "internal": 0.00026035960763692856, "switching": 0.0, "leakage": 1.1486783434155878e-9, "total": 0.00026036076091686886, "cells_found": 176, "cells_missing": 0 }
+    "u_gpio": { "internal": 0.00026035960763692856, "switching": 0.0, "leakage": 1.1460469444106447e-9, "total": 0.00026036075828546985, "cells_found": 174, "cells_missing": 0 }
     ,
-    "shared": { "internal": 0.0005459350466683027, "switching": 0.00026754590134458474, "leakage": 8.63150744780084e-8, "total": 0.0008135672669540287, "cells_found": 22055, "cells_missing": 0 }
+    "shared": { "internal": 0.000785994679905421, "switching": 0.0002733140403953409, "leakage": 5.35437190906396e-8, "total": 0.0010593622767114544, "cells_found": 12786, "cells_missing": 0 }
     ,
-    "clock_tree": { "internal": 0.01659697438026342, "switching": 0.019304947865293798, "leakage": 1.2578615431364792e-8, "total": 0.03590193465970515, "cells_found": 1566, "cells_missing": 0 }
+    "clock_tree": { "internal": 0.005175768437766237, "switching": 0.007375312782187393, "leakage": 3.9018878813731894e-9, "total": 0.012551085090308334, "cells_found": 492, "cells_missing": 0 }
   }
 }

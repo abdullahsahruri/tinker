@@ -64,6 +64,13 @@ PDK_LIB_DIR="${PDK_ROOT}/volare/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b
 LIB_PATH="${PDK_LIB_DIR}/${LIB_FILE}"
 SPEF="${RUN_DIR}/final/spef/${SPEF_DIR}/${DUT}.${SPEF_DIR}.spef"
 
+# Session 3.5 (OpenRAM) — point STA at the macro Liberties too so
+# sta::instance_power on u_*mem.u_macro returns the macro's
+# Liberty-characterized power instead of 0.
+SRAM_LIB_DIR="${PDK_ROOT}/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_sram_macros/lib"
+SRAM_LIB_IMEM="${SRAM_LIB_DIR}/sky130_sram_2kbyte_1rw1r_32x512_8_TT_1p8V_25C.lib"
+SRAM_LIB_DMEM="${SRAM_LIB_DIR}/sky130_sram_1kbyte_1rw1r_32x256_8_TT_1p8V_25C.lib"
+
 [ -f "$LIB_PATH" ] || { echo "missing liberty: $LIB_PATH" >&2; exit 5; }
 [ -f "$SPEF"     ] || { echo "missing SPEF: $SPEF" >&2; exit 5; }
 
@@ -90,6 +97,9 @@ to_ctr() {
 }
 
 CTR_LIB="$(to_ctr "$LIB_PATH")"
+CTR_SRAM_IMEM="$(to_ctr "$SRAM_LIB_IMEM")"
+CTR_SRAM_DMEM="$(to_ctr "$SRAM_LIB_DMEM")"
+CTR_EXTRA_LIBS="${CTR_SRAM_IMEM}:${CTR_SRAM_DMEM}"
 CTR_NETLIST="$(to_ctr "$NETLIST")"
 CTR_SDC="$(to_ctr "$SDC")"
 CTR_SPEF="$(to_ctr "$SPEF")"
@@ -105,6 +115,7 @@ docker run --rm \
     -v "${ROOT}:/work" \
     -v "/tmp:/tmp" \
     -e STA_LIB="$CTR_LIB" \
+    -e STA_EXTRA_LIBS="$CTR_EXTRA_LIBS" \
     -e STA_NETLIST="$CTR_NETLIST" \
     -e STA_TOP="$DUT" \
     -e STA_SDC="$CTR_SDC" \
