@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 # =============================================================================
-# run_soc_bnn.sh — end-to-end Phase-3D BNN inference orchestrator.
+# run_soc_bnn.sh — end-to-end Phase-4.5 BNN inference orchestrator.
+#
+# Network: 14×14 grouped BNN — 4 branches × (49→16) → concat(64) → 10.
 #
 # Steps:
-#   1. (Re)train the BNN if data/bnn_weights.npz is missing or older than
-#      scripts/train_bnn.py. (~20 min on CPU.)
-#   2. Generate firmware/inference/weights.h from data/bnn_weights.npz.
-#   3. Generate the 16-image preprocessed test set (data/bnn_test_set.npz)
-#      and the testbench inputs (tb/tb_bnn_xs.hex, tb/tb_bnn_expected.hex),
-#      and run the PyTorch ↔ Python-golden agreement check.
+#   1. (Re)train the BNN if data/bnn_weights_14x14.npz is missing/stale.
+#   2. Generate firmware/inference/weights_14x14.h.
+#   3. Generate test set + PyTorch ↔ Python-golden agreement check.
 #   4. Build firmware/inference/firmware.hex.
-#   5. Compile soc_top + tb_soc_bnn with iverilog and run vvp.
-#   6. Report PASS/FAIL with the (matches/16) count.
+#   5. Compile RTL + tb_soc_bnn with iverilog and run vvp.
+#   6. Report PASS/FAIL.
 #
 # Usage:
-#   scripts/run_soc_bnn.sh                  # full pipeline (default 16 images)
+#   scripts/run_soc_bnn.sh                  # full pipeline
 #   scripts/run_soc_bnn.sh --skip-train     # reuse existing weights
 #   scripts/run_soc_bnn.sh --n 1            # 1-image checkpoint mode
 # =============================================================================
@@ -39,23 +38,23 @@ rm -f "$OUT" "$LOG"
 
 # ---- 1. Train (or reuse) -----------------------------------------------------
 if [ "$SKIP_TRAIN" = "0" ] && \
-   { [ ! -f data/bnn_weights.npz ] || \
-     [ scripts/train_bnn.py -nt data/bnn_weights.npz ]; }; then
-    echo "==> [1/5] Training BNN (data/bnn_weights.npz missing or stale)"
-    python3 scripts/train_bnn.py
+   { [ ! -f data/bnn_weights_14x14.npz ] || \
+     [ scripts/train_bnn.py -nt data/bnn_weights_14x14.npz ]; }; then
+    echo "==> [1/5] Training 14x14 grouped BNN"
+    python3 scripts/train_bnn.py --net 14x14
 else
-    echo "==> [1/5] Reusing data/bnn_weights.npz"
+    echo "==> [1/5] Reusing data/bnn_weights_14x14.npz"
 fi
 
-# ---- 2. Generate weights.h ---------------------------------------------------
+# ---- 2. Generate weights_14x14.h ---------------------------------------------
 echo
-echo "==> [2/5] Generating firmware/inference/weights.h"
-python3 scripts/weights_to_c.py
+echo "==> [2/5] Generating firmware/inference/weights_14x14.h"
+python3 scripts/weights_to_c.py --net 14x14
 
 # ---- 3. Generate test set + golden ↔ PyTorch check --------------------------
 echo
 echo "==> [3/5] Generating test set + checking golden ↔ PyTorch agreement"
-python3 scripts/gen_bnn_testdata.py --n "$N_IMAGES"
+python3 scripts/gen_bnn_testdata.py --net 14x14 --n "$N_IMAGES"
 
 # ---- 4. Build firmware ------------------------------------------------------
 echo

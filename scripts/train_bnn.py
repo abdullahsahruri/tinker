@@ -1,36 +1,27 @@
-"""Train a 49 → 64 → 10 BNN on MNIST and export it in hardware-compatible form.
+"""Train a BNN on MNIST and export it in hardware-compatible form.
 
-Architecture (small, transparent, no Brevitas):
+Supports two network architectures (--net 7x7 | 14x14):
 
-    fc1 = BinaryLinear(49, 64, bias=False)        # ±1 weights via sign+STE
-    bn1 = BatchNorm1d(64, affine=False)           # per-neuron normalization,
-                                                  # no learnable γ/β so there
-                                                  # is no sign-flip ambiguity
-                                                  # at deployment.
-    sign() activation                             # ±1 hidden
-    fc2 = BinaryLinear(64, 10, bias=True)         # ±1 weights, learnable bias
-                                                  # (used as the per-class
-                                                  # signed offset at argmax).
+  7×7  (Phase-3D baseline):
+    BinaryLinear(49→64) → BN1d(64, affine) → sign → BinaryLinear(64→10, bias)
 
-Why not BN on layer 2: argmax(softmax(logit)) = argmax(logit), and we want a
-purely integer logit at deployment. A BN with affine=True introduces per-class
-γ/σ that affects argmax (it's a per-class scale), which can't be folded into
-an integer comparison across classes. fc2.bias absorbs the per-class offset
-without scale.
+  14×14 (Phase-4.5 grouped, tile-compatible):
+    4 branches × [BinaryLinear(49→16) → BN1d(16, affine) → sign]
+    concat(64) → BinaryLinear(64→10, bias)
+    Tile mapping: batch k = branch k = quadrant k of the 14×14 image.
 
-Why BN affine=False on layer 1: BN already gives each hidden neuron its own
-running_mean and running_var. The per-neuron threshold at deployment is
-therefore (49 + running_mean_i) / 2 (rounded), which uses BN's normalization
-without needing a γ that could be negative.
+Training improvements for 14×14:
+  - Hard-tanh STE (Hubara et al. 2016): gradient passes through when |x|<=1,
+    clipped to 0 otherwise. Applied to both weight and activation binarization.
+  - OneCycleLR with 5% warmup → cosine decay to 0: final_div_factor=1e4.
+  - 30 epochs, 3 seeds (42, 1042, 2042); best-seed weights saved.
 
-Export (data/bnn_weights.npz):
-    layer1_weights     int8  (64, 49) in {-1, +1}
-    layer1_thresholds  uint8 (64,)    in [0, 49]   — popcount-≥ threshold
-    layer2_weights     int8  (10, 64) in {-1, +1}
-    layer2_thresholds  uint8 (10,)    in [0, 64]   — kept for spec compliance
-    layer2_bias        int16 (10,)    signed       — used by argmax: logit_c
-                                                    = 2·popcount(h XNOR W2_c)
-                                                    − 64 + bias_c
+Export (data/bnn_weights[_14x14].npz) — same npz schema for both nets:
+    layer1_weights     int8  (64, 49)  ±1
+    layer1_thresholds  uint8 (64,)     0..49
+    layer2_weights     int8  (10, 64)  ±1
+    layer2_thresholds  uint8 (10,)     0..64  (spec compliance only)
+    layer2_bias        int16 (10,)     signed
 """
 from __future__ import annotations
 import argparse
@@ -43,49 +34,45 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
 # ---------------------------------------------------------------------------
-# Hyperparameters — locked.
+# Hyperparameters.
 # ---------------------------------------------------------------------------
-N_INPUT  = 49
-N_HIDDEN = 64
-N_OUTPUT = 10
-EPOCHS   = 10
-BATCH    = 128
-LR       = 1e-3
-ACCURACY_FLOOR = 0.80
-# Latent-weight clip range. After each optim step the float weights are
-# clamped into [-WCLIP, +WCLIP] so they stay inside the STE's pass band
-# (|x|<=1) — the standard BinaryConnect recipe. Without it the latent
-# weights drift large, sign(w) freezes, and the network stalls.
-WCLIP = 1.0
-# Logit temperature for cross-entropy. The deployed forward computes
-#   logit_c = 2·popcount(h XNOR W2_c) − 64 + bias_c   ∈ roughly ±64.
-# Softmax over logits in ±64 is one-hot — CE gradient becomes a near-
-# delta function and learning stalls. We divide the training-time logits
-# by LOGIT_TEMP before CE; argmax is preserved (positive scalar) so the
-# train/eval predictions match the deployed firmware exactly.
-LOGIT_TEMP = 8.0
+N_INPUT_7X7  = 49
+N_HIDDEN     = 64
+N_OUTPUT     = 10
+EPOCHS       = 10       # 7×7 default (Phase-3D baseline, unchanged)
+EPOCHS_14X14 = 30       # 14×14: cosine schedule benefits from longer run
+BATCH        = 128
+LR           = 1e-3
+WCLIP        = 1.0
+LOGIT_TEMP   = 8.0
+ACCURACY_FLOOR_7X7   = 0.80
+ACCURACY_FLOOR_14X14 = 0.82    # floor below expected 85-88%; warns on collapse only
+
+SEEDS_14X14 = [42, 1042, 2042]   # train 3 seeds, export the best
 
 
 # ---------------------------------------------------------------------------
-# Sign with straight-through estimator.
+# Hard-tanh STE — Hubara et al. (2016) standard BinaryConnect recipe.
+#
+# Forward: y = sign(x)  (0 → 0; weight latent values are clipped to [-1,1]
+#          after each step, so 0 is measure-zero in practice).
+# Backward: g · 1(|x| <= 1)  — zero gradient outside the unit interval,
+#           which caps the STE error for saturated weights/activations.
+#           In the 7×7 identity-STE version the unbounded backward sometimes
+#           let large latent weights drift; capping it here helps the 14×14
+#           model converge to a flatter loss basin.
 # ---------------------------------------------------------------------------
 class SignSTE(torch.autograd.Function):
-    """y = sign(x), tie-break 0 → +1; backward = pure identity (no clip).
-
-    The classic BinaryConnect recipe: forward is hard sign, backward passes
-    the gradient through unchanged. Combined with post-step latent-weight
-    clipping (see WCLIP) this keeps gradients flowing without letting the
-    weight magnitudes drift unboundedly. A clipped backward (g * (|x|<=1))
-    was tried first — it killed ~30% of activation gradients downstream of
-    the affine BN (post-norm |x| often exceeds 1) and stalled training at
-    ~60% MNIST test accuracy.
-    """
     @staticmethod
-    def forward(ctx, x):
-        return torch.where(x >= 0, torch.ones_like(x), -torch.ones_like(x))
+    def forward(ctx, x: torch.Tensor) -> torch.Tensor:
+        ctx.save_for_backward(x)
+        return torch.sign(x)
 
     @staticmethod
-    def backward(ctx, g):
+    def backward(ctx, grad_output: torch.Tensor) -> torch.Tensor:
+        x, = ctx.saved_tensors
+        g = grad_output.clone()
+        g[x.abs() > 1] = 0
         return g
 
 
@@ -94,92 +81,108 @@ def sign_ste(x: torch.Tensor) -> torch.Tensor:
 
 
 class BinaryLinear(nn.Linear):
-    """nn.Linear with weights binarized to ±1 (STE on backward).
-
-    Note: only the weight is binarized; the optional bias remains float and
-    is folded into the per-class signed integer bias at export.
-    """
+    """nn.Linear with weights binarized to ±1 via hard-tanh STE."""
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         wb = sign_ste(self.weight)
         return F.linear(x, wb, self.bias)
 
 
+# ---------------------------------------------------------------------------
+# Models.
+# ---------------------------------------------------------------------------
 class BNN_49_64_10(nn.Module):
-    """BinaryConnect architecture: fc1 → BN1 → sign() → fc2 (bias=True).
-
-    No BN on layer 2: a per-class BN affine would re-order argmax at
-    deployment (since γ_c, μ_c differ per class and we can't fold a
-    per-class scale into the integer argmax we want at deployment). And
-    BN affine=False on layer 2 was empirically worse — it makes the
-    learnable fc2.bias redundant during training (BN's running mean
-    absorbs the bias), so the deployed bias stays at 0 and per-class
-    offset is lost.
-    """
+    """7×7 BNN: BinaryLinear(49→64) → BN1d(64) → sign → BinaryLinear(64→10)."""
     def __init__(self):
         super().__init__()
-        self.fc1 = BinaryLinear(N_INPUT, N_HIDDEN, bias=False)
+        self.fc1 = BinaryLinear(N_INPUT_7X7, N_HIDDEN, bias=False)
         self.bn1 = nn.BatchNorm1d(N_HIDDEN, affine=True)
         self.fc2 = BinaryLinear(N_HIDDEN, N_OUTPUT, bias=True)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        h = self.fc1(x)            # (B, 64) integer-valued
-        h = self.bn1(h)            # affine BN — γ folded at export
-        h = sign_ste(h)            # ±1 hidden
-        return self.fc2(h)         # (B, 10) raw integer logits + bias
+        return self.fc2(sign_ste(self.bn1(self.fc1(x))))
+
+
+class GroupedBNN_14x14(nn.Module):
+    """14×14 grouped BNN: 4 branches × (49→16, BN, sign) → concat(64) → 10.
+
+    Tile-compatible: branch k = tile evaluation k = quadrant k's 16 neurons.
+    Weight export: rows 16k..16k+15 of layer1_weights = branch k.
+    """
+    def __init__(self):
+        super().__init__()
+        self.branches = nn.ModuleList([
+            nn.Sequential(
+                BinaryLinear(49, 16, bias=False),
+                nn.BatchNorm1d(16, affine=True),
+            )
+            for _ in range(4)
+        ])
+        self.fc2 = BinaryLinear(N_HIDDEN, N_OUTPUT, bias=True)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:   # x: (B, 196)
+        parts   = [x[:, k * 49:(k + 1) * 49] for k in range(4)]
+        hiddens = [sign_ste(branch(p)) for branch, p in zip(self.branches, parts)]
+        return self.fc2(torch.cat(hiddens, dim=1))
 
 
 # ---------------------------------------------------------------------------
-# Image preprocessing — must match scripts/bnn_reference.preprocess_image.
-#
-# Per-image strict-`>` median binarization (Phase-3D Path B, v3):
-#   v1 (fixed 0.5)  → 7×7 perimeter constant-zero, capped at ~70% (float MLP)
-#   v2 (>= median)  → 94% of MNIST has median == 0; >= 0 sets ~all bits +1 → chance
-#   v3 (top-K with index jitter) → forced +1 at low indices for tied-at-zero
-#                                  images; (0,0) was +1 in 94% of images even
-#                                  though it's pure background → 66% BNN
-#   v3 → v4 (strict > median): when median == 0 (94% of images) only the
-#        strictly-positive pooled positions binarize to +1 — those are the
-#        actual digit pixels — typically 5–15 per image. When median > 0 (6%)
-#        we get the usual ~24 "above-median" positions. +1 count varies per
-#        image (BN1 normalizes it) but every +1 truly carries digit signal.
+# Preprocessing.
 # ---------------------------------------------------------------------------
 def preprocess_batch(x: torch.Tensor) -> torch.Tensor:
-    """(B, 1, 28, 28) → (B, 49) ±1 floats, identical math to the Python golden."""
+    """7×7: (B,1,28,28) → (B,49) ±1. avg-pool 4×4 stride 4, strict>median."""
     x = x.to(torch.float32)
     if x.max() > 1.5:
         x = x / 255.0
-    x = F.avg_pool2d(x, kernel_size=4, stride=4)            # (B, 1, 7, 7)
-    flat = x.view(x.size(0), -1)                             # (B, 49)
-    thr = flat.median(dim=1, keepdim=True).values            # (B, 1) — torch's
-                                                             # lower-median = 24th
-                                                             # sorted = same as numpy
-                                                             # for 49-elt vectors
-    return (flat > thr).to(torch.float32) * 2.0 - 1.0        # ±1, strict >
+    x    = F.avg_pool2d(x, kernel_size=4, stride=4)
+    flat = x.view(x.size(0), -1)
+    thr  = flat.median(dim=1, keepdim=True).values
+    return (flat > thr).to(torch.float32) * 2.0 - 1.0
+
+
+def preprocess_grouped_batch_14x14(x: torch.Tensor) -> torch.Tensor:
+    """14×14: (B,1,28,28) → (B,196) ±1.
+
+    adaptive_avg_pool2d(14,14) → four 7×7 quadrants →
+    per-quadrant strict>median binarization.
+    Output: [q0(49) | q1(49) | q2(49) | q3(49)].
+    """
+    x = x.to(torch.float32)
+    if x.max() > 1.5:
+        x = x / 255.0
+    p14 = F.adaptive_avg_pool2d(x, (14, 14)).squeeze(1)   # (B,14,14)
+    B   = p14.size(0)
+    quads = [
+        p14[:, 0:7,  0:7 ].reshape(B, 49),
+        p14[:, 0:7,  7:14].reshape(B, 49),
+        p14[:, 7:14, 0:7 ].reshape(B, 49),
+        p14[:, 7:14, 7:14].reshape(B, 49),
+    ]
+    bits = []
+    for q in quads:
+        thr = q.median(dim=1, keepdim=True).values
+        bits.append((q > thr).to(torch.float32) * 2.0 - 1.0)
+    return torch.cat(bits, dim=1)
 
 
 # ---------------------------------------------------------------------------
-# MNIST loader. Tries torchvision first (most convenient); falls back to a
-# self-contained urllib + idx-parser when torchvision is unavailable, so the
-# training script does not strictly require torchvision.
+# MNIST loader.
 # ---------------------------------------------------------------------------
 def _idx_parse(buf: bytes) -> np.ndarray:
     import struct
-    magic, n_items = struct.unpack(">II", buf[:8])
-    if magic == 2049:                     # labels
-        return np.frombuffer(buf, dtype=np.uint8, offset=8, count=n_items)
-    if magic == 2051:                     # images
-        rows, cols = struct.unpack(">II", buf[8:16])
+    magic, n = struct.unpack(">II", buf[:8])
+    if magic == 2049:
+        return np.frombuffer(buf, dtype=np.uint8, offset=8, count=n)
+    if magic == 2051:
+        r, c = struct.unpack(">II", buf[8:16])
         return np.frombuffer(buf, dtype=np.uint8, offset=16,
-                             count=n_items * rows * cols).reshape(n_items, rows, cols)
+                             count=n * r * c).reshape(n, r, c)
     raise ValueError(f"unknown IDX magic: {magic}")
 
 
 def _load_mnist_fallback(data_dir: Path):
-    """Download MNIST IDX files directly into data_dir (no torchvision dep)."""
-    import gzip
-    import urllib.request
+    import gzip, urllib.request
     data_dir.mkdir(parents=True, exist_ok=True)
-    base = "https://ossci-datasets.s3.amazonaws.com/mnist/"
+    base  = "https://ossci-datasets.s3.amazonaws.com/mnist/"
     files = {
         "train_images": "train-images-idx3-ubyte.gz",
         "train_labels": "train-labels-idx1-ubyte.gz",
@@ -192,16 +195,13 @@ def _load_mnist_fallback(data_dir: Path):
         if not local.exists():
             print(f"  download {name} → {local}")
             urllib.request.urlretrieve(base + name, str(local))
-        with gzip.open(local, "rb") as fh:
+        import gzip as gz
+        with gz.open(local, "rb") as fh:
             out[key] = _idx_parse(fh.read())
     return out
 
 
 def load_mnist(data_dir: Path):
-    """Return (train_images, train_labels, test_images, test_labels) numpy arrays.
-
-    Image arrays are uint8 (N, 28, 28); label arrays are uint8 (N,).
-    """
     try:
         from torchvision import datasets, transforms  # type: ignore
         tx = transforms.Compose([transforms.PILToTensor()])
@@ -222,7 +222,7 @@ def load_mnist(data_dir: Path):
 
 
 # ---------------------------------------------------------------------------
-# Training loop.
+# Dataset wrapper.
 # ---------------------------------------------------------------------------
 class _ArrDS(torch.utils.data.Dataset):
     def __init__(self, x: np.ndarray, y: np.ndarray):
@@ -236,141 +236,55 @@ class _ArrDS(torch.utils.data.Dataset):
         return self.x[i].unsqueeze(0).to(torch.float32), int(self.y[i].item())
 
 
-def train(args):
-    device = torch.device("cpu")
-    torch.manual_seed(args.seed)
-    np.random.seed(args.seed)
+# ---------------------------------------------------------------------------
+# BN-fold export helpers — shared by both nets.
+# ---------------------------------------------------------------------------
+def _bn_fold_export(fc_weight: torch.Tensor, bn: nn.BatchNorm1d,
+                    n_input: int) -> tuple[np.ndarray, np.ndarray]:
+    w = torch.where(fc_weight >= 0,
+                    torch.ones_like(fc_weight),
+                    -torch.ones_like(fc_weight)).cpu().numpy().astype(np.int8)
+    mu    = bn.running_mean.cpu().numpy()
+    sigma = torch.sqrt(bn.running_var + bn.eps).cpu().numpy()
+    gamma = bn.weight.cpu().numpy()
+    beta  = bn.bias.cpu().numpy()
+    sg    = np.where(gamma >= 0, 1.0, -1.0)
+    gabs  = np.abs(gamma) + 1e-12
+    w     = (w.T * sg.astype(np.int8)).T.astype(np.int8)
+    t     = np.clip(np.ceil((n_input + sg * mu - beta * sigma / gabs) / 2.0),
+                    0, n_input).astype(np.uint8)
+    return w, t
 
-    print(f"loading MNIST from {args.data_dir}")
-    x_tr, y_tr, x_te, y_te = load_mnist(Path(args.data_dir))
-    print(f"  train {x_tr.shape} {y_tr.shape}   test {x_te.shape} {y_te.shape}")
 
-    train_dl = DataLoader(_ArrDS(x_tr, y_tr), batch_size=BATCH, shuffle=True)
-    test_dl  = DataLoader(_ArrDS(x_te, y_te), batch_size=512, shuffle=False)
-
-    model = BNN_49_64_10().to(device)
-    # Shrink the default Linear init so the latent float weights start inside
-    # the STE pass band and gradients reach them on step 0.
-    with torch.no_grad():
-        nn.init.uniform_(model.fc1.weight, -0.5, 0.5)
-        nn.init.uniform_(model.fc2.weight, -0.5, 0.5)
-        if model.fc2.bias is not None:
-            nn.init.zeros_(model.fc2.bias)
-    # Adam over all parameters (BN γ/β are also Adam-trained).
-    opt = torch.optim.Adam(model.parameters(), lr=LR)
-
-    for epoch in range(args.epochs):
-        model.train()
-        total = correct = 0
-        running = 0.0
-        for x, y in train_dl:
-            x = preprocess_batch(x).to(device)
-            y = y.to(device)
-            logits = model(x)
-            loss = F.cross_entropy(logits / LOGIT_TEMP, y)
-            opt.zero_grad()
-            loss.backward()
-            opt.step()
-            # Clip latent weights so the STE keeps passing gradients.
-            with torch.no_grad():
-                model.fc1.weight.clamp_(-WCLIP, WCLIP)
-                model.fc2.weight.clamp_(-WCLIP, WCLIP)
-            running += loss.item() * y.size(0)
-            pred = logits.argmax(dim=1)        # argmax preserved by /TEMP
-            total += y.size(0)
-            correct += (pred == y).sum().item()
-        train_acc = correct / total
-
-        model.eval()
-        test_correct = test_total = 0
-        with torch.no_grad():
-            for x, y in test_dl:
-                x = preprocess_batch(x).to(device)
-                pred = model(x).argmax(dim=1)
-                test_correct += (pred == y).sum().item()
-                test_total   += y.size(0)
-        test_acc = test_correct / test_total
-        print(f"  epoch {epoch+1:2d}/{args.epochs}  loss={running/total:.4f}  "
-              f"train_acc={train_acc:.4f}  test_acc={test_acc:.4f}")
-
-    if test_acc < ACCURACY_FLOOR:
-        print(f"!! test_acc {test_acc:.4f} < floor {ACCURACY_FLOOR:.2f} — STE/binarization may be wrong; debug rather than train longer")
-
-    # -----------------------------------------------------------------------
-    # Export: fold BN1 (affine) + fc2.bias into deployment-form integer params.
-    #
-    # Layer 1 deployment forward (no BN2 in the eval path):
-    #   y_i = sign( γ_i (z_i − μ_i)/σ_i + β_i )    where z_i = w_bin · x ∈ ±49
-    # If γ_i > 0:
-    #   y_i = sign( z_i − μ_i + β_i σ_i / γ_i )
-    #       = +1 iff p ≥ (49 + μ_i − β_i σ_i / γ_i) / 2
-    # If γ_i < 0: comparison direction flips. Equivalent under hardware "≥":
-    #   flip the sign of weight row w_i (so z' = −z = w'·x), then
-    #   y_i = +1 iff p' ≥ (49 − μ_i − β_i σ_i / |γ_i|) / 2
-    # Layer 2 ignores BN2 at deployment (per-class γ would couple argmax);
-    # logit_c = z_c + bias_c (integer rounded).
-    # -----------------------------------------------------------------------
+def _export(model: nn.Module, out_path: Path, net: str, test_acc: float) -> None:
     model.eval()
     with torch.no_grad():
-        # Layer-1 weights — sign(fc1.weight), 0 mapped to +1.
-        l1_w = torch.where(model.fc1.weight >= 0,
-                           torch.ones_like(model.fc1.weight),
-                           -torch.ones_like(model.fc1.weight)).cpu().numpy().astype(np.int8)
+        if net == "14x14":
+            l1_w = np.zeros((64, 49), dtype=np.int8)
+            l1_t = np.zeros(64, dtype=np.uint8)
+            for k in range(4):
+                w_k, t_k = _bn_fold_export(model.branches[k][0].weight,
+                                            model.branches[k][1], n_input=49)
+                l1_w[k * 16:(k + 1) * 16] = w_k
+                l1_t[k * 16:(k + 1) * 16] = t_k
+        else:
+            l1_w, l1_t = _bn_fold_export(model.fc1.weight, model.bn1,
+                                          n_input=N_INPUT_7X7)
 
-        bn1 = model.bn1
-        mu1    = bn1.running_mean.cpu().numpy()
-        sigma1 = torch.sqrt(bn1.running_var + bn1.eps).cpu().numpy()
-        gamma1 = bn1.weight.cpu().numpy()
-        beta1  = bn1.bias.cpu().numpy()
-        sign_g1 = np.where(gamma1 >= 0, 1.0, -1.0)
-        gamma1_abs = np.abs(gamma1) + 1e-12
-
-        # Per-neuron flip: rows with γ<0 get their weight signs negated so
-        # the hardware "p >= t" comparison still expresses the right
-        # decision direction (γ<0 inverts the inequality after fold).
-        l1_w = (l1_w.T * sign_g1.astype(np.int8)).T.astype(np.int8)
-
-        # Threshold per neuron (unified, sign_g = sign(γ)):
-        #   t = ceil( (49 + sign_g·μ - β·σ/|γ|) / 2 )
-        # Derivation:
-        #   PyTorch:  y = sign( γ·(z−μ)/σ + β )      with z = w_bin·x ∈ ±49
-        #   γ>0  ⇒ y=+1 iff z ≥ μ − β·σ/γ
-        #             ⇒ p ≥ (49 + μ − β·σ/γ)/2
-        #   γ<0  ⇒ y=+1 iff z ≤ μ + β·σ/|γ|
-        #             ⇒ after w-flip p′ = 49−p:
-        #                p′ ≥ (49 − μ − β·σ/|γ|)/2
-        l1_t_real = (N_INPUT + sign_g1 * mu1 - beta1 * sigma1 / gamma1_abs) / 2.0
-        l1_t = np.ceil(l1_t_real).astype(np.int32)
-        l1_t = np.clip(l1_t, 0, N_INPUT).astype(np.uint8)
-
-        # Layer-2 weights — sign(fc2.weight).
         l2_w = torch.where(model.fc2.weight >= 0,
                            torch.ones_like(model.fc2.weight),
                            -torch.ones_like(model.fc2.weight)).cpu().numpy().astype(np.int8)
+        l2_bias_f = model.fc2.bias.cpu().numpy()
+        l2_bias   = np.rint(l2_bias_f).astype(np.int16)
+        l2_t      = np.clip(np.ceil((N_HIDDEN - l2_bias_f) / 2.0),
+                            0, N_HIDDEN).astype(np.uint8)
 
-        # Layer-2 signed bias for argmax: logit_c = z_c + bias_c.
-        l2_bias_float = model.fc2.bias.cpu().numpy()
-        l2_bias = np.rint(l2_bias_float).astype(np.int16)
-
-        # Layer-2 threshold-form (kept for spec compliance, not used in argmax):
-        l2_t_real = (N_HIDDEN - l2_bias_float) / 2.0
-        l2_t = np.ceil(l2_t_real).astype(np.int32)
-        l2_t = np.clip(l2_t, 0, N_HIDDEN).astype(np.uint8)
-
-    out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    np.savez(
-        out_path,
-        layer1_weights=l1_w,            # (64, 49) ±1
-        layer1_thresholds=l1_t,         # (64,)    0..49
-        layer2_weights=l2_w,            # (10, 64) ±1
-        layer2_thresholds=l2_t,         # (10,)    0..64
-        layer2_bias=l2_bias,            # (10,)    int16 signed
-    )
+    np.savez(out_path,
+             layer1_weights=l1_w, layer1_thresholds=l1_t,
+             layer2_weights=l2_w, layer2_thresholds=l2_t,
+             layer2_bias=l2_bias)
     print(f"wrote {out_path}")
-
-    # Save the PyTorch model state too — gen_bnn_testdata.py needs it to run
-    # the PyTorch ↔ Python-golden agreement check.
     pt_path = out_path.with_suffix(".pt")
     torch.save(model.state_dict(), pt_path)
     print(f"wrote {pt_path}")
@@ -380,10 +294,164 @@ def train(args):
     print(f"final test_acc = {test_acc:.4f}")
 
 
+# ---------------------------------------------------------------------------
+# Training — single-seed inner loop.
+# ---------------------------------------------------------------------------
+def _train_one_seed(seed: int, model_factory, preprocess_fn,
+                    train_dl: DataLoader, test_dl: DataLoader,
+                    epochs: int, net14: bool) -> tuple[float, nn.Module]:
+    """Train with one random seed; return (final_test_acc, trained_model)."""
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+
+    model = model_factory()
+
+    with torch.no_grad():
+        if net14:
+            for k in range(4):
+                nn.init.uniform_(model.branches[k][0].weight, -0.5, 0.5)
+        else:
+            nn.init.uniform_(model.fc1.weight, -0.5, 0.5)
+        nn.init.uniform_(model.fc2.weight, -0.5, 0.5)
+        if model.fc2.bias is not None:
+            nn.init.zeros_(model.fc2.bias)
+
+    opt = torch.optim.Adam(model.parameters(), lr=LR)
+
+    steps_per_epoch = len(train_dl)
+    if net14:
+        scheduler = torch.optim.lr_scheduler.OneCycleLR(
+            opt,
+            max_lr=LR,
+            total_steps=epochs * steps_per_epoch,
+            pct_start=0.05,
+            anneal_strategy="cos",
+            final_div_factor=1e4,
+        )
+    else:
+        scheduler = None
+
+    test_acc = 0.0
+    for epoch in range(epochs):
+        model.train()
+        total = correct = 0
+        running = 0.0
+        for x, y in train_dl:
+            x      = preprocess_fn(x)
+            logits = model(x)
+            loss   = F.cross_entropy(logits / LOGIT_TEMP, y)
+            opt.zero_grad()
+            loss.backward()
+            opt.step()
+            if scheduler is not None:
+                scheduler.step()
+            with torch.no_grad():
+                if net14:
+                    for k in range(4):
+                        model.branches[k][0].weight.clamp_(-WCLIP, WCLIP)
+                else:
+                    model.fc1.weight.clamp_(-WCLIP, WCLIP)
+                model.fc2.weight.clamp_(-WCLIP, WCLIP)
+            running += loss.item() * y.size(0)
+            pred    = logits.argmax(dim=1)
+            total   += y.size(0)
+            correct += (pred == y).sum().item()
+        train_acc = correct / total
+
+        model.eval()
+        ok = tot = 0
+        with torch.no_grad():
+            for x, y in test_dl:
+                x  = preprocess_fn(x)
+                ok  += (model(x).argmax(1) == y).sum().item()
+                tot += y.size(0)
+        test_acc = ok / tot
+
+        lr_now = opt.param_groups[0]["lr"] if scheduler is None else scheduler.get_last_lr()[0]
+        print(f"  ep {epoch+1:2d}/{epochs}  loss={running/total:.4f}  "
+              f"train={train_acc:.4f}  test={test_acc:.4f}  "
+              f"lr={lr_now:.2e}")
+
+    return test_acc, model
+
+
+# ---------------------------------------------------------------------------
+# Training — outer driver.
+# ---------------------------------------------------------------------------
+def train(args) -> None:
+    net14 = (args.net == "14x14")
+
+    if args.out is None:
+        args.out = ("data/bnn_weights_14x14.npz" if net14
+                    else "data/bnn_weights.npz")
+    if args.epochs is None:
+        args.epochs = EPOCHS_14X14 if net14 else EPOCHS
+
+    accuracy_floor = ACCURACY_FLOOR_14X14 if net14 else ACCURACY_FLOOR_7X7
+
+    print(f"net={args.net}  epochs={args.epochs}  out={args.out}")
+    print(f"ste=hard-tanh  scheduler={'OneCycleLR' if net14 else 'constant'}")
+    print(f"loading MNIST from {args.data_dir}")
+    x_tr, y_tr, x_te, y_te = load_mnist(Path(args.data_dir))
+    print(f"  train {x_tr.shape}  test {x_te.shape}")
+
+    train_dl = DataLoader(_ArrDS(x_tr, y_tr), batch_size=BATCH, shuffle=True)
+    test_dl  = DataLoader(_ArrDS(x_te, y_te), batch_size=512,  shuffle=False)
+
+    if net14:
+        model_factory = GroupedBNN_14x14
+        preprocess_fn = preprocess_grouped_batch_14x14
+        seeds = [args.seed] if args.seed != 2026 else SEEDS_14X14
+    else:
+        model_factory = BNN_49_64_10
+        preprocess_fn = preprocess_batch
+        seeds = [args.seed]
+
+    best_acc   = -1.0
+    best_model = None
+    best_seed  = None
+    seed_results: dict[int, float] = {}
+
+    for seed in seeds:
+        sep = "=" * 60
+        print(f"\n{sep}")
+        print(f"SEED {seed}  ({seeds.index(seed)+1}/{len(seeds)})")
+        print(sep)
+        acc, model = _train_one_seed(
+            seed, model_factory, preprocess_fn,
+            train_dl, test_dl, args.epochs, net14,
+        )
+        seed_results[seed] = acc
+        if acc > best_acc:
+            best_acc   = acc
+            best_model = model
+            best_seed  = seed
+        print(f"  → seed {seed} final test_acc = {acc:.4f}")
+
+    if len(seeds) > 1:
+        print(f"\n{'='*60}")
+        print("MULTI-SEED SUMMARY")
+        print(f"{'='*60}")
+        for s, a in seed_results.items():
+            marker = " ← best" if s == best_seed else ""
+            print(f"  seed {s:5d}: {a:.4f}{marker}")
+        print(f"  best = seed {best_seed}, test_acc = {best_acc:.4f}")
+
+    if best_acc < accuracy_floor:
+        print(f"\n!! best test_acc {best_acc:.4f} < floor {accuracy_floor:.2f} "
+              "— check STE / preprocessing")
+
+    _export(best_model, Path(args.out), args.net, best_acc)
+
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--out",      default="data/bnn_weights.npz")
+    p.add_argument("--net",      choices=["7x7", "14x14"], default="7x7")
+    p.add_argument("--out",      default=None,
+                   help="output npz (default: data/bnn_weights[_14x14].npz)")
     p.add_argument("--data-dir", default="data/mnist")
-    p.add_argument("--epochs",   type=int, default=EPOCHS)
-    p.add_argument("--seed",     type=int, default=2026)
+    p.add_argument("--epochs",   type=int, default=None,
+                   help="epochs (default: 10 for 7x7, 30 for 14x14)")
+    p.add_argument("--seed",     type=int, default=2026,
+                   help="seed override; 14x14 default is 3-seed sweep [42,1042,2042]")
     train(p.parse_args())

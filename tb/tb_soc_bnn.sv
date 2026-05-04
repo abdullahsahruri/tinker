@@ -1,11 +1,14 @@
 // =============================================================================
-// tb_soc_bnn.sv — Phase-3D end-to-end BNN inference testbench.
+// tb_soc_bnn.sv — Phase-4.5 end-to-end BNN inference testbench.
 //
 // Drives the full SoC (firmware/inference/firmware.hex) over 16 MNIST test
-// images preloaded into DMEM at word offsets 0..31. Snoops the WB master
-// bus for per-image GPIO writes, captures the firmware's predictions, and
-// compares them to the precomputed Python-golden expectations
-// (tb/tb_bnn_expected.hex).
+// images preloaded into DMEM.  Each image occupies 8 DMEM words:
+//   DMEM[8*img + 2*k + 0] = quadrant-k bits [31:0]
+//   DMEM[8*img + 2*k + 1] = quadrant-k bits [63:32]
+// Total: 128 DMEM words for 16 images (DMEM_WORDS = 8 * N_IMAGES).
+//
+// The testbench snoops the WB master bus for per-image GPIO writes and
+// compares predictions to tb/tb_bnn_expected_14x14.hex.
 //
 // PASS criterion: match_n >= MATCH_FLOOR (default 14 of 16) AND the final
 // 0xCAFEBABE sentinel observed within TIMEOUT_CYCLES.
@@ -51,13 +54,13 @@ module tb_soc_bnn;
 
     // ---- Image + expected loaders ----------------------------------------
     localparam integer N_IMAGES = 16;
-    localparam integer DMEM_WORDS = 2 * N_IMAGES;     // 32 words
+    localparam integer DMEM_WORDS = 8 * N_IMAGES;     // 128 words (8 per image)
     reg [31:0] xs_loader [0:DMEM_WORDS-1];
     reg [7:0]  expected  [0:N_IMAGES-1];
     integer load_i;
     initial begin
-        $readmemh("tb/tb_bnn_xs.hex",       xs_loader);
-        $readmemh("tb/tb_bnn_expected.hex", expected);
+        $readmemh("tb/tb_bnn_xs_14x14.hex",       xs_loader);
+        $readmemh("tb/tb_bnn_expected_14x14.hex", expected);
     end
 
     // After reset deassertion, copy the loader into DMEM hierarchically so

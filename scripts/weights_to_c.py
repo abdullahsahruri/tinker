@@ -44,9 +44,20 @@ def _pack_l2(w_pm1_row: np.ndarray) -> tuple[int, int]:
 
 def main() -> None:
     p = argparse.ArgumentParser()
-    p.add_argument("--weights", default="data/bnn_weights.npz")
-    p.add_argument("--out",     default="firmware/inference/weights.h")
+    p.add_argument("--net",     choices=["7x7", "14x14"], default="7x7")
+    p.add_argument("--weights", default=None,
+                   help="npz path (default: data/bnn_weights[_14x14].npz)")
+    p.add_argument("--out",     default=None,
+                   help="header path (default: firmware/inference/weights[_14x14].h)")
     args = p.parse_args()
+
+    net14 = (args.net == "14x14")
+    if args.weights is None:
+        args.weights = ("data/bnn_weights_14x14.npz" if net14
+                        else "data/bnn_weights.npz")
+    if args.out is None:
+        args.out = ("firmware/inference/weights_14x14.h" if net14
+                    else "firmware/inference/weights.h")
 
     net = ref.load_bnn(args.weights)
     if net["l1_w"].shape != (N_HIDDEN, N_INPUT):

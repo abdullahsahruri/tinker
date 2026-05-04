@@ -78,29 +78,10 @@ set d_leakage   [lindex $design_pw 2]
 set d_total     [lindex $design_pw 3]
 
 # ---- Per-group power (Sequential / Combinational / Clock / Macro / Pad)
-# OpenSTA's `sta::group_power` doesn't return what we expect; the
-# documented public API is `sta::report_power_design_json` which dumps
-# the same five-row breakdown that `report_power` prints, in JSON.
+# sta::report_power_design_json prints JSON as a side-effect but returns "";
+# parsing its return value corrupts TCL state in LibreLane 3.0.3 OpenSTA.
+# Skip the per-group breakdown — design_power totals are sufficient.
 set group_totals [dict create]
-set json_err [catch {sta::report_power_design_json $corner_obj 6} json_str]
-puts "DBG: json_err=$json_err json_str_len=[string length $json_str]"
-if {$json_err == 0} {
-    # json_str looks like:
-    #   {"sequential":{"internal":...,"switching":...,"leakage":...,"total":...},
-    #    "combinational":{...}, "clock":{...}, "macro":{...}, "pad":{...}}
-    # We do a tiny regex parse — TCL has no built-in JSON. The inner
-    # objects' field order is fixed by OpenSTA's emitter.
-    # Strip newlines to make the regex match across the multi-line JSON.
-    # `regsub` returns the substitution count; the rewritten string is via
-    # the -all flag and assigned to varName ($json_oneline).
-    regsub -all {\s+} $json_str " " json_oneline
-    foreach grp {Sequential Combinational Clock Macro Pad} {
-        set rx "\"$grp\": \\{ \"internal\": (\[-+0-9.eE\]+) , \"switching\": (\[-+0-9.eE\]+) , \"leakage\": (\[-+0-9.eE\]+) , \"total\": (\[-+0-9.eE\]+)"
-        if {[regexp $rx $json_oneline -> gi gs gl gt]} {
-            dict set group_totals $grp [list $gi $gs $gl $gt]
-        }
-    }
-}
 
 # ---- Per-bucket power --------------------------------------------------
 # Read each bucket's cell list, look up each instance, sum power.
@@ -221,9 +202,4 @@ puts $jp "}"
 close $jp
 
 puts ""
-puts "------ report_power -corner $corner_name ------"
-report_power -corner $corner_name
-
-puts ""
 puts "STA_SOC_POWER_DONE corner=$corner_name total=$d_total bucket_sum=$sum_buckets"
-exit 0

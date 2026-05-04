@@ -1,0 +1,53 @@
+{
+  "phase": "4_diagnostic_grouped",
+  "description": "Grouped 4\u00d7(49\u219216) float-MLP ceiling vs fully-connected control",
+  "preprocessing": {
+    "pool": "F.adaptive_avg_pool2d(28x28, (14,14))",
+    "quadrants": [
+      "rows[0:7,cols[0:7]",
+      "rows[0:7],cols[7:14]",
+      "rows[7:14],cols[0:7]",
+      "rows[7:14],cols[7:14]"
+    ],
+    "binarization": "strict > per-quadrant-median (49 cells each)",
+    "train_plus1_fractions_per_quadrant": [
+      0.2045829931972789,
+      0.28469455782312925,
+      0.2611510204081633,
+      0.27295102040816327
+    ]
+  },
+  "grouped_4x49_16": {
+    "arch": "4\u00d7Linear(49\u219216,BN,ReLU) \u2192 concat(64) \u2192 Linear(64,10)",
+    "tile_compatible": true,
+    "tile_evaluations_per_image": 4,
+    "epoch_accuracies": {
+      "1": 0.8786,
+      "3": 0.9238,
+      "5": 0.9344
+    },
+    "epoch5_acc": 0.9344
+  },
+  "fully_connected_196_64_10": {
+    "arch": "Linear(196,64,BN,ReLU) \u2192 Linear(64,10)",
+    "tile_compatible": false,
+    "epoch_accuracies": {
+      "1": 0.9075,
+      "3": 0.935,
+      "5": 0.9431
+    },
+    "epoch5_acc": 0.9431,
+    "note": "uses same per-quadrant binarization as grouped; connectivity gap shows cost of tile constraint"
+  },
+  "known_baselines": {
+    "current_7x7_bnn_float_ceiling": 0.8188,
+    "current_7x7_bnn_integer": 0.7112,
+    "full_14x14_fc_float_ceiling_global_median": 0.945
+  },
+  "decision": {
+    "grouped_epoch5_acc": 0.9344,
+    "connectivity_gap_pp": 0.87,
+    "band": ">=90%",
+    "recommendation": "PROCEED \u2014 grouped BNN expected at 82-86%. Comfortable headline; implementation justified."
+  }
+}

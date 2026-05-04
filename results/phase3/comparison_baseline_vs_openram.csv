@@ -1,41 +1,43 @@
-metric,unit,baseline_regfile,openram,delta
-"Total cell count","logic + macros","123,157 logic + 0 macros","68,110 logic + 2 macros","0.55× std-cell shrink"
-"Std-cell area","mm²","0.853","0.380","0.45×"
-"Macro area","mm²","0.000","0.475","—"
-"Core area","mm²","1.726","2.199","1.27×"
-"Die area","mm²","1.769","2.250","1.27× (OpenRAM die was set absolute; auto-relative would yield ~1.2–1.4 mm²)"
-"Std-cell utilization","%","49.4","22.0","—"
-,,,,
-"Setup WNS @ nom_tt","ns","+1.95","+0.51","headline corner closes in both"
-"Setup WNS @ nom_ss","ns","-5.32","-8.13","baseline: regfile-mux fanout (4484 terms); OpenRAM: TT-only macro Liberty methodology artifact"
-"Setup WNS @ nom_ff","ns","+4.76","+3.87","—"
-"Hold WNS @ nom_ss","ns","-0.29","+0.45","OpenRAM hold is clean; baseline had 6 violations"
-,,,,
-"Default-activity power @ nom_tt","mW","102.98","45.26","0.44× lower"
-"Activity-aware power @ nom_tt","mW","90.38","41.54","0.46× lower"
-"Activity-aware power @ max_ff","mW","106.06","47.21","0.45× lower"
-,,,,
-"Sequential power @ max_ff","mW (% of total)","58.1  (54.8%)","19.8  (41.9%)","share drops as macros take over storage role"
-"Combinational power @ max_ff","mW (% of total)","1.02  (1.0%)","0.97  (2.1%)","share rises slightly — tile combinational becomes more visible"
-"Clock-tree power @ max_ff","mW (% of total)","47.0  (44.3%)","17.1  (36.2%)","smaller absolute (fewer flops to clock); fraction down"
-"Macro power @ max_ff","mW (% of total)","0.00  (0.0%)","9.39  (19.9%)","absent in baseline (no macros)"
-,,,,
-"IMEM total @ max_ff","mW","0.00","5.56","baseline IMEM was constant-propagated to 0; OpenRAM = macro internal power"
-"DMEM total @ max_ff","mW","38.58","3.85","baseline DMEM = 8 192 flops worth of clock-tree + sequential; OpenRAM = macro internal"
-"Tile total @ max_ff","mW (% of total)","11.47  (10.81%)","11.47  (24.29%)","tile IS THE SAME RTL — power identical; share rises with smaller pie"
-"PicoRV32 total @ max_ff","mW","7.78","7.71","—"
-"GPIO + xbar @ max_ff","mW","0.30","0.30","—"
-"Clock-tree total @ max_ff","mW","42.98","15.10","0.35× lower"
-,,,,
-"Tile fraction of total energy @ max_ff","%","10.81","24.29","2× higher visibility"
-"Memory fraction of total power @ max_ff","%","36.4","19.9","0.55× — IMEM/DMEM no longer dominate"
-,,,,
-"Per-image cycle count","cycles","14,660","16,907","+15% (1-cycle wait state on macros)"
-"Per-image energy @ max_ff","µJ","15.55","7.98","0.51× lower (despite +15% cycles)"
-"Per-image energy @ nom_tt","µJ","13.25","7.02","0.53× lower"
-"Inferences/J @ max_ff","/J","64,315","125,292","1.95× more"
-"Inferences/J @ nom_tt","/J","75,473","142,377","1.89× more"
-"Effective inferences/sec @ 100 MHz @ nom_tt","/sec","6,821","5,915","throughput drops with wait states; energy-per-inference drops more"
-,,,,
-"P&R wall-clock","min","93","78","0.84× faster"
-"Peak DRT memory","GiB","10.22","2.95","0.29× lower"
+metric,unit,baseline_regfile,openram,delta,phase45_14x14_grouped
+"Total cell count","logic + macros","123,157 logic + 0 macros","68,110 logic + 2 macros","0.55× std-cell shrink","68,110 logic + 2 macros (SoC unchanged)"
+"Std-cell area","mm²","0.853","0.380","0.45×","0.380 (SoC unchanged)"
+"Macro area","mm²","0.000","0.475","—","0.475 (SoC unchanged)"
+"Core area","mm²","1.726","2.199","1.27×","2.199 (SoC unchanged)"
+"Die area","mm²","1.769","2.250","1.27× (OpenRAM die was set absolute; auto-relative would yield ~1.2–1.4 mm²)","2.250 (SoC unchanged)"
+"Std-cell utilization","%","49.4","22.0","—","22.0 (SoC unchanged)"
+,,,,,,
+"Setup WNS @ nom_tt","ns","+1.95","+0.51","headline corner closes in both","+0.51 (SoC unchanged)"
+"Setup WNS @ nom_ss","ns","-5.32","-8.13","baseline: regfile-mux fanout (4484 terms); OpenRAM: TT-only macro Liberty methodology artifact","-8.13 (SoC unchanged)"
+"Setup WNS @ nom_ff","ns","+4.76","+3.87","—","+3.87 (SoC unchanged)"
+"Hold WNS @ nom_ss","ns","-0.29","+0.45","OpenRAM hold is clean; baseline had 6 violations","+0.45 (SoC unchanged)"
+,,,,,,
+"Default-activity power @ nom_tt","mW","102.98","45.26","0.44× lower","45.26 (SoC unchanged)"
+"Activity-aware power @ nom_tt","mW","90.38","41.54","0.46× lower","41.54 (SoC unchanged)"
+"Activity-aware power @ max_ff","mW","106.06","47.21","0.45× lower","47.21 (SoC unchanged)"
+,,,,,,
+"Sequential power @ max_ff","mW (% of total)","58.1  (54.8%)","19.8  (41.9%)","share drops as macros take over storage role","19.8  (41.9%) (SoC unchanged)"
+"Combinational power @ max_ff","mW (% of total)","1.02  (1.0%)","0.97  (2.1%)","share rises slightly — tile combinational becomes more visible","0.97  (2.1%) (SoC unchanged)"
+"Clock-tree power @ max_ff","mW (% of total)","47.0  (44.3%)","17.1  (36.2%)","smaller absolute (fewer flops to clock); fraction down","17.1  (36.2%) (SoC unchanged)"
+"Macro power @ max_ff","mW (% of total)","0.00  (0.0%)","9.39  (19.9%)","absent in baseline (no macros)","9.39  (19.9%) (SoC unchanged)"
+,,,,,,
+"IMEM total @ max_ff","mW","0.00","5.56","baseline IMEM was constant-propagated to 0; OpenRAM = macro internal power","5.56 (SoC unchanged)"
+"DMEM total @ max_ff","mW","38.58","3.85","baseline DMEM = 8 192 flops worth of clock-tree + sequential; OpenRAM = macro internal","3.85 (SoC unchanged)"
+"Tile total @ max_ff","mW (% of total)","11.47  (10.81%)","11.47  (24.29%)","tile IS THE SAME RTL — power identical; share rises with smaller pie","11.47  (24.29%) (SoC unchanged)"
+"PicoRV32 total @ max_ff","mW","7.78","7.71","—","7.71 (SoC unchanged)"
+"GPIO + xbar @ max_ff","mW","0.30","0.30","—","0.30 (SoC unchanged)"
+"Clock-tree total @ max_ff","mW","42.98","15.10","0.35× lower","15.10 (SoC unchanged)"
+,,,,,,
+"Tile fraction of total energy @ max_ff","%","10.81","24.29","2× higher visibility","24.29 (SoC unchanged)"
+"Memory fraction of total power @ max_ff","%","36.4","19.9","0.55× — IMEM/DMEM no longer dominate","19.9 (SoC unchanged)"
+,,,,,,
+"MNIST test accuracy (10K eval)","%","71.12","71.12","Phase 3D 7×7 BNN — both configs use same weights","85.60 (+14.48 pp; grouped 14×14 BNN)"
+,,,,,,
+"Per-image cycle count","cycles","14,660","16,907","+15% (1-cycle wait state on macros)","17,068 (+0.95% vs Phase 3.5)"
+"Per-image energy @ max_ff","µJ","15.55","7.98","0.51× lower (despite +15% cycles)","8.06 (+1.0% vs Phase 3.5)"
+"Per-image energy @ nom_tt","µJ","13.25","7.02","0.53× lower","7.09 (est.)"
+"Inferences/J @ max_ff","/J","64,315","125,292","1.95× more","124,113 (-0.9% vs Phase 3.5)"
+"Inferences/J @ nom_tt","/J","75,473","142,377","1.89× more","141,044 (est.)"
+"Effective inferences/sec @ 100 MHz @ nom_tt","/sec","6,821","5,915","throughput drops with wait states; energy-per-inference drops more","5,859 (est.)"
+,,,,,,
+"P&R wall-clock","min","93","78","0.84× faster","N/A (SoC RTL unchanged — no re-P&R needed)"
+"Peak DRT memory","GiB","10.22","2.95","0.29× lower","N/A (SoC RTL unchanged — no re-P&R needed)"

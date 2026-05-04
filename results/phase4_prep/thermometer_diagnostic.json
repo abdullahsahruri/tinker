@@ -1,0 +1,93 @@
+{
+  "phase": "4_diagnostic",
+  "description": "Float-MLP ceiling: 6-config spatial+architecture sweep",
+  "control_v4_binary": {
+    "epoch_accuracies": {
+      "1": 0.7897,
+      "3": 0.8095,
+      "5": 0.8188
+    },
+    "epoch5_acc": 0.8188,
+    "input_dim": 49,
+    "grid": "7x7",
+    "expected_range": [
+      0.77,
+      0.84
+    ]
+  },
+  "thermometer": {
+    "input_dim": 147,
+    "bits_per_cell": 3,
+    "quantile_thresholds_pct": [
+      25,
+      50,
+      75
+    ],
+    "train_bit_fractions": {
+      "b0_ge_q25": 1.0,
+      "b1_ge_q50": 0.9702064394950867,
+      "b2_ge_q75": 0.33932313323020935
+    },
+    "epoch_accuracies": {
+      "1": 0.7661,
+      "3": 0.8186,
+      "5": 0.7805
+    },
+    "epoch5_acc": 0.7805,
+    "note": "degenerate \u2014 b0/b1 \u22481.0 due to MNIST zero-heavy background"
+  },
+  "decision": {
+    "e5_8x8": 0.8484,
+    "e5_14x14": 0.945,
+    "e5_deeper": 0.8235,
+    "e5_conv": 0.8222,
+    "findings": [
+      "Spatial resolution alone does NOT break the ceiling (8\u00d78=84.8%, 14\u00d714=94.5%).",
+      "Adding depth (49\u219264\u219264\u219210 = 82.3%) does not break the ceiling.",
+      "Conv preamble (82.2%) does not break the ceiling.",
+      "Best new config: 14\u00d714 spatial at 94.5% float ceiling."
+    ]
+  },
+  "binary_8x8": {
+    "epoch_accuracies": {
+      "1": 0.7996,
+      "3": 0.8376,
+      "5": 0.8484
+    },
+    "epoch5_acc": 0.8484,
+    "input_dim": 64,
+    "grid": "8x8",
+    "plus1_fraction": 0.3764283854166667
+  },
+  "binary_14x14": {
+    "epoch_accuracies": {
+      "1": 0.909,
+      "3": 0.9371,
+      "5": 0.945
+    },
+    "epoch5_acc": 0.945,
+    "input_dim": 196,
+    "grid": "14x14",
+    "plus1_fraction": 0.25600221088435376
+  },
+  "deeper_49_64_64_10": {
+    "epoch_accuracies": {
+      "1": 0.7917,
+      "3": 0.8191,
+      "5": 0.8235
+    },
+    "epoch5_acc": 0.8235,
+    "input_dim": 49,
+    "hidden_layers": 2
+  },
+  "conv_preamble": {
+    "epoch_accuracies": {
+      "1": 0.7997,
+      "3": 0.8201,
+      "5": 0.8222
+    },
+    "epoch5_acc": 0.8222,
+    "input_dim": 49,
+    "arch": "conv(1\u219216,3\u00d73)+flatten"
+  }
+}

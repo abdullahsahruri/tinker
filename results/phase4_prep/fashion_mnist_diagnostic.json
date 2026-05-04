@@ -1,0 +1,49 @@
+{
+  "phase": "4_diagnostic_fashion_mnist",
+  "description": "Grouped 4\u00d7(49\u219216) float ceiling on Fashion-MNIST vs FC upper bound",
+  "preprocessing": {
+    "pool": "F.adaptive_avg_pool2d(28x28, (14,14))",
+    "binarization": "strict > per-quadrant-median (49 cells each)",
+    "train_plus1_fractions_per_quadrant": [
+      0.3974408163265306,
+      0.46357278911564626,
+      0.46470034013605444,
+      0.46980850340136054
+    ]
+  },
+  "grouped_4x49_16": {
+    "arch": "4\u00d7Linear(49\u219216,BN,ReLU) \u2192 concat(64) \u2192 Linear(64,10)",
+    "tile_compatible": true,
+    "tile_evaluations_per_image": 4,
+    "epoch_accuracies": {
+      "1": 0.7377,
+      "3": 0.7837,
+      "5": 0.7888
+    },
+    "epoch5_acc": 0.7888
+  },
+  "fully_connected_196_64_10": {
+    "arch": "Linear(196,64,BN,ReLU) \u2192 Linear(64,10)",
+    "tile_compatible": false,
+    "epoch_accuracies": {
+      "1": 0.7766,
+      "3": 0.7964,
+      "5": 0.8063
+    },
+    "epoch5_acc": 0.8063
+  },
+  "mnist_reference": {
+    "grouped_epoch5_acc": 0.9344,
+    "fc_epoch5_acc": 0.9431,
+    "connectivity_gap_pp": 0.87
+  },
+  "decision": {
+    "grouped_epoch5_acc": 0.7888,
+    "fc_epoch5_acc": 0.8063,
+    "connectivity_gap_pp": 1.75,
+    "mnist_connectivity_gap_pp": 0.87,
+    "gap_delta_pp": 0.88,
+    "band": "<80%",
+    "recommendation": "STRONGLY DECLINE \u2014 architecture mismatch. Stay on MNIST. Fashion-MNIST connectivity gap +1.75 pp vs MNIST 0.87 pp (delta +0.88 pp \u2014 similar gap; quadrant locality holds)."
+  }
+}

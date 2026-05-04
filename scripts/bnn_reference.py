@@ -192,6 +192,89 @@ def bnn_forward(img_28x28: np.ndarray, network: dict) -> int:
 
 
 # ---------------------------------------------------------------------------
+# 14×14 grouped BNN — preprocess, forward, and loader.
+#
+# Architecture: 4 branches × BinaryLinear(49→16) → concat(64) → Linear(64→10).
+# Network arrays share the same npz schema as the 7×7 BNN:
+#   l1_w  (64, 49): rows 16k..16k+15 = branch k's 16 neurons
+#   l1_t  (64,):    per-neuron thresholds (0..49), same formula
+#   l2_w  (10, 64), l2_bias (10,): unchanged
+#
+# Preprocessing: 28×28 → adaptive_avg_pool 14×14 → four 7×7 quadrants →
+# per-quadrant strict>median binarization. Each branch k receives quadrant k
+# as its 49-bit input (same XNOR-popcount tile format as Phase-3D).
+# ---------------------------------------------------------------------------
+def preprocess_image_14x14(img_28x28: np.ndarray) -> np.ndarray:
+    """28×28 uint8/float → (4, 49) int8 ±1, one row per quadrant.
+
+    Row k = quadrant k after per-quadrant strict>median binarization.
+    Quadrant layout (in 14×14 grid):
+        q0: rows[0:7],  cols[0:7]   (top-left)
+        q1: rows[0:7],  cols[7:14]  (top-right)
+        q2: rows[7:14], cols[0:7]   (bottom-left)
+        q3: rows[7:14], cols[7:14]  (bottom-right)
+    """
+    if img_28x28.shape != (28, 28):
+        raise ValueError(f"expected (28,28) image, got {img_28x28.shape}")
+    f = img_28x28.astype(np.float32)
+    if f.max() > 1.5:
+        f = f / 255.0
+    # 2×2 average pool each 2×2 block → 14×14
+    p14 = f.reshape(14, 2, 14, 2).mean(axis=(1, 3))   # (14, 14)
+    quads_rc = [
+        p14[0:7,  0:7 ],
+        p14[0:7,  7:14],
+        p14[7:14, 0:7 ],
+        p14[7:14, 7:14],
+    ]
+    result = np.zeros((4, 49), dtype=np.int8)
+    for k, q in enumerate(quads_rc):
+        flat = q.flatten()
+        thr  = float(np.median(flat))
+        result[k] = np.where(flat > thr, 1, -1).astype(np.int8)
+    return result   # (4, 49)
+
+
+def load_bnn_14x14(path: str | Path) -> dict:
+    """Load 14×14 grouped BNN weights from npz (same schema as load_bnn).
+
+    Keys: l1_w (64,49), l1_t (64,), l2_w (10,64), l2_t (10,), l2_bias (10,).
+    """
+    return load_bnn(path)   # schema is identical
+
+
+def hidden_layer_14x14(quads_pm1: np.ndarray, l1_w: np.ndarray,
+                        l1_t: np.ndarray) -> int:
+    """Layer-1 forward for the 14×14 grouped BNN; returns 64-bit hidden word.
+
+    quads_pm1: (4, 49) int8 ±1 — one row per quadrant.
+    Branch k processes quadrant k using rows l1_w[16k..16k+15] and
+    thresholds l1_t[16k..16k+15], producing 16 binary outputs packed into
+    bits [16k+15 : 16k] of the returned 64-bit word.
+    """
+    if quads_pm1.shape != (4, 49):
+        raise ValueError(f"expected (4,49) quads, got {quads_pm1.shape}")
+    out = 0
+    for k in range(4):
+        x_word = pack_input_l1(quads_pm1[k])   # 64-bit, bits[63:49]=0
+        for j in range(16):
+            neuron_idx = k * 16 + j
+            w_word = pack_weight_l1(l1_w[neuron_idx])
+            xnor   = (~(x_word ^ w_word)) & ((1 << TILE_INPUTS) - 1)
+            if bin(xnor).count("1") >= int(l1_t[neuron_idx]):
+                out |= 1 << neuron_idx
+    return out
+
+
+def bnn_forward_14x14(img_28x28: np.ndarray, network: dict) -> int:
+    """Full 14×14 grouped BNN forward pass; returns predicted class 0..9."""
+    quads = preprocess_image_14x14(img_28x28)
+    h     = hidden_layer_14x14(quads, network["l1_w"], network["l1_t"])
+    cls, _ = output_layer(h, network["l2_w"], network["l2_bias"])
+    return cls
+
+
+# ---------------------------------------------------------------------------
 # CLI: predict on a small test set and print classifications.
 # ---------------------------------------------------------------------------
 def _cli() -> None:
