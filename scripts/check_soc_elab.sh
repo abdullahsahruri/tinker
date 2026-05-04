@@ -20,6 +20,7 @@ iverilog -g2012 -Wall \
     rtl/soc/wb_dmem.v \
     rtl/soc/wb_tile_wrapper.v \
     rtl/soc/wb_gpio.v \
-    rtl/tile_tlg_ld/tile_tlg_ld.v
+    rtl/tile_tlg_ld/tile_tlg_ld.v \
+    vendor/picorv32/picorv32.v
 
 echo "OK: SoC skeleton elaborates cleanly. Output binary: $OUT"

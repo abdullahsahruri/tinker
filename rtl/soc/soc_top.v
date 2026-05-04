@@ -14,7 +14,9 @@
 // =============================================================================
 `default_nettype none
 
-module soc_top (
+module soc_top #(
+    parameter INIT_HEX = ""        // path to firmware $readmemh; testbench sets this
+) (
     input  wire       clk,
     input  wire       rst_n_i,    // chip-pin reset, async-assert
     input  wire [7:0] gpio_i,
@@ -119,7 +121,7 @@ module soc_top (
         .s3_dat_i   (s3_dat_r), .s3_ack_i(s3_ack), .s3_err_i(s3_err)
     );
 
-    wb_imem u_imem (
+    wb_imem #(.INIT_HEX(INIT_HEX)) u_imem (
         .clk      (clk),
         .rst_n    (rst_n),
         .wb_cyc_i (s0_cyc),

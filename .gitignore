@@ -46,3 +46,11 @@ __pycache__/
 # PDK should never live in this repo
 .volare/
 pdk/
+
+# Firmware build outputs (Phase 3C onward). Sources committed; artifacts not.
+firmware/**/*.o
+firmware/**/*.elf
+firmware/**/*.bin
+firmware/**/*.hex
+firmware/**/*.map
+firmware/**/*.lst
