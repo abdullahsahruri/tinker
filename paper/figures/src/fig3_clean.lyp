@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-properties>
+  <!-- Compact sky130A layer view tuned for std-cell texture visibility:
+       upper metals suppressed, poly/li1/diff drawn lightly, macro
+       boundary drawn as a dark outline. -->
+
+  <!-- Std-cell texture layers -->
+  <properties>
+    <name>nwell drawing</name>
+    <source>64/20@1</source>
+    <fill-color>#E0E8EE</fill-color>
+    <frame-color>#1F3A5F</frame-color>
+    <dither-pattern>I9</dither-pattern>
+    <line-style>I0</line-style>
+    <visible>true</visible>
+    <transparent>false</transparent>
+    <width>0</width>
+    <marked>false</marked>
+    <animation>0</animation>
+    <xfill>false</xfill>
+  </properties>
+  <properties>
+    <name>diff drawing</name>
+    <source>65/20@1</source>
+    <fill-color>#90B4A0</fill-color>
+    <frame-color>#37614B</frame-color>
+    <dither-pattern>I3</dither-pattern>
+    <line-style>I0</line-style>
+    <visible>true</visible>
+    <transparent>false</transparent>
+    <width>0</width>
+    <marked>false</marked>
+    <animation>0</animation>
+    <xfill>false</xfill>
+  </properties>
+  <properties>
+    <name>poly drawing</name>
+    <source>66/20@1</source>
+    <fill-color>#C2585A</fill-color>
+    <frame-color>#7C2D2F</frame-color>
+    <dither-pattern>I5</dither-pattern>
+    <line-style>I0</line-style>
+    <visible>true</visible>
+    <transparent>false</transparent>
+    <width>0</width>
+    <marked>false</marked>
+    <animation>0</animation>
+    <xfill>false</xfill>
+  </properties>
+  <properties>
+    <name>li1 drawing</name>
+    <source>67/20@1</source>
+    <fill-color>#5C7AAE</fill-color>
+    <frame-color>#1F3A5F</frame-color>
+    <dither-pattern>I7</dither-pattern>
+    <line-style>I0</line-style>
+    <visible>true</visible>
+    <transparent>false</transparent>
+    <width>0</width>
+    <marked>false</marked>
+    <animation>0</animation>
+    <xfill>false</xfill>
+  </properties>
+
+  <!-- met1 lightly visible to outline std-cell rows -->
+  <properties>
+    <name>met1 drawing</name>
+    <source>68/20@1</source>
+    <fill-color>#A8B4C4</fill-color>
+    <frame-color>#506882</frame-color>
+    <dither-pattern>I7</dither-pattern>
+    <line-style>I0</line-style>
+    <visible>true</visible>
+    <transparent>false</transparent>
+    <width>0</width>
+    <marked>false</marked>
+    <animation>0</animation>
+    <xfill>false</xfill>
+  </properties>
+
+  <!-- All upper metals: HIDDEN (these were the magenta flood) -->
+  <properties>
+    <name>met2 drawing</name>
+    <source>69/20@1</source>
+    <visible>false</visible>
+    <transparent>true</transparent>
+    <fill-color>#FFFFFF</fill-color>
+    <frame-color>#FFFFFF</frame-color>
+  </properties>
+  <properties>
+    <name>met3 drawing</name>
+    <source>70/20@1</source>
+    <visible>false</visible>
+    <transparent>true</transparent>
+    <fill-color>#FFFFFF</fill-color>
+    <frame-color>#FFFFFF</frame-color>
+  </properties>
+  <properties>
+    <name>met4 drawing</name>
+    <source>71/20@1</source>
+    <visible>false</visible>
+    <transparent>true</transparent>
+    <fill-color>#FFFFFF</fill-color>
+    <frame-color>#FFFFFF</frame-color>
+  </properties>
+  <properties>
+    <name>met5 drawing</name>
+    <source>72/20@1</source>
+    <visible>false</visible>
+    <transparent>true</transparent>
+    <fill-color>#FFFFFF</fill-color>
+    <frame-color>#FFFFFF</frame-color>
+  </properties>
+
+  <!-- prBoundary (outline only — drawn as a frame, no fill) -->
+  <properties>
+    <name>prBoundary</name>
+    <source>235/4@1</source>
+    <fill-color>#FFFFFF</fill-color>
+    <frame-color>#1F3A5F</frame-color>
+    <dither-pattern>I22</dither-pattern>
+    <line-style>I0</line-style>
+    <visible>true</visible>
+    <transparent>true</transparent>
+    <width>1</width>
+    <marked>false</marked>
+    <animation>0</animation>
+    <xfill>false</xfill>
+  </properties>
+  <properties>
+    <name>prBoundary 235/0</name>
+    <source>235/0@1</source>
+    <fill-color>#FFFFFF</fill-color>
+    <frame-color>#1F3A5F</frame-color>
+    <dither-pattern>I22</dither-pattern>
+    <line-style>I0</line-style>
+    <visible>true</visible>
+    <transparent>true</transparent>
+    <width>1</width>
+    <marked>false</marked>
+    <animation>0</animation>
+    <xfill>false</xfill>
+  </properties>
+
+  <!-- Catch-all for unspecified layers: hidden -->
+  <properties>
+    <name>* (other)</name>
+    <source>*/*@*</source>
+    <visible>false</visible>
+  </properties>
+</layer-properties>

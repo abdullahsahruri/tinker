@@ -22,11 +22,15 @@ figures/%.pdf: figures/%.src.tex
 figures/fig4_power_breakdown.pdf: figures/fig4_power_breakdown.py
 	cd figures && python3 fig4_power_breakdown.py >/dev/null
 
-# Build the TikZ floorplan diagram from figures/src/.
-figures/fig3_layout.pdf: figures/src/fig3_layout.tex figures/src/fig3_floorplan_data.json
-	cd figures/src && $(LATEX) fig3_layout.tex >/dev/null
-	mv figures/src/fig3_layout.pdf figures/fig3_layout.pdf
-	rm -f figures/src/fig3_layout.aux figures/src/fig3_layout.log
+# Build the floorplan figure: KLayout renders soc_top.gds with
+# upper-metal layers suppressed to reveal std-cell texture, then
+# matplotlib composites extracted-bbox overlays on top.
+figures/src/fig3_base.png: figures/src/fig3_render_base.py figures/src/fig3_clean.lyp
+	klayout -b -r figures/src/fig3_render_base.py >/dev/null
+
+figures/fig3_layout.pdf: figures/src/fig3_compose.py figures/src/fig3_base.png \
+                        figures/src/fig3_floorplan_data.json
+	python3 figures/src/fig3_compose.py >/dev/null
 
 figures: $(FIG_PDFS)
 
