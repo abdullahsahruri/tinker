@@ -251,9 +251,11 @@ TINKER.
 \subsection{System overview}
 \label{sec:arch:overview}
 
-The SoC, shown in Fig.~\ref{fig:soc-block}, is a single-clock RV32I
+TINKER, shown in Fig.~\ref{fig:soc-block}, is a single-clock RV32I
 system whose role is to host the TLG-mapped BNN tile under software
-control. A PicoRV32 core~\cite{picorv32} acts as the lone Wishbone B4
+control, with all peripheral state and inference scheduling driven
+by the on-chip processor rather than by hardware sequencers
+external to the tile. A PicoRV32 core~\cite{picorv32} acts as the lone Wishbone B4
 classic master and drives a single-cycle bus with 32-bit address and
 32-bit data. Address decode on \texttt{adr[31:28]} dispatches to one of
 four word-aligned slaves: instruction memory (IMEM at
@@ -309,7 +311,10 @@ no analog or mixed-signal devices, and ports to any digital PDK without
 custom transistors. This is the principal contrast with the
 threshold-logic processor TULIP~\cite{tulip}, which depends on
 programmable flash devices for its threshold compare and is therefore
-tied to a specific mixed-signal flow.
+tied to a specific mixed-signal flow. Because every chunk LUT and
+the surrounding adder tree resolve to digital standard cells, the
+same RTL ports unmodified to any digital PDK with a comparable cell
+library, including open-source ones.
 
 The configuration regfile holds 16 \(\times\) 64-bit weight words and
 16 \(\times\) 7-bit thresholds, addressed through a 6-bit
@@ -339,7 +344,9 @@ Firmware polls \texttt{STATUS} until \texttt{BUSY} clears, reads
 inference. Writes to weight, threshold, or input registers while
 \texttt{BUSY\,=\,1} are silently dropped: the bus access acks normally
 but no shadow is updated, which causes a misbehaving program to hang
-visibly rather than corrupt an in-flight evaluation. The wrapper
+visibly rather than corrupt an in-flight evaluation. This is a
+deliberate testability choice: a silently corrupted inference is a
+far worse failure mode than an observably hung firmware loop. The wrapper
 carries roughly 1.3\,K flops, of which approximately 700 exist purely
 to make every writable register read-back-able --- a deliberate
 testability deviation from the wrapper specification.
