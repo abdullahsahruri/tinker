@@ -163,6 +163,10 @@ limitations, and Section~\ref{sec:conclusion} concludes.
 \section{Background and Related Work}
 \label{sec:background}
 
+We review the digital BNN accelerator landscape against which this
+design is positioned, then turn to the open-flow neural-inference
+work that defines our methodological neighbourhood.
+
 Digital BNN inference accelerators have demonstrated strong
 energy-efficiency results across a range of commercial process nodes.
 YodaNN~\cite{yodann2018} pairs a binary-weight datapath with
@@ -198,6 +202,10 @@ verification --- rather than a peak-efficiency claim, and we therefore
 position the design in the same node-and-flow regime as OpenSpike.
 FPGA-side BNN frameworks such as FINN~\cite{finn} occupy a separate
 design point that we do not directly compare against.
+With the comparator landscape established, the following sections
+describe the architecture (Section~\ref{sec:arch}), open-flow
+implementation (Section~\ref{sec:impl}), and evaluation
+(Section~\ref{sec:eval}) of the proposed SoC.
 
 % =====================================================================
 % III. SoC Architecture — Target: ~900 words / 1.5 page, 2 figures
@@ -423,7 +431,8 @@ KLayout XOR against the Magic-streamed GDS 0 differences across all
 \subsection{BNN deployment}
 \label{sec:impl:bnn}
 
-The deployed network is a grouped binary MLP over a
+With sign-off established, we describe the network deployed onto
+the SoC. The deployed network is a grouped binary MLP over a
 14\,\(\times\)\,14 input. After a 2\,\(\times\)\,2 average pool and a
 per-quadrant median binarisation, four parallel branches each map a
 49-bit quadrant to 16 hidden bits in one tile evaluation; the four
