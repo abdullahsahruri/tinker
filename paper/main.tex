@@ -93,69 +93,76 @@
 \section{Introduction}
 \label{sec:intro}
 
-Binary and spiking neural network accelerators have driven dramatic
-energy-efficiency gains for inference at the edge, with reported
-figures on the order of hundreds of TOp/s/W in advanced commercial
-process nodes~\cite{xne2018,yodann2018,chewbaccann2021}. Those
-results, however, are concentrated in proprietary PDKs paired with
-proprietary memory compilers, which limits independent reproduction
-and constrains the methodological rigor that academic groups can
-apply to system-level claims. OpenSpike has previously demonstrated SoC-scale neural inference on
-sky130 for a spiking payload~\cite{openspike}, but the system-level
-question of where SoC power is spent --- and what becomes the
-first-order optimisation target once memory is properly architected
---- has not been answered for fully-digital threshold-logic BNN
-accelerators. This paper presents TINKER, the system that answers it.
+Threshold logic --- gates that fire when a weighted sum of inputs
+crosses a programmed threshold --- has a long architectural lineage
+as a substrate for neural-network-style inner products and dense
+combinational computation~\cite{beiu2003vlsi}. Its silicon
+implementations, however, have historically required exotic
+devices. Memristor-based threshold gates exploit non-volatile
+resistance for weight storage and current-mode summation
+~\cite{papandroulidakis2019practical}; differential and
+current-mode analog approaches use precise current sources to
+realise the weighted sum~\cite{beiu2003differential}; the most
+recent ASIC in this lineage uses programmable flash devices for
+the threshold compare~\cite{tulip}. Each implementation ties the
+design to a specific fabrication flow. Whether threshold logic
+can be carried by ordinary digital standard cells, without exotic
+primitives, at SoC scale is the architectural question this work
+answers.
 
-Our approach decomposes the binary inner product
-$y_i = \mathbb{1}[\,\mathrm{popcount}(x \xnor w_i) \ge \theta_i]$
-into a chunked threshold-logic mapping that Yosys lowers into a
-fan-in-bounded combinational tree of \texttt{sky130\_fd\_sc\_hd}
-multiplexers and AOI cells. Sixteen such neurons, each with its own
-64-bit weight and 7-bit threshold, share a registered 64-bit input
-and produce a 16-bit output vector per evaluation. The tile is
-embedded in a single-clock RV32I SoC: a PicoRV32 core~\cite{picorv32}
-acts as Wishbone master to four slaves --- an OpenRAM IMEM, an
-OpenRAM DMEM, the tile peripheral, and a sim-observability GPIO ---
-through a flat one-master / four-slave decode. The deployed network
-is a grouped binary MLP over a 14\,\(\times\)\,14 input: four
-parallel 49\,\(\to\,16\) branches concatenate into a 64-bit hidden
-vector that the same tile maps to ten output logits in a fifth
-evaluation. Off-chip training uses a hard-tanh straight-through
+Our answer is a chunked-LUT decomposition of the threshold
+function that maps onto \texttt{sky130\_fd\_sc\_hd} standard cells
+--- only multiplexers, AOI cells, and a conventional adder tree,
+with no analog or mixed-signal devices. We built TINKER, a
+sixteen-neuron threshold-logic-mapped BNN inference SoC, to
+demonstrate this end-to-end. The threshold-logic tile is
+integrated with a PicoRV32~\cite{picorv32} RV32I core over a
+Wishbone B4 fabric, alongside OpenRAM IMEM/DMEM macros and a
+sim-observability GPIO. The deployed network is a grouped binary
+MLP over a 14\,\(\times\)\,14 input: four parallel
+49\,\(\to\,16\) branches concatenate into a 64-bit hidden vector
+that the same tile maps to ten output logits in a fifth
+evaluation, with all five tile passes scheduled by software.
+Off-chip training uses a hard-tanh straight-through
 estimator~\cite{hubara_bnn} and a OneCycleLR
 schedule~\cite{onecycle}; the open RTL-to-GDSII pipeline is
 LibreLane~\cite{librelane} on sky130A~\cite{sky130_pdk} with
-OpenROAD~\cite{openroad}, Yosys~\cite{yosys}, and OpenRAM
-macros~\cite{openram}.
+OpenROAD~\cite{openroad}, Yosys~\cite{yosys}, and
+OpenRAM~\cite{openram} macros.
 
-The contributions of TINKER are threefold. First, a fully-digital
-threshold-logic decomposition of the XNOR-popcount-threshold core,
-mapping the BNN inner product onto \texttt{sky130\_fd\_sc\_hd}
-standard cells via a chunked LUT scheme --- in contrast to prior
-threshold-logic accelerators that depend on mixed-signal flash or
-current-mode cells~\cite{tulip}. Second, a complete SoC integration
-that hosts an entire grouped binary MLP on a single sixteen-neuron
-tile through five sequential evaluations, controlled by a PicoRV32
-RV32I core over a Wishbone B4 fabric with OpenRAM IMEM/DMEM macros. Third, a system-level power finding
-that the TLG tile constitutes 24.3\,\% of total SoC power once
-memory is properly architected (47.21\,mW total at activity-aware
-sign-off), up from 10.81\,\% under a register-file baseline at
-byte-identical tile RTL --- exposing the BNN datapath as the
-first-order system-level optimisation target. End-to-end MNIST
-inference reaches 85.60\,\% accuracy with a 95\,\% Wilson confidence
-interval of \([84.90\,\%,\,86.27\,\%]\) on the full 10\,000-image
-test set, at 8.06\,\textmu J per image.
+The contributions of TINKER are threefold. First, we show that
+threshold logic does not require exotic devices: a chunked-LUT
+decomposition of the XNOR-popcount-threshold core lowers the
+threshold function onto \texttt{sky130\_fd\_sc\_hd} multiplexers
+and AOI cells, breaking the dependency on flash, memristor, or
+current-mode primitives that has historically constrained
+threshold-logic accelerators~\cite{tulip,
+papandroulidakis2019practical, beiu2003differential}. The
+standalone TLG tile synthesises to 7\,184 standard cells and
+408 sequential elements within 0.116\,mm$^2$. Second, we
+demonstrate threshold logic at SoC scale: the TLG tile is
+integrated with a PicoRV32 RV32I core over a Wishbone B4 fabric
+with OpenRAM IMEM/DMEM macros, with an entire grouped binary MLP
+hosted on the same tile RTL through five software-scheduled
+sequential evaluations --- no per-layer hardware specialisation.
+Third, we discover that fully-digital threshold-logic compute is
+the dominant active power bucket in the system that demonstrates
+it: with OpenRAM macros architecting the memory subsystem, the
+TLG compute occupies 24.3\,\% of total SoC power
+(vs 10.81\,\% under a register-file baseline at byte-identical
+tile RTL), validating threshold logic as a primary inference
+compute element rather than a peripheral curiosity. End-to-end
+MNIST inference reaches 85.60\,\% accuracy with a 95\,\% Wilson
+confidence interval of \([84.90\,\%,\,86.27\,\%]\) on the full
+10\,000-image test set, at 8.06\,\textmu J per image.
 
-Section~\ref{sec:background} surveys related digital BNN
-accelerators and open-flow neural-inference work.
-Section~\ref{sec:arch} describes the SoC architecture and tile
-microarchitecture. Section~\ref{sec:impl} covers the open-flow
-implementation, sign-off methodology, and BNN deployment.
-Section~\ref{sec:eval} presents functional verification, the
-activity-aware power decomposition, energy and accuracy results, and
-the comparison against prior digital BNN ASICs.
-Section~\ref{sec:discussion} discusses the system-level findings and
-limitations, and Section~\ref{sec:conclusion} concludes.
+Section~\ref{sec:background} surveys the threshold-logic
+architectural lineage and digital BNN accelerators.
+Section~\ref{sec:arch} describes the SoC architecture and the
+TLG decomposition. Section~\ref{sec:impl} covers implementation,
+sign-off, and BNN deployment. Section~\ref{sec:eval} presents
+evaluation. Section~\ref{sec:discussion} discusses findings, and
+Section~\ref{sec:conclusion} concludes.
 
 % =====================================================================
 % II. Background and Related Work — Target: ~350 words / 0.5 page
