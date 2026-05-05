@@ -511,8 +511,7 @@ training-time proxy whose floating-point activations may differ near
 batch-norm thresholds. The 16-image verification set is the first 16 images of the
 MNIST test split, used as a fast inner-loop bit-exact check; the
 full 10\,000-image test set is covered by the integer-golden gate.
-PyTorch and the integer golden agree on 15 of
-16 verification images. The single mismatch (image~9: PyTorch labels
+PyTorch and the integer golden agree on 15 of these 16 images. The single mismatch (image~9: PyTorch labels
 9, golden and SoC both label 7) lies on a folded-batch-norm activation
 boundary near zero and is the expected behaviour of the integer
 quantisation, not a bug. The post-P\&R SoC RTL simulation then matches
