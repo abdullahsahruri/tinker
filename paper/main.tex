@@ -42,12 +42,26 @@ Lafayette, LA, USA\\
 % Abstract — fill last (Stage 7).
 % ---------------------------------------------------------------------
 \begin{abstract}
-% TODO(stage 7): ~150-word abstract. Lead with: first fully-digital
-% TLG-mapped BNN tile in sky130 standard cells, integrated into a
-% complete open-flow PicoRV32 SoC with OpenRAM macros; 85.60\% MNIST
-% at 8.06 \textmu J/inference; tile is now 24.3\% of system power
-% (vs 10.81\% for the regfile baseline); sign-off clean on KLayout
-% DRC, Netgen LVS, KLayout XOR, antenna.
+Binary neural network (BNN) accelerators have demonstrated strong
+energy efficiency, but predominantly in commercial process flows with
+proprietary memory compilers, leaving open the question of whether
+the open-source EDA flow can host a sign-off-clean BNN inference
+system-on-chip (SoC) at sky130. This paper presents a fully-digital,
+threshold-logic-mapped BNN inference SoC implemented end-to-end in
+the open flow on sky130A, integrating an XNOR-popcount-threshold tile
+synthesised entirely from \texttt{sky130\_fd\_sc\_hd} standard cells
+with OpenRAM IMEM/DMEM macros, a PicoRV32 control core, and a
+Wishbone interconnect. A grouped 14\,$\times$\,14 BNN reaches
+85.60\,\% MNIST accuracy with a 95\,\% Wilson confidence interval of
+[84.90\,\%, 86.27\,\%] on the full 10\,000-image test set, at
+8.06\,\textmu J per inference and 47.21\,mW activity-aware power.
+Hierarchical power decomposition shows that the threshold-logic tile
+constitutes 24.3\,\% of total SoC power once OpenRAM macros displace
+the register-file memory subsystem, and the design is sign-off-clean
+on KLayout DRC, Netgen LVS, KLayout XOR, and antenna. To the
+authors' knowledge this is the first fully-digital, threshold-logic-
+mapped BNN inference SoC implemented entirely in the open-source
+flow with sign-off-clean physical verification on sky130.
 \end{abstract}
 
 \begin{IEEEkeywords}
