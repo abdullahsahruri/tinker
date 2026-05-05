@@ -264,76 +264,82 @@ and evaluation (Section~\ref{sec:eval}) of TINKER.
 \subsection{System overview}
 \label{sec:arch:overview}
 
-TINKER, shown in Fig.~\ref{fig:soc-block}, is a single-clock RV32I
-system whose role is to host the TLG-mapped BNN tile under software
-control, with all peripheral state and inference scheduling driven
-by the on-chip processor rather than by hardware sequencers
-external to the tile. A PicoRV32 core~\cite{picorv32} acts as the lone Wishbone B4
-classic master and drives a single-cycle bus with 32-bit address and
-32-bit data. Address decode on \texttt{adr[31:28]} dispatches to one of
-four word-aligned slaves: instruction memory (IMEM at
-\texttt{0x0000\_0000}), data memory (DMEM at \texttt{0x1000\_0000}),
-the tile peripheral (TILE at \texttt{0x2000\_0000}), and a sim-observ%
-ability GPIO (GPIO at \texttt{0x3000\_0000}). Unmapped accesses raise
-an error so that wild pointers hang visibly rather than silently. Reset
-is asynchronously asserted and synchronously deasserted through a
-two-stage flop chain shared by every block; firmware boots from
-\texttt{PROGADDR\_RESET\,=\,0x0000\_0000} and runs bare-metal, with
-the stack pointer initialised to the top of DMEM.
+TINKER is a single-clock RV32I system whose role is to host and
+orchestrate the threshold-logic tile under software control. A
+PicoRV32 core~\cite{picorv32} acts as the lone Wishbone B4 classic
+master and drives a single-cycle bus with 32-bit address and
+32-bit data; address decode on \texttt{adr[31:28]} dispatches to
+one of four word-aligned slaves --- IMEM at
+\texttt{0x0000\_0000}, DMEM at \texttt{0x1000\_0000}, the tile
+peripheral at \texttt{0x2000\_0000}, and a sim-observability
+GPIO at \texttt{0x3000\_0000}. Reset is asynchronously asserted
+and synchronously deasserted through a two-stage flop chain;
+firmware boots bare-metal from \texttt{PROGADDR\_RESET\,=\,0}.
+A single-master, four-slave decode is sufficient for the polled
+inference handshake; an interrupt controller, MMIO timer, and
+DMA would be dead area for this workload. The system clock is
+nominally 100\,MHz, matching the SDC inherited from the standalone
+tile characterisation. Fig.~\ref{fig:soc-block} shows the block
+diagram.
 
-The architecture is deliberately minimal. There is no interrupt
-controller, no MMIO timer, no off-chip bus, and no DMA --- the BNN
-inference handshake is polled (Section~\ref{sec:arch:wrapper}), so an
-asynchronous-event subsystem would be dead area. The choice of a
-single-master Wishbone fabric over a crossbar is the same calculus: a
-one-master, four-slave decode is roughly 100 lines of synthesisable
-Verilog, well within the open-flow toolchain's comfort zone, and adds
-no arbitration latency to the tightest instruction-fetch path. The
-system clock is nominally 100\,MHz, matching the SDC inherited from the
-standalone tile characterisation.
-
-\subsection{TLG-mapped BNN tile}
+\subsection{Threshold-logic decomposition and tile microarchitecture}
 \label{sec:arch:tile}
 
-The tile, shown in Fig.~\ref{fig:tile-microarch}, computes a
-sixteen-output binary inner product against a 64-bit input vector each
-evaluation. Sixteen parallel neurons share a registered input
-\(x \in \{-1,+1\}^{64}\), encoded as a single 64-bit word, and each
-holds its own 64-bit weight \(w_i\) and 7-bit threshold \(\theta_i\) in
-a configuration regfile. Per neuron, the binary inner product collapses
-to an XNOR followed by a population count~\cite{xnornet}: the output
-bit is
-\(y_i = \mathbb{1}\!\left[\,\mathrm{popcount}\!\left(x \xnor w_i\right) \ge \theta_i\,\right]\).
-Sixteen neurons evaluated in parallel produce a 16-bit binary vector
-per cycle of throughput, with a two-cycle latency (input-register cycle
-plus combinational evaluate-and-register cycle).
+\paragraph{The threshold function.} Each tile neuron computes the
+binary inner product
+\(y_i = \mathbb{1}\!\left[\,\mathrm{popcount}\!\left(x \xnor w_i\right) \ge \theta_i\,\right]\),
+with \(x \in \{-1,+1\}^{64}\) and per-neuron 64-bit weight \(w_i\)
+and 7-bit threshold \(\theta_i\). This is the threshold function in
+the canonical sense of~\cite{beiu2003vlsi}: a Boolean output that
+fires when a weighted sum of binary inputs crosses a programmed
+threshold. Sixteen such neurons share the registered input and
+produce a 16-bit output vector per evaluation, with two-cycle
+latency. The challenge for a fully-digital realisation is that a
+naive direct mapping of the threshold function to a single gate
+requires precise summation of weighted inputs --- which is what
+the current-mode~\cite{beiu2003differential} and
+memristor-based~\cite{papandroulidakis2019practical} implementations
+do natively but the digital domain does not.
 
-The popcount is mapped to TLG-encoded threshold logic by partitioning
-the 64-bit XNOR output into eleven chunks --- ten 6-bit chunks plus one
-4-bit residue --- and looking up each chunk's population count in a
-Verilog \texttt{case} table. Yosys lowers each table into a
-technology-mapped network of \texttt{sky130\_fd\_sc\_hd} multiplexers
-and AOI cells that implements the underlying threshold function as a
-fan-in-bounded combinational tree. The TLG decomposition handles each
-6-bit chunk's population count; the eleven 3-bit subcounts are then
-summed by a conventional width-seven adder tree and compared against
-\(\theta_i\). This is the principal contrast with the
-threshold-logic processor TULIP~\cite{tulip}, which depends on
-programmable flash devices for its threshold compare and is therefore
-tied to a specific mixed-signal flow. Because every chunk LUT and
-the surrounding adder tree resolve to digital standard cells, the
-same RTL ports unmodified to any digital PDK with a comparable cell
-library, including open-source ones.
+\paragraph{Chunked-LUT decomposition.} Our decomposition recasts
+the 64-input threshold function as a small adder-tree of population
+counts over fixed-size chunks. The 64-bit XNOR output is partitioned
+into eleven chunks --- ten 6-bit chunks plus one 4-bit residue.
+Each 6-bit chunk's population count is a small Boolean function
+($6 \to 3$) that Yosys synthesises into a network of
+\texttt{sky130\_fd\_sc\_hd} multiplexers and AOI cells; the 4-bit
+residue ($4 \to 3$) is similarly decomposed. The eleven 3-bit
+subcounts feed a conventional width-7 adder tree, and the 7-bit
+sum is compared against \(\theta_i\) by a standard magnitude
+comparator. Fig.~\ref{fig:tlg-decomp} visualises the decomposition.
+The chunked approach is the design point that makes digital TLG
+practical: a single 64-input LUT would be prohibitively large; one
+threshold gate per input bit would explode in fanin and demand
+analog summation. The 6-bit chunk size matches
+\texttt{sky130\_fd\_sc\_hd}'s mux/AOI cost --- large enough that
+the eleven-way partitioning overhead is acceptable, small enough
+that each chunk LUT fits comfortably as a combinational cell
+network.
 
-The configuration regfile holds 16 \(\times\) 64-bit weight words and
-16 \(\times\) 7-bit thresholds, addressed through a 6-bit
-\texttt{cfg\_addr}: bits \texttt{[5:4]\,=\,00} index a weight,
-\texttt{[5:4]\,=\,01} index a threshold, and \texttt{[3:0]} select the
-neuron. Weights are loaded once per network rather than per inference,
-so the cfg port carries traffic only at boot. A dedicated
-\texttt{x\_valid} strobe latches the input register and starts the
-two-cycle pipeline; \texttt{y\_valid} pulses on the cycle the result
-leaves the output register.
+\paragraph{Quantification and contrast.} The standalone TLG tile
+synthesises to 7\,184 standard cells (408 sequential elements, the
+remainder combinational logic across the eleven chunk LUTs, the
+adder tree, and the configuration regfile) within 0.116\,mm$^2$;
+within the integrated SoC build the tile bucket is 6\,519 cells
+(slight variation from cross-boundary optimisation). The principal
+contrast with TULIP~\cite{tulip} is the threshold-compare primitive:
+TULIP uses embedded flash devices, tying the design to a specific
+PDK family; memristor-based~\cite{papandroulidakis2019practical}
+and current-mode~\cite{beiu2003differential} TLG face the same
+PDK-binding constraint. Because every chunk LUT and the
+surrounding adder tree resolve to digital standard cells, TINKER's
+RTL ports unmodified to any digital PDK with a comparable cell
+library. The configuration regfile holds 16 weight words (64-bit)
+and 16 thresholds (7-bit), addressed through a 6-bit
+\texttt{cfg\_addr}; weights are loaded once per network and the cfg
+port carries traffic only at boot. An \texttt{x\_valid} strobe
+latches the input register and starts the two-cycle pipeline;
+\texttt{y\_valid} pulses on the cycle the output leaves.
 
 \subsection{Tile wrapper and inference handshake}
 \label{sec:arch:wrapper}
@@ -341,38 +347,29 @@ leaves the output register.
 The Wishbone-to-tile bridge \texttt{wb\_tile\_wrapper} occupies a
 512-byte slave window and exposes the tile's cfg port and
 \(x_\text{in}/y_\text{out}\) handshake as memory-mapped registers.
-Weights are committed by a two-phase write: a 32-bit \texttt{W[i].LO}
-write loads a per-neuron shadow register, and a subsequent
-\texttt{W[i].HI} write to the next word offset drives one cycle of
-\texttt{cfg\_we} carrying the assembled 64-bit value. Thresholds are
-atomic single-word writes. Inputs use the same two-phase commit
-(\texttt{XIN.LO}/\texttt{XIN.HI}); writing \texttt{XIN.HI} additionally
-pulses \texttt{x\_valid} for one cycle and asserts \texttt{STATUS.BUSY}.
-Firmware polls \texttt{STATUS} until \texttt{BUSY} clears, reads
-\texttt{YOUT}, and writes \texttt{CTRL.CLR\_DONE} to arm the next
-inference. Writes to weight, threshold, or input registers while
-\texttt{BUSY\,=\,1} are silently dropped: the bus access acks normally
-but no shadow is updated, which causes a misbehaving program to hang
-visibly rather than corrupt an in-flight evaluation. This is a
-deliberate testability choice: a silently corrupted inference is a
-far worse failure mode than an observably hung firmware loop. The wrapper
-carries roughly 1.3\,K flops, of which approximately 700 exist purely
-to make every writable register read-back-able --- a deliberate
-testability deviation from the wrapper specification.
+Weights and inputs are committed by two-phase 32-bit writes
+(\texttt{LO} then \texttt{HI}), with the \texttt{HI} write
+assembling the 64-bit value and pulsing the corresponding strobe;
+thresholds are atomic single-word writes. Firmware polls
+\texttt{STATUS.BUSY} until clear, reads \texttt{YOUT}, and writes
+\texttt{CTRL.CLR\_DONE} to arm the next inference. Writes to
+weight, threshold, or input registers while \texttt{BUSY\,=\,1}
+are silently dropped: the bus access acks normally but no shadow
+is updated, causing a misbehaving program to hang visibly rather
+than corrupt an in-flight evaluation. This is a deliberate
+testability choice: a silently corrupted inference is a far worse
+failure mode than an observably hung firmware loop. The wrapper
+carries roughly 1.3\,K flops, ~700 of them purely for read-back of
+every writable register.
 
-The memory subsystem instantiates two pre-hardened OpenRAM~\cite{openram}
-macros: \texttt{sky130\_sram\_2kbyte\_1rw1r\_32x512\_8} as the IMEM and
-\texttt{sky130\_sram\_1kbyte\_1rw1r\_32x256\_8} as the DMEM. Both
-macros are wrapped by a small two-state Wishbone FSM that inserts one
-wait state on reads to cover the macro's registered \texttt{dout0}
-latency. The motivation for moving from a register-file baseline to
-OpenRAM macros is power: in the pre-OpenRAM version, the IMEM
-read mux dominated both die area and switching power, the SoC drew
-106\,mW, and the tile accounted for only 10.81\,\% of system power.
-Replacing the register files with macros drops total power to
-47.21\,mW and lifts the tile's share to 24.29\,\%, which is the
-principal reason the tile becomes a meaningful optimisation target at
-the system level (Section~\ref{sec:eval:power}).
+The memory subsystem instantiates two pre-hardened
+OpenRAM~\cite{openram} macros
+(\texttt{sky130\_sram\_2kbyte\_1rw1r\_32x512\_8} for the IMEM,
+\texttt{sky130\_sram\_1kbyte\_1rw1r\_32x256\_8} for the DMEM),
+wrapped by a small Wishbone FSM that inserts one wait state on
+reads. The motivation for OpenRAM macros over a register-file
+baseline is power; the system-level consequence is detailed in
+Section~\ref{sec:eval:power}.
 
 % =====================================================================
 % IV. Implementation — Target: ~550 words / 1.0 page, 1 figure (Fig. 3)
