@@ -521,7 +521,43 @@ system-integration audience.
 % =====================================================================
 \section{Discussion}
 \label{sec:discussion}
-% TODO(stage 6): body prose.
+
+The most consequential finding is the change in where SoC power is
+spent. With the register-file IMEM/DMEM of the Phase~3 baseline, the
+TLG tile contributed 11.47\,mW of an SoC total of 106.06\,mW
+(10.81\,\%) and the memory subsystem alone consumed 36.4\,\% of the
+budget. Substituting OpenRAM macros leaves the tile bucket
+byte-identical at 11.47\,mW but drops the system total to 47.21\,mW,
+lifting the tile to 24.29\,\% and shrinking the memory share to
+19.9\,\%. The system-integration consequence is that BNN compute is
+no longer hidden by storage overhead at SoC scale, and tile-level
+optimisation becomes a first-order target rather than a rounding
+error against IMEM/DMEM dominance.
+
+The open-flow tradeoff is honest: 8.06\,\textmu J per inference on a
+small BNN at 130\,nm is orders of magnitude above what advanced-node
+commercial-flow accelerators report, and the comparison in
+Section~\ref{sec:eval:comparison} does not chase that gap. The
+contribution is reproducibility and methodological openness --- a
+single \texttt{config.json} reproduces the entire RTL-to-GDSII flow,
+multi-corner STA, sign-off, and activity-aware power decomposition
+--- and the energy regime sits in the same neighbourhood as
+OpenSpike's SNN core dynamic figure on the same flow, which is the
+right normalisation for an open-flow demonstrator.
+
+The reported numbers are conservative on two methodological axes.
+The OpenRAM macros ship Liberty for the TT\_1p8V\_25C corner only, so
+all multi-corner STA passes use that single macro Liberty; the
+slow-corner setup violations at \texttt{nom\_ss\_100C\_1v60} are a
+documented LibreLane 3.x limitation rather than silicon defects, and
+the macro-internal-power figure does not track corner. The headline
+power number is taken at \texttt{max\_ff\_n40C\_1v95} and is
+activity-aware (chip-pin VCD plus interior named-net annotations),
+which is the conservative direction for an inference workload. The
+present design does not demonstrate a multi-frequency power sweep, a
+larger network beyond grouped 14\,\(\times\)\,14, or a tape-out;
+those extensions are out of scope here rather than failures of the
+approach.
 
 % =====================================================================
 % VII. Conclusion — Target: ~100 words / 0.15 page
@@ -532,7 +568,20 @@ system-integration audience.
 % =====================================================================
 \section{Conclusion}
 \label{sec:conclusion}
-% TODO(stage 7): body prose.
+
+We have presented a fully-digital, TLG-mapped BNN inference SoC
+implemented end-to-end in the open flow on sky130A. The design pairs
+a 16-neuron XNOR-popcount-threshold tile mapped into
+\texttt{sky130\_fd\_sc\_hd} standard cells with a PicoRV32 control
+core, a Wishbone fabric, and OpenRAM IMEM/DMEM macros, and it closes
+the headline corner with sign-off-clean KLayout DRC, Netgen LVS,
+KLayout XOR, and antenna. End-to-end MNIST inference reaches
+85.60\,\% accuracy at 8.06\,\textmu J per image and 47.21\,mW
+activity-aware power, with the TLG tile constituting 24.3\,\% of
+total SoC power once OpenRAM removes register-file dominance from the
+memory subsystem. With the open-flow demonstrator in place,
+tile-level optimisation, larger networks, and tape-out become
+tractable next steps on the same reproducible pipeline.
 
 % =====================================================================
 % Acknowledgment — Target: 1--2 sentences if any
