@@ -10,6 +10,10 @@
 \definecolor{redfill}{HTML}{F4DADA}
 
 \begin{document}
+% Scale the entire picture so its natural width matches fig1's
+% (~293 pt). When both figures are placed at \columnwidth in
+% main.tex, fonts then render at matching on-paper sizes.
+\scalebox{0.76}{%
 \begin{tikzpicture}[
     font=\rmfamily,
     >={Latex[length=1.5mm,width=1.3mm]},
@@ -148,5 +152,6 @@
     at ($(cfg.north)+(0,0.05)$)
     {\textbf{$\times\,16$ neurons in parallel\quad$\to$\quad 16-bit binary output / cycle}};
 
-\end{tikzpicture}
+\end{tikzpicture}%
+}
 \end{document}
