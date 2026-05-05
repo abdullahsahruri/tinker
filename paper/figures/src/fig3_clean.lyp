@@ -1,30 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-properties>
-  <!-- Compact sky130A layer view tuned for std-cell texture visibility:
-       upper metals suppressed, poly/li1/diff drawn lightly, macro
-       boundary drawn as a dark outline. -->
+  <!-- sky130A layer view tuned for std-cell-texture visibility.
+       Order matters: layers drawn last appear on top. We draw the
+       densest layers (met1, li1) last so they dominate the visible
+       texture in the std-cell region. -->
 
-  <!-- Std-cell texture layers -->
-  <properties>
-    <name>nwell drawing</name>
-    <source>64/20@1</source>
-    <fill-color>#E0E8EE</fill-color>
-    <frame-color>#1F3A5F</frame-color>
-    <dither-pattern>I9</dither-pattern>
-    <line-style>I0</line-style>
-    <visible>true</visible>
-    <transparent>false</transparent>
-    <width>0</width>
-    <marked>false</marked>
-    <animation>0</animation>
-    <xfill>false</xfill>
-  </properties>
+  <!-- diff (active) — fine-grain background, lightest navy -->
   <properties>
     <name>diff drawing</name>
     <source>65/20@1</source>
-    <fill-color>#90B4A0</fill-color>
-    <frame-color>#37614B</frame-color>
-    <dither-pattern>I3</dither-pattern>
+    <fill-color>#8A9AB8</fill-color>
+    <frame-color>#8A9AB8</frame-color>
+    <dither-pattern>I0</dither-pattern>
     <line-style>I0</line-style>
     <visible>true</visible>
     <transparent>false</transparent>
@@ -33,12 +20,14 @@
     <animation>0</animation>
     <xfill>false</xfill>
   </properties>
+
+  <!-- poly — gate level, darker navy -->
   <properties>
     <name>poly drawing</name>
     <source>66/20@1</source>
-    <fill-color>#C2585A</fill-color>
-    <frame-color>#7C2D2F</frame-color>
-    <dither-pattern>I5</dither-pattern>
+    <fill-color>#2A3A58</fill-color>
+    <frame-color>#2A3A58</frame-color>
+    <dither-pattern>I0</dither-pattern>
     <line-style>I0</line-style>
     <visible>true</visible>
     <transparent>false</transparent>
@@ -47,12 +36,15 @@
     <animation>0</animation>
     <xfill>false</xfill>
   </properties>
+
+  <!-- li1 (local interconnect) — densest layer, mid navy. Drawn
+       above poly/diff so the std-cell row structure dominates. -->
   <properties>
     <name>li1 drawing</name>
     <source>67/20@1</source>
-    <fill-color>#5C7AAE</fill-color>
-    <frame-color>#1F3A5F</frame-color>
-    <dither-pattern>I7</dither-pattern>
+    <fill-color>#4A5A78</fill-color>
+    <frame-color>#4A5A78</frame-color>
+    <dither-pattern>I0</dither-pattern>
     <line-style>I0</line-style>
     <visible>true</visible>
     <transparent>false</transparent>
@@ -62,13 +54,14 @@
     <xfill>false</xfill>
   </properties>
 
-  <!-- met1 lightly visible to outline std-cell rows -->
+  <!-- met1 — lighter navy on top of li1. Reveals power rails / cell
+       routing without flooding. -->
   <properties>
     <name>met1 drawing</name>
     <source>68/20@1</source>
-    <fill-color>#A8B4C4</fill-color>
-    <frame-color>#506882</frame-color>
-    <dither-pattern>I7</dither-pattern>
+    <fill-color>#6A7A98</fill-color>
+    <frame-color>#6A7A98</frame-color>
+    <dither-pattern>I0</dither-pattern>
     <line-style>I0</line-style>
     <visible>true</visible>
     <transparent>false</transparent>
@@ -78,7 +71,17 @@
     <xfill>false</xfill>
   </properties>
 
-  <!-- All upper metals: HIDDEN (these were the magenta flood) -->
+  <!-- nwell HIDDEN (was producing the diagonal-hatch flood) -->
+  <properties>
+    <name>nwell drawing</name>
+    <source>64/20@1</source>
+    <visible>false</visible>
+    <transparent>true</transparent>
+    <fill-color>#FFFFFF</fill-color>
+    <frame-color>#FFFFFF</frame-color>
+  </properties>
+
+  <!-- Upper metals HIDDEN (no flood) -->
   <properties>
     <name>met2 drawing</name>
     <source>69/20@1</source>
@@ -112,12 +115,13 @@
     <frame-color>#FFFFFF</frame-color>
   </properties>
 
-  <!-- prBoundary (outline only — drawn as a frame, no fill) -->
+  <!-- prBoundary as a dark-gray frame-only outline so macro/die
+       boundaries are crisp. -->
   <properties>
-    <name>prBoundary</name>
+    <name>prBoundary 235/4</name>
     <source>235/4@1</source>
     <fill-color>#FFFFFF</fill-color>
-    <frame-color>#1F3A5F</frame-color>
+    <frame-color>#333333</frame-color>
     <dither-pattern>I22</dither-pattern>
     <line-style>I0</line-style>
     <visible>true</visible>
@@ -131,7 +135,7 @@
     <name>prBoundary 235/0</name>
     <source>235/0@1</source>
     <fill-color>#FFFFFF</fill-color>
-    <frame-color>#1F3A5F</frame-color>
+    <frame-color>#333333</frame-color>
     <dither-pattern>I22</dither-pattern>
     <line-style>I0</line-style>
     <visible>true</visible>
