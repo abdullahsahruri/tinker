@@ -1,34 +1,33 @@
-% Table II — Comparison vs prior digital BNN ASICs.
-% Numeric cells for cited rows left as TODO until verified directly against
-% each paper's abstract / conclusion / canonical PPA table. Notes column
-% captures only the categorical (technology-flow / network-class) framing
-% that the Stage-4 prose discussion relies on. See Section V-D.
+% Table II — Comparison vs prior digital BNN/threshold-logic ASICs and
+% the closest open-flow neural-inference comparator. Numeric cells for
+% cited rows are populated from the cited papers' canonical PPA tables;
+% see comments above each row for the verifying source.
 \begin{table*}[t]
   \centering
-  \caption{Digital BNN/threshold-logic accelerator comparison. Numeric cells
-  for cited rows are placeholders pending Stage-5 verification against the
-  cited papers; the Notes column captures the technology-flow framing
-  used in Section~\ref{sec:eval:comparison}.}
+  \caption{Digital BNN/threshold-logic accelerator comparison and the closest
+  open-flow comparator. Reported per-inference energy is taken from each
+  paper's canonical operating point; cells marked \textsuperscript{$\dagger$}
+  are inherited training-method accuracies for the underlying network rather
+  than chip measurements, and \textsuperscript{$\ddagger$} reflects core
+  dynamic energy only (excludes SRAM macro power).}
   \label{tab:comparison}
   \renewcommand{\arraystretch}{1.15}
   \begin{tabular}{@{}lllllll@{}}
     \toprule
     \textbf{Design} & \textbf{Tech.} & \textbf{Network} & \textbf{Accuracy} & \textbf{Energy/inf.} & \textbf{Area} & \textbf{Notes} \\
     \midrule
-    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the XNE TCAD 2018 paper.
-    XNE~\cite{xne2018}                 & --     & --     & --     & --     & --     & commercial flow, BNN IP \\
-    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the YodaNN TCAD 2018 paper.
-    YodaNN~\cite{yodann2018}           & --     & --     & --     & --     & --     & commercial flow, binary-weight CNN \\
-    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the TULIP ICCD 2020 paper.
-    TULIP~\cite{tulip}                 & --     & --     & --     & --     & --     & mixed-signal flash TLG \\
-    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the ChewBaccaNN ISCAS 2021 paper.
-    ChewBaccaNN~\cite{chewbaccann2021} & --     & --     & --     & --     & --     & commercial flow, BNN \\
-    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the OpenSpike ISCAS 2023 paper.
-    OpenSpike~\cite{openspike}         & sky130 & --     & --     & --     & --     & open flow, SNN (not BNN) \\
-    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the FBNA FPL 2018 paper.
-    FBNA~\cite{fbna}                   & --     & --     & --     & --     & --     & FPGA, BNN \\
+    % verified against xne2018 IEEE TCAD 8412533, ResNet-18 ImageNet operating point.
+    XNE~\cite{xne2018}                 & 22\,nm   & ResNet-18 ImageNet     & 51.2\,\%               & 1\,450\,\textmu J & 2.32\,mm$^2$ & commercial flow, BNN IP in MCU \\
+    % verified against yodann2018 IEEE TCAD 7878541, AlexNet operating point in their Table IV.
+    YodaNN~\cite{yodann2018}           & UMC 65\,nm & AlexNet ImageNet     & $\sim$56\,\%$^\dagger$ & 352\,\textmu J    & 1.9\,mm$^2$  & commercial flow, binary-weight only \\
+    % verified against tulip ICCD 2020 9283562, BinaryNet CIFAR-10 operating point.
+    TULIP~\cite{tulip}                 & 40\,nm   & BinaryNet CIFAR-10     & 89.85\,\%$^\dagger$    & 184\,\textmu J    & 1.8\,mm$^2$  & commercial flow, mixed-signal flash TLG \\
+    % verified against chewbaccann2021 ISCAS 9401214, VGG-like CIFAR-10 operating point.
+    ChewBaccaNN~\cite{chewbaccann2021} & GF 22\,nm FDX & VGG-like CIFAR-10 & 86.8\,\%               & 1.3\,\textmu J    & 0.7\,mm$^2$  & commercial flow, BNN, SCM \\
+    % verified against openspike ISCAS 2023 10182182, 1024-1024-10 SNN core dynamic only.
+    OpenSpike~\cite{openspike}         & sky130   & 1024-1024-10 SNN       & 99.12\,\%              & $\sim$2.5\,\textmu J$^\ddagger$ & 33.3\,mm$^2$ & open flow, SNN, OpenRAM \\
     \midrule
-    \textbf{This work}                 & sky130A & 14$\times$14 grouped BNN & 85.60\,\% & 8.06\,\textmu J & 2.25\,mm$^2$ & open flow, OpenRAM, digital TLG \\
+    \textbf{This work}                 & sky130A  & 14$\times$14 grouped BNN & \textbf{85.60\,\%}   & \textbf{8.06\,\textmu J} & 2.25\,mm$^2$ & open flow, BNN, OpenRAM, digital TLG \\
     \bottomrule
   \end{tabular}
 \end{table*}
