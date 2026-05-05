@@ -12,84 +12,141 @@
 \begin{document}
 \begin{tikzpicture}[
     font=\rmfamily,
-    >={Latex[length=1.6mm,width=1.4mm]},
+    >={Latex[length=1.5mm,width=1.3mm]},
     line width=0.6pt,
-    primary/.style  = {draw=navy,   fill=navy,    text=white, line width=0.6pt,
+    primary/.style  = {draw=navy, fill=navy, text=white, line width=0.6pt,
                        minimum height=8mm, minimum width=14mm, align=center,
                        inner sep=2pt, font=\rmfamily\small},
-    secondary/.style= {draw=navy,   fill=white,   text=navy,  line width=0.6pt,
-                       minimum height=8mm, minimum width=14mm, align=center,
+    secondary/.style= {draw=navy, fill=white, text=navy, line width=0.6pt,
+                       minimum height=8mm, minimum width=13mm, align=center,
                        inner sep=2pt, font=\rmfamily\small},
     tlg/.style      = {draw=tlgred, fill=redfill, text=tlgred, line width=1.0pt,
-                       minimum height=8mm, minimum width=14mm, align=center,
+                       minimum height=8mm, minimum width=13mm, align=center,
                        inner sep=2pt, font=\rmfamily\small\bfseries},
-    sig/.style      = {draw=navy,   line width=0.8pt, ->},
+    chunk/.style    = {draw=tlgred, fill=redfill!60, text=tlgred,
+                       line width=0.4pt,
+                       minimum height=2.0mm, minimum width=12mm, align=center,
+                       inner sep=0.6pt, font=\rmfamily\tiny},
+    sig/.style      = {draw=navy, line width=0.8pt, ->},
     redsig/.style   = {draw=tlgred, line width=1.2pt, ->},
     wlbl/.style     = {font=\rmfamily\scriptsize\itshape, text=navy, inner sep=1pt},
     note/.style     = {font=\rmfamily\scriptsize\itshape, text=navy,
                        align=center, inner sep=1pt},
   ]
 
-  % ---------------- Wishbone slave + cfg regfile (top row) -------------
-  \node[secondary, minimum width=18mm, minimum height=12mm] (wb)
-    at (-3.6,1.6) {WB slave\\\scriptsize cfg port};
-  \node[secondary, minimum width=22mm, minimum height=12mm,
-        anchor=west] (cfg) at ($(wb.east)+(0.55,0)$)
-    {Cfg regfile\\\scriptsize $16\!\times\!w_i$, $16\!\times\!\theta_i$};
+  % ===================================================================
+  % Top row: Wishbone slave + cfg regfile (well above datapath)
+  % ===================================================================
+  \node[secondary, minimum width=18mm, minimum height=11mm] (wb)
+    at (-3.7,2.40) {WB slave\\\scriptsize cfg port};
+  \node[secondary, minimum width=24mm, minimum height=11mm,
+        anchor=west] (cfg) at ($(wb.east)+(0.40,0)$)
+    {Cfg regfile\\\scriptsize $16\!\times\! w_i$ (64\,b)\\\scriptsize $16\!\times\! \theta_i$ (7\,b)};
 
   \draw[sig] (wb.east) -- (cfg.west)
-    node[wlbl, midway, above] {cfg};
+    node[wlbl, midway, above] {\texttt{cfg\_dat}};
 
-  % ---------------- Datapath (bottom row, left -> right) ---------------
-  \node[secondary, minimum width=15mm, minimum height=11mm] (xreg)
-    at (-3.6,-0.4) {$x$ reg\\\scriptsize 64-bit};
-  \node[tlg, minimum width=14mm, minimum height=11mm, anchor=west]
-    (xnor) at ($(xreg.east)+(0.55,0)$) {XNOR\\\scriptsize 64-bit};
-  \node[tlg, minimum width=22mm, minimum height=11mm, anchor=west]
-    (pc)   at ($(xnor.east)+(0.55,0)$)
-    {Popcount tree\\\scriptsize 11 chunks $\!\to\!$ 7-b};
+  % ===================================================================
+  % Datapath (single horizontal row at y = 0)
+  % ===================================================================
+  \node[secondary, minimum width=14mm, minimum height=11mm] (xreg)
+    at (-3.7,0) {$x$ reg\\\scriptsize 64-bit};
+
+  \node[tlg, minimum width=12mm, minimum height=11mm, anchor=west]
+    (xnor) at ($(xreg.east)+(0.45,0)$) {XNOR\\\scriptsize 64-bit};
+
+  % ----- Popcount column: 5 visible chunks, vertical stack -----------
+  % Stack centered on XNOR's mid-line (y = 0). 5 visible chunks
+  % including a vdots placeholder. Box height ~2mm, gap ~0.5mm.
+  \def\cx{-0.30}
+  \def\cy{0}
+  \def\dh{0.27}    % step in TikZ units (cm)
+  \node[chunk, anchor=center] (c1) at (\cx, \cy+2*\dh) {6\,b $\to$ 3\,b\ \,\#1};
+  \node[chunk, anchor=center] (c2) at (\cx, \cy+1*\dh) {6\,b $\to$ 3\,b\ \,\#2};
+  \node[chunk, anchor=center, fill=none, draw=none, text=tlgred]
+                              (cd) at (\cx, \cy)       {$\vdots$};
+  \node[chunk, anchor=center] (c4) at (\cx, \cy-1*\dh) {6\,b $\to$ 3\,b\ \,\#10};
+  \node[chunk, anchor=center] (c5) at (\cx, \cy-2*\dh) {4\,b $\to$ 3\,b\ \,(res.)};
+
+  % popcount-tree group label
+  \node[note, text=tlgred, anchor=south]
+    at ($(c1.north)+(0,0.04)$) {\textbf{popcount tree}};
+
+  % XNOR -> chunk column (single 64-b bus arrow into the column)
+  \draw[redsig] (xnor.east) -- (c1.west |- xnor)
+    node[wlbl, midway, above, text=tlgred] {64};
+  % Light fan-in lines from the merged 64-b arrow into each chunk
+  \foreach \n in {c1,c2,c4,c5}{
+    \draw[draw=tlgred, line width=0.3pt]
+      ($(xnor.east -| c1.west)+(-0.05,0)$) -- (\n.west);
+  }
+
+  % Adder tree
   \node[tlg, minimum width=15mm, minimum height=11mm, anchor=west]
-    (cmp)  at ($(pc.east)+(0.55,0)$)
-    {$\geq \theta_i$\\\scriptsize compare};
-  \node[secondary, minimum width=15mm, minimum height=11mm, anchor=west]
-    (yreg) at ($(cmp.east)+(0.55,0)$) {$y$ reg\\\scriptsize 16-bit};
+    (adder) at (1.20,0) {Adder tree\\\scriptsize $11\!\times\! 3\,\textrm{b}\!\to\! 7\,\textrm{b}$};
 
-  % Datapath flow
-  \draw[sig]    (xreg.east) -- (xnor.west) node[wlbl, midway, above] {64};
-  \draw[redsig] (xnor.east) -- (pc.west);
-  \draw[redsig] (pc.east)   -- (cmp.west)
-    node[wlbl, midway, above] {\color{tlgred}7};
-  \draw[redsig] (cmp.east)  -- (yreg.west)
-    node[wlbl, midway, above] {\color{tlgred}1};
+  % Chunks → adder tree. Define a vertical merge line at x = mx,
+  % then a single horizontal red bus into the adder at adder.west's y.
+  \coordinate (mxA) at ($(c1.east)+(0.05,0)$);
+  \draw[redsig] (mxA |- adder.west) -- (adder.west)
+    node[wlbl, midway, above, text=tlgred] {11$\!\times\!$3};
+  % Light feeders from each chunk into the merge column
+  \foreach \n in {c1,c2,c4,c5}{
+    \draw[draw=tlgred, line width=0.3pt] (\n.east) -- (mxA |- \n);
+  }
+  % Vertical extent of the merge column
+  \draw[draw=tlgred, line width=0.4pt] (mxA |- c1) -- (mxA |- c5);
 
-  % Cfg regfile drives w_i into XNOR and theta_i into compare
+  % Threshold compare
+  \node[tlg, minimum width=12mm, minimum height=11mm, anchor=west]
+    (cmp) at ($(adder.east)+(0.45,0)$)
+    {$\geq\,\theta_i$\\\scriptsize compare};
+  \draw[redsig] (adder.east) -- (cmp.west)
+    node[wlbl, midway, above, text=tlgred] {7};
+
+  % Output register
+  \node[secondary, minimum width=14mm, minimum height=11mm, anchor=west]
+    (yreg) at ($(cmp.east)+(0.45,0)$) {$y$ reg\\\scriptsize 16-bit};
+  \draw[redsig] (cmp.east) -- (yreg.west)
+    node[wlbl, midway, above, text=tlgred] {1};
+
+  % x reg → XNOR (data only — both ends are at y=0)
+  \draw[sig] (xreg.east) -- (xnor.west)
+    node[wlbl, midway, above] {64};
+
+  % ----- Cfg regfile drives w_i / theta_i -----
   \draw[draw=navy, line width=0.6pt]
     (cfg.south -| xnor.north) -- (cfg.south -| cmp.north);
   \draw[sig] (cfg.south -| xnor.north) -- (xnor.north)
-    node[wlbl, midway, right] {$w_i$};
+    node[wlbl, pos=0.55, right=1pt] {$w_i$\,/\,64};
   \draw[sig] (cfg.south -| cmp.north) -- (cmp.north)
-    node[wlbl, midway, right] {$\theta_i$};
+    node[wlbl, pos=0.55, right=1pt] {$\theta_i$\,/\,7};
 
-  % x_valid into x reg, y_valid out of y reg
-  \draw[sig] ($(xreg.west)+(-0.65,0)$) -- (xreg.west);
-  \node[wlbl, anchor=east] at ($(xreg.west)+(-0.65,0)$) {$x\_\textrm{valid}$};
-  \draw[sig] (yreg.east) -- ++(0.65,0);
-  \node[wlbl, anchor=west] at ($(yreg.east)+(0.65,0)$) {$y\_\textrm{valid}$};
+  % ----- x_valid in / y_valid out -----
+  \draw[sig] ($(xreg.west)+(-0.55,0)$) -- (xreg.west);
+  \node[wlbl, anchor=east] at ($(xreg.west)+(-0.55,0)$) {$x\_\textrm{valid}$};
+  \draw[sig] (yreg.east) -- ++(0.55,0);
+  \node[wlbl, anchor=west] at ($(yreg.east)+(0.55,0)$) {$y\_\textrm{valid}$};
 
-  % ---------------- TL decomposition bracket ---------------------------
+  % ===================================================================
+  % TL-decomposition bracket beneath the red blocks
+  % ===================================================================
   \draw[decorate, decoration={brace, amplitude=4pt, mirror},
         draw=tlgred, line width=0.8pt]
-    ($(xnor.south west)+(0,-0.10)$) -- ($(cmp.south east)+(0,-0.10)$);
+    ($(xnor.south west)+(0,-0.85)$) -- ($(cmp.south east)+(0,-0.85)$);
   \node[note, text=tlgred, anchor=north]
-    at ($(pc.south)+(0,-0.55)$)
+    at ($(adder.south)+(-0.4,-1.30)$)
     {threshold function via TL decomposition};
   \node[note, anchor=north]
-    at ($(pc.south)+(0,-0.95)$)
+    at ($(adder.south)+(-0.4,-1.65)$)
     {(\texttt{sky130\_fd\_sc\_hd} muxes \& AOI cells)};
 
-  % ---------------- "x16 neurons" annotation ---------------------------
-  \node[note, text=navy, anchor=south]
-    at ($(pc.north)+(0,0.55)$) {\textbf{$\times\,16$ neurons in parallel}};
+  % ===================================================================
+  % "× 16 neurons" annotation, placed above the popcount column header
+  % ===================================================================
+  \node[note, text=navy, anchor=south, font=\rmfamily\small]
+    at ($(cfg.north)+(0,0.05)$)
+    {\textbf{$\times\,16$ neurons in parallel\quad$\to$\quad 16-bit binary output / cycle}};
 
 \end{tikzpicture}
 \end{document}
