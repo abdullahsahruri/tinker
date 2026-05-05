@@ -24,6 +24,10 @@
 % Repo-local figure search path so \includegraphics{figX_*} resolves.
 \graphicspath{{figures/}}
 
+% XNOR operator (binary-inner-product idiom under {-1,+1} -> {0,1}
+% encoding) — used in Sections I and III-B.
+\newcommand{\xnor}{\mathbin{\overline{\oplus}}}
+
 \begin{document}
 
 % ---------------------------------------------------------------------
@@ -102,7 +106,7 @@ fully-digital threshold-logic BNN accelerators. This paper presents
 TINKER, the system that answers it.
 
 Our approach decomposes the binary inner product
-$y_i = \mathbb{1}[\,\mathrm{popcount}(x \mathbin{\overline{\oplus}} w_i) \ge \theta_i]$
+$y_i = \mathbb{1}[\,\mathrm{popcount}(x \xnor w_i) \ge \theta_i]$
 into a chunked threshold-logic mapping that Yosys lowers into a
 fan-in-bounded combinational tree of \texttt{sky130\_fd\_sc\_hd}
 multiplexers and AOI cells. Sixteen such neurons, each with its own
@@ -287,7 +291,7 @@ holds its own 64-bit weight \(w_i\) and 7-bit threshold \(\theta_i\) in
 a configuration regfile. Per neuron, the binary inner product collapses
 to an XNOR followed by a population count~\cite{xnornet}: the output
 bit is
-\(y_i = \mathbb{1}\!\left[\,\mathrm{popcount}\!\left(x \mathbin{\overline{\oplus}} w_i\right) \ge \theta_i\,\right]\).
+\(y_i = \mathbb{1}\!\left[\,\mathrm{popcount}\!\left(x \xnor w_i\right) \ge \theta_i\,\right]\).
 Sixteen neurons evaluated in parallel produce a 16-bit binary vector
 per cycle of throughput, with a two-cycle latency (input-register cycle
 plus combinational evaluate-and-register cycle).
