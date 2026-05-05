@@ -44,28 +44,28 @@ Lafayette, LA, USA\\
 % Abstract — fill last (Stage 7).
 % ---------------------------------------------------------------------
 \begin{abstract}
-Reproducibility of system-level energy claims for neural inference
-accelerators is constrained by closed PDKs and proprietary memory
-compilers; advancing open-flow neural inference to SoC scale is
-therefore a methodological prerequisite for independently verifiable
-energy claims. Binary neural network (BNN) accelerators have
-demonstrated strong
-energy efficiency, but predominantly in commercial process flows with
-proprietary memory compilers, leaving open the question of whether
-the open-source EDA flow can host a sign-off-clean BNN inference
-system-on-chip (SoC) at sky130. This paper presents a fully-digital,
-threshold-logic-mapped BNN inference SoC implemented end-to-end in
-the open flow on sky130A, integrating an XNOR-popcount-threshold tile
-synthesised entirely from \texttt{sky130\_fd\_sc\_hd} standard cells
-with OpenRAM IMEM/DMEM macros, a PicoRV32 control core, and a
-Wishbone interconnect. A grouped 14\,$\times$\,14 BNN reaches
-85.60\,\% MNIST accuracy with a 95\,\% Wilson confidence interval of
-[84.90\,\%, 86.27\,\%] on the full 10\,000-image test set, at
-8.06\,\textmu J per inference and 47.21\,mW activity-aware power.
-Hierarchical power decomposition shows that the threshold-logic tile
-constitutes 24.3\,\% of total SoC power once OpenRAM macros displace
-the register-file memory subsystem, and the design is sign-off-clean
-on KLayout DRC, Netgen LVS, KLayout XOR, and antenna.
+TINKER is a configurable threshold-logic-mapped binary neural
+network (BNN) inference system-on-chip (SoC) in which a
+sixteen-neuron TLG-mapped tile is integrated with a PicoRV32 RV32I
+core, a Wishbone B4 fabric, and OpenRAM IMEM/DMEM macros. The
+XNOR-popcount-threshold core is decomposed into a chunked LUT scheme
+that Yosys lowers entirely onto \texttt{sky130\_fd\_sc\_hd} standard
+cells, in contrast to prior threshold-logic accelerators that depend
+on mixed-signal flash or current-mode cells. An entire grouped
+binary MLP --- four parallel $49 \to 16$ branches and a $64 \to 10$
+output layer --- maps onto the same tile RTL through five sequential
+evaluations under software control, eliminating per-layer hardware
+specialisation. On the full 10\,000-image MNIST test set, TINKER
+reaches 85.60\,\% accuracy with a 95\,\% Wilson confidence interval
+of [84.90\,\%, 86.27\,\%], at 8.06\,\textmu J per inference and
+47.21\,mW activity-aware power. Hierarchical activity-aware
+decomposition shows that the TLG tile constitutes 24.3\,\% of total
+SoC power once memory is properly architected (vs 10.81\,\% under a
+register-file baseline at byte-identical tile RTL), exposing the BNN
+datapath as the first-order system-level optimisation target rather
+than a rounding error against memory dominance. The design is
+implemented on the open sky130 flow and is sign-off-clean on KLayout
+DRC, Netgen LVS, KLayout XOR, and antenna.
 \end{abstract}
 
 \begin{IEEEkeywords}
