@@ -649,16 +649,17 @@ no longer hidden by storage overhead at SoC scale, and tile-level
 optimisation becomes a first-order target rather than a rounding
 error against IMEM/DMEM dominance.
 
-The open-flow tradeoff is honest: 8.06\,\textmu J per inference on a
-small BNN at 130\,nm is orders of magnitude above what advanced-node
-commercial-flow accelerators report, and the comparison in
-Section~\ref{sec:eval:comparison} does not chase that gap. The
-contribution is reproducibility and methodological openness --- a
-single \texttt{config.json} reproduces the entire RTL-to-GDSII flow,
-multi-corner STA, sign-off, and activity-aware power decomposition
---- and the energy regime sits in the same neighbourhood as
-OpenSpike's SNN core dynamic figure on the same flow, which is the
-right normalisation for an open-flow demonstrator.
+The reported per-inference energy of 8.06\,\textmu J is orders of
+magnitude above what advanced-node commercial-flow accelerators
+report, and the comparison in Section~\ref{sec:eval:comparison}
+does not chase that gap. The system-level claim is architectural
+rather than energy-efficiency: that a fully-digital threshold-logic
+decomposition, integrated as a complete SoC with software-scheduled
+sequential tile evaluations, exposes the BNN datapath as the
+dominant active power bucket once memory is no longer dominant.
+TINKER's energy regime sits where a 130\,nm digital-cell-based
+design must, and the architectural contribution is what carries
+forward to nodes where energy efficiency is the bottleneck.
 
 The reported numbers are conservative on two methodological axes.
 The OpenRAM macros ship Liberty for the TT\_1p8V\_25C corner only, so
