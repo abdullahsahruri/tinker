@@ -279,8 +279,9 @@ the 64-bit XNOR output into eleven chunks --- ten 6-bit chunks plus one
 Verilog \texttt{case} table. Yosys lowers each table into a
 technology-mapped network of \texttt{sky130\_fd\_sc\_hd} multiplexers
 and AOI cells that implements the underlying threshold function as a
-fan-in-bounded combinational tree. The eleven 3-bit subcounts
-are then summed by a width-seven adder tree and compared against
+fan-in-bounded combinational tree. The TLG decomposition handles each
+6-bit chunk's population count; the eleven 3-bit subcounts are then
+summed by a conventional width-seven adder tree and compared against
 \(\theta_i\). Because every chunk is a self-contained two-input
 combinational lookup and the only sequential element in the datapath
 is the 64-bit input register, the tile is fully synchronous, contains
