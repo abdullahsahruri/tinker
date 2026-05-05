@@ -1,0 +1,84 @@
+{
+  "die": {
+    "w_um": 1500.0,
+    "h_um": 1500.0
+  },
+  "macros": {
+    "u_imem": {
+      "xmin": 50.0,
+      "ymin": 1033.46,
+      "xmax": 733.1,
+      "ymax": 1450.0,
+      "w": 683.1,
+      "h": 416.54
+    },
+    "u_dmem": {
+      "xmin": 783.1,
+      "ymin": 1052.5,
+      "xmax": 1262.88,
+      "ymax": 1450.0,
+      "w": 479.78,
+      "h": 397.5
+    }
+  },
+  "stdcell_modules": {
+    "u_cpu": {
+      "core_bbox": {
+        "xmin": 100.42,
+        "ymin": 466.56,
+        "xmax": 522.88,
+        "ymax": 836.32,
+        "w": 422.46,
+        "h": 369.76
+      },
+      "full_bbox": {
+        "xmin": 76.82,
+        "ymin": 448.8,
+        "xmax": 543.26,
+        "ymax": 1014.56
+      },
+      "n_cells": 3763
+    },
+    "u_tile": {
+      "core_bbox": {
+        "xmin": 386.08,
+        "ymin": 477.44,
+        "xmax": 1067.06,
+        "ymax": 988.64,
+        "w": 680.98,
+        "h": 511.2
+      },
+      "full_bbox": {
+        "xmin": 298.54,
+        "ymin": 421.6,
+        "xmax": 1114.12,
+        "ymax": 1022.72
+      },
+      "n_cells": 6412
+    },
+    "u_gpio": {
+      "core_bbox": {
+        "xmin": 728.32,
+        "ymin": 961.6,
+        "xmax": 823.26,
+        "ymax": 1081.12,
+        "w": 94.94,
+        "h": 119.52
+      },
+      "full_bbox": {
+        "xmin": 724.04,
+        "ymin": 960.16,
+        "xmax": 827.54,
+        "ymax": 1115.2
+      },
+      "n_cells": 174
+    }
+  },
+  "cell_counts": {
+    "u_cpu": 3763,
+    "u_tile": 6412,
+    "u_gpio": 174,
+    "u_xbar": 0
+  },
+  "extraction_method": "Per-cell module assignment by majority-vote of the cells hierarchical NET prefixes (u_cpu/u_tile/u_gpio/u_xbar). Bounding boxes are min/max of placed-cell origins; padded by 4 \u00b5m."
+}

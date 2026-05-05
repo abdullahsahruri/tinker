@@ -5,7 +5,8 @@ BIBTEX := bibtex
 FIG_SRCS := $(wildcard figures/*.src.tex)
 FIG_TIKZ_PDFS := $(FIG_SRCS:.src.tex=.pdf)
 FIG_PY_PDFS   := figures/fig4_power_breakdown.pdf
-FIG_PDFS      := $(FIG_TIKZ_PDFS) $(FIG_PY_PDFS)
+FIG_SRC_PDFS  := figures/fig3_layout.pdf
+FIG_PDFS      := $(FIG_TIKZ_PDFS) $(FIG_PY_PDFS) $(FIG_SRC_PDFS)
 
 .PHONY: all clean distclean figures
 
@@ -20,6 +21,12 @@ figures/%.pdf: figures/%.src.tex
 # Build the matplotlib power-breakdown figure.
 figures/fig4_power_breakdown.pdf: figures/fig4_power_breakdown.py
 	cd figures && python3 fig4_power_breakdown.py >/dev/null
+
+# Build the TikZ floorplan diagram from figures/src/.
+figures/fig3_layout.pdf: figures/src/fig3_layout.tex figures/src/fig3_floorplan_data.json
+	cd figures/src && $(LATEX) fig3_layout.tex >/dev/null
+	mv figures/src/fig3_layout.pdf figures/fig3_layout.pdf
+	rm -f figures/src/fig3_layout.aux figures/src/fig3_layout.log
 
 figures: $(FIG_PDFS)
 
