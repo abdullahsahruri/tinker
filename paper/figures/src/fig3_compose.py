@@ -30,10 +30,13 @@ GRAY_FILL = "#F2F2F2"
 HERE = Path(__file__).resolve().parent
 BASE_PNG = HERE / "fig3_base.png"
 DATA_JSON = HERE / "fig3_floorplan_data.json"
+POS_JSON = HERE / "fig3_cell_positions.json"
 OUT_PDF = HERE.parent / "fig3_layout.pdf"
 
 with open(DATA_JSON) as f:
     fp = json.load(f)
+with open(POS_JSON) as f:
+    cell_positions = json.load(f)
 DIE_W = fp["die"]["w_um"]
 DIE_H = fp["die"]["h_um"]
 
@@ -50,7 +53,7 @@ for s in ("top", "right", "bottom", "left"):
 import matplotlib.image as mpimg
 img = mpimg.imread(str(BASE_PNG))
 ax.imshow(img, extent=(0, DIE_W, 0, DIE_H), zorder=0,
-          interpolation="bilinear")
+          interpolation="bilinear", alpha=0.55)
 
 # --- Macros: navy outline, no fill (the macros are visible in base) ----
 for key, label, dims_label in [
@@ -106,20 +109,45 @@ def add_module(name, color_fill, color_edge, lw, ls, fill_alpha,
     return (x, y, w, h)
 
 
-# Wishbone fabric & glue logic — drawn BEHIND u_cpu/u_tile so they
-# render on top. Light navy fill, dashed outline, label centered low.
-add_module("soc_top_glue",
-           NAVY, NAVY, 0.5, (0, (1, 2)), 0.06,
-           "Wishbone B4 fabric & glue", NAVY,
-           label_offset=(0, -250), zorder=1.4, label_zorder=3.5)
+# --- Per-module cell scatter: shows ACTUAL placement of each module's
+#     cells, since the placer interleaves modules across the same rows.
+SCATTER_STYLE = {
+    "soc_top_glue": dict(color="#A0A8B5", size=0.50, alpha=0.65,
+                         zorder=1.3),  # light gray-navy: glue background
+    "u_cpu":        dict(color="#13284A", size=0.85, alpha=0.95,
+                         zorder=1.6),  # deep navy — distinct from base
+    "u_tile":       dict(color=RED,       size=0.85, alpha=0.95,
+                         zorder=1.7),  # red — emphasized
+    "u_gpio":       dict(color="#D9831F", size=2.0,  alpha=1.00,
+                         zorder=1.8),  # orange (small count, larger marker)
+}
+for mod, style in SCATTER_STYLE.items():
+    pts = cell_positions.get(mod, [])
+    if not pts:
+        continue
+    xs = [p[0] for p in pts]
+    ys = [p[1] for p in pts]
+    ax.scatter(xs, ys, s=style["size"], c=style["color"],
+               alpha=style["alpha"], marker="s", linewidths=0,
+               zorder=style["zorder"])
 
+# --- Bbox outlines on top of the scatter, with labels centered ---------
 # TLG-mapped tile — RED HIGHLIGHT, the contribution
-add_module("u_tile", RED_FILL, RED, 1.0, "-", 0.30,
-           "TLG-mapped tile", RED, label_weight="bold")
+add_module("u_tile", RED_FILL, RED, 1.0, "-", 0.18,
+           "TLG-mapped tile", RED, label_weight="bold",
+           zorder=2.2, label_zorder=4)
 
 # PicoRV32 — full bbox; overlap with u_tile is honestly visible
-add_module("u_cpu", NAVY, NAVY, 0.6, (0, (4, 2)), 0.10,
-           "PicoRV32", NAVY)
+add_module("u_cpu", NAVY, NAVY, 0.7, (0, (4, 2)), 0.06,
+           "PicoRV32", NAVY,
+           zorder=2.1, label_zorder=4,
+           label_offset=(-180, -50))
+
+# Wishbone fabric & glue: outline only, faint, label below the others
+add_module("soc_top_glue",
+           NAVY, NAVY, 0.5, (0, (1, 2)), 0.0,
+           "Wishbone B4 fabric & glue", NAVY,
+           label_offset=(0, -240), zorder=2.0, label_zorder=3.8)
 
 # GPIO — small block; offset label to the side via an arrow
 gpio_bbox = sc.get("u_gpio", {}).get("full_bbox")

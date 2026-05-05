@@ -221,4 +221,15 @@ if other_positions:
 with open(OUT, "w") as f:
     json.dump(result, f, indent=2)
 print(f"Wrote {OUT}")
-print(json.dumps(result, indent=2))
+
+# Also dump per-cell placement positions for the composer's scatter
+# rendering (bboxes alone don't reveal the placer's interleaving).
+positions_out = Path(__file__).resolve().parent / "fig3_cell_positions.json"
+with open(positions_out, "w") as f:
+    json.dump({
+        "u_cpu":         positions["u_cpu"],
+        "u_tile":        positions["u_tile"],
+        "u_gpio":        positions["u_gpio"],
+        "soc_top_glue":  other_positions,
+    }, f)
+print(f"Wrote {positions_out} ({sum(len(v) for v in positions.values()) + len(other_positions)} cells)")
