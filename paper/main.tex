@@ -454,10 +454,12 @@ tile maps to ten output logits in a fifth evaluation. Grouping
 choice: each branch fits one tile-evaluation fanin, so the entire
 network maps onto the SoC without changing tile or wrapper RTL.
 The accuracy gap from full $196 \to 64$ connectivity to grouped
-$4 \times (49 \to 16)$ is 0.87\,pp --- well below the run-to-run
-accuracy variance observed across the three training seeds, and
-below the 0.69\,pp half-width of the 95\,\% Wilson confidence
-interval on the deployed network's MNIST accuracy.
+$4 \times (49 \to 16)$, measured against an unconstrained-fanin
+training run on the same data with the same training recipe, is
+0.87\,pp --- well below the run-to-run accuracy variance observed
+across the three training seeds, and below the 0.69\,pp half-width
+of the 95\,\% Wilson confidence interval on the deployed network's
+MNIST accuracy.
 Per-image inference therefore costs four hidden-layer batches plus
 one output-layer batch, which the PicoRV32 firmware schedules
 sequentially against the cfg-write/poll/read protocol of
