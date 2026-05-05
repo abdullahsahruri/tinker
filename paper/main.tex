@@ -48,28 +48,31 @@
 % Abstract — fill last (Stage 7).
 % ---------------------------------------------------------------------
 \begin{abstract}
-  TINKER is a configurable threshold-logic-mapped binary neural
-  network (BNN) inference system-on-chip (SoC) in which a
-  sixteen-neuron TLG-mapped tile is integrated with a PicoRV32 RV32I
-  core, a Wishbone B4 fabric, and OpenRAM IMEM/DMEM macros. The
-  XNOR-popcount-threshold core is decomposed into a chunked LUT scheme
-  that Yosys lowers entirely onto \texttt{sky130\_fd\_sc\_hd} standard
-  cells, in contrast to prior threshold-logic accelerators that depend
-  on mixed-signal flash or current-mode cells. An entire grouped
-  binary MLP --- four parallel $49 \to 16$ branches and a $64 \to 10$
-  output layer --- maps onto the same tile RTL through five sequential
-  evaluations under software control, eliminating per-layer hardware
-  specialisation. On the full 10\,000-image MNIST test set, the chip
-  reaches 85.60\,\% accuracy with a 95\,\% Wilson confidence interval
-  of [84.90\,\%, 86.27\,\%], at 8.06\,\textmu J per inference and
+  Threshold logic --- implementing neural-network-style inner
+  products as gates that fire when weighted inputs exceed a
+  threshold --- has a long architectural lineage, but its silicon
+  implementations have historically required exotic devices: flash
+  transistors, memristors, or current-mode analog cells. We show
+  that the threshold function decomposes cleanly onto ordinary
+  digital standard cells via a chunked-LUT scheme, eliminating the
+  dependency on fabrication-specific primitives that has constrained
+  threshold-logic accelerators. We demonstrate this at SoC scale
+  with TINKER, a sixteen-neuron threshold-logic-mapped tile
+  integrated with a PicoRV32 RV32I core, a Wishbone B4 fabric, and
+  OpenRAM IMEM/DMEM macros, hosting an entire grouped binary MLP
+  through five software-scheduled sequential evaluations. On the
+  full 10\,000-image MNIST test set, TINKER reaches 85.60\,\%
+  accuracy with a 95\,\% Wilson confidence interval of
+  [84.90\,\%, 86.27\,\%], at 8.06\,\textmu J per inference and
   47.21\,mW activity-aware power. Hierarchical activity-aware
-  decomposition shows that the TLG tile constitutes 24.3\,\% of total
-  SoC power once memory is properly architected (vs 10.81\,\% under a
-  register-file baseline at byte-identical tile RTL), exposing the BNN
-  datapath as the first-order system-level optimisation target rather
-  than a rounding error against memory dominance. The design is
-  implemented on the open sky130 flow and is sign-off-clean on KLayout
-  DRC, Netgen LVS, KLayout XOR, and antenna.
+  decomposition shows that the threshold-logic compute occupies
+  24.3\,\% of total SoC power --- the largest active datapath
+  bucket in the system --- validating fully-digital threshold logic
+  as a viable primary inference compute element at SoC scale, not
+  merely a curiosity confined to specialized fabrication flows.
+  TINKER is implemented on the open sky130 flow and is
+  sign-off-clean on KLayout DRC, Netgen LVS, KLayout XOR, and
+  antenna.
 \end{abstract}
 
 \begin{IEEEkeywords}
