@@ -439,10 +439,11 @@ the deployment golden, folding the trained batch-norm parameters into
 per-neuron thresholds via
 $t_i = \lceil (49 + \mathrm{sgn}(\gamma_i)\,\mu_i - \beta_i\sigma_i/|\gamma_i|)/2 \rceil$;
 SoC RTL simulation matches this golden on all sixteen images of the
-verification set. Network weights are trained off-chip with a
-hard-tanh straight-through estimator~\cite{hubara_bnn}, a
-OneCycleLR schedule~\cite{onecycle}, 30 epochs, and a three-seed
-sweep (seeds 42, 1042, 2042) with the best-validation seed deployed.
+verification set. Network weights are trained off-chip with binary-weight
+gradient descent~\cite{binaryconnect}, a hard-tanh
+straight-through estimator~\cite{hubara_bnn}, a OneCycleLR
+schedule~\cite{onecycle}, 30 epochs, and a three-seed sweep (seeds
+42, 1042, 2042) with the best-validation seed deployed.
 
 % =====================================================================
 % V. Evaluation — Target: ~850 words / 1.5 page, Fig. 4 + Tables I, II
@@ -480,8 +481,8 @@ batch-norm thresholds. PyTorch and the integer golden agree on 15 of
 boundary near zero and is the expected behaviour of the integer
 quantisation, not a bug. The post-P\&R SoC RTL simulation then matches
 the integer golden bit-exact on all sixteen images. On the full
-10\,000-image MNIST test set, the same network reaches 85.60\,\%
-accuracy (8\,560 correct), with a 95\,\% Wilson confidence interval of
+10\,000-image MNIST test set~\cite{mnist}, the same network reaches
+85.60\,\% accuracy (8\,560 correct), with a 95\,\% Wilson confidence interval of
 \([84.90\,\%,\,86.27\,\%]\); per-class accuracy ranges from 95.2\,\%
 on digit~1 to 75.1\,\% on digit~5.
 \input{tables/table1_verification}
