@@ -42,7 +42,12 @@ Lafayette, LA, USA\\
 % Abstract — fill last (Stage 7).
 % ---------------------------------------------------------------------
 \begin{abstract}
-Binary neural network (BNN) accelerators have demonstrated strong
+Reproducibility of system-level energy claims for neural inference
+accelerators is constrained by closed PDKs and proprietary memory
+compilers; advancing open-flow neural inference to SoC scale is
+therefore a methodological prerequisite for independently verifiable
+energy claims. Binary neural network (BNN) accelerators have
+demonstrated strong
 energy efficiency, but predominantly in commercial process flows with
 proprietary memory compilers, leaving open the question of whether
 the open-source EDA flow can host a sign-off-clean BNN inference
@@ -58,10 +63,7 @@ Wishbone interconnect. A grouped 14\,$\times$\,14 BNN reaches
 Hierarchical power decomposition shows that the threshold-logic tile
 constitutes 24.3\,\% of total SoC power once OpenRAM macros displace
 the register-file memory subsystem, and the design is sign-off-clean
-on KLayout DRC, Netgen LVS, KLayout XOR, and antenna. To the
-authors' knowledge this is the first fully-digital, threshold-logic-
-mapped BNN inference SoC implemented entirely in the open-source
-flow with sign-off-clean physical verification on sky130.
+on KLayout DRC, Netgen LVS, KLayout XOR, and antenna.
 \end{abstract}
 
 \begin{IEEEkeywords}
