@@ -130,9 +130,7 @@ threshold-logic accelerators that depend on mixed-signal flash or
 current-mode cells~\cite{tulip}. Second, a complete SoC integration
 that hosts an entire grouped binary MLP on a single sixteen-neuron
 tile through five sequential evaluations, controlled by a PicoRV32
-RV32I core over a Wishbone B4 fabric with OpenRAM IMEM/DMEM macros,
-using a polled cfg-write/handshake protocol with silently-dropped
-writes on busy for testability. Third, a system-level power finding
+RV32I core over a Wishbone B4 fabric with OpenRAM IMEM/DMEM macros. Third, a system-level power finding
 that the TLG tile constitutes 24.3\,\% of total SoC power once
 memory is properly architected (47.21\,mW total at activity-aware
 sign-off), up from 10.81\,\% under a register-file baseline at
@@ -236,7 +234,7 @@ TINKER.
   \end{subfigure}\hfill
   \begin{subfigure}[b]{0.49\textwidth}
     \centering
-    \includegraphics[width=1.2\linewidth]{fig2_tile_microarch.pdf}
+    \includegraphics[width=1\linewidth]{fig2_tile_microarch.pdf}
     \caption{TLG-mapped BNN tile microarchitecture.}
     \label{fig:tile-microarch}
   \end{subfigure}
@@ -685,19 +683,20 @@ approach.
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have presented a fully-digital, TLG-mapped BNN inference SoC
-implemented end-to-end in the open flow on sky130A. The design pairs
-a 16-neuron XNOR-popcount-threshold tile mapped into
-\texttt{sky130\_fd\_sc\_hd} standard cells with a PicoRV32 control
-core, a Wishbone fabric, and OpenRAM IMEM/DMEM macros, and it closes
-the headline corner with sign-off-clean KLayout DRC, Netgen LVS,
-KLayout XOR, and antenna. End-to-end MNIST inference reaches
-85.60\,\% accuracy at 8.06\,\textmu J per image and 47.21\,mW
-activity-aware power, with the TLG tile constituting 24.3\,\% of
-total SoC power once OpenRAM removes register-file dominance from the
-memory subsystem. With the open-flow demonstrator in place,
-tile-level optimisation, larger networks, and tape-out become
-tractable next steps on the same reproducible pipeline.
+We have presented TINKER, a configurable threshold-logic-mapped
+BNN inference SoC. The XNOR-popcount-threshold core is decomposed
+into a chunked LUT scheme that lowers entirely onto
+\texttt{sky130\_fd\_sc\_hd} standard cells, integrated as a
+sixteen-neuron tile alongside a PicoRV32 RV32I core, a Wishbone B4
+fabric, and OpenRAM IMEM/DMEM macros. An entire grouped binary MLP
+maps onto the tile RTL through five software-scheduled sequential
+evaluations, reaching 85.60\,\% MNIST accuracy at 8.06\,\textmu J
+per inference and 47.21\,mW activity-aware power. The system-level
+power decomposition exposes the TLG tile as the dominant active
+bucket at 24.3\,\%, redirecting the optimisation target from the
+memory subsystem onto the inference datapath itself. Tile-level
+optimisation, larger networks, and tape-out become the natural
+next steps.
 
 % =====================================================================
 % Acknowledgment — Target: 1--2 sentences if any
