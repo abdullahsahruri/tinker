@@ -79,7 +79,8 @@ sc = fp["stdcell_modules"]
 
 def add_module(name, color_fill, color_edge, lw, ls, fill_alpha,
                label_text, label_color, label_weight="normal",
-               use_full=True, label_offset=(0, 0)):
+               use_full=True, label_offset=(0, 0), zorder=2,
+               label_zorder=4):
     if name not in sc:
         return None
     bbox = sc[name]["full_bbox" if use_full else "core_bbox"]
@@ -89,11 +90,11 @@ def add_module(name, color_fill, color_edge, lw, ls, fill_alpha,
     # Semi-transparent fill
     ax.add_patch(Rectangle((x, y), w, h,
                            facecolor=color_fill, alpha=fill_alpha,
-                           edgecolor="none", zorder=1.5))
+                           edgecolor="none", zorder=zorder - 0.5))
     # Solid outline
     ax.add_patch(Rectangle((x, y), w, h, fill=False,
                            edgecolor=color_edge, linewidth=lw,
-                           linestyle=ls, zorder=2))
+                           linestyle=ls, zorder=zorder))
     cx = x + w / 2 + label_offset[0]
     cy = y + h / 2 + label_offset[1]
     ax.text(cx, cy, label_text,
@@ -101,9 +102,16 @@ def add_module(name, color_fill, color_edge, lw, ls, fill_alpha,
             color=label_color, fontweight=label_weight,
             bbox=dict(boxstyle="round,pad=0.22", fc="white",
                       ec=label_color, lw=0.5, alpha=0.95),
-            zorder=4)
+            zorder=label_zorder)
     return (x, y, w, h)
 
+
+# Wishbone fabric & glue logic — drawn BEHIND u_cpu/u_tile so they
+# render on top. Light navy fill, dashed outline, label centered low.
+add_module("soc_top_glue",
+           NAVY, NAVY, 0.5, (0, (1, 2)), 0.06,
+           "Wishbone B4 fabric & glue", NAVY,
+           label_offset=(0, -250), zorder=1.4, label_zorder=3.5)
 
 # TLG-mapped tile — RED HIGHLIGHT, the contribution
 add_module("u_tile", RED_FILL, RED, 1.0, "-", 0.30,
@@ -137,15 +145,7 @@ if gpio_bbox:
                 arrowprops=dict(arrowstyle="-", lw=0.5, color=NAVY),
                 zorder=4)
 
-# Wishbone fabric: no extracted bbox; italic annotation in the open
-# lower-die region, away from any module
-ax.text(700, 200,
-        "Wishbone B4 fabric\nrouted across std-cell rows",
-        ha="center", va="center", fontsize=7,
-        color=NAVY, fontstyle="italic",
-        bbox=dict(boxstyle="round,pad=0.25", fc="white",
-                  ec=NAVY, lw=0.4, alpha=0.92),
-        zorder=4)
+# (Wishbone B4 fabric & glue is now an extracted overlay above.)
 
 # --- Die-size annotation (top-right inset) -----------------------------
 ax.text(DIE_W - 20, DIE_H - 20,

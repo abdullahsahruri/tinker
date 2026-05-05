@@ -89,6 +89,12 @@ COMP = re.compile(
 )
 positions = {p: [] for p in PREFIXES}    # list of (x, y) per module
 cell_count = {p: 0 for p in PREFIXES}
+# OTHER bucket: real logic cells with no module-vote attribution.
+# Excludes FILLER / TAP / PHY_EDGE / ANTENNA decoration cells. These
+# are the top-level glue (Wishbone fabric, reset sync, top buffers).
+other_positions = []
+other_count = 0
+SKIP_PREFIXES = ("FILLER_", "TAP_", "PHY_EDGE_", "ANTENNA_")
 print("Scanning COMPONENTS section...")
 in_comp = False
 total_cells = 0
@@ -109,11 +115,17 @@ with open(DEF) as f:
         y_um = int(m.group(4)) / DBU
         total_cells += 1
         mod = cell_module.get(cell)
-        if mod is None:
+        if mod is not None:
+            positions[mod].append((x_um, y_um))
+            cell_count[mod] += 1
             continue
-        positions[mod].append((x_um, y_um))
-        cell_count[mod] += 1
-print(f"  {total_cells} total cells; assigned per module: {cell_count}")
+        # Unassigned: drop decoration cells, keep real glue logic
+        if any(cell.startswith(p) for p in SKIP_PREFIXES):
+            continue
+        other_positions.append((x_um, y_um))
+        other_count += 1
+print(f"  {total_cells} total cells; per module: {cell_count}; "
+      f"OTHER glue: {other_count}")
 
 # Helper: percentile of a sorted list
 def quantile(sorted_xs, q):
@@ -174,6 +186,36 @@ for mod in PREFIXES:
             "ymax": round(fymax, 2),
         },
         "n_cells": cell_count[mod],
+    }
+
+# Add the OTHER (top-level glue / Wishbone fabric) bbox so the
+# composer can show where the unattributed logic sits.
+if other_positions:
+    oxs = sorted(p[0] for p in other_positions)
+    oys = sorted(p[1] for p in other_positions)
+    fxmin, fymin, fxmax, fymax = oxs[0], oys[0], oxs[-1], oys[-1]
+    cxmin = quantile(oxs, 0.05); cxmax = quantile(oxs, 0.95)
+    cymin = quantile(oys, 0.05); cymax = quantile(oys, 0.95)
+    result["stdcell_modules"]["soc_top_glue"] = {
+        "core_bbox": {
+            "xmin": round(cxmin - PAD, 2),
+            "ymin": round(cymin - PAD, 2),
+            "xmax": round(cxmax + PAD, 2),
+            "ymax": round(cymax + PAD, 2),
+            "w":    round(cxmax - cxmin + 2 * PAD, 2),
+            "h":    round(cymax - cymin + 2 * PAD, 2),
+        },
+        "full_bbox": {
+            "xmin": round(fxmin, 2),
+            "ymin": round(fymin, 2),
+            "xmax": round(fxmax, 2),
+            "ymax": round(fymax, 2),
+        },
+        "n_cells": other_count,
+        "description":
+            "Top-level glue logic with no per-module hierarchy in DEF "
+            "(Wishbone B4 fabric address-decode + bus mux, reset sync, "
+            "top-level buffer tree). Interleaved across std-cell rows.",
     }
 
 with open(OUT, "w") as f:

@@ -72,6 +72,24 @@
         "ymax": 1115.2
       },
       "n_cells": 174
+    },
+    "soc_top_glue": {
+      "core_bbox": {
+        "xmin": 254.06,
+        "ymin": 477.44,
+        "xmax": 1066.6,
+        "ymax": 999.52,
+        "w": 812.54,
+        "h": 522.08
+      },
+      "full_bbox": {
+        "xmin": 50.0,
+        "ymin": 424.32,
+        "xmax": 1123.32,
+        "ymax": 1096.16
+      },
+      "n_cells": 9764,
+      "description": "Top-level glue logic with no per-module hierarchy in DEF (Wishbone B4 fabric address-decode + bus mux, reset sync, top-level buffer tree). Interleaved across std-cell rows."
     }
   },
   "cell_counts": {
