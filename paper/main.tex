@@ -407,11 +407,10 @@ PDN hookups to the sky130 dual rail (\texttt{vccd1}/\texttt{vssd1}).
 Macro integration required iteration on placement constraints, an
 OpenSTA blackbox stub for the behavioural macro views, and removal of
 the wrapper-level \texttt{keep\_hierarchy} attributes to satisfy
-LibreLane's flat-macro convention. The choice of open flow over a
-commercial tool is a methodological one: the full RTL, sign-off, and
-characterisation pipeline reproduces from a single
-\texttt{config.json}, and that reproducibility is the contribution
-this paper aims to extend.
+LibreLane's flat-macro convention. The full RTL-to-GDSII pipeline
+is driven from a single \texttt{config.json}, with multi-corner STA,
+sign-off, and activity-aware power decomposition reproducible from
+the same artifact.
 
 \subsection{Sign-off methodology}
 \label{sec:impl:signoff}
