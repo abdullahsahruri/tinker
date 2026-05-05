@@ -179,45 +179,48 @@ Section~\ref{sec:conclusion} concludes.
 \section{Background and Related Work}
 \label{sec:background}
 
-We review the digital BNN accelerator landscape against which this
-design is positioned, then turn to the threshold-logic architectural
-lineage that defines its closest comparator.
-YodaNN~\cite{yodann2018} pairs a binary-weight datapath with
-standard-cell memories and aggressive voltage scaling in UMC 65\,nm to
-push AlexNet-class CNNs into the ultralow-power regime.
-XNE~\cite{xne2018} integrates an XNOR-popcount engine with a hybrid
-SRAM/SCM memory subsystem alongside a microcontroller in 22\,nm,
-reporting 21.6\,fJ/op for fully-binary inference.
-ChewBaccaNN~\cite{chewbaccann2021} couples a flexible
-XNOR-and-popcount-tree datapath with body-biasing and 0.4\,V operation
-in GF 22\,nm FDX, reaching 223\,TOPS/W at peak.
-The closest architectural comparator is TULIP, which takes the
-threshold-logic-gate route in 40\,nm by mapping
-XNOR-popcount-threshold neurons onto a network of programmable
-threshold-logic standard cells whose threshold compare uses embedded
-flash devices~\cite{tulip}. Our design shares the threshold-logic
-philosophy but commits to a fully-digital decomposition: the same
-XNOR-popcount-threshold core is mapped entirely onto
+Threshold logic, in the canonical sense surveyed
+by~\cite{beiu2003vlsi}, realises a Boolean function whose output
+fires when a weighted sum of inputs crosses a programmed threshold
+--- a primitive with a long architectural history as a substrate
+for dense combinational and neural-network-style computation.
+Silicon implementations of the threshold function span several
+device families. Differential and current-mode analog approaches
+use precise current sources to realise the weighted
+sum~\cite{beiu2003differential}. Memristor-based threshold gates
+exploit non-volatile resistance for weight storage and
+current-mode summation~\cite{papandroulidakis2019practical}.
+Most recently, programmable threshold-logic standard cells with
+embedded flash for the threshold compare push the lineage into
+the ASIC regime~\cite{tulip}. The unifying constraint across these
+implementations is fabrication binding: each ties the design to a
+specific PDK family by its choice of threshold-compare primitive,
+and none carries threshold logic on ordinary digital standard
+cells. TINKER is, to our knowledge, the first fully-digital TLG
+implementation at SoC scale: a chunked-LUT decomposition of the
+threshold function lowers entirely onto
 \texttt{sky130\_fd\_sc\_hd} multiplexers and AOI cells, with no
-analog or mixed-signal devices, preserving portability across
-digital PDKs.
+exotic primitives.
 
-At the system level, the closest comparator is
-OpenSpike~\cite{openspike}, which integrates a spiking neural
-network with a PicoRV32 controller and OpenRAM macros on sky130 ---
-a useful precedent for SoC-scale neural inference on this
-substrate, but occupying the SNN rather than BNN computational
-regime. The system contribution of this work is not the use of
-threshold logic per se, nor the choice of digital cells, but the
-SoC-level integration that hosts an entire grouped binary MLP on a
-single tile RTL through software-scheduled sequential evaluations,
-and the system-level power decomposition that exposes where
-optimisation should focus once memory is no longer dominant.
-FPGA-side BNN frameworks such as FINN~\cite{finn} occupy a separate
-design point that we do not directly compare against. With the
-comparator landscape established, the following sections describe
-the architecture (Section~\ref{sec:arch}), implementation
-(Section~\ref{sec:impl}), and evaluation (Section~\ref{sec:eval}).
+The digital BNN accelerator landscape provides the second
+reference frame. YodaNN~\cite{yodann2018} pairs a binary-weight
+datapath with standard-cell memories and aggressive voltage
+scaling in UMC 65\,nm. XNE~\cite{xne2018} integrates an
+XNOR-popcount engine with a hybrid SRAM/SCM memory subsystem
+alongside a microcontroller in 22\,nm.
+ChewBaccaNN~\cite{chewbaccann2021} couples a flexible
+XNOR-and-popcount-tree datapath with body-biasing and 0.4\,V
+operation in GF 22\,nm FDX. These accelerators implement the BNN
+inner product using conventional adder trees and comparators,
+not threshold-logic decomposition. At the system level,
+OpenSpike~\cite{openspike} is the closest open-flow SoC
+precedent on sky130 (PicoRV32 + OpenRAM) but targets a spiking
+rather than a binary network. FPGA-side BNN frameworks such as
+FINN~\cite{finn} occupy a separate design point not directly
+compared. With the threshold-logic lineage and BNN landscape
+established, the following sections describe the architecture
+(Section~\ref{sec:arch}), implementation (Section~\ref{sec:impl}),
+and evaluation (Section~\ref{sec:eval}) of TINKER.
 
 % =====================================================================
 % III. SoC Architecture — Target: ~900 words / 1.5 page, 2 figures
