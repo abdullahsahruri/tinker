@@ -602,18 +602,17 @@ simultaneous constraints: a fully open RTL-to-GDSII pipeline
 mapped into the standard-cell library, with a soft RV32I core
 orchestrating end-to-end inference at the SoC level.
 
-Within those constraints the closest comparators are
-TULIP~\cite{tulip} and OpenSpike~\cite{openspike}.
-TULIP shares the threshold-logic philosophy but commits to a
-mixed-signal flow with programmable flash devices for the threshold
-compare, which ties it to a specific PDK family; the present design
-demonstrates that the same TLG mapping can be carried entirely by
-digital standard cells, preserving portability across any digital PDK
-and across the open flow specifically. OpenSpike shares the open
-toolchain (sky130 + the OpenLane lineage + OpenRAM + a PicoRV32
-controller) but targets a spiking neural network rather than a binary
-one, occupying a complementary point in the open-flow ML-ASIC space.
-The figures reported for the proposed design in
+The primary architectural comparator is TULIP~\cite{tulip}. TULIP
+shares the threshold-logic philosophy but commits to a mixed-signal
+flow with programmable flash devices for the threshold compare,
+which ties the design to a specific PDK family. TINKER demonstrates
+that the same TLG mapping can be carried entirely by digital
+standard cells, preserving portability across any digital PDK. The
+secondary comparator is OpenSpike~\cite{openspike}, which shares
+the SoC-scale neural-inference-on-sky130 substrate (PicoRV32 +
+OpenRAM) but targets a spiking rather than a binary network,
+occupying a complementary computational regime.
+The figures reported for TINKER in
 Table~\ref{tab:comparison} are end-to-end at the SoC level --- CPU,
 memories, clock tree, and tile included --- which is conservative
 against the IP-block measurements that several baselines report and
