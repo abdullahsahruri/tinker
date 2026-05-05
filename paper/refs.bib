@@ -1,7 +1,5 @@
 % =====================================================================
 % refs.bib — SOCC 2026 paper
-% Entries marked "% TODO: verify" should be cross-checked against the
-% official PDF / DOI before submission.
 % =====================================================================
 
 % ---------- Digital BNN accelerators (the comparison baselines) ------
@@ -30,8 +28,7 @@
   doi     = {10.1109/TCAD.2017.2682138},
 }
 
-% Verified against IEEE Xplore (9283562). Key kept as "tulip" because
-% main.tex body prose cites \cite{tulip}; rename deferred to Stage 5.
+% Verified against IEEE Xplore (9283562).
 @inproceedings{tulip,
   author    = {Ankit Wagle and Sunil Khatri and Sarma Vrudhula},
   title     = {A Configurable {BNN} {ASIC} using a Network of Programmable Threshold Logic Standard Cells},
@@ -51,25 +48,29 @@
   doi       = {10.1109/ISCAS51556.2021.9401214},
 }
 
-% TODO: verify — confirm against ISCAS 2023 proceedings.
+% Verified against IEEE Xplore (10182182). arXiv:2302.01015.
 @inproceedings{openspike,
   author    = {Farhad Modaresi and Matthew R. Guthaus and Jason K. Eshraghian},
   title     = {{OpenSpike}: An {OpenRAM} {SNN} Accelerator},
-  booktitle = {Proc.\ IEEE Int.\ Symp.\ on Circuits and Systems (ISCAS)},
+  booktitle = {2023 IEEE International Symposium on Circuits and Systems (ISCAS)},
+  pages     = {1--5},
   year      = {2023},
-  note      = {TODO: verify bibliographic details against the published version.},
+  doi       = {10.1109/ISCAS46773.2023.10182182},
 }
 
-% TODO: verify — confirm full author list, page range, DOI (FPL 2018).
+% Verified against IEEE Xplore (8532584); FPL 2018 conference proceedings.
+% TODO(verify): exact page range — IEEE Xplore document number is
+% authoritative; some secondary sources show "51-513" which appears to
+% be an OCR artefact of the printed page range.
 @inproceedings{fbna,
   author    = {Peng Guo and Hong Ma and Ruizhi Chen and Pin Li and Shaolin Xie and Donglin Wang},
   title     = {{FBNA}: A Fully Binarized Neural Network Accelerator},
-  booktitle = {Proc.\ Int.\ Conf.\ on Field-Programmable Logic and Applications (FPL)},
+  booktitle = {2018 28th International Conference on Field Programmable Logic and Applications (FPL)},
   year      = {2018},
-  note      = {TODO: verify bibliographic details against the published version.},
+  doi       = {10.1109/FPL.2018.00016},
 }
 
-% TODO: verify — ACM FPGA 2017; confirm DOI and page range against ACM DL.
+% Verified against ACM DL (10.1145/3020078.3021744).
 @inproceedings{finn,
   author    = {Yaman Umuroglu and Nicholas J. Fraser and Giulio Gambardella and
                Michaela Blott and Philip Leong and Magnus Jahre and Kees Vissers},
@@ -82,50 +83,59 @@
 
 % ---------- BNN training / theory --------------------------------------
 
-% TODO: verify — NeurIPS 2015; confirm volume and page range.
+% Verified — NeurIPS 2015, vol 28.
 @inproceedings{binaryconnect,
   author    = {Matthieu Courbariaux and Yoshua Bengio and Jean-Pierre David},
   title     = {{BinaryConnect}: Training Deep Neural Networks with Binary Weights During Propagations},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {28},
+  pages     = {3123--3131},
   year      = {2015},
 }
 
-% TODO: verify — ECCV 2016, Springer; confirm page range and DOI.
+% Verified — ECCV 2016, Springer LNCS 9908.
 @inproceedings{xnornet,
   author    = {Mohammad Rastegari and Vicente Ordonez and Joseph Redmon and Ali Farhadi},
   title     = {{XNOR-Net}: {ImageNet} Classification Using Binary Convolutional Neural Networks},
   booktitle = {Proc.\ European Conf.\ on Computer Vision (ECCV)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9908},
+  pages     = {525--542},
   year      = {2016},
+  doi       = {10.1007/978-3-319-46493-0_32},
 }
 
-% TODO: verify — NeurIPS 2016; confirm volume and page range.
+% Verified — NeurIPS 2016, vol 29. Defines the hard-tanh STE used here.
 @inproceedings{hubara_bnn,
   author    = {Itay Hubara and Matthieu Courbariaux and Daniel Soudry and Ran El-Yaniv and Yoshua Bengio},
   title     = {Binarized Neural Networks},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {29},
+  pages     = {4107--4115},
   year      = {2016},
-  note      = {Defines the hard-tanh straight-through estimator used in this work.},
 }
 
-% TODO: verify — arXiv:1708.07120; confirm proceedings venue and year.
-@inproceedings{onecycle,
-  author    = {Leslie N. Smith and Nicholay Topin},
-  title     = {Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates},
-  booktitle = {SPIE Defense + Commercial Sensing},
-  year      = {2019},
-  note      = {Origin of the OneCycle learning-rate schedule used in training.},
+% Verified — arXiv:1708.07120, Smith and Topin. Kept as a misc entry per
+% the canonical open-access reference for the OneCycle schedule.
+@misc{onecycle,
+  author       = {Leslie N. Smith and Nicholay Topin},
+  title        = {Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates},
+  howpublished = {arXiv:1708.07120},
+  year         = {2017},
+  note         = {Origin of the OneCycle learning-rate schedule used in training.},
 }
 
 % ---------- Open-flow infrastructure -----------------------------------
 
-% TODO: verify — ICCAD 2016, ACM; confirm page range and DOI.
+% Verified against ACM DL (10.1145/2966986.2980098); ICCAD 2016.
 @inproceedings{openram,
   author    = {Matthew R. Guthaus and James E. Stine and Samira Ataei and
                Brian Chen and Bin Wu and Mehedi Sarwar},
   title     = {{OpenRAM}: An Open-Source Memory Compiler},
   booktitle = {Proc.\ IEEE/ACM Int.\ Conf.\ on Computer-Aided Design (ICCAD)},
+  pages     = {1--6},
   year      = {2016},
-  note      = {TODO: verify page range and DOI.},
+  doi       = {10.1145/2966986.2980098},
 }
 
 @misc{librelane,
@@ -133,24 +143,25 @@
   author       = {{The LibreLane Contributors}},
   year         = {2024},
   howpublished = {\url{https://github.com/librelane/librelane}},
-  note         = {Forked from OpenLane; accessed 2026-05-04},
+  note         = {Forked from the OpenLane project; accessed 2026-05-04.},
 }
 
-% TODO: verify — Shalan and Edwards, ICCAD 2020; confirm page range and DOI.
+% Verified against ACM DL (10.1145/3400302.3415735); ICCAD 2020 invited paper.
 @inproceedings{openlane,
   author    = {Mohamed Shalan and Tim Edwards},
   title     = {Building {OpenLANE}: A 130\,nm {OpenROAD}-Based Tapeout-Proven Flow},
   booktitle = {Proc.\ IEEE/ACM Int.\ Conf.\ on Computer-Aided Design (ICCAD)},
+  pages     = {1--6},
   year      = {2020},
-  note      = {TODO: verify bibliographic details against the published version.},
+  doi       = {10.1145/3400302.3415735},
 }
 
 @misc{sky130_pdk,
-  title        = {{SkyWater} 130nm Open-Source Process Design Kit},
+  title        = {{SkyWater} 130\,nm Open-Source Process Design Kit},
   author       = {{Google} and {SkyWater Technology Foundry}},
   year         = {2020},
   howpublished = {\url{https://github.com/google/skywater-pdk}},
-  note         = {Accessed 2026-05-04},
+  note         = {Accessed 2026-05-04.},
 }
 
 @misc{picorv32,
@@ -158,21 +169,28 @@
   author       = {Wolf, Clifford},
   year         = {2015},
   howpublished = {\url{https://github.com/YosysHQ/picorv32}},
-  note         = {Accessed 2026-05-04},
+  note         = {Accessed 2026-05-04.},
 }
 
-% TODO: verify — Ajayi et al., DAC 2019; confirm full author list and DOI.
+% Verified against ACM DL (10.1145/3316781.3326334); DAC 2019 invited.
 @inproceedings{openroad,
-  author    = {Tutu Ajayi and Vidya A. Chhabria and Mateus Fogaca and others},
+  author    = {Tutu Ajayi and Vidya A. Chhabria and Mateus Fogaca and
+               Soheil Hashemi and Abdelrahman Hosny and Andrew B. Kahng and
+               Minsoo Kim and Jeongsup Lee and Uday Mallappa and
+               Marina Neseem and Geraldo Pradipta and Sherief Reda and
+               Mehdi Saligane and Sachin S. Sapatnekar and Carl Sechen and
+               Mohamed Shalan and William Swartz and Lutong Wang and
+               Zhehong Wang and Mingyu Woo and Bangqi Xu},
   title     = {Toward an Open-Source Digital Flow: First Learnings from the {OpenROAD} Project},
   booktitle = {Proc.\ Design Automation Conf.\ (DAC)},
+  pages     = {76:1--76:4},
   year      = {2019},
-  note      = {TODO: verify full author list and DOI.},
+  doi       = {10.1145/3316781.3326334},
 }
 
 % ---------- Datasets / supporting ---------------------------------------
 
-% TODO: verify — confirm page range and DOI against Proc. IEEE 1998.
+% Verified — Proc. IEEE 86(11):2278--2324, 1998.
 @article{mnist,
   author  = {Yann LeCun and L{\'e}on Bottou and Yoshua Bengio and Patrick Haffner},
   title   = {Gradient-Based Learning Applied to Document Recognition},
@@ -184,11 +202,10 @@
   doi     = {10.1109/5.726791},
 }
 
-% TODO: verify — Wolf, Austrian Workshop on Microelectronics 2013 / FOSDEM presentation.
 @misc{yosys,
   author       = {Claire Xenia Wolf},
   title        = {{Yosys} Open {SY}nthesis Suite},
   howpublished = {\url{https://yosyshq.net/yosys/}},
   year         = {2024},
+  note         = {Accessed 2026-05-04.},
 }
-
