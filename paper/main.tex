@@ -55,7 +55,7 @@
   binary MLP --- four parallel $49 \to 16$ branches and a $64 \to 10$
   output layer --- maps onto the same tile RTL through five sequential
   evaluations under software control, eliminating per-layer hardware
-  specialisation. On the full 10\,000-image MNIST test set, TINKER
+  specialisation. On the full 10\,000-image MNIST test set, the chip
   reaches 85.60\,\% accuracy with a 95\,\% Wilson confidence interval
   of [84.90\,\%, 86.27\,\%], at 8.06\,\textmu J per inference and
   47.21\,mW activity-aware power. Hierarchical activity-aware
@@ -182,7 +182,7 @@ The closest architectural comparator is TULIP, which takes the
 threshold-logic-gate route in 40\,nm by mapping
 XNOR-popcount-threshold neurons onto a network of programmable
 threshold-logic standard cells whose threshold compare uses embedded
-flash devices~\cite{tulip}. TINKER shares the threshold-logic
+flash devices~\cite{tulip}. Our design shares the threshold-logic
 philosophy but commits to a fully-digital decomposition: the same
 XNOR-popcount-threshold core is mapped entirely onto
 \texttt{sky130\_fd\_sc\_hd} multiplexers and AOI cells, with no
@@ -204,8 +204,7 @@ FPGA-side BNN frameworks such as FINN~\cite{finn} occupy a separate
 design point that we do not directly compare against. With the
 comparator landscape established, the following sections describe
 the architecture (Section~\ref{sec:arch}), implementation
-(Section~\ref{sec:impl}), and evaluation (Section~\ref{sec:eval}) of
-TINKER.
+(Section~\ref{sec:impl}), and evaluation (Section~\ref{sec:eval}).
 
 % =====================================================================
 % III. SoC Architecture — Target: ~900 words / 1.5 page, 2 figures
@@ -603,14 +602,14 @@ orchestrating end-to-end inference at the SoC level.
 The primary architectural comparator is TULIP~\cite{tulip}. TULIP
 shares the threshold-logic philosophy but commits to a mixed-signal
 flow with programmable flash devices for the threshold compare,
-which ties the design to a specific PDK family. TINKER demonstrates
-that the same TLG mapping can be carried entirely by digital
-standard cells, preserving portability across any digital PDK. The
-secondary comparator is OpenSpike~\cite{openspike}, which shares
-the SoC-scale neural-inference-on-sky130 substrate (PicoRV32 +
-OpenRAM) but targets a spiking rather than a binary network,
+which ties the design to a specific PDK family. The present design
+demonstrates that the same TLG mapping can be carried entirely by
+digital standard cells, preserving portability across any digital
+PDK. The secondary comparator is OpenSpike~\cite{openspike}, which
+shares the SoC-scale neural-inference-on-sky130 substrate (PicoRV32
++ OpenRAM) but targets a spiking rather than a binary network,
 occupying a complementary computational regime.
-The figures reported for TINKER in
+The figures reported in
 Table~\ref{tab:comparison} are end-to-end at the SoC level --- CPU,
 memories, clock tree, and tile included --- which is conservative
 against the IP-block measurements that several baselines report and
@@ -655,7 +654,7 @@ rather than energy-efficiency: that a fully-digital threshold-logic
 decomposition, integrated as a complete SoC with software-scheduled
 sequential tile evaluations, exposes the BNN datapath as the
 dominant active power bucket once memory is no longer dominant.
-TINKER's energy regime sits where a 130\,nm digital-cell-based
+The energy regime sits where a 130\,nm digital-cell-based
 design must, and the architectural contribution is what carries
 forward to nodes where energy efficiency is the bottleneck.
 

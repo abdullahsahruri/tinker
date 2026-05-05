@@ -45,7 +45,7 @@
   \node[secondary, minimum width=18mm, minimum height=11mm] (wb)
     at (-3.7,2.40) {WB slave\\\scriptsize cfg port};
   \node[secondary, minimum width=24mm, minimum height=11mm,
-        anchor=west] (cfg) at ($(wb.east)+(0.40,0)$)
+        anchor=west] (cfg) at ($(wb.east)+(1.10,0)$)
     {Cfg regfile\\\scriptsize $16\!\times\! w_i$ (64\,b)\\\scriptsize $16\!\times\! \theta_i$ (7\,b)};
 
   \draw[sig] (wb.east) -- (cfg.west)
@@ -54,11 +54,11 @@
   % ===================================================================
   % Datapath (single horizontal row at y = 0)
   % ===================================================================
-  \node[secondary, minimum width=12mm, minimum height=11mm] (xreg)
-    at (-3.3,0) {$x$ reg\\\scriptsize 64-bit};
+  \node[secondary, minimum width=11mm, minimum height=11mm] (xreg)
+    at (-3.0,0) {$x$ reg\\\scriptsize 64-bit};
 
-  \node[tlg, minimum width=12mm, minimum height=11mm, anchor=west]
-    (xnor) at ($(xreg.east)+(0.25,0)$) {XNOR\\\scriptsize 64-bit};
+  \node[tlg, minimum width=11mm, minimum height=11mm, anchor=west]
+    (xnor) at ($(xreg.east)+(0.20,0)$) {XNOR\\\scriptsize 64-bit};
 
   % ----- Popcount column: 5 visible chunks, vertical stack -----------
   % Stack centered on XNOR's mid-line (y = 0). 5 visible chunks
@@ -103,15 +103,15 @@
   \draw[draw=tlgred, line width=0.4pt] (mxA |- c1) -- (mxA |- c5);
 
   % Threshold compare
-  \node[tlg, minimum width=12mm, minimum height=11mm, anchor=west]
-    (cmp) at ($(adder.east)+(0.25,0)$)
+  \node[tlg, minimum width=11mm, minimum height=11mm, anchor=west]
+    (cmp) at ($(adder.east)+(0.20,0)$)
     {$\geq\,\theta_i$\\\scriptsize compare};
   \draw[redsig] (adder.east) -- (cmp.west)
     node[wlbl, midway, above, text=tlgred] {7};
 
   % Output register
-  \node[secondary, minimum width=12mm, minimum height=11mm, anchor=west]
-    (yreg) at ($(cmp.east)+(0.25,0)$) {$y$ reg\\\scriptsize 16-bit};
+  \node[secondary, minimum width=11mm, minimum height=11mm, anchor=west]
+    (yreg) at ($(cmp.east)+(0.20,0)$) {$y$ reg\\\scriptsize 16-bit};
   \draw[redsig] (cmp.east) -- (yreg.west)
     node[wlbl, midway, above, text=tlgred] {1};
 
@@ -128,10 +128,10 @@
     node[wlbl, pos=0.55, right=1pt] {$\theta_i$\,/\,7};
 
   % ----- x_valid in / y_valid out -----
-  \draw[sig] ($(xreg.west)+(-0.40,0)$) -- (xreg.west);
-  \node[wlbl, anchor=east] at ($(xreg.west)+(-0.42,0)$) {$x\_\textrm{valid}$};
-  \draw[sig] (yreg.east) -- ++(0.40,0);
-  \node[wlbl, anchor=west] at ($(yreg.east)+(0.42,0)$) {$y\_\textrm{valid}$};
+  \draw[sig] ($(xreg.west)+(-0.30,0)$) -- (xreg.west);
+  \node[wlbl, anchor=east] at ($(xreg.west)+(-0.32,0)$) {$x\_\textrm{valid}$};
+  \draw[sig] (yreg.east) -- ++(0.30,0);
+  \node[wlbl, anchor=west] at ($(yreg.east)+(0.32,0)$) {$y\_\textrm{valid}$};
 
   % ===================================================================
   % TL-decomposition bracket beneath the red blocks
