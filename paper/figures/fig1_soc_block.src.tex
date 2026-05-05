@@ -3,16 +3,18 @@
 \documentclass[border=2pt]{standalone}
 \usepackage{mathptmx}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,patterns}
 
 \definecolor{navy}{HTML}{1F3A5F}
+\definecolor{navylight}{HTML}{6E83A0}
 \definecolor{tlgred}{HTML}{A83232}
 \definecolor{redfill}{HTML}{F4DADA}
+\definecolor{groupbg}{HTML}{F4F6F9}
 
 \begin{document}
 \begin{tikzpicture}[
     font=\rmfamily,
-    >={Latex[length=1.6mm,width=1.4mm]},
+    >={Latex[length=1.5mm,width=1.3mm]},
     line width=0.6pt,
     primary/.style  = {draw=navy,   fill=navy,    text=white, line width=0.6pt,
                        minimum height=8mm, minimum width=15mm, align=center,
@@ -20,58 +22,106 @@
     secondary/.style= {draw=navy,   fill=white,   text=navy,  line width=0.6pt,
                        minimum height=8mm, minimum width=15mm, align=center,
                        inner sep=2pt, font=\rmfamily\small},
+    macro/.style    = {draw=navy,   fill=white,   text=navy,  line width=0.6pt,
+                       minimum height=10mm, minimum width=22mm, align=center,
+                       inner sep=2pt, font=\rmfamily\small,
+                       postaction={pattern=north east lines, pattern color=navylight!30}},
     tlg/.style      = {draw=tlgred, fill=redfill, text=tlgred, line width=1.0pt,
-                       minimum height=8mm, minimum width=15mm, align=center,
+                       minimum height=10mm, minimum width=18mm, align=center,
                        inner sep=2pt, font=\rmfamily\small\bfseries},
-    bus/.style      = {draw=navy, line width=1.4pt},
+    bus/.style      = {draw=navy, line width=1.4pt, rounded corners=0.3pt},
     sig/.style      = {draw=navy, line width=0.8pt, ->},
     redsig/.style   = {draw=tlgred, line width=1.2pt, ->},
     addr/.style     = {font=\rmfamily\scriptsize\itshape, text=navy, inner sep=1pt},
     pin/.style      = {font=\rmfamily\scriptsize, text=navy, inner sep=1pt},
+    grouptag/.style = {font=\rmfamily\scriptsize\itshape, text=navy!75!black, inner sep=1pt},
   ]
 
-  % --- Master ----------------------------------------------------------
-  \node[primary, minimum width=22mm, minimum height=10mm] (cpu)
-    at (0,0) {PicoRV32\\\scriptsize RV32I master};
+  % ===================================================================
+  % Memory subsystem (top row)
+  % ===================================================================
+  \node[macro, anchor=south west] (imem) at (-3.6,1.85)
+    {IMEM\\\scriptsize sky130\_sram\_2k\\\scriptsize \textbf{0x0\_}};
+  \node[macro, anchor=south west] (dmem) at (-0.3,1.85)
+    {DMEM\\\scriptsize sky130\_sram\_1k\\\scriptsize \textbf{0x1\_}};
 
-  % --- Wishbone bus (horizontal) ---------------------------------------
-  \coordinate (busL) at (-3.6,-1.6);
-  \coordinate (busR) at ( 3.6,-1.6);
-  \draw[bus] (busL) -- (busR);
-  \draw[bus] ($(busL)+(0,0.10)$) -- ($(busR)+(0,0.10)$);
-  \node[font=\rmfamily\scriptsize\itshape, text=navy, anchor=west]
-    at ($(busR)+(0.05,0.18)$) {Wishbone B4};
+  % Memory subsystem group box
+  \begin{scope}[on background layer]
+    \node[draw=navy, dashed, line width=0.4pt, fill=groupbg,
+          inner sep=4pt,
+          fit=(imem)(dmem)] (memgrp) {};
+  \end{scope}
+  \node[grouptag, anchor=south west]
+    at ($(memgrp.north west)+(0.10,0.02)$) {memory subsystem (OpenRAM macros)};
 
-  % CPU drop to bus
-  \draw[sig] (cpu.south) -- ++(0,-0.6) |- ($(busL)!0.5!(busR)+(0,0.05)$);
+  % ===================================================================
+  % Control plane (middle row): PicoRV32 (left) + Wishbone bus
+  % ===================================================================
+  \node[primary, minimum width=20mm, minimum height=11mm,
+        anchor=east] (cpu) at (-2.0, 0.0)
+    {PicoRV32\\\scriptsize RV32I master};
 
-  % --- Slaves ----------------------------------------------------------
-  \node[secondary, anchor=north] (imem) at (-2.55,-2.0) {IMEM\\\scriptsize OpenRAM};
-  \node[secondary, anchor=north] (dmem) at (-0.85,-2.0) {DMEM\\\scriptsize OpenRAM};
-  \node[tlg,       anchor=north] (tile) at ( 0.85,-2.0) {TLG tile\\\scriptsize BNN};
-  \node[secondary, anchor=north] (gpio) at ( 2.55,-2.0) {GPIO};
+  % Wishbone fabric drawn as a stretched rounded box with signal labels
+  \node[secondary, anchor=west, minimum width=40mm, minimum height=11mm]
+    (wb) at ($(cpu.east)+(0.45,0)$)
+    {Wishbone B4 fabric \\[0.3ex]
+     \scriptsize \texttt{adr[31:0]} \texttt{dat[31:0]}\\
+     \scriptsize \texttt{we} \ \texttt{stb} \ \texttt{cyc} \ \texttt{ack} \\
+     \scriptsize decode on \texttt{adr[31:28]}};
 
-  % Address decode labels above each slave
-  \node[addr, anchor=south] at ($(imem.north)+(0,0.02)$) {0x0\_};
-  \node[addr, anchor=south] at ($(dmem.north)+(0,0.02)$) {0x1\_};
-  \node[addr, anchor=south, text=tlgred]
-                                   at ($(tile.north)+(0,0.02)$) {0x2\_};
-  \node[addr, anchor=south] at ($(gpio.north)+(0,0.02)$) {0x3\_};
+  \draw[sig] (cpu.east) -- (wb.west);
 
-  % Bus drops to each slave
-  \foreach \n in {imem,dmem,gpio}{
-    \draw[sig] (\n.north) -- ++(0,0.30);
-  }
-  \draw[redsig] (tile.north) -- ++(0,0.30);
+  \begin{scope}[on background layer]
+    \node[draw=navy, dashed, line width=0.4pt, fill=groupbg,
+          inner sep=4pt,
+          fit=(cpu)(wb)] (ctlgrp) {};
+  \end{scope}
+  \node[grouptag, anchor=south west]
+    at ($(ctlgrp.north west)+(0.10,0.02)$) {control plane};
 
-  % --- External I/O ----------------------------------------------------
-  \draw[sig] (-4.4,-0.05) -- (cpu.west |- 0,-0.05);
-  \draw[sig] (-4.4,-0.45) -- (cpu.west |- 0,-0.45);
-  \node[pin, anchor=east] at (-4.4,-0.05) {clk};
-  \node[pin, anchor=east] at (-4.4,-0.45) {rst\_n};
+  % ===================================================================
+  % Peripheral row (bottom): TLG tile (red) + GPIO
+  % ===================================================================
+  \node[tlg, minimum width=24mm, minimum height=12mm,
+        anchor=north east] (tile) at (1.05,-1.85)
+    {TLG-mapped BNN tile\\\scriptsize \textbf{0x2\_}\\
+     \scriptsize \textit{cfg, x\_in, y\_out}};
+  \node[secondary, minimum width=15mm, minimum height=12mm,
+        anchor=north west] (gpio) at (1.45,-1.85)
+    {GPIO\\\scriptsize \textbf{0x3\_}};
 
-  \draw[sig] (gpio.east) -- ++(0.85,0);
-  \node[pin, anchor=west] at ($(gpio.east)+(0.85,0)$) {pads};
+  \begin{scope}[on background layer]
+    \node[draw=navy, dashed, line width=0.4pt, fill=groupbg,
+          inner sep=4pt,
+          fit=(tile)(gpio)] (pgrp) {};
+  \end{scope}
+  \node[grouptag, anchor=south east]
+    at ($(pgrp.north east)+(-0.10,0.02)$) {memory-mapped peripherals};
+
+  % ===================================================================
+  % Bus drops: from Wishbone fabric down to peripherals + up to memories
+  % ===================================================================
+  % Up to IMEM, DMEM
+  \draw[sig] (wb.north -| imem.south) -- (imem.south)
+    node[addr, midway, right=1pt] {\texttt{adr[31:28]=0}};
+  \draw[sig] (wb.north -| dmem.south) -- (dmem.south)
+    node[addr, midway, right=1pt] {\texttt{=1}};
+  % Down to TLG tile (red, prominent), GPIO
+  \draw[redsig] (wb.south -| tile.north) -- (tile.north)
+    node[addr, midway, right=1pt, text=tlgred] {\texttt{=2}};
+  \draw[sig]    (wb.south -| gpio.north) -- (gpio.north)
+    node[addr, midway, right=1pt] {\texttt{=3}};
+
+  % ===================================================================
+  % External I/O pins
+  % ===================================================================
+  \draw[sig] ($(cpu.west)+(-0.7,0.20)$) -- ($(cpu.west)+(0,0.20)$);
+  \draw[sig] ($(cpu.west)+(-0.7,-0.20)$) -- ($(cpu.west)+(0,-0.20)$);
+  \node[pin, anchor=east] at ($(cpu.west)+(-0.7,0.20)$) {\texttt{clk}};
+  \node[pin, anchor=east] at ($(cpu.west)+(-0.7,-0.20)$) {\texttt{rst\_n}};
+
+  \draw[sig] (gpio.east) -- ++(0.55,0);
+  \node[pin, anchor=west] at ($(gpio.east)+(0.55,0)$) {\texttt{pads[7:0]}};
 
 \end{tikzpicture}
 \end{document}
