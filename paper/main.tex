@@ -169,11 +169,8 @@ limitations, and Section~\ref{sec:conclusion} concludes.
 \label{sec:background}
 
 We review the digital BNN accelerator landscape against which this
-design is positioned, then turn to the open-flow neural-inference
-work that defines our methodological neighbourhood.
-
-Digital BNN inference accelerators have demonstrated strong
-energy-efficiency results across a range of commercial process nodes.
+design is positioned, then turn to the threshold-logic architectural
+lineage that defines its closest comparator.
 YodaNN~\cite{yodann2018} pairs a binary-weight datapath with
 standard-cell memories and aggressive voltage scaling in UMC 65\,nm to
 push AlexNet-class CNNs into the ultralow-power regime.
@@ -183,34 +180,34 @@ reporting 21.6\,fJ/op for fully-binary inference.
 ChewBaccaNN~\cite{chewbaccann2021} couples a flexible
 XNOR-and-popcount-tree datapath with body-biasing and 0.4\,V operation
 in GF 22\,nm FDX, reaching 223\,TOPS/W at peak.
-TULIP~\cite{tulip} takes the threshold-logic-gate route in 40\,nm,
-mapping XNOR-popcount-threshold neurons onto a network of programmable
+The closest architectural comparator is TULIP, which takes the
+threshold-logic-gate route in 40\,nm by mapping
+XNOR-popcount-threshold neurons onto a network of programmable
 threshold-logic standard cells whose threshold compare uses embedded
-flash devices. Collectively these designs span roughly five to several
-hundred TOp/s/W, with their efficiency advantage tightly coupled to
-commercial PDKs and proprietary compiled memories.
+flash devices~\cite{tulip}. TINKER shares the threshold-logic
+philosophy but commits to a fully-digital decomposition: the same
+XNOR-popcount-threshold core is mapped entirely onto
+\texttt{sky130\_fd\_sc\_hd} multiplexers and AOI cells, with no
+analog or mixed-signal devices, preserving portability across
+digital PDKs.
 
-The closest sibling to the present work in the open-flow world is
-OpenSpike~\cite{openspike}, which pairs a sky130A standard-cell flow,
-the OpenLane lineage~\cite{openlane}, OpenRAM macros, and a PicoRV32
-controller~\cite{picorv32} into a sign-off-clean SNN inference SoC at
-sky130, demonstrating that SoC-scale neural inference is feasible in
-the open flow without commercial EDA. We adopt the same
-infrastructure stack but target a binary rather than a spiking
-network, using a TLG decomposition of the XNOR-popcount-threshold core
-that maps the entire datapath onto \texttt{sky130\_fd\_sc\_hd}
-standard cells without analog or mixed-signal devices, as in
-XNOR-Net's binary-arithmetic substrate~\cite{xnornet}. The
-contribution is methodological --- showing that the open flow is
-sufficient for SoC-scale BNN deployment with sign-off-clean physical
-verification --- rather than a peak-efficiency claim, and we therefore
-position the design in the same node-and-flow regime as OpenSpike.
+At the system level, the closest comparator is
+OpenSpike~\cite{openspike}, which integrates a spiking neural
+network with a PicoRV32 controller and OpenRAM macros on sky130 ---
+a useful precedent for SoC-scale neural inference on this
+substrate, but occupying the SNN rather than BNN computational
+regime. The system contribution of this work is not the use of
+threshold logic per se, nor the choice of digital cells, but the
+SoC-level integration that hosts an entire grouped binary MLP on a
+single tile RTL through software-scheduled sequential evaluations,
+and the system-level power decomposition that exposes where
+optimisation should focus once memory is no longer dominant.
 FPGA-side BNN frameworks such as FINN~\cite{finn} occupy a separate
-design point that we do not directly compare against.
-With the comparator landscape established, the following sections
-describe the architecture (Section~\ref{sec:arch}), open-flow
-implementation (Section~\ref{sec:impl}), and evaluation
-(Section~\ref{sec:eval}) of the proposed SoC.
+design point that we do not directly compare against. With the
+comparator landscape established, the following sections describe
+the architecture (Section~\ref{sec:arch}), implementation
+(Section~\ref{sec:impl}), and evaluation (Section~\ref{sec:eval}) of
+TINKER.
 
 % =====================================================================
 % III. SoC Architecture — Target: ~900 words / 1.5 page, 2 figures
