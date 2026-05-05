@@ -10,10 +10,11 @@
 \definecolor{redfill}{HTML}{F4DADA}
 
 \begin{document}
-% Scale the entire picture so its natural width matches fig1's
-% (~293 pt). When both figures are placed at \columnwidth in
-% main.tex, fonts then render at matching on-paper sizes.
-\scalebox{0.76}{%
+% Native width is tuned to ~293 pt to match fig1, so when both
+% figures are included at \columnwidth in main.tex the on-paper
+% font sizes (\small) match. Do NOT wrap in \scalebox{} -- a
+% uniform scale cancels out under the columnwidth resize and only
+% changes the font/width ratio in the wrong direction.
 \begin{tikzpicture}[
     font=\rmfamily,
     >={Latex[length=1.5mm,width=1.3mm]},
@@ -53,11 +54,11 @@
   % ===================================================================
   % Datapath (single horizontal row at y = 0)
   % ===================================================================
-  \node[secondary, minimum width=14mm, minimum height=11mm] (xreg)
-    at (-3.7,0) {$x$ reg\\\scriptsize 64-bit};
+  \node[secondary, minimum width=12mm, minimum height=11mm] (xreg)
+    at (-3.3,0) {$x$ reg\\\scriptsize 64-bit};
 
   \node[tlg, minimum width=12mm, minimum height=11mm, anchor=west]
-    (xnor) at ($(xreg.east)+(0.45,0)$) {XNOR\\\scriptsize 64-bit};
+    (xnor) at ($(xreg.east)+(0.25,0)$) {XNOR\\\scriptsize 64-bit};
 
   % ----- Popcount column: 5 visible chunks, vertical stack -----------
   % Stack centered on XNOR's mid-line (y = 0). 5 visible chunks
@@ -86,8 +87,8 @@
   }
 
   % Adder tree
-  \node[tlg, minimum width=15mm, minimum height=11mm, anchor=west]
-    (adder) at (1.20,0) {Adder tree\\\scriptsize $11\!\times\! 3\,\textrm{b}\!\to\! 7\,\textrm{b}$};
+  \node[tlg, minimum width=14mm, minimum height=11mm, anchor=west]
+    (adder) at (0.85,0) {Adder tree\\\scriptsize $11\!\times\! 3\!\to\! 7$};
 
   % Chunks → adder tree. Define a vertical merge line at x = mx,
   % then a single horizontal red bus into the adder at adder.west's y.
@@ -103,14 +104,14 @@
 
   % Threshold compare
   \node[tlg, minimum width=12mm, minimum height=11mm, anchor=west]
-    (cmp) at ($(adder.east)+(0.45,0)$)
+    (cmp) at ($(adder.east)+(0.25,0)$)
     {$\geq\,\theta_i$\\\scriptsize compare};
   \draw[redsig] (adder.east) -- (cmp.west)
     node[wlbl, midway, above, text=tlgred] {7};
 
   % Output register
-  \node[secondary, minimum width=14mm, minimum height=11mm, anchor=west]
-    (yreg) at ($(cmp.east)+(0.45,0)$) {$y$ reg\\\scriptsize 16-bit};
+  \node[secondary, minimum width=12mm, minimum height=11mm, anchor=west]
+    (yreg) at ($(cmp.east)+(0.25,0)$) {$y$ reg\\\scriptsize 16-bit};
   \draw[redsig] (cmp.east) -- (yreg.west)
     node[wlbl, midway, above, text=tlgred] {1};
 
@@ -127,10 +128,10 @@
     node[wlbl, pos=0.55, right=1pt] {$\theta_i$\,/\,7};
 
   % ----- x_valid in / y_valid out -----
-  \draw[sig] ($(xreg.west)+(-0.55,0)$) -- (xreg.west);
-  \node[wlbl, anchor=east] at ($(xreg.west)+(-0.55,0)$) {$x\_\textrm{valid}$};
-  \draw[sig] (yreg.east) -- ++(0.55,0);
-  \node[wlbl, anchor=west] at ($(yreg.east)+(0.55,0)$) {$y\_\textrm{valid}$};
+  \draw[sig] ($(xreg.west)+(-0.40,0)$) -- (xreg.west);
+  \node[wlbl, anchor=east] at ($(xreg.west)+(-0.42,0)$) {$x\_\textrm{valid}$};
+  \draw[sig] (yreg.east) -- ++(0.40,0);
+  \node[wlbl, anchor=west] at ($(yreg.east)+(0.42,0)$) {$y\_\textrm{valid}$};
 
   % ===================================================================
   % TL-decomposition bracket beneath the red blocks
@@ -148,10 +149,10 @@
   % ===================================================================
   % "× 16 neurons" annotation, placed above the popcount column header
   % ===================================================================
-  \node[note, text=navy, anchor=south, font=\rmfamily\small]
+  \node[note, text=navy, anchor=south, font=\rmfamily\small, align=center]
     at ($(cfg.north)+(0,0.05)$)
-    {\textbf{$\times\,16$ neurons in parallel\quad$\to$\quad 16-bit binary output / cycle}};
+    {\textbf{$\times\,16$ neurons in parallel}\\
+     \textbf{$\to$\, 16-bit binary output / cycle}};
 
-\end{tikzpicture}%
-}
+\end{tikzpicture}
 \end{document}

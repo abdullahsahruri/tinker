@@ -18,6 +18,8 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{url}
+\usepackage[font=small,labelfont=bf,skip=2pt]{caption}
+\usepackage[skip=1pt]{subcaption}
 
 % Repo-local figure search path so \includegraphics{figX_*} resolves.
 \graphicspath{{figures/}}
@@ -224,15 +226,30 @@ implementation (Section~\ref{sec:impl}), and evaluation
 \section{SoC Architecture}
 \label{sec:arch}
 
+\begin{figure*}[t]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig1_soc_block.pdf}
+    \caption{SoC architecture block diagram.}
+    \label{fig:soc-block}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig2_tile_microarch.pdf}
+    \caption{TLG-mapped BNN tile microarchitecture.}
+    \label{fig:tile-microarch}
+  \end{subfigure}
+  \caption{Open-flow BNN inference SoC.
+    \subref{fig:soc-block}~PicoRV32 master + Wishbone B4 + OpenRAM
+    IMEM/DMEM + TLG-mapped tile + GPIO.
+    \subref{fig:tile-microarch}~$\times 16$ XNOR-popcount-threshold
+    datapath with eleven-chunk TLG-decomposed popcount.}
+  \label{fig:overview}
+\end{figure*}
+
 \subsection{System overview}
 \label{sec:arch:overview}
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{fig1_soc_block.pdf}
-  \caption{SoC architecture block diagram. % TODO(stage 4): final caption.
-  }
-  \label{fig:soc-block}
-\end{figure}
 
 The SoC, shown in Fig.~\ref{fig:soc-block}, is a single-clock RV32I
 system whose role is to host the TLG-mapped BNN tile under software
@@ -262,13 +279,6 @@ standalone tile characterisation.
 
 \subsection{TLG-mapped BNN tile}
 \label{sec:arch:tile}
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{fig2_tile_microarch.pdf}
-  \caption{TLG-mapped BNN tile microarchitecture. % TODO(stage 4): final caption.
-  }
-  \label{fig:tile-microarch}
-\end{figure}
 
 The tile, shown in Fig.~\ref{fig:tile-microarch}, computes a
 sixteen-output binary inner product against a 64-bit input vector each

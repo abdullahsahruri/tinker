@@ -95,8 +95,8 @@
           inner sep=4pt,
           fit=(tile)(gpio)] (pgrp) {};
   \end{scope}
-  \node[grouptag, anchor=south east]
-    at ($(pgrp.north west)+(-0.10,0.02)$) {memory-mapped peripherals};
+  \node[grouptag, anchor=north west]
+    at ($(pgrp.south west)+(0.10,-0.04)$) {memory-mapped peripherals};
 
   % ===================================================================
   % Bus drops: from Wishbone fabric down to peripherals + up to memories
