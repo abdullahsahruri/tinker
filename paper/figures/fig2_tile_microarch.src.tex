@@ -1,13 +1,95 @@
-% Placeholder for the TLG tile microarchitecture diagram (Stage 4 deliverable).
+% TLG-mapped BNN tile microarchitecture (Fig. 2).
 % Build: pdflatex fig2_tile_microarch.src.tex && mv fig2_tile_microarch.src.pdf fig2_tile_microarch.pdf
-\documentclass[border=10pt]{standalone}
+\documentclass[border=2pt]{standalone}
+\usepackage{mathptmx}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+
+\definecolor{navy}{HTML}{1F3A5F}
+\definecolor{tlgred}{HTML}{A83232}
+\definecolor{redfill}{HTML}{F4DADA}
+
 \begin{document}
-\begin{tikzpicture}[font=\sffamily]
-  \draw[very thick] (0,0) rectangle (8,5);
-  \node at (4,4.5) {\Large\bfseries Figure 2 (placeholder)};
-  \node at (4,3.6) {TLG tile microarchitecture};
-  \node[align=center] at (4,2.3) {16~$\times$ 64-bit XNOR-popcount\\with thresholded sign output};
-  \node at (4,0.7) {\itshape to be drawn in Stage 4};
+\begin{tikzpicture}[
+    font=\rmfamily,
+    >={Latex[length=1.6mm,width=1.4mm]},
+    line width=0.6pt,
+    primary/.style  = {draw=navy,   fill=navy,    text=white, line width=0.6pt,
+                       minimum height=8mm, minimum width=14mm, align=center,
+                       inner sep=2pt, font=\rmfamily\small},
+    secondary/.style= {draw=navy,   fill=white,   text=navy,  line width=0.6pt,
+                       minimum height=8mm, minimum width=14mm, align=center,
+                       inner sep=2pt, font=\rmfamily\small},
+    tlg/.style      = {draw=tlgred, fill=redfill, text=tlgred, line width=1.0pt,
+                       minimum height=8mm, minimum width=14mm, align=center,
+                       inner sep=2pt, font=\rmfamily\small\bfseries},
+    sig/.style      = {draw=navy,   line width=0.8pt, ->},
+    redsig/.style   = {draw=tlgred, line width=1.2pt, ->},
+    wlbl/.style     = {font=\rmfamily\scriptsize\itshape, text=navy, inner sep=1pt},
+    note/.style     = {font=\rmfamily\scriptsize\itshape, text=navy,
+                       align=center, inner sep=1pt},
+  ]
+
+  % ---------------- Wishbone slave + cfg regfile (top row) -------------
+  \node[secondary, minimum width=18mm, minimum height=12mm] (wb)
+    at (-3.6,1.6) {WB slave\\\scriptsize cfg port};
+  \node[secondary, minimum width=22mm, minimum height=12mm,
+        anchor=west] (cfg) at ($(wb.east)+(0.55,0)$)
+    {Cfg regfile\\\scriptsize $16\!\times\!w_i$, $16\!\times\!\theta_i$};
+
+  \draw[sig] (wb.east) -- (cfg.west)
+    node[wlbl, midway, above] {cfg};
+
+  % ---------------- Datapath (bottom row, left -> right) ---------------
+  \node[secondary, minimum width=15mm, minimum height=11mm] (xreg)
+    at (-3.6,-0.4) {$x$ reg\\\scriptsize 64-bit};
+  \node[tlg, minimum width=14mm, minimum height=11mm, anchor=west]
+    (xnor) at ($(xreg.east)+(0.55,0)$) {XNOR\\\scriptsize 64-bit};
+  \node[tlg, minimum width=22mm, minimum height=11mm, anchor=west]
+    (pc)   at ($(xnor.east)+(0.55,0)$)
+    {Popcount tree\\\scriptsize 11 chunks $\!\to\!$ 7-b};
+  \node[tlg, minimum width=15mm, minimum height=11mm, anchor=west]
+    (cmp)  at ($(pc.east)+(0.55,0)$)
+    {$\geq \theta_i$\\\scriptsize compare};
+  \node[secondary, minimum width=15mm, minimum height=11mm, anchor=west]
+    (yreg) at ($(cmp.east)+(0.55,0)$) {$y$ reg\\\scriptsize 16-bit};
+
+  % Datapath flow
+  \draw[sig]    (xreg.east) -- (xnor.west) node[wlbl, midway, above] {64};
+  \draw[redsig] (xnor.east) -- (pc.west);
+  \draw[redsig] (pc.east)   -- (cmp.west)
+    node[wlbl, midway, above] {\color{tlgred}7};
+  \draw[redsig] (cmp.east)  -- (yreg.west)
+    node[wlbl, midway, above] {\color{tlgred}1};
+
+  % Cfg regfile drives w_i into XNOR and theta_i into compare
+  \draw[draw=navy, line width=0.6pt]
+    (cfg.south -| xnor.north) -- (cfg.south -| cmp.north);
+  \draw[sig] (cfg.south -| xnor.north) -- (xnor.north)
+    node[wlbl, midway, right] {$w_i$};
+  \draw[sig] (cfg.south -| cmp.north) -- (cmp.north)
+    node[wlbl, midway, right] {$\theta_i$};
+
+  % x_valid into x reg, y_valid out of y reg
+  \draw[sig] ($(xreg.west)+(-0.65,0)$) -- (xreg.west);
+  \node[wlbl, anchor=east] at ($(xreg.west)+(-0.65,0)$) {$x\_\textrm{valid}$};
+  \draw[sig] (yreg.east) -- ++(0.65,0);
+  \node[wlbl, anchor=west] at ($(yreg.east)+(0.65,0)$) {$y\_\textrm{valid}$};
+
+  % ---------------- TL decomposition bracket ---------------------------
+  \draw[decorate, decoration={brace, amplitude=4pt, mirror},
+        draw=tlgred, line width=0.8pt]
+    ($(xnor.south west)+(0,-0.10)$) -- ($(cmp.south east)+(0,-0.10)$);
+  \node[note, text=tlgred, anchor=north]
+    at ($(pc.south)+(0,-0.55)$)
+    {threshold function via TL decomposition};
+  \node[note, anchor=north]
+    at ($(pc.south)+(0,-0.95)$)
+    {(\texttt{sky130\_fd\_sc\_hd} muxes \& AOI cells)};
+
+  % ---------------- "x16 neurons" annotation ---------------------------
+  \node[note, text=navy, anchor=south]
+    at ($(pc.north)+(0,0.55)$) {\textbf{$\times\,16$ neurons in parallel}};
+
 \end{tikzpicture}
 \end{document}
