@@ -1,0 +1,18 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Built PDF (regeneratable)
+main.pdf
+
+# Standalone figure intermediates
+figures/*.src.aux
+figures/*.src.log
+figures/*.src.pdf

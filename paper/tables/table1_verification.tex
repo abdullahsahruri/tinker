@@ -1,0 +1,18 @@
+% Table I — Functional verification summary (4 gates).
+% Numbers locked from PHASE4_5_NOTES.md §6 and PHASE3_5_NOTES.md §3.
+\begin{table}[t]
+  \centering
+  \caption{Functional verification summary (Phase~4.5 deployment).}
+  \label{tab:verification}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Gate} & \textbf{Reference} & \textbf{Result} \\
+    \midrule
+    PyTorch $\leftrightarrow$ integer golden & \texttt{bnn\_reference.py} & 15/16 (1 boundary) \\
+    SoC sim $\leftrightarrow$ integer golden & \texttt{tb\_soc\_bnn.sv}    & 16/16 PASS         \\
+    Full MNIST 10\,K eval                    & vectorized XNOR-popcount    & 85.60\,\% [84.90, 86.27] \\
+    Sign-off DRC / LVS / antenna             & KLayout / Netgen            & 0 / 0 / 0          \\
+    \bottomrule
+  \end{tabular}
+\end{table}

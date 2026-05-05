@@ -1,0 +1,13 @@
+% Placeholder for the SoC architecture block diagram (Stage 4 deliverable).
+% Build: pdflatex fig1_soc_block.src.tex && mv fig1_soc_block.src.pdf fig1_soc_block.pdf
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily]
+  \draw[very thick] (0,0) rectangle (8,5);
+  \node at (4,4.5) {\Large\bfseries Figure 1 (placeholder)};
+  \node at (4,3.6) {SoC architecture block diagram};
+  \node[align=center] at (4,2.3) {PicoRV32 + Wishbone + 4 slaves\\(IMEM, DMEM, TLG tile, GPIO)};
+  \node at (4,0.7) {\itshape to be drawn in Stage 4};
+\end{tikzpicture}
+\end{document}

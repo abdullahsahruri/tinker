@@ -1,0 +1,514 @@
+% =====================================================================
+% main.tex — SOCC 2026 paper, Stage 1 skeleton
+%
+% TLG-mapped BNN tile in a fully-digital sky130 SoC built with the
+% open-flow (LibreLane + OpenRAM + PicoRV32). 6-page IEEE conference
+% format, ~3,500 words body, 4 figures, 2 tables, ~28 references.
+%
+% Build:  make           (pdflatex + bibtex + pdflatex x2)
+% Clean:  make clean
+% =====================================================================
+
+\documentclass[conference]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+
+% Repo-local figure search path so \includegraphics{figX_*} resolves.
+\graphicspath{{figures/}}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Title and authors
+% ---------------------------------------------------------------------
+\title{An Open-Flow sky130 SoC with a Threshold-Logic-Mapped\\
+       Binary Neural Network Tile for MNIST Inference}
+
+\author{\IEEEauthorblockN{Abdullah Sahruri and Martin Margala}
+\IEEEauthorblockA{School of Computing and Informatics\\
+University of Louisiana at Lafayette\\
+Lafayette, LA, USA\\
+\{abdullah.sahruri, martin.margala\}@louisiana.edu}}
+
+\maketitle
+
+% ---------------------------------------------------------------------
+% Abstract — fill last (Stage 7).
+% ---------------------------------------------------------------------
+\begin{abstract}
+% TODO(stage 7): ~150-word abstract. Lead with: first fully-digital
+% TLG-mapped BNN tile in sky130 standard cells, integrated into a
+% complete open-flow PicoRV32 SoC with OpenRAM macros; 85.60\% MNIST
+% at 8.06 \textmu J/inference; tile is now 24.3\% of system power
+% (vs 10.81\% for the regfile baseline); sign-off clean on KLayout
+% DRC, Netgen LVS, KLayout XOR, antenna.
+\end{abstract}
+
+\begin{IEEEkeywords}
+% TODO(stage 7): pick 4--6 IEEE keywords.
+binary neural networks, threshold logic, open-source EDA, sky130, SoC.
+\end{IEEEkeywords}
+
+% =====================================================================
+% I. Introduction — Target: ~500 words / 0.75 page
+% ---------------------------------------------------------------------
+% Motivate: ML inference on open-flow ASICs is a stress test for the
+% open toolchain; BNNs are the right workload (single-bit math removes
+% multiplier-area and quantization-aware-training overhead); the open
+% problem is that prior open-flow demos either skip the SoC layer or
+% skip the BNN. List the five contributions verbatim from the brief.
+% Close with a roadmap of the remaining sections.
+% =====================================================================
+\section{Introduction}
+\label{sec:intro}
+% TODO(stage 6): body prose.
+
+% =====================================================================
+% II. Background and Related Work — Target: ~350 words / 0.5 page
+% ---------------------------------------------------------------------
+% Three short paragraphs:
+%   (a) digital BNN accelerators — XNE, YodaNN, ChewBaccaNN, FBNA,
+%       FINN — and what each leaves on the table for an open-flow SoC;
+%   (b) open-source ASIC infrastructure — sky130, OpenLane/LibreLane,
+%       OpenRAM, PicoRV32 — and the small set of prior tape-outs that
+%       combined them (OpenSpike is the closest cousin);
+%   (c) one paragraph framing where this work sits — fully-digital
+%       TLG mapping in sky130 std cells, BNN payload, full SoC.
+% =====================================================================
+\section{Background and Related Work}
+\label{sec:background}
+% TODO(stage 6): body prose.
+
+% =====================================================================
+% III. SoC Architecture — Target: ~900 words / 1.5 page, 2 figures
+% ---------------------------------------------------------------------
+% Subsections:
+%   III-A System overview (Fig. 1: SoC block diagram). PicoRV32 +
+%         Wishbone B4 single-master + 4 slaves (IMEM, DMEM, tile,
+%         GPIO). Memory map. Clock/reset.
+%   III-B Tile microarchitecture (Fig. 2). 16 neurons x 64-bit
+%         XNOR-popcount with per-neuron 7-bit threshold; loadable
+%         weights via cfg regfile.
+%   III-C Tile wrapper protocol — two-phase 64-bit weight write,
+%         polled BUSY/DONE handshake, drop-on-busy semantics.
+% Source: docs/PHASE3_ARCHITECTURE.md sections 1, 4, 8.
+% =====================================================================
+\section{SoC Architecture}
+\label{sec:arch}
+
+\subsection{System overview}
+\label{sec:arch:overview}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig1_soc_block.pdf}
+  \caption{SoC architecture block diagram. % TODO(stage 4): final caption.
+  }
+  \label{fig:soc-block}
+\end{figure}
+
+The SoC, shown in Fig.~\ref{fig:soc-block}, is a single-clock RV32I
+system whose role is to host the TLG-mapped BNN tile under software
+control. A PicoRV32 core~\cite{picorv32} acts as the lone Wishbone B4
+classic master and drives a single-cycle bus with 32-bit address and
+32-bit data. Address decode on \texttt{adr[31:28]} dispatches to one of
+four word-aligned slaves: instruction memory (IMEM at
+\texttt{0x0000\_0000}), data memory (DMEM at \texttt{0x1000\_0000}),
+the tile peripheral (TILE at \texttt{0x2000\_0000}), and a sim-observ%
+ability GPIO (GPIO at \texttt{0x3000\_0000}). Unmapped accesses raise
+an error so that wild pointers hang visibly rather than silently. Reset
+is asynchronously asserted and synchronously deasserted through a
+two-stage flop chain shared by every block; firmware boots from
+\texttt{PROGADDR\_RESET\,=\,0x0000\_0000} and runs bare-metal, with
+the stack pointer initialised to the top of DMEM.
+
+The architecture is deliberately minimal. There is no interrupt
+controller, no MMIO timer, no off-chip bus, and no DMA --- the BNN
+inference handshake is polled (Section~\ref{sec:arch:wrapper}), so an
+asynchronous-event subsystem would be dead area. The choice of a
+single-master Wishbone fabric over a crossbar is the same calculus: a
+one-master, four-slave decode is roughly 100 lines of synthesisable
+Verilog, well within the open-flow toolchain's comfort zone, and adds
+no arbitration latency to the tightest instruction-fetch path. The
+system clock is nominally 100\,MHz, matching the SDC inherited from the
+standalone tile characterisation.
+
+\subsection{TLG-mapped BNN tile}
+\label{sec:arch:tile}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig2_tile_microarch.pdf}
+  \caption{TLG-mapped BNN tile microarchitecture. % TODO(stage 4): final caption.
+  }
+  \label{fig:tile-microarch}
+\end{figure}
+
+The tile, shown in Fig.~\ref{fig:tile-microarch}, computes a
+sixteen-output binary inner product against a 64-bit input vector each
+evaluation. Sixteen parallel neurons share a registered input
+\(x \in \{-1,+1\}^{64}\), encoded as a single 64-bit word, and each
+holds its own 64-bit weight \(w_i\) and 7-bit threshold \(\theta_i\) in
+a configuration regfile. Per neuron, the binary inner product collapses
+to an XNOR followed by a population count~\cite{xnornet}: the output
+bit is
+\(y_i = \mathbb{1}\!\left[\,\mathrm{popcount}\!\left(\overline{x \oplus w_i}\right) \ge \theta_i\,\right]\).
+Sixteen neurons evaluated in parallel produce a 16-bit binary vector
+per cycle of throughput, with a two-cycle latency (input-register cycle
+plus combinational evaluate-and-register cycle).
+
+The popcount is mapped to TLG-encoded threshold logic by partitioning
+the 64-bit XNOR output into eleven chunks --- ten 6-bit chunks plus one
+4-bit residue --- and looking up each chunk's population count in a
+Verilog \texttt{case} table. Yosys lowers each table into a
+technology-mapped network of \texttt{sky130\_fd\_sc\_hd} multiplexers
+and AOI cells that implements the underlying threshold function as a
+fan-in-bounded combinational tree. The eleven 3-bit subcounts
+are then summed by a width-seven adder tree and compared against
+\(\theta_i\). Because every chunk is a self-contained two-input
+combinational lookup and the only sequential element in the datapath
+is the 64-bit input register, the tile is fully synchronous, contains
+no analog or mixed-signal devices, and ports to any digital PDK without
+custom transistors. This is the principal contrast with the
+threshold-logic processor TULIP~\cite{tulip}, which depends on
+programmable flash devices for its threshold compare and is therefore
+tied to a specific mixed-signal flow.
+
+The configuration regfile holds 16 \(\times\) 64-bit weight words and
+16 \(\times\) 7-bit thresholds, addressed through a 6-bit
+\texttt{cfg\_addr}: bits \texttt{[5:4]\,=\,00} index a weight,
+\texttt{[5:4]\,=\,01} index a threshold, and \texttt{[3:0]} select the
+neuron. Weights are loaded once per network rather than per inference,
+so the cfg port carries traffic only at boot. A dedicated
+\texttt{x\_valid} strobe latches the input register and starts the
+two-cycle pipeline; \texttt{y\_valid} pulses on the cycle the result
+leaves the output register.
+
+\subsection{Tile wrapper and inference handshake}
+\label{sec:arch:wrapper}
+
+The Wishbone-to-tile bridge \texttt{wb\_tile\_wrapper} occupies a
+512-byte slave window and exposes the tile's cfg port and
+\(x_\text{in}/y_\text{out}\) handshake as memory-mapped registers.
+Weights are committed by a two-phase write: a 32-bit \texttt{W[i].LO}
+write loads a per-neuron shadow register, and a subsequent
+\texttt{W[i].HI} write to the next word offset drives one cycle of
+\texttt{cfg\_we} carrying the assembled 64-bit value. Thresholds are
+atomic single-word writes. Inputs use the same two-phase commit
+(\texttt{XIN.LO}/\texttt{XIN.HI}); writing \texttt{XIN.HI} additionally
+pulses \texttt{x\_valid} for one cycle and asserts \texttt{STATUS.BUSY}.
+Firmware polls \texttt{STATUS} until \texttt{BUSY} clears, reads
+\texttt{YOUT}, and writes \texttt{CTRL.CLR\_DONE} to arm the next
+inference. Writes to weight, threshold, or input registers while
+\texttt{BUSY\,=\,1} are silently dropped: the bus access acks normally
+but no shadow is updated, which causes a misbehaving program to hang
+visibly rather than corrupt an in-flight evaluation. The wrapper
+carries roughly 1.3\,K flops, of which approximately 700 exist purely
+to make every writable register read-back-able --- a deliberate
+testability deviation from the wrapper specification.
+
+The memory subsystem instantiates two pre-hardened OpenRAM~\cite{openram}
+macros: \texttt{sky130\_sram\_2kbyte\_1rw1r\_32x512\_8} as the IMEM and
+\texttt{sky130\_sram\_1kbyte\_1rw1r\_32x256\_8} as the DMEM. Both
+macros are wrapped by a small two-state Wishbone FSM that inserts one
+wait state on reads to cover the macro's registered \texttt{dout0}
+latency. The motivation for moving from a register-file baseline to
+OpenRAM macros is power: in the pre-OpenRAM version, the IMEM
+read mux dominated both die area and switching power, the SoC drew
+106\,mW, and the tile accounted for only 10.81\,\% of system power.
+Replacing the register files with macros drops total power to
+47.21\,mW and lifts the tile's share to 24.29\,\%, which is the
+principal reason the tile becomes a meaningful optimisation target at
+the system level (Section~\ref{sec:eval:power}).
+
+% =====================================================================
+% IV. Implementation — Target: ~550 words / 1.0 page, 1 figure (Fig. 3)
+% ---------------------------------------------------------------------
+% Subsections:
+%   IV-A Open-flow toolchain — LibreLane 3.0.3, sky130A PDK,
+%        OpenRAM macros (sky130_sram_2kbyte_1rw1r_32x512_8 +
+%        sky130_sram_1kbyte_1rw1r_32x256_8). One sentence on the
+%        TT-only macro Liberty caveat (cite §V).
+%   IV-B Memory integration — wait-state FSM in wb_imem/wb_dmem,
+%        dout0_q latch fix in one sentence, sim-only preload via
+%        ifdef __ICARUS__.
+%   IV-C Firmware — PicoRV32 bare-metal C, 14x14 grouped BNN
+%        inference loop, 8 words/image DMEM layout.
+%   IV-D Layout (Fig. 3: annotated GDS) — die 2.25 mm^2 (std-cell
+%        0.380 + macro 0.475), 0 errors on KLayout DRC / Netgen
+%        LVS / antenna. One sentence on Magic-DRC false positives.
+% Source: docs/PHASE3_5_NOTES.md sections 2, 3, 8 + PHASE4_5_NOTES.md.
+% =====================================================================
+\section{Implementation}
+\label{sec:impl}
+
+\subsection{Open-flow toolchain}
+\label{sec:impl:flow}
+
+The SoC is implemented through the LibreLane 3.0.3 RTL-to-GDSII
+flow~\cite{librelane} on the SkyWater sky130A open-source
+PDK~\cite{sky130_pdk}, in the OpenLane lineage~\cite{openlane}.
+Yosys~\cite{yosys} synthesises the design against the
+\texttt{sky130\_fd\_sc\_hd} standard-cell library;
+OpenROAD~\cite{openroad} drives floorplanning, placement, clock-tree
+synthesis, routing, and antenna repair; Magic and KLayout perform GDS
+streamout and DRC; Netgen performs LVS. The two memories are
+pre-hardened OpenRAM~\cite{openram} macros ---
+\texttt{sky130\_sram\_2kbyte\_1rw1r\_32x512\_8}
+(683\,\(\times\)\,417\,\textmu m) for the IMEM and
+\texttt{sky130\_sram\_1kbyte\_1rw1r\_32x256\_8}
+(480\,\(\times\)\,398\,\textmu m) for the DMEM --- manually placed
+against a 1\,500\,\(\times\)\,1\,500\,\textmu m absolute floorplan with
+PDN hookups to the sky130 dual rail (\texttt{vccd1}/\texttt{vssd1}).
+Macro integration required iteration on placement constraints, an
+OpenSTA blackbox stub for the behavioural macro views, and removal of
+the wrapper-level \texttt{keep\_hierarchy} attributes to satisfy
+LibreLane's flat-macro convention. The choice of open flow over a
+commercial tool is a methodological one: the full RTL, sign-off, and
+characterisation pipeline reproduces from a single
+\texttt{config.json}, and that reproducibility is the contribution
+this paper aims to extend.
+
+\subsection{Sign-off methodology}
+\label{sec:impl:signoff}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig3_layout.pdf}
+  \caption{Annotated post-P\&R layout of the OpenRAM SoC on sky130A.
+  % TODO(stage 4): final caption.
+  }
+  \label{fig:layout}
+\end{figure}
+
+Fig.~\ref{fig:layout} shows the post-P\&R floorplan, with the IMEM
+and DMEM macros along the upper edge of the die and the std-cell logic
+below. Multi-corner static timing was run across nine corners covering
+the three sky130 process points (TT, FF, SS), three temperatures
+($-40$\,\textdegree{}C, 25\,\textdegree{}C, 100\,\textdegree{}C), and
+three supply voltages (1.60\,V, 1.80\,V, 1.95\,V). At the headline
+\texttt{nom\_tt\_025C\_1v80} corner the design closes with
+$+0.51$\,ns setup slack and $+0.37$\,ns hold slack; hold timing is
+clean across all nine corners. The slow-corner setup violations at
+\texttt{nom\_ss\_100C\_1v60} are an attribute of the OpenRAM macros'
+single TT-corner Liberty --- a documented LibreLane 3.x limitation
+discussed in Section~\ref{sec:discussion}, not a design defect.
+Physical sign-off is clean on the four authoritative checks: KLayout
+DRC reports 0 errors (the eight-million Magic DRC flags inside the
+macro footprint are a known sky130 deficiency around hardened SRAM
+internals and are conventionally ignored), Netgen LVS 0 errors,
+KLayout XOR against the Magic-streamed GDS 0 differences across all
+108 layers, and antenna 0 violating nets and 0 violating pins.
+
+\subsection{BNN deployment}
+\label{sec:impl:bnn}
+
+The deployed network is a grouped binary MLP over a
+14\,\(\times\)\,14 input. After a 2\,\(\times\)\,2 average pool and a
+per-quadrant median binarisation, four parallel branches each map a
+49-bit quadrant to 16 hidden bits in one tile evaluation; the four
+16-bit outputs concatenate into a 64-bit hidden vector that the same
+tile maps to ten output logits in a fifth evaluation. Grouping
+(rather than full $196 \to 64$ connectivity) is a hardware-shape
+choice: each branch fits one tile-evaluation fanin, so the entire
+network maps onto the SoC without changing tile or wrapper RTL.
+Per-image inference therefore costs four hidden-layer batches plus
+one output-layer batch, which the PicoRV32 firmware schedules
+sequentially against the cfg-write/poll/read protocol of
+Section~\ref{sec:arch:wrapper}, totalling 17\,068 cycles or
+170.7\,\textmu s at 100\,MHz. The bare-metal firmware compiles to
+roughly 1.5\,KB of RV32I and shares the IMEM with the binary weights;
+per-image input bits are preloaded into DMEM by the testbench at
+simulation time zero. A vectorised Python integer model serves as
+the deployment golden, folding the trained batch-norm parameters into
+per-neuron thresholds via
+$t_i = \lceil (49 + \mathrm{sgn}(\gamma_i)\,\mu_i - \beta_i\sigma_i/|\gamma_i|)/2 \rceil$;
+SoC RTL simulation matches this golden on all sixteen images of the
+verification set. Network weights are trained off-chip with a
+hard-tanh straight-through estimator~\cite{hubara_bnn}, a
+OneCycleLR schedule~\cite{onecycle}, 30 epochs, and a three-seed
+sweep (seeds 42, 1042, 2042) with the best-validation seed deployed.
+
+% =====================================================================
+% V. Evaluation — Target: ~850 words / 1.5 page, Fig. 4 + Tables I, II
+% ---------------------------------------------------------------------
+% Subsections:
+%   V-A Functional verification (Table I) — 4 gates: PyTorch <-> golden,
+%       SoC sim <-> golden, full 10K MNIST eval, sign-off DRC/LVS.
+%   V-B Power decomposition (Fig. 4) — hierarchical buckets at
+%       max_ff_n40C_1v95: tile 24.3%, CPU 16.3%, IMEM 11.8%, DMEM
+%       8.2%, clock 32.0%. The headline finding: tile fraction
+%       jumped from 10.81% (regfile baseline) to 24.29% (OpenRAM).
+%   V-C Energy and accuracy — 85.60% MNIST [84.90, 86.27] Wilson
+%       95% CI, 8.06 uJ/image, 124,113 inferences/J at 100 MHz.
+%   V-D Comparison (Table II) — vs XNE / YodaNN / ChewBaccaNN /
+%       FBNA / OpenSpike. Be explicit about the technology and
+%       open-flow vs commercial-flow distinction.
+% Source: docs/PHASE3_5_NOTES.md sections 5--7 + PHASE4_5_NOTES.md
+%         section 7 + results/phase3/comparison_baseline_vs_openram.md.
+% =====================================================================
+\section{Evaluation}
+\label{sec:eval}
+
+\subsection{Functional verification}
+\label{sec:eval:verif}
+
+The deployed network is exercised through four verification gates,
+summarised in Table~\ref{tab:verification}. The vectorised Python
+integer model \texttt{bnn\_reference.py} is treated as the deployment
+golden, since its arithmetic is exact in the same fixed-width integer
+domain as the on-chip XNOR-popcount; the trained PyTorch model is a
+training-time proxy whose floating-point activations may differ near
+batch-norm thresholds. PyTorch and the integer golden agree on 15 of
+16 verification images. The single mismatch (image~9: PyTorch labels
+9, golden and SoC both label 7) lies on a folded-batch-norm activation
+boundary near zero and is the expected behaviour of the integer
+quantisation, not a bug. The post-P\&R SoC RTL simulation then matches
+the integer golden bit-exact on all sixteen images. On the full
+10\,000-image MNIST test set, the same network reaches 85.60\,\%
+accuracy (8\,560 correct), with a 95\,\% Wilson confidence interval of
+\([84.90\,\%,\,86.27\,\%]\); per-class accuracy ranges from 95.2\,\%
+on digit~1 to 75.1\,\% on digit~5.
+\input{tables/table1_verification}
+
+\subsection{Activity-aware power decomposition}
+\label{sec:eval:power}
+
+Activity-aware power is reported at the headline
+\texttt{max\_ff\_n40C\_1v95} corner. The full sixteen-image inference
+testbench is replayed against the post-P\&R netlist, the chip-pin VCD
+is annotated through OpenSTA's \texttt{read\_vcd}, supplemented with
+forty-seven named-net activities for the major interior wires, and
+\texttt{report\_power} is decomposed into per-instance buckets by
+\texttt{scripts/bucket\_soc\_cells.py}. Total post-P\&R power is
+47.21\,mW. Fig.~\ref{fig:power_breakdown} shows the hierarchical
+decomposition. The clock tree is the largest single contributor at
+15.10\,mW (32.0\,\%). The TLG-mapped tile is the largest active
+datapath bucket at 11.47\,mW (24.3\,\%); the PicoRV32 core draws
+7.71\,mW (16.3\,\%); the IMEM and DMEM macros draw 5.56\,mW
+(11.8\,\%) and 3.85\,mW (8.2\,\%) respectively; shared logic and the
+GPIO slave account for 1.24\,mW (2.6\,\%) and 0.30\,mW (0.6\,\%).
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig4_power_breakdown.pdf}
+  \caption{Hierarchical activity-aware power decomposition of the
+  open-flow SoC at \texttt{max\_ff\_n40C\_1v95} (total 47.21\,mW).
+  The TLG-mapped tile is the largest active datapath bucket once
+  the OpenRAM macros remove register-file dominance from the
+  memory subsystem.}
+  \label{fig:power_breakdown}
+\end{figure}
+
+The actionable insight is the change in the tile's share of the
+budget. With the register-file IMEM/DMEM of the Phase~3 baseline, the
+same tile RTL --- byte-identical post-flatten netlist --- contributed
+11.47\,mW of an SoC total of 106.06\,mW, or 10.81\,\%. Replacing the
+register files with OpenRAM macros drops the system total to
+47.21\,mW while leaving the tile bucket unchanged, lifting the tile's
+share to 24.29\,\% and dropping the memory subsystem's combined share
+from 36.4\,\% to 19.9\,\%. This is the system-level contribution of
+the open-flow pipeline: the same hierarchical activity-aware analysis
+runs identically on both configurations and exposes the tile as the
+largest active block once memory is no longer dominant, which redirects
+the optimisation target from the memory subsystem onto the inference
+datapath.
+
+\subsection{Energy and throughput}
+\label{sec:eval:energy}
+
+At the same \texttt{max\_ff} corner, the SoC executes 17\,068 cycles
+per image, i.e.\ 170.7\,\textmu s and \textbf{8.06\,\textmu J per
+inference} at 100\,MHz. This corresponds to \textbf{124\,113
+inferences/J} and a sustained throughput of 5\,860\,inf/s under
+continuous polling. The companion \texttt{nom\_tt\_025C\_1v80} corner
+is slightly more efficient at an estimated 7.09\,\textmu J/image and
+141\,044\,inf/J. Compared with the Phase~3 7\,\(\times\)\,7
+deployment on the same SoC, the grouped 14\,\(\times\)\,14 network
+gains $+14.48$\,pp of accuracy at $+1.0\,\%$ energy overhead per
+image: the post-P\&R netlist, sign-off artefacts, and clock are
+byte-identical, and only the firmware DMEM layout (8 vs 2 words/image)
+and the binary weight image change between the two deployments. The
+accuracy-per-microjoule figure of merit therefore rises from
+8.91\,pp/\textmu J to 10.62\,pp/\textmu J, a 19.2\,\% improvement at
+unchanged silicon.
+
+\subsection{Comparison with prior digital BNN ASICs}
+\label{sec:eval:comparison}
+
+Table~\ref{tab:comparison} positions the proposed SoC against
+representative digital BNN ASICs. The aim of the comparison is not to
+overtake the leading raw-throughput-per-watt baselines:
+XNE~\cite{xne2018}, YodaNN~\cite{yodann2018}, and
+ChewBaccaNN~\cite{chewbaccann2021} are 22--65\,nm commercial-flow
+accelerators, and at those nodes a BNN datapath enjoys node-and-voltage
+advantages that no sky130A 1.8\,V design can close. The contribution
+of the present work sits in a different category, defined by two
+simultaneous constraints: a fully open RTL-to-GDSII pipeline
+(LibreLane + sky130A + OpenRAM) and a fully-digital TLG decomposition
+mapped into the standard-cell library, with a soft RV32I core
+orchestrating end-to-end inference at the SoC level.
+
+Within those constraints the closest comparators are
+TULIP~\cite{tulip} and OpenSpike~\cite{openspike}.
+TULIP shares the threshold-logic philosophy but commits to a
+mixed-signal flow with programmable flash devices for the threshold
+compare, which ties it to a specific PDK family; the present design
+demonstrates that the same TLG mapping can be carried entirely by
+digital standard cells, preserving portability across any digital PDK
+and across the open flow specifically. OpenSpike shares the open
+toolchain (sky130 + the OpenLane lineage + OpenRAM + a PicoRV32
+controller) but targets a spiking neural network rather than a binary
+one, occupying a complementary point in the open-flow ML-ASIC space.
+The figures reported for the proposed design in
+Table~\ref{tab:comparison} are end-to-end at the SoC level --- CPU,
+memories, clock tree, and tile included --- which is conservative
+against the IP-block measurements that several baselines report and
+makes the per-inference numbers directly comparable for a
+system-integration audience.
+\input{tables/table2_comparison}
+
+% =====================================================================
+% VI. Discussion — Target: ~300 words / 0.5 page
+% ---------------------------------------------------------------------
+% Three short paragraphs:
+%   (a) what the tile-fraction jump means for follow-on work — once
+%       memory is no longer dominant, tile-side optimization becomes
+%       worth doing;
+%   (b) honest limits — TT-only macro Liberty (one sentence), grouped
+%       14x14 connectivity gap (one sentence), single-core soft CPU
+%       leaves throughput on the table;
+%   (c) what would change the picture — multi-corner Liberty for
+%       OpenRAM, larger tile (e.g., 4 tiles in parallel for full
+%       28x28), tape-out.
+% =====================================================================
+\section{Discussion}
+\label{sec:discussion}
+% TODO(stage 6): body prose.
+
+% =====================================================================
+% VII. Conclusion — Target: ~100 words / 0.15 page
+% ---------------------------------------------------------------------
+% Restate the headline metrics and the one structural finding the
+% reader should remember (tile became 24.3% of system power once
+% OpenRAM removed the regfile-IMEM dominance).
+% =====================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% TODO(stage 7): body prose.
+
+% =====================================================================
+% Acknowledgment — Target: 1--2 sentences if any
+% =====================================================================
+% \section*{Acknowledgment}
+% TODO(stage 7): optional acknowledgment.
+
+% ---------------------------------------------------------------------
+% Bibliography
+% ---------------------------------------------------------------------
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

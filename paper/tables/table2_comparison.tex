@@ -1,0 +1,34 @@
+% Table II — Comparison vs prior digital BNN ASICs.
+% Numeric cells for cited rows left as TODO until verified directly against
+% each paper's abstract / conclusion / canonical PPA table. Notes column
+% captures only the categorical (technology-flow / network-class) framing
+% that the Stage-4 prose discussion relies on. See Section V-D.
+\begin{table*}[t]
+  \centering
+  \caption{Digital BNN/threshold-logic accelerator comparison. Numeric cells
+  for cited rows are placeholders pending Stage-5 verification against the
+  cited papers; the Notes column captures the technology-flow framing
+  used in Section~\ref{sec:eval:comparison}.}
+  \label{tab:comparison}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}lllllll@{}}
+    \toprule
+    \textbf{Design} & \textbf{Tech.} & \textbf{Network} & \textbf{Accuracy} & \textbf{Energy/inf.} & \textbf{Area} & \textbf{Notes} \\
+    \midrule
+    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the XNE TCAD 2018 paper.
+    XNE~\cite{xne2018}                 & --     & --     & --     & --     & --     & commercial flow, BNN IP \\
+    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the YodaNN TCAD 2018 paper.
+    YodaNN~\cite{yodann2018}           & --     & --     & --     & --     & --     & commercial flow, binary-weight CNN \\
+    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the TULIP ICCD 2020 paper.
+    TULIP~\cite{tulip}                 & --     & --     & --     & --     & --     & mixed-signal flash TLG \\
+    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the ChewBaccaNN ISCAS 2021 paper.
+    ChewBaccaNN~\cite{chewbaccann2021} & --     & --     & --     & --     & --     & commercial flow, BNN \\
+    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the OpenSpike ISCAS 2023 paper.
+    OpenSpike~\cite{openspike}         & sky130 & --     & --     & --     & --     & open flow, SNN (not BNN) \\
+    % TODO(stage 5): verify Tech / Network / Accuracy / Energy / Area against the FBNA FPL 2018 paper.
+    FBNA~\cite{fbna}                   & --     & --     & --     & --     & --     & FPGA, BNN \\
+    \midrule
+    \textbf{This work}                 & sky130A & 14$\times$14 grouped BNN & 85.60\,\% & 8.06\,\textmu J & 2.25\,mm$^2$ & open flow, OpenRAM, digital TLG \\
+    \bottomrule
+  \end{tabular}
+\end{table*}

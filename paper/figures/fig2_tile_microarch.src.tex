@@ -1,0 +1,13 @@
+% Placeholder for the TLG tile microarchitecture diagram (Stage 4 deliverable).
+% Build: pdflatex fig2_tile_microarch.src.tex && mv fig2_tile_microarch.src.pdf fig2_tile_microarch.pdf
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily]
+  \draw[very thick] (0,0) rectangle (8,5);
+  \node at (4,4.5) {\Large\bfseries Figure 2 (placeholder)};
+  \node at (4,3.6) {TLG tile microarchitecture};
+  \node[align=center] at (4,2.3) {16~$\times$ 64-bit XNOR-popcount\\with thresholded sign output};
+  \node at (4,0.7) {\itshape to be drawn in Stage 4};
+\end{tikzpicture}
+\end{document}
