@@ -557,11 +557,10 @@ same tile RTL --- byte-identical post-flatten netlist --- contributed
 register files with OpenRAM macros drops the system total to
 47.21\,mW while leaving the tile bucket unchanged, lifting the tile's
 share to 24.29\,\% and dropping the memory subsystem's combined share
-from 36.4\,\% to 19.9\,\%. This is the system-level contribution of
-the open-flow pipeline: the same hierarchical activity-aware analysis
-runs identically on both configurations and exposes the tile as the
-largest active block once memory is no longer dominant, which redirects
-the optimisation target from the memory subsystem onto the inference
+from 36.4\,\% to 19.9\,\%. The system-level finding is that the same hierarchical
+activity-aware analysis exposes the tile as the largest active
+block once memory is no longer dominant, redirecting the
+optimisation target from the memory subsystem onto the inference
 datapath.
 
 \subsection{Energy and throughput}
