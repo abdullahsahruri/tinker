@@ -98,12 +98,11 @@ results, however, are concentrated in proprietary PDKs paired with
 proprietary memory compilers, which limits independent reproduction
 and constrains the methodological rigor that academic groups can
 apply to system-level claims. OpenSpike has previously demonstrated SoC-scale neural inference on
-sky130 for a spiking payload~\cite{openspike}. Beyond raw energy
-efficiency, the system-level question of where SoC power is spent
---- and what becomes the first-order optimisation target once
-memory is properly architected --- has not been answered for
-fully-digital threshold-logic BNN accelerators. This paper presents
-TINKER, the system that answers it.
+sky130 for a spiking payload~\cite{openspike}, but the system-level
+question of where SoC power is spent --- and what becomes the
+first-order optimisation target once memory is properly architected
+--- has not been answered for fully-digital threshold-logic BNN
+accelerators. This paper presents TINKER, the system that answers it.
 
 Our approach decomposes the binary inner product
 $y_i = \mathbb{1}[\,\mathrm{popcount}(x \xnor w_i) \ge \theta_i]$
