@@ -305,11 +305,7 @@ and AOI cells that implements the underlying threshold function as a
 fan-in-bounded combinational tree. The TLG decomposition handles each
 6-bit chunk's population count; the eleven 3-bit subcounts are then
 summed by a conventional width-seven adder tree and compared against
-\(\theta_i\). Because every chunk is a self-contained two-input
-combinational lookup and the only sequential element in the datapath
-is the 64-bit input register, the tile is fully synchronous, contains
-no analog or mixed-signal devices, and ports to any digital PDK without
-custom transistors. This is the principal contrast with the
+\(\theta_i\). This is the principal contrast with the
 threshold-logic processor TULIP~\cite{tulip}, which depends on
 programmable flash devices for its threshold compare and is therefore
 tied to a specific mixed-signal flow. Because every chunk LUT and
