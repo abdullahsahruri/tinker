@@ -581,11 +581,12 @@ same tile RTL --- byte-identical post-flatten netlist --- contributed
 register files with OpenRAM macros drops the system total to
 47.21\,mW while leaving the tile bucket unchanged, lifting the tile's
 share to 24.29\,\% and dropping the memory subsystem's combined share
-from 36.4\,\% to 19.9\,\%. The system-level finding is that the same hierarchical
-activity-aware analysis exposes the tile as the largest active
-block once memory is no longer dominant, redirecting the
-optimisation target from the memory subsystem onto the inference
-datapath.
+from 36.4\,\% to 19.9\,\%. The architectural consequence is that
+fully-digital threshold-logic compute is the dominant active power
+bucket in the system that demonstrates it --- not a small auxiliary
+block, but the largest active-datapath consumer at SoC scale.
+Threshold logic in standard cells is therefore not merely viable
+but load-bearing: it carries the system.
 
 \subsection{Energy and throughput}
 \label{sec:eval:energy}
@@ -628,10 +629,17 @@ flow with programmable flash devices for the threshold compare,
 which ties the design to a specific PDK family. The present design
 demonstrates that the same TLG mapping can be carried entirely by
 digital standard cells, preserving portability across any digital
-PDK. The secondary comparator is OpenSpike~\cite{openspike}, which
-shares the SoC-scale neural-inference-on-sky130 substrate (PicoRV32
-+ OpenRAM) but targets a spiking rather than a binary network,
-occupying a complementary computational regime.
+PDK. More broadly, prior threshold-logic accelerators across the
+current-mode~\cite{beiu2003differential} and
+memristor-based~\cite{papandroulidakis2019practical} approaches
+share the same PDK-binding constraint: each is tied to a specific
+fabrication technology by its choice of threshold-compare
+primitive. TINKER demonstrates that this constraint is unnecessary
+at the architecture level. The secondary comparator is
+OpenSpike~\cite{openspike}, which shares the SoC-scale
+neural-inference-on-sky130 substrate (PicoRV32 + OpenRAM) but
+targets a spiking rather than a binary network, occupying a
+complementary computational regime.
 The figures reported in
 Table~\ref{tab:comparison} are end-to-end at the SoC level --- CPU,
 memories, clock tree, and tile included --- which is conservative
