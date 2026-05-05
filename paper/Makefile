@@ -5,7 +5,7 @@ BIBTEX := bibtex
 FIG_SRCS := $(wildcard figures/*.src.tex)
 FIG_TIKZ_PDFS := $(FIG_SRCS:.src.tex=.pdf)
 FIG_PY_PDFS   := figures/fig4_power_breakdown.pdf
-FIG_SRC_PDFS  := figures/fig3_layout.pdf
+FIG_SRC_PDFS  := figures/fig3_layout.pdf figures/fig_tlg_decomp.pdf
 FIG_PDFS      := $(FIG_TIKZ_PDFS) $(FIG_PY_PDFS) $(FIG_SRC_PDFS)
 
 .PHONY: all clean distclean figures
@@ -31,6 +31,12 @@ figures/src/fig3_base.png: figures/src/fig3_render_base.py figures/src/fig3_clea
 figures/fig3_layout.pdf: figures/src/fig3_compose.py figures/src/fig3_base.png \
                         figures/src/fig3_floorplan_data.json
 	python3 figures/src/fig3_compose.py >/dev/null
+
+# TLG decomposition figure (Section III-B).
+figures/fig_tlg_decomp.pdf: figures/src/fig_tlg_decomp.tex
+	cd figures/src && $(LATEX) fig_tlg_decomp.tex >/dev/null
+	mv figures/src/fig_tlg_decomp.pdf figures/fig_tlg_decomp.pdf
+	rm -f figures/src/fig_tlg_decomp.aux figures/src/fig_tlg_decomp.log
 
 figures: $(FIG_PDFS)
 

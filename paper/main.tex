@@ -301,6 +301,20 @@ the current-mode~\cite{beiu2003differential} and
 memristor-based~\cite{papandroulidakis2019practical} implementations
 do natively but the digital domain does not.
 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig_tlg_decomp.pdf}
+  \caption{Chunked-LUT decomposition of the 64-bit threshold
+  function. The XNOR output partitions into ten 6-bit chunks and
+  one 4-bit residue; each chunk's population count is synthesised
+  by Yosys into a network of \texttt{sky130\_fd\_sc\_hd}
+  multiplexers and AOI cells (red). The eleven 3-bit subcounts
+  feed a conventional adder tree and threshold comparator (navy).
+  The entire decomposition uses only digital standard cells, with
+  no analog or mixed-signal primitives.}
+  \label{fig:tlg-decomp}
+\end{figure}
+
 \paragraph{Chunked-LUT decomposition.} Our decomposition recasts
 the 64-input threshold function as a small adder-tree of population
 counts over fixed-size chunks. The 64-bit XNOR output is partitioned

@@ -1,0 +1,117 @@
+% Chunked-LUT TLG decomposition (Fig. for Section III-B).
+% Build: cd paper/figures/src && pdflatex fig_tlg_decomp.tex && \
+%   mv fig_tlg_decomp.pdf ../
+\documentclass[border=2pt]{standalone}
+\usepackage{mathptmx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+
+\definecolor{navy}{HTML}{1F3A5F}
+\definecolor{tlgred}{HTML}{A83232}
+\definecolor{redfill}{HTML}{F4DADA}
+
+\begin{document}
+\begin{tikzpicture}[
+    font=\rmfamily,
+    >={Latex[length=1.6mm,width=1.4mm]},
+    line width=0.6pt,
+    primary/.style  = {draw=navy, fill=navy, text=white, line width=0.6pt,
+                       minimum height=8mm, minimum width=15mm, align=center,
+                       inner sep=2pt, font=\rmfamily\small},
+    secondary/.style= {draw=navy, fill=white, text=navy, line width=0.6pt,
+                       minimum height=7mm, minimum width=14mm, align=center,
+                       inner sep=2pt, font=\rmfamily\small},
+    tlg/.style      = {draw=tlgred, fill=redfill, text=tlgred, line width=0.9pt,
+                       minimum height=4.5mm, minimum width=16mm, align=center,
+                       inner sep=1pt, font=\rmfamily\scriptsize\bfseries},
+    sig/.style      = {draw=navy, line width=0.7pt, ->},
+    redsig/.style   = {draw=tlgred, line width=0.7pt, ->},
+    wlbl/.style     = {font=\rmfamily\scriptsize\itshape, text=navy, inner sep=1pt},
+    note/.style     = {font=\rmfamily\scriptsize\itshape, text=navy,
+                       align=center, inner sep=1pt},
+  ]
+
+  % --- Source: 64-bit XNOR output -------------------------------------
+  \node[secondary, minimum width=20mm, minimum height=10mm] (xnor)
+    at (-3.5,0) {64-bit\\XNOR output};
+
+  % --- Eleven chunk LUTs in vertical column (3 visible + vdots + 2) ----
+  \def\cx{-0.20}
+  \def\dh{0.55}
+  \node[tlg, anchor=center] (l1) at (\cx,  2.5*\dh) {6-bit chunk 1};
+  \node[tlg, anchor=center] (l2) at (\cx,  1.5*\dh) {6-bit chunk 2};
+  \node[anchor=center, text=tlgred, font=\rmfamily\small\bfseries]
+                              (ld) at (\cx,  0.5*\dh) {$\vdots$};
+  \node[tlg, anchor=center] (l10) at (\cx, -0.5*\dh) {6-bit chunk 10};
+  \node[tlg, anchor=center] (l11) at (\cx, -1.5*\dh) {4-bit residue};
+
+  % Sub-label for each: "6→3 LUT" or "4→3 LUT" annotation
+  \node[note, text=tlgred, anchor=west, font=\rmfamily\tiny]
+    at ($(l1.east)+(0.05,0)$) {$6{\to}3$};
+  \node[note, text=tlgred, anchor=west, font=\rmfamily\tiny]
+    at ($(l2.east)+(0.05,0)$) {$6{\to}3$};
+  \node[note, text=tlgred, anchor=west, font=\rmfamily\tiny]
+    at ($(l10.east)+(0.05,0)$) {$6{\to}3$};
+  \node[note, text=tlgred, anchor=west, font=\rmfamily\tiny]
+    at ($(l11.east)+(0.05,0)$) {$4{\to}3$};
+
+  % Fan-out from XNOR output to each chunk LUT
+  \draw[redsig] (xnor.east) -- (l1.west);
+  \draw[redsig] (xnor.east) -- (l2.west);
+  \draw[redsig] (xnor.east) -- (l10.west);
+  \draw[redsig] (xnor.east) -- (l11.west);
+  \node[wlbl, text=tlgred, anchor=south] at ($(xnor.east)+(0.4,0.1)$) {64};
+
+  % Bracket label: "Chunked-LUT TLG decomposition"
+  \draw[decorate, decoration={brace, amplitude=3pt},
+        draw=tlgred, line width=0.8pt]
+    ($(l1.north east)+(0.95,0.10)$) -- ($(l11.south east)+(0.95,-0.10)$);
+  \node[note, text=tlgred, anchor=west, align=left,
+        font=\rmfamily\scriptsize\itshape]
+    at ($(l2.east)+(1.20,-0.20)$)
+    {Chunked-LUT TLG\\
+     decomposition\\
+     (Yosys $\to$ mux+AOI)};
+
+  % --- Adder tree merge column to the right of LUTs --------------------
+  \coordinate (mxA) at ($(l1.east)+(0.20,0)$);
+  % Adder tree and comparator: navy (conventional digital, not TLG)
+  \node[draw=navy, fill=navy, text=white, line width=0.6pt,
+        anchor=west, minimum width=22mm, minimum height=10mm,
+        align=center, inner sep=2pt,
+        font=\rmfamily\small\bfseries]
+    (adder) at (4.50,0) {Adder tree\\\scriptsize $11{\times}3 \to 7$};
+
+  % Light feeders from each chunk into merge column (still red; the
+  % chunk outputs are red, the merge into the adder transitions to navy)
+  \foreach \n in {l1,l2,l10,l11}{
+    \draw[draw=tlgred, line width=0.4pt] (\n.east) -- (mxA |- \n);
+  }
+  \draw[draw=tlgred, line width=0.5pt] (mxA |- l1) -- (mxA |- l11);
+  \draw[sig] (mxA |- adder.west) -- (adder.west)
+    node[wlbl, midway, above] {$11{\times}3$};
+
+  % Threshold comparator (navy, conventional)
+  \node[draw=navy, fill=navy, text=white, line width=0.6pt,
+        anchor=west, minimum width=16mm, minimum height=10mm,
+        align=center, inner sep=2pt,
+        font=\rmfamily\small\bfseries]
+    (cmp) at ($(adder.east)+(0.50,0)$)
+    {$\geq\,\theta_i$\\\scriptsize compare};
+  \draw[sig] (adder.east) -- (cmp.west)
+    node[wlbl, midway, above] {7};
+
+  \node[secondary, anchor=west, minimum width=12mm, minimum height=10mm]
+    (yout) at ($(cmp.east)+(0.50,0)$) {$y_i$\\\scriptsize 1-bit};
+  \draw[sig] (cmp.east) -- (yout.west)
+    node[wlbl, midway, above] {1};
+
+  % --- Footer note: digital cells only ---------------------------------
+  \node[note, anchor=north, align=center,
+        font=\rmfamily\scriptsize\itshape]
+    at ($(adder.south)+(0,-1.40)$)
+    {implemented entirely with digital standard cells\\
+     --- no analog or mixed-signal primitives};
+
+\end{tikzpicture}
+\end{document}
