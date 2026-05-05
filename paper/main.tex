@@ -83,7 +83,42 @@ binary neural networks, threshold logic, open-source EDA, sky130, SoC.
 % =====================================================================
 \section{Background and Related Work}
 \label{sec:background}
-% TODO(stage 6): body prose.
+
+Digital BNN inference accelerators have demonstrated strong
+energy-efficiency results across a range of commercial process nodes.
+YodaNN~\cite{yodann2018} pairs a binary-weight datapath with
+standard-cell memories and aggressive voltage scaling in UMC 65\,nm to
+push AlexNet-class CNNs into the ultralow-power regime.
+XNE~\cite{xne2018} integrates an XNOR-popcount engine with a hybrid
+SRAM/SCM memory subsystem alongside a microcontroller in 22\,nm,
+reporting 21.6\,fJ/op for fully-binary inference.
+ChewBaccaNN~\cite{chewbaccann2021} couples a flexible
+XNOR-and-popcount-tree datapath with body-biasing and 0.4\,V operation
+in GF 22\,nm FDX, reaching 223\,TOPS/W at peak.
+TULIP~\cite{tulip} takes the threshold-logic-gate route in 40\,nm,
+mapping XNOR-popcount-threshold neurons onto a network of programmable
+threshold-logic standard cells whose threshold compare uses embedded
+flash devices. Collectively these designs span roughly five to several
+hundred TOp/s/W, with their efficiency advantage tightly coupled to
+commercial PDKs and proprietary compiled memories.
+
+The closest sibling to the present work in the open-flow world is
+OpenSpike~\cite{openspike}, which pairs a sky130A standard-cell flow,
+the OpenLane lineage~\cite{openlane}, OpenRAM macros, and a PicoRV32
+controller~\cite{picorv32} into a sign-off-clean SNN inference SoC at
+sky130, demonstrating that SoC-scale neural inference is feasible in
+the open flow without commercial EDA. We adopt the same
+infrastructure stack but target a binary rather than a spiking
+network, using a TLG decomposition of the XNOR-popcount-threshold core
+that maps the entire datapath onto \texttt{sky130\_fd\_sc\_hd}
+standard cells without analog or mixed-signal devices, as in
+XNOR-Net's binary-arithmetic substrate~\cite{xnornet}. The
+contribution is methodological --- showing that the open flow is
+sufficient for SoC-scale BNN deployment with sign-off-clean physical
+verification --- rather than a peak-efficiency claim, and we therefore
+position the design in the same node-and-flow regime as OpenSpike.
+FPGA-side BNN frameworks such as FINN~\cite{finn} occupy a separate
+design point that we do not directly compare against.
 
 % =====================================================================
 % III. SoC Architecture — Target: ~900 words / 1.5 page, 2 figures
