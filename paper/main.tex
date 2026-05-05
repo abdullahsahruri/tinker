@@ -99,7 +99,7 @@ analog or mixed-signal devices, and orchestrated by a soft RISC-V
 core --- remains open, and it is the question this paper answers.
 
 Our approach decomposes the binary inner product
-$y_i = \mathbb{1}[\,\mathrm{popcount}(\overline{x \oplus w_i}) \ge \theta_i]$
+$y_i = \mathbb{1}[\,\mathrm{popcount}(x \mathbin{\overline{\oplus}} w_i) \ge \theta_i]$
 into a chunked threshold-logic mapping that Yosys lowers into a
 fan-in-bounded combinational tree of \texttt{sky130\_fd\_sc\_hd}
 multiplexers and AOI cells. Sixteen such neurons, each with its own
@@ -268,7 +268,7 @@ holds its own 64-bit weight \(w_i\) and 7-bit threshold \(\theta_i\) in
 a configuration regfile. Per neuron, the binary inner product collapses
 to an XNOR followed by a population count~\cite{xnornet}: the output
 bit is
-\(y_i = \mathbb{1}\!\left[\,\mathrm{popcount}\!\left(\overline{x \oplus w_i}\right) \ge \theta_i\,\right]\).
+\(y_i = \mathbb{1}\!\left[\,\mathrm{popcount}\!\left(x \mathbin{\overline{\oplus}} w_i\right) \ge \theta_i\,\right]\).
 Sixteen neurons evaluated in parallel produce a 16-bit binary vector
 per cycle of throughput, with a two-cycle latency (input-register cycle
 plus combinational evaluate-and-register cycle).
