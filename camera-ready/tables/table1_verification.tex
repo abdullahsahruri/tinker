@@ -5,14 +5,14 @@
   \caption{Functional verification summary.}
   \label{tab:verification}
   \renewcommand{\arraystretch}{1.15}
-  \begin{tabular}{@{}p{0.34\columnwidth}p{0.31\columnwidth}p{0.25\columnwidth}@{}}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.36\columnwidth}>{\raggedright\arraybackslash}p{0.27\columnwidth}>{\raggedright\arraybackslash}p{0.27\columnwidth}@{}}
     \toprule
     \textbf{Gate} & \textbf{Reference} & \textbf{Result} \\
     \midrule
     PyTorch $\leftrightarrow$ integer golden & integer model & 15/16 (1 boundary) \\
     SoC sim $\leftrightarrow$ integer golden & RTL simulation & 16/16 PASS         \\
-    Full MNIST 10\,K eval                    & vectorized XNOR-popcount    & 85.60\,\% [84.90, 86.27] \\
-    Sign-off DRC / LVS / antenna             & KLayout / Netgen            & 0 / 0 / 0          \\
+    Full MNIST 10\,K eval                    & vectorized integer model    & 85.60\,\% [84.90, 86.27] \\
+    DRC / LVS / XOR / antenna               & KLayout, Netgen             & 0 / 0 / 0 / 0      \\
     \bottomrule
   \end{tabular}
 \end{table}

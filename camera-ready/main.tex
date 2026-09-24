@@ -22,6 +22,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{url}
@@ -214,10 +215,7 @@ network and does not address threshold-logic decomposition. The
 contribution here is therefore not raw efficiency at advanced
 nodes; it is an open, portable demonstration that a
 threshold-logic decomposition survives integration into a
-complete RISC-V SoC under software control. The chunked-LUT
-mapping introduced in Section~\ref{sec:arch:tile} is the
-mechanism by which TINKER meets that constraint within an
-ordinary digital RTL-to-GDS flow.
+complete RISC-V SoC under software control.
 
 \section{SoC Architecture}
 \label{sec:arch}
@@ -290,12 +288,12 @@ the 64-input threshold function as a small adder-tree of population
 counts over fixed-size chunks. The 64-bit XNOR output is partitioned
 into eleven chunks: ten 6-bit chunks plus one 4-bit residue.
 Each 6-bit chunk's population count is a small Boolean function
-($6 \to 3$) that Yosys synthesises into a network of
+($6 \to 3$) that Yosys synthesizes into a network of
 \texttt{sky130\_fd\_sc\_hd} multiplexers and AOI cells; the 4-bit
 residue ($4 \to 3$) is similarly decomposed. The eleven 3-bit
 subcounts feed a conventional width-7 adder tree, and the 7-bit
 sum is compared against \(\theta_i\) by a standard magnitude
-comparator. Fig.~\ref{fig:tlg-decomp} visualises the decomposition.
+comparator. Fig.~\ref{fig:tlg-decomp} visualizes the decomposition.
 The chunked approach bounds fanin and avoids a fabrication-specific
 summation primitive. The 6-bit chunk size matches
 \texttt{sky130\_fd\_sc\_hd}'s mux/AOI cost: large enough that
@@ -343,7 +341,7 @@ Section~\ref{sec:eval:power}.
 
 The deployed network is a grouped binary MLP over a
 14\,\(\times\)\,14 input. After a 2\,\(\times\)\,2 average pool and a
-per-quadrant median binarisation, four parallel branches each map a
+per-quadrant median binarization, four parallel branches each map a
 49-bit quadrant to 16 hidden bits in one tile evaluation; the four
 16-bit outputs concatenate into a 64-bit hidden vector that the same
 tile maps to ten output logits in a fifth evaluation. Grouping
@@ -357,7 +355,7 @@ unconstrained $196 \to 64$ model by 0.87\,pp. That gap is the same
 order as the deployed network's own experimental spread---0.74\,pp
 across the three training seeds, and a 0.69\,pp half-width on the
 95\,\% Wilson confidence interval---and an order below the accuracy
-given up to binarisation itself.
+given up to binarization itself.
 Per-image inference therefore costs four hidden-layer batches plus
 one output-layer batch, which the PicoRV32 firmware schedules
 sequentially against the cfg-write/poll/read protocol of
@@ -365,7 +363,7 @@ Section~\ref{sec:arch:wrapper}, totalling 17\,068 cycles or
 170.7\,\textmu s at 100\,MHz. The bare-metal firmware compiles to
 roughly 1.5\,KB of RV32I and shares the IMEM with the binary weights;
 per-image input bits are preloaded into DMEM by the testbench at
-simulation time zero. A vectorised Python integer model serves as
+simulation time zero. A vectorized Python integer model serves as
 the deployment golden, folding the trained batch-norm parameters into
 per-neuron thresholds via
 $t_i = \lceil (49 + \mathrm{sgn}(\gamma_i)\,\mu_i - \beta_i\sigma_i/|\gamma_i|)/2 \rceil$;
@@ -383,7 +381,7 @@ schedule~\cite{smith2017superconvergence}.
 
 The SoC is implemented through the LibreLane 3.0.3 RTL-to-GDSII
 flow~\cite{librelane2025} on the SkyWater sky130A open-source PDK.
-Yosys synthesises the design against the
+Yosys synthesizes the design against the
 \texttt{sky130\_fd\_sc\_hd} standard-cell library;
 OpenROAD~\cite{ajayi2019openroad} drives floorplanning, placement, clock-tree
 synthesis, routing, and antenna repair; Magic and KLayout perform GDS
@@ -393,7 +391,7 @@ macros occupy 683\(\times\)417\,\textmu m and
 a 1\,500\(\times\)1\,500\,\textmu m absolute floorplan with PDN
 hookups to the sky130 dual rail.
 Macro integration required iteration on placement constraints, an
-OpenSTA blackbox stub for the behavioural macro views, and removal of
+OpenSTA blackbox stub for the behavioral macro views, and removal of
 the wrapper-level \texttt{keep\_hierarchy} attributes to satisfy
 LibreLane's flat-macro convention. The full RTL-to-GDSII pipeline
 uses one flow configuration for multi-corner STA, physical
@@ -437,7 +435,7 @@ known sky130 macro-view issue.
 \label{sec:eval:verif}
 
 The deployed network is exercised through four verification gates,
-summarised in Table~\ref{tab:verification}. The vectorised Python
+summarized in Table~\ref{tab:verification}. The vectorized Python
 integer model is treated as the deployment golden, since its
 arithmetic is exact in the same fixed-width integer
 domain as the on-chip XNOR-popcount; the trained PyTorch model is a
@@ -447,8 +445,8 @@ batch-norm thresholds. The 16-image verification set is the first
 full 10\,000-image test set is covered by the integer-golden gate.
 PyTorch and the integer golden agree on 15 of these 16 images. The
 single mismatch lies on a folded-batch-norm activation
-boundary near zero and is the expected behaviour of the integer
-quantisation, not a bug. The post-P\&R SoC RTL simulation then matches
+boundary near zero and is the expected behavior of the integer
+quantization, not a bug. The post-P\&R SoC RTL simulation then matches
 the integer golden bit-exact on all sixteen images. On the full
 10\,000-image MNIST test set~\cite{lecun1998gradient}, the same network reaches
 85.60\,\% accuracy (8\,560 correct), with a 95\,\% Wilson confidence interval of
@@ -460,19 +458,27 @@ on digit~1 to 75.1\,\% on digit~5.
 \label{sec:eval:power}
 
 Activity-aware power is reported at the headline
-\texttt{max\_ff\_n40C\_1v95} corner. The full sixteen-image inference
-testbench is replayed against the post-P\&R netlist, the chip-pin VCD
+\texttt{max\_ff\_n40C\_1v95} corner. The sixteen-image inference
+testbench of the 7\,\(\times\)\,7 deployment (Section~\ref{sec:eval:energy})
+is replayed against the post-P\&R netlist, which the 14\,\(\times\)\,14
+deployment leaves byte-identical; the chip-pin VCD
 is annotated through OpenSTA's \texttt{read\_vcd}, supplemented with
-forty-seven named-net activities for the major interior wires, and
+activities for the 47 of 1\,210 interior VCD signals that survive
+synthesis as named nets, and
 \texttt{report\_power} is decomposed into per-instance buckets by
-a bucketization pass. Total post-P\&R power is
+a bucketization pass. The remaining interior nets use propagated
+activity, so combinational power is likely under-counted by up to
+about 5\,\%. Total post-P\&R power is
 47.21\,mW. Fig.~\ref{fig:power_breakdown} shows the hierarchical
 decomposition. The clock tree is the largest single contributor at
-15.10\,mW (32.0\,\%). The TLG-mapped tile is the largest active
+15.10\,mW (32.0\,\%). The TLG-mapped tile, including its Wishbone
+wrapper, is the largest active
 datapath bucket at 11.47\,mW (24.3\,\%); the PicoRV32 core draws
 7.71\,mW (16.3\,\%); the IMEM and DMEM macros draw 5.56\,mW
 (11.8\,\%) and 3.85\,mW (8.2\,\%) respectively; shared logic and the
 GPIO slave account for 1.24\,mW (2.6\,\%) and 0.30\,mW (0.6\,\%).
+The remaining 1.98\,mW (4.2\,\%) is not attributed to any bucket and
+appears as ``Other'' in Fig.~\ref{fig:power_breakdown}.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{fig4_power_breakdown.pdf}
@@ -508,7 +514,7 @@ is slightly more efficient at an estimated 7.09\,\textmu J/image and
 141\,044\,inf/J. Compared with the Phase~3 7\,\(\times\)\,7
 deployment on the same SoC, the grouped 14\,\(\times\)\,14 network
 gains $+14.48$\,pp of accuracy at $+1.0\,\%$ energy overhead per
-image: the post-P\&R netlist, sign-off artefacts, and clock are
+image: the post-P\&R netlist, sign-off artifacts, and clock are
 byte-identical, and only the firmware DMEM layout (8 vs 2 words/image)
 and the binary weight image change between the two deployments. The
 accuracy-per-microjoule figure of merit therefore rises from
@@ -525,7 +531,10 @@ through the same LibreLane tile flow. Table~\ref{tab:tlg-ablation}
 shows the loadable variants, which include the programmable weight
 and threshold register file needed by the SoC. The TLG mapping is
 slightly larger and slower in this standalone flow, but reports
-lower default-activity power. Because this ablation is tile-level
+lower default-activity power. Neither standalone tile meets the
+100\,MHz target at the slow corner (73.81 and 77.51\,MHz); the
+100\,MHz operating point holds at the nominal TT corner, as for the
+SoC (Section~\ref{sec:impl:signoff}). Because this ablation is tile-level
 and uses OpenSTA default activity, the SoC-level claims in this
 paper rely on the measured integrated TLG design rather than on a
 projected replacement tile.
@@ -557,7 +566,7 @@ Section~\ref{sec:eval:power} leaves the tile bucket byte-identical
 yet promotes it from 10.81\,\% of the budget to 24.29\,\% by removing
 register-file dominance from the memory subsystem. The
 system-integration consequence is that BNN compute is no longer
-hidden by storage overhead at SoC scale, and tile-level optimisation
+hidden by storage overhead at SoC scale, and tile-level optimization
 becomes a first-order target rather than a rounding error against
 IMEM/DMEM dominance.
 
@@ -570,11 +579,7 @@ ablation in Table~\ref{tab:tlg-ablation} helps isolate the
 chunked-LUT decomposition at tile level, but a full SoC re-integration
 of the conventional comparator tile is still useful future work.
 
-The sign-off result is also deliberately bounded. Physical
-verification is clean on KLayout DRC, Netgen LVS, KLayout XOR, and
-antenna. Timing closes at the headline
-\texttt{nom\_tt\_025C\_1v80} corner, while slow-corner macro timing
-is limited by OpenRAM's single-corner Liberty model. The present
+The sign-off result is also deliberately bounded: the present
 design does not demonstrate a multi-frequency power sweep, a larger
 network beyond grouped 14\,\(\times\)\,14, or a tape-out.
 

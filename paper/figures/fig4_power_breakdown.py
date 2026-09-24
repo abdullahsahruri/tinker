@@ -26,6 +26,7 @@ NAVY3 = "#4A6E96"
 NAVY4 = "#6B8AAE"
 NAVY5 = "#8FA6C2"
 GRAY  = "#B7BDC6"
+GRAY2 = "#E4E7EB"
 
 # Bucket order (left -> right inside each bar). Same order in both bars.
 ORDER = ["Clock", "Tile", "CPU", "IMEM", "DMEM", "Shared", "GPIO", "Other"]
@@ -37,7 +38,7 @@ COLOR = {
     "DMEM":   NAVY4,
     "Shared": NAVY5,
     "GPIO":   GRAY,
-    "Other":  GRAY,
+    "Other":  GRAY2,
 }
 
 # OpenRAM (this work, headline configuration)
@@ -123,8 +124,8 @@ ax.text((bl_tile_cx + or_tile_cx) / 2 - 1.5, (y_BL + y_OR) / 2,
 # X axis
 xmax = TOTAL_BL + 8
 ax.set_xlim(-3.5, xmax)
-ax.set_xticks([0, 20, 40, TOTAL_OR, 60, 80, 100])
-ax.set_xticklabels(["0", "20", "40", f"{TOTAL_OR}", "60", "80", "100"],
+ax.set_xticks([0, 20, 40, 60, 80, 100])
+ax.set_xticklabels(["0", "20", "40", "60", "80", "100"],
                    fontsize=6.5, color=NAVY)
 ax.set_xlabel("Power (mW) at max_ff_n40C_1v95",
               fontsize=7.0, color=NAVY, labelpad=2)
@@ -154,7 +155,7 @@ legend_entries = [
     ("DMEM",   NAVY4),
     ("Shared", NAVY5),
     ("GPIO",   GRAY),
-    ("Other",  GRAY),
+    ("Other",  GRAY2),
 ]
 # Place legend below the bars in two rows.
 legend_y = -0.42

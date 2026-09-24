@@ -32,6 +32,7 @@ archive standalone and fails if it does not match the upload PDF's page count.
 3. **Upload the eXpress-approved PDF** to the submission site, not the local
    build. Rename to the paper ID if the site asks for it.
 4. **eIEEE Copyright Form (eCF)** — sign; affiliations must match the paper.
+   *Done 2026-08-01* (receipt: `CopyrightReceipt (3).pdf` in Downloads).
 5. **Source archive** — upload `..._source.zip` only if the site asks for
    sources.
 6. **Registration** — at least one author must be registered for the paper to
@@ -49,26 +50,27 @@ Checked on the current build; re-check after any edit.
 - 21 references, all cited.
 - No LLM-tooling strings (`make` fails if any appear).
 
-## Known issues NOT fixed
+## Known issues — resolved 2026-09-24
 
-These are real and will be permanent once published. None blocks upload.
+All fixed in `main.tex` / `tables/` / `../paper/figures/fig4_power_breakdown.py`;
+still 6 pages, no overfull boxes. The pre-fix bundle is kept in
+`submission-2026-08-01/` (likely the version uploaded with the eCF).
 
-- **`main.tex:267`** — `\mathbb{1}` in the neuron equation renders as a wrong
-  glyph (amsfonts has no blackboard-bold digits). Needs `\mathds{1}` (dsfont),
-  `\mathbbm{1}` (bbm), or `\mathbf{1}`.
-- **`main.tex:331`** — `~700` renders as a non-breaking space, so the text reads
-  "1.3 K flops, 700 of them" and loses the "about". Needs `$\sim$700`.
-- **`main.tex:265, 288, 306`** — `\paragraph{Neuron function.}` prints as
-  "a) Neuron function.:" — IEEEtran adds the colon, so the trailing period
-  double-punctuates. Three occurrences.
-- Table I reports sign-off as "DRC / LVS / antenna" but §IV-B text claims four
-  clean checks including KLayout XOR.
-- Mixed British/American spelling (`synthesises`/`synthesized`,
-  `vectorised` in text vs `vectorized` in Table I, `binarisation`,
-  `optimisation`, `behavioural`).
-- Disclosure items from the full review: the 1.98 mW unbucketed remainder in
-  §V-B's power enumeration (Fig. 5 plots it as "Other", the text does not
-  mention it); the `u_tile` bucket including the Wishbone wrapper; the 47-of-1210
-  interior-net activity match rate; the power VCD coming from the Phase-3.5 7×7
-  workload rather than the deployed 14×14 network; and Table III's 73.81 MHz
-  slow-corner tile Fmax against the 100 MHz claim.
+- `\mathbb{1}` → `\mathbf{1}`; `~700` → `$\sim$700`; `\paragraph` double
+  punctuation (already fixed before this pass).
+- Table I sign-off row now lists DRC / LVS / XOR / antenna (4 checks),
+  matching §V-B; columns made ragged-right.
+- Spelling unified to American (IEEE style).
+- §VI-B now discloses: the 1.98 mW (4.2 %) unbucketed remainder ("Other" in
+  Fig. 6); the tile bucket includes its Wishbone wrapper; 47 of 1 210 interior
+  VCD signals matched (≤ ~5 % combinational under-count); the activity trace is
+  the 7×7 deployment's testbench on the byte-identical netlist.
+- §VI-D now states neither standalone tile meets 100 MHz at the slow corner
+  (73.81 / 77.51 MHz); 100 MHz holds at TT.
+- Fig. 6: removed the 47.21 x-tick that collided with "40"; "Other" no longer
+  shares GPIO's color.
+- To stay at 6 pages: dropped the sign-off recap in §VII (repeated in §V-B,
+  abstract, conclusion) and the last sentence of §II-B (restated §III-B).
+
+Still open: the ISBN/copyright line (blocking item 1) and the acknowledgment
+TODO — neither can be filled without the acceptance e-mail / grant info.
