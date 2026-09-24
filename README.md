@@ -17,6 +17,8 @@ LibreLane configurations, and result reports for the paper:
 > BNN Inference SoC," *2026 IEEE 39th International System-on-Chip Conference
 > (SOCC)*, 2026. Accepted as a poster (EDAS #1571290529).
 
+🌐 **Interactive explainer:** <https://abdullahsahruri.github.io/tinker/>. Scroll through the design and run the deployed network in your browser.
+
 📄 **Poster:** [PDF in this repo](docs/poster/tinker_socc2026_poster.pdf) ·
 [Google Drive](https://drive.google.com/file/d/19704OuEIZQ9zVoQLKQsWt_MiRe8qG9CL/view)
 
@@ -137,6 +139,7 @@ data/               trained weights (.npz/.pt) and the 16-image test set
 results/            committed metrics, power reports, per-bucket cell lists, figures
 docs/               per-phase engineering notes (design decisions, numbers, caveats)
 paper/              review-version LaTeX source + all figure sources
+site/               interactive web explainer (GitHub Pages); model.json via scripts/export_site_model.py
 camera-ready/       SOCC 2026 camera-ready LaTeX (see camera-ready/SUBMISSION.md)
 vendor/picorv32/    upstream PicoRV32 (ISC license)
 ```

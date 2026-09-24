@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TINKER — Threshold Logic in Standard Cells</title>
+<meta name="description" content="A scroll-through explainer of TINKER, a fully-digital threshold-logic-mapped BNN inference SoC in SkyWater sky130A (IEEE SOCC 2026). Run the real network in your browser.">
+<meta property="og:title" content="TINKER — a threshold-logic BNN SoC, explained">
+<meta property="og:description" content="Scroll through how a 64-input threshold function becomes ordinary standard cells inside a RISC-V SoC — and run the deployed network in your browser.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1F3A5F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231F3A5F'/%3E%3Cpath d='M8 22h6l4-12h6' stroke='%23E05A5A' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topbar" aria-label="Sections">
+  <a class="brand" href="#top">TINKER</a>
+  <div class="navlinks">
+    <a href="#neuron">Neuron</a>
+    <a href="#decomp">Decomposition</a>
+    <a href="#soc">SoC</a>
+    <a href="#try">Try it</a>
+    <a href="#power">Power</a>
+    <a href="#paper">Paper</a>
+  </div>
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero" id="top">
+  <canvas id="hero-bits" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <p class="kicker">IEEE SOCC 2026 · SkyWater sky130A · fully open flow</p>
+    <h1>TIN<span class="accent">KER</span></h1>
+    <p class="lede">A fully-digital, threshold-logic-mapped <abbr title="binary neural network">BNN</abbr> inference SoC.
+      Threshold logic, but built only from ordinary standard cells.</p>
+    <p class="authors">Abdullah Sahruri &amp; Martin Margala · University of Louisiana at Lafayette</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#try">Run the real network ↓</a>
+      <a class="btn" href="https://github.com/abdullahsahruri/tinker">Source on GitHub</a>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#question" aria-label="Scroll to start"><span></span></a>
+</header>
+
+<main>
+
+<!-- ============================ 1. QUESTION ============================ -->
+<section class="band" id="question">
+  <div class="wrap">
+    <p class="eyebrow reveal">01 · The question</p>
+    <h2 class="reveal">A threshold gate fires when a weighted sum crosses a line.</h2>
+    <div class="neuron-hero reveal" aria-hidden="true">
+      <svg viewBox="0 0 520 200" id="tlg-svg">
+        <g class="tlg-inputs"></g>
+        <circle cx="300" cy="100" r="38" class="tlg-body"/>
+        <text x="300" y="107" text-anchor="middle" class="tlg-sigma">Σ wᵢxᵢ</text>
+        <path d="M338 100 H390" class="tlg-wire"/>
+        <rect x="390" y="76" width="56" height="48" rx="8" class="tlg-th"/>
+        <text x="418" y="106" text-anchor="middle" class="tlg-th-t">≥ θ</text>
+        <path d="M446 100 H500" class="tlg-wire"/>
+        <circle cx="506" cy="100" r="7" class="tlg-out"/>
+      </svg>
+    </div>
+    <p class="reveal prose">Binary neural networks reduce every multiply to <b>XNOR</b> and every
+      dot product to a <b>popcount</b>. A BNN neuron <em>is</em> a threshold gate. The catch is that
+      silicon threshold gates have almost always depended on a special device to do the summing:</p>
+    <div class="cards four">
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 32 32"><path d="M4 8h24M4 16h24M4 24h24M26 4v24"/><path d="M22 12l4 4 4-4" /></svg></div><h3>Current-mode</h3><p>Summed branch currents. Bias- and matching-sensitive.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 32 32"><path d="M2 16h11M19 16h11M13 7v18M19 7v18"/></svg></div><h3>Capacitive</h3><p>Charge redistribution onto weighted capacitors.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 32 32"><path d="M2 16h6l2-5 3 10 3-10 3 10 3-10 2 5h6"/><rect x="21" y="9" width="4" height="14" rx="1"/></svg></div><h3>Memristor</h3><p>Resistance holds the weight and does the analog sum.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 32 32"><path d="M6 26V14M26 26V14M6 14h20M10 10h12M10 6h12M16 26v-8"/></svg></div><h3>Embedded flash</h3><p>Programmable threshold devices (e.g. TULIP).</p></div>
+    </div>
+    <p class="big-q reveal">Could a threshold-logic BNN live in an <span class="hl">ordinary digital RTL-to-GDS flow</span>,
+      inside a <span class="hl">complete SoC</span>, using nothing but standard cells?</p>
+  </div>
+</section>
+
+<!-- ============================ 2. NEURON ============================ -->
+<section class="band alt" id="neuron">
+  <div class="wrap">
+    <p class="eyebrow reveal">02 · One neuron</p>
+    <h2 class="reveal">y = [ popcount( x XNOR w ) ≥ θ ]</h2>
+    <p class="prose reveal">Each TINKER neuron takes a 64-bit input <b>x</b> and a 64-bit weight <b>w</b>. Where the two agree,
+      XNOR outputs a 1. Count the ones, compare with a 7-bit threshold θ, and you get one output bit.
+      Try it: click bits to flip them, or drag θ.</p>
+    <div class="neuron-demo reveal" id="neuron-demo">
+      <div class="row"><span class="lbl">x</span><div class="bits" id="nd-x"></div></div>
+      <div class="row"><span class="lbl">w</span><div class="bits" id="nd-w"></div></div>
+      <div class="row"><span class="lbl xn">XNOR</span><div class="bits xnor" id="nd-xn"></div></div>
+      <div class="nd-foot">
+        <div class="meter">
+          <div class="meter-track"><div class="meter-fill" id="nd-fill"></div><div class="meter-theta" id="nd-theta-mark"></div></div>
+          <div class="meter-labels"><span>0</span><span>32</span><span>64</span></div>
+        </div>
+        <div class="nd-readout">
+          <div><span class="k">popcount</span><span class="v mono" id="nd-count">0</span></div>
+          <div><label for="nd-theta" class="k">θ</label>
+            <input type="range" id="nd-theta" min="0" max="64" value="32">
+            <span class="v mono" id="nd-theta-v">32</span></div>
+          <div><span class="k">y</span><span class="led big" id="nd-y"></span></div>
+        </div>
+        <button class="btn small" id="nd-rand">Randomize</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 3. DECOMPOSITION (scrolly) ============================ -->
+<section class="scrolly" id="decomp" data-scrolly="decomp">
+  <div class="stage">
+    <div class="stage-inner">
+      <p class="eyebrow">03 · The trick</p>
+      <svg id="dc-svg" viewBox="0 0 900 460" role="img" aria-label="Chunked-LUT decomposition animation"></svg>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step" data-step="0"><h3>A 64-input threshold gate is hard to build.</h3>
+      <p>Build it literally and you get a huge-fan-in summing node, which is exactly what needs an analog primitive.
+        TINKER starts from the 64 XNOR bits instead.</p></div>
+    <div class="step" data-step="1"><h3>Cut it into chunks.</h3>
+      <p>The 64 bits become <b>ten 6-bit chunks</b> and <b>one 4-bit residue</b>. Each chunk is small enough to be
+        an ordinary Boolean function.</p></div>
+    <div class="step" data-step="2"><h3>Each chunk becomes a tiny lookup table.</h3>
+      <p>A 6-bit chunk's popcount is a 6→3 function (4→3 for the residue). Yosys synthesizes each one into
+        <code>sky130_fd_sc_hd</code> muxes and AOI cells, with no special device anywhere.</p></div>
+    <div class="step" data-step="3"><h3>An adder tree sums the subcounts.</h3>
+      <p>Eleven 3-bit subcounts feed a conventional width-7 adder tree, giving the full popcount (0–64).</p></div>
+    <div class="step" data-step="4"><h3>A comparator makes the decision.</h3>
+      <p>The 7-bit sum is compared against θ. The result is a threshold gate built entirely from digital
+        standard cells: it bounds fan-in and ports to any process with a standard-cell library.</p></div>
+  </div>
+</section>
+
+<!-- ============================ 4. TILE ============================ -->
+<section class="band" id="tile">
+  <div class="wrap">
+    <p class="eyebrow reveal">04 · The tile</p>
+    <h2 class="reveal">Sixteen neurons, one shared input, two cycles.</h2>
+    <p class="prose reveal">The BNN tile holds 16 of these neurons side by side. They share one registered 64-bit input.
+      A configuration register file stores 16 weights (64 b) and 16 thresholds (7 b), loaded once per network.
+      A strobe on <code>x_valid</code> starts the pipeline, and <code>y_valid</code> pulses two cycles later
+      with a 16-bit answer.</p>
+    <div class="tile-anim reveal" id="tile-anim" aria-hidden="true">
+      <div class="ta-col ta-x"><span>x reg</span><small>64 b</small></div>
+      <div class="ta-mid">
+        <div class="ta-head"><span>XNOR</span><span>11 chunk LUTs</span><span>adder tree</span><span>≥ θᵢ</span></div>
+        <div class="ta-lanes" id="ta-lanes"></div>
+      </div>
+      <div class="ta-col ta-y"><span>y reg</span><div class="ta-ybits" id="ta-ybits"></div></div>
+    </div>
+    <div class="clock reveal" aria-hidden="true">
+      <svg viewBox="0 0 240 30" class="clock-wave"><path d="M0 26 H20 V4 H50 V26 H80 V4 H110 V26 H140 V4 H170 V26 H200 V4 H230 V26 H240"/></svg>
+      <span class="clk-note">x_valid → register x → XNOR · chunks · adder tree · compare → y_valid, two cycles later</span></div>
+  </div>
+</section>
+
+<!-- ============================ 5. SoC (scrolly) ============================ -->
+<section class="scrolly" id="soc" data-scrolly="soc">
+  <div class="stage">
+    <div class="stage-inner">
+      <p class="eyebrow">05 · The SoC</p>
+      <svg id="soc-svg" viewBox="0 0 900 520" role="img" aria-label="TINKER SoC block diagram with animated bus transactions">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrowhead"/></marker>
+        </defs>
+        <!-- memory -->
+        <g class="blk" id="b-imem"><rect x="150" y="30" width="230" height="96" rx="10"/><text x="265" y="68" class="bt">IMEM</text><text x="265" y="92" class="bs">OpenRAM 2 KB</text><text x="265" y="112" class="ba">0x0000_0000</text></g>
+        <g class="blk" id="b-dmem"><rect x="520" y="30" width="230" height="96" rx="10"/><text x="635" y="68" class="bt">DMEM</text><text x="635" y="92" class="bs">OpenRAM 1 KB</text><text x="635" y="112" class="ba">0x1000_0000</text></g>
+        <!-- cpu + bus -->
+        <g class="blk cpu" id="b-cpu"><rect x="40" y="210" width="190" height="100" rx="10"/><text x="135" y="252" class="bt">PicoRV32</text><text x="135" y="278" class="bs">RV32I master</text></g>
+        <g class="blk bus" id="b-bus"><rect x="300" y="200" width="520" height="120" rx="10"/><text x="560" y="240" class="bt">Wishbone B4 fabric</text><text x="560" y="266" class="bs">decode on adr[31:28]</text><text x="560" y="290" class="ba">single master · four slaves · 100 MHz</text></g>
+        <!-- peripherals -->
+        <g class="blk tile" id="b-tile"><rect x="300" y="400" width="300" height="96" rx="10"/><text x="450" y="440" class="bt">TLG-mapped BNN tile</text><text x="450" y="464" class="bs">16 neurons · wrapper</text><text x="450" y="484" class="ba">0x2000_0000</text></g>
+        <g class="blk" id="b-gpio"><rect x="640" y="400" width="180" height="96" rx="10"/><text x="730" y="440" class="bt">GPIO</text><text x="730" y="464" class="bs">observability</text><text x="730" y="484" class="ba">0x3000_0000</text></g>
+        <!-- wires -->
+        <path id="w-cpu" d="M230 260 H300" class="wire" marker-end="url(#arr)"/>
+        <path id="w-imem" d="M265 200 V126" class="wire" marker-end="url(#arr)"/>
+        <path id="w-dmem" d="M635 200 V126" class="wire" marker-end="url(#arr)"/>
+        <path id="w-tile" d="M450 320 V400" class="wire" marker-end="url(#arr)"/>
+        <path id="w-gpio" d="M730 320 V400" class="wire" marker-end="url(#arr)"/>
+        <g id="soc-packets"></g>
+        <g id="soc-caption"><rect x="40" y="340" width="230" height="150" rx="10" class="cap-box"/><text x="56" y="366" class="cap-h" id="soc-cap-h"></text><foreignObject x="52" y="374" width="210" height="112"><div xmlns="http://www.w3.org/1999/xhtml" class="cap-body" id="soc-cap-b"></div></foreignObject></g>
+      </svg>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step" data-step="0"><h3>A complete, software-orchestrated SoC.</h3>
+      <p>The tile is not a standalone macro. A PicoRV32 RISC-V core drives it over a Wishbone B4 bus, next to
+        OpenRAM instruction and data memories, all in the open sky130A flow.</p></div>
+    <div class="step" data-step="1"><h3>Boot.</h3><p>The core fetches bare-metal firmware (about 1.5 KB of RV32I) from IMEM,
+      which also holds the binary weights.</p></div>
+    <div class="step" data-step="2"><h3>Load the network.</h3><p>Firmware writes the weights and thresholds into the tile's
+      configuration registers. 64-bit values go over the 32-bit bus as a LO write then a HI write.</p></div>
+    <div class="step" data-step="3"><h3>Feed an image.</h3><p>Input bits are read from DMEM and written to the tile's
+      x register, which starts an evaluation.</p></div>
+    <div class="step" data-step="4"><h3>Poll, then read.</h3><p>Firmware polls <code>STATUS.BUSY</code>, reads the 16-bit
+      <code>YOUT</code>, and clears DONE. Writes that land while busy are dropped on purpose, so a buggy
+      program hangs visibly instead of corrupting an inference.</p></div>
+    <div class="step" data-step="5"><h3>Four evaluations, then software.</h3><p>Layer 1 takes four tile evaluations
+      (one per image quadrant). The 10-class output layer then runs on the PicoRV32 itself (popcount, bias, argmax),
+      for <b>17,068 cycles per image</b>.</p></div>
+  </div>
+</section>
+
+<!-- ============================ 6. TRY IT ============================ -->
+<section class="band alt" id="try">
+  <div class="wrap">
+    <p class="eyebrow reveal">06 · Try it</p>
+    <h2 class="reveal">Run the deployed network in your browser.</h2>
+    <p class="prose reveal">These are the exact integer weights and thresholds that the SoC runs. The JavaScript port
+      matches the hardware's Python golden model <b>bit-for-bit on all 10,000 MNIST test images</b>
+      (85.60&nbsp;% accuracy). Draw a digit, or pick one from the test set.</p>
+
+    <div class="lab reveal">
+      <div class="lab-in">
+        <canvas id="pad" width="280" height="280" aria-label="Drawing pad: draw a digit"></canvas>
+        <div class="pad-tools">
+          <button class="btn small" id="pad-clear">Clear</button>
+          <button class="btn small" id="pad-sample">Random test digit</button>
+        </div>
+        <p class="hint" id="pad-hint">Draw one digit, big and centered.</p>
+      </div>
+
+      <div class="lab-pipe">
+        <div class="stagebox"><h4>① 2×2 pool → 14×14</h4><canvas id="c14" width="140" height="140"></canvas></div>
+        <div class="stagebox"><h4>② 4 quadrants, median-binarized (49 b each)</h4>
+          <div class="quads" id="quads"></div></div>
+        <div class="stagebox wide"><h4>③ Tile: 4 evaluations × 16 neurons → 64 hidden bits</h4>
+          <div class="hidden-grid" id="hidden"></div></div>
+        <div class="stagebox wide"><h4>④ PicoRV32: logit = 2·popcount(h XNOR w) − 64 + bias → argmax</h4>
+          <div class="logits" id="logits"></div></div>
+      </div>
+
+      <div class="lab-out">
+        <div class="pred" id="pred">–</div>
+        <div class="pred-sub" id="pred-sub">prediction</div>
+        <div class="costs">
+          <div><span class="mono">17,068</span> cycles</div>
+          <div><span class="mono">170.7 µs</span> @ 100 MHz</div>
+          <div><span class="mono">8.06 µJ</span> on the SoC</div>
+        </div>
+      </div>
+    </div>
+    <p class="fine reveal">Preprocessing for drawings imitates MNIST (crop, scale to 20×20, center of mass). The network is
+      small (a grouped 49→16 ×4 → 10 binary MLP), so it will get some drawings wrong. That is a fair picture of an
+      85.6&nbsp;% model.</p>
+  </div>
+</section>
+
+<!-- ============================ 7. SILICON ============================ -->
+<section class="band" id="silicon">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow reveal">07 · Silicon</p>
+      <h2 class="reveal">1.5 × 1.5 mm, taken all the way to GDS.</h2>
+      <p class="prose reveal">The SoC goes through LibreLane 3.0.3: Yosys, OpenROAD, Magic, KLayout, and Netgen.
+        The IMEM and DMEM macros are placed by hand along the top edge, with standard-cell logic below.</p>
+      <ul class="checks reveal">
+        <li><span class="ok">0</span> KLayout DRC errors</li>
+        <li><span class="ok">0</span> Netgen LVS errors</li>
+        <li><span class="ok">0</span> KLayout XOR differences</li>
+        <li><span class="ok">0</span> antenna violations</li>
+        <li><span class="ok">+0.51 ns</span> setup slack at TT, 100 MHz</li>
+        <li><span class="ok">9</span> STA corners, hold clean at all</li>
+      </ul>
+    </div>
+    <figure class="floorplan reveal-clip">
+      <img src="assets/soc_layout.png" alt="Post-place-and-route floorplan of the TINKER SoC on sky130A" width="519" height="519">
+      <figcaption>Post-P&amp;R floorplan: OpenRAM IMEM and DMEM on top, with the TLG tile (red), PicoRV32, and the Wishbone fabric below.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================ 8. POWER (scrolly) ============================ -->
+<section class="scrolly" id="power" data-scrolly="power">
+  <div class="stage">
+    <div class="stage-inner">
+      <p class="eyebrow">08 · Where the power goes</p>
+      <div class="pw">
+        <div class="pw-total"><span class="mono" id="pw-total">106.06</span> mW <small id="pw-label">register-file memories</small></div>
+        <div class="pw-bar" id="pw-bar"></div>
+        <div class="pw-legend" id="pw-legend"></div>
+        <div class="pw-share">
+          <div class="ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="ring-bg"/><circle cx="60" cy="60" r="50" class="ring-fg" id="pw-ring"/></svg>
+            <div class="ring-v"><span><span class="mono" id="pw-share">10.8</span>%</span></div></div>
+          <p>of SoC power is the <b class="tilec">TLG tile</b>, which draws the same <b>11.47 mW</b> in both designs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step" data-step="0"><h3>First version: memories as register files.</h3>
+      <p>With flip-flop register-file IMEM/DMEM, the SoC burns <b>106.06 mW</b>. Memory and its clock tree dominate,
+        and the tile is only 10.8 % of the budget.</p></div>
+    <div class="step" data-step="1"><h3>Swap in OpenRAM macros.</h3>
+      <p>Total power drops to <b>47.21 mW</b>. The tile's netlist is byte-identical, so it still draws 11.47 mW,
+        but its share jumps to <b>24.3 %</b>: the largest active datapath bucket.</p></div>
+    <div class="step" data-step="2"><h3>Compute becomes the thing to optimize.</h3>
+      <p>Once storage stops hiding it, the BNN datapath is first-order at SoC scale. That makes tile-level ideas
+        like threshold-logic decomposition worth pursuing, and they are measurable in a fully open flow.</p></div>
+  </div>
+</section>
+
+<!-- ============================ 9. NUMBERS ============================ -->
+<section class="band alt" id="numbers">
+  <div class="wrap">
+    <p class="eyebrow reveal">09 · Headline numbers</p>
+    <div class="stats">
+      <div class="stat reveal"><div class="n"><span class="count" data-to="85.60" data-dec="2">0</span>%</div><div class="l">MNIST accuracy, full 10,000-image test set<br><small>95 % CI [84.90, 86.27]</small></div></div>
+      <div class="stat reveal"><div class="n"><span class="count" data-to="8.06" data-dec="2">0</span> µJ</div><div class="l">per inference<br><small>124,113 inferences / J</small></div></div>
+      <div class="stat reveal"><div class="n"><span class="count" data-to="47.21" data-dec="2">0</span> mW</div><div class="l">post-P&amp;R SoC power<br><small>activity-aware, max_ff corner</small></div></div>
+      <div class="stat reveal"><div class="n"><span class="count" data-to="16" data-dec="0">0</span>/16</div><div class="l">SoC RTL sim bit-exact<br><small>vs. integer golden model</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 10. SCOPE ============================ -->
+<section class="band" id="scope">
+  <div class="wrap">
+    <p class="eyebrow reveal">10 · Honest scope</p>
+    <h2 class="reveal">What this is, and what it isn't.</h2>
+    <div class="cards two-col">
+      <div class="card reveal"><h3>It is</h3><ul>
+        <li>A portable, fully digital way to map a threshold function onto standard cells.</li>
+        <li>A complete RISC-V SoC taken RTL → GDS in open tools, with clean sign-off.</li>
+        <li>Measured, activity-aware SoC-level power, not a projection from a single block.</li></ul></div>
+      <div class="card reveal"><h3>It isn't</h3><ul>
+        <li>An efficiency record: advanced-node commercial BNN accelerators are far lower energy.</li>
+        <li>Large: one 16-neuron tile and a grouped MNIST MLP. There is no tape-out.</li>
+        <li>Closed at every corner: 100 MHz closes at TT. The slow corner is limited by OpenRAM's single-corner Liberty.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PAPER ============================ -->
+<section class="band dark" id="paper">
+  <div class="wrap">
+    <p class="eyebrow reveal">Read more</p>
+    <h2 class="reveal">Paper, poster, and everything needed to reproduce it.</h2>
+    <div class="links reveal">
+      <a class="link-card" href="https://github.com/abdullahsahruri/tinker"><b>GitHub repository</b><span>RTL, testbenches, firmware, LibreLane configs, results. MIT license.</span></a>
+      <a class="link-card" href="https://github.com/abdullahsahruri/tinker/blob/main/docs/poster/tinker_socc2026_poster.pdf"><b>Poster (PDF)</b><span>The SOCC 2026 poster.</span></a>
+      <a class="link-card" href="https://github.com/abdullahsahruri/tinker#reproduce-the-paper"><b>Reproduce it</b><span>Pinned toolchain and step-by-step commands.</span></a>
+    </div>
+    <pre class="bib reveal"><code>@inproceedings{sahruri2026tinker,
+  author    = {Sahruri, Abdullah and Margala, Martin},
+  title     = {{TINKER}: A Fully-Digital Threshold-Logic-Mapped {BNN} Inference {SoC}},
+  booktitle = {2026 IEEE 39th International System-on-Chip Conference (SOCC)},
+  year      = {2026}
+}</code></pre>
+    <button class="btn small" id="copy-bib">Copy BibTeX</button>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p>© 2026 Abdullah Sahruri · Site and code MIT-licensed · No trackers, no cookies, no external requests.</p>
+</footer>
+
+<script src="bnn.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
