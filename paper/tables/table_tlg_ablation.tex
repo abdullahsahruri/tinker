@@ -1,0 +1,18 @@
+\begin{table}[t]
+  \centering
+  \caption{Same-flow standalone tile ablation. Both loadable variants use
+  the same LibreLane tile flow, SDC, and 100\,MHz target; only the neuron
+  RTL differs. Power is default-activity OpenSTA at the nominal corner.}
+  \label{tab:tlg-ablation}
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    \textbf{Metric} & \textbf{Chunked-LUT TLG} & \textbf{Adder-tree} \\
+    \midrule
+    Cells & 22\,125 & 21\,464 \\
+    Area (\textmu m$^2$) & 320\,367 & 305\,300 \\
+    Slow Fmax (MHz) & 73.81 & 77.51 \\
+    Power (\textmu W) & 64\,566 & 167\,858 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

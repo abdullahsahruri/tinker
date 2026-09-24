@@ -1,15 +1,22 @@
 % =====================================================================
-% main.tex — SOCC 2026 paper, Stage 1 skeleton
+% main.tex — SOCC 2026 CAMERA-READY (de-anonymized)
 %
 % TLG-mapped BNN tile in a fully-digital sky130 SoC built with the
 % open-flow (LibreLane + OpenRAM + PicoRV32). 6-page IEEE conference
 % format, ~3,500 words body, 4 figures, 2 tables, ~28 references.
 %
+% The review copy is frozen under ../paper/. Figures are shared from
+% ../paper/figures (see \graphicspath); tables/ and refs.bib are
+% snapshots that may diverge with reviewer-driven revisions.
+%
 % Build:  make           (pdflatex + bibtex + pdflatex x2)
 % Clean:  make clean
+% Pre-upload checklist: README.md
 % =====================================================================
 
 \documentclass[conference]{IEEEtran}
+% Required for the full-width \IEEEpubid copyright box below.
+\IEEEoverridecommandlockouts
 
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -20,8 +27,9 @@
 \usepackage{url}
 \usepackage{placeins}
 
-% Repo-local figure search path so \includegraphics{figX_*} resolves.
-\graphicspath{{figures/}}
+% Figures stay single-sourced in the review tree; build them with
+% `make -C ../paper figures`.
+\graphicspath{{../paper/figures/}}
 
 % XNOR operator (binary-inner-product idiom under {-1,+1} -> {0,1}
 % encoding) — used in Sections I and III-B.
@@ -31,16 +39,28 @@
 \begin{document}
 
 % ---------------------------------------------------------------------
-% Title and anonymized author block for double-blind review
+% TODO(camera-ready): paste the copyright/ISBN line from the SOCC
+% acceptance e-mail into the \IEEEpubid below and uncomment it.
+% Placement verified: with \IEEEoverridecommandlockouts above and the
+% \IEEEpubid here (immediately after \begin{document}), the notice sets
+% at the foot of page 1 column 1 without colliding with column 2, and
+% the paper still fits 6 pages. \IEEEpubidadjcol is not needed.
+% ---------------------------------------------------------------------
+% \IEEEpubid{\makebox[\columnwidth]{979-8-XXXX-XXXX-X/26/\$31.00~\copyright2026 IEEE \hfill}
+%   \hspace{\columnsep}\makebox[\columnwidth]{}}
+
+% ---------------------------------------------------------------------
+% Title and de-anonymized author block (camera-ready).
+% TODO(camera-ready): confirm author list, order, and e-mail addresses;
+% affiliations must match the signed IEEE copyright form.
 % ---------------------------------------------------------------------
 \title{TINKER: A Fully-Digital Threshold-Logic-Mapped\\
   BNN Inference SoC}
 
-\author{
-\IEEEauthorblockN{Abdullah Sahruri, Alaaddin Goktug Ayar and Martin Margala}
-\IEEEauthorblockA{School of Computing and Informatics, University of Louisiana at Lafayette, Lafayette, LA, USA\\
-\{abdullah.sahruri1, alaaddin.ayar1, martin.margala\}@louisiana.edu}
-}
+\author{\IEEEauthorblockN{Abdullah Sahruri and Martin Margala}
+  \IEEEauthorblockA{\textit{School of Computing and Informatics},
+    \textit{University of Louisiana at Lafayette}, Lafayette, LA, USA\\
+    \{abdullah.sahruri1, martin.margala\}@louisiana.edu}}
 
 \maketitle
 
@@ -155,7 +175,10 @@ designs realize the weighted sum electrically through summed
 branch currents~\cite{beiu2003differential}, with compact gates
 but bias- and matching-dependent behavior that does not survive
 process migration. Capacitive realizations~\cite{ozdemir1996capacitive}
-encode weights as capacitor ratios with a precharge phase.
+encode weights as capacitor ratios with a precharge phase, with
+high fan-in variants adding offset
+compensation~\cite{sahruri2024hictl} or key-driven charge
+recycling for logic locking~\cite{sahruri2025tlglock}.
 Memristor-based TLGs~\cite{papandroulidakis2019memristor} use
 non-volatile resistance for both weight storage and analog
 summation, gaining device-level density at the cost of integration
@@ -178,7 +201,11 @@ YodaNN~\cite{andri2018yodann}, XNE~\cite{conti2018xnor}, and
 ChewBaccaNN~\cite{andri2021chewbaccann} target 65--22\,nm
 processes and report sub-microjoule per inference;
 FINN~\cite{umuroglu2017finn} demonstrates the same datapath in
-an FPGA dataflow framework. None of these targets a fully
+an FPGA dataflow framework. Closest to the mapping used here,
+TLG2LUT6~\cite{sahruri2026tlg2lut6} folds binary weights and
+thresholds into LUT6 initialization strings, but is tied to a
+vendor fabric; the decomposition here targets standard cells and
+is carried to GDS inside a complete SoC. None of these targets a fully
 open-source RTL-to-GDS flow, and most report accelerator IP
 rather than a software-orchestrated SoC. The closest open-flow
 sky130 comparator is OpenSpike~\cite{modaresi2023openspike},
@@ -235,9 +262,9 @@ shows the block diagram.
 \subsection{Threshold-logic decomposition and tile microarchitecture}
 \label{sec:arch:tile}
 
-\paragraph{Neuron function.} Each tile neuron computes the
+\paragraph{Neuron function} Each tile neuron computes the
 binary inner product
-\(y_i = \mathbb{1}\!\left[\,\mathrm{popcount}\!\left(x \xnor w_i\right) \ge \theta_i\,\right]\),
+\(y_i = \mathbf{1}\!\left[\,\mathrm{popcount}\!\left(x \xnor w_i\right) \ge \theta_i\,\right]\),
 with \(x \in \{-1,+1\}^{64}\) and per-neuron 64-bit weight \(w_i\)
 and 7-bit threshold \(\theta_i\). This realizes threshold-function
 behavior without instantiating a literal high-fanin physical
@@ -258,7 +285,7 @@ configuration path.
   \label{fig:tlg-decomp}
 \end{figure}
 
-\paragraph{Chunked-LUT decomposition.} The decomposition recasts
+\paragraph{Chunked-LUT decomposition} The decomposition recasts
 the 64-input threshold function as a small adder-tree of population
 counts over fixed-size chunks. The 64-bit XNOR output is partitioned
 into eleven chunks: ten 6-bit chunks plus one 4-bit residue.
@@ -276,7 +303,7 @@ the eleven-way partitioning overhead is acceptable, small enough
 that each chunk LUT fits comfortably as a combinational cell
 network.
 
-\paragraph{Programmability.} The configuration regfile holds 16 weight words (64-bit)
+\paragraph{Programmability} The configuration regfile holds 16 weight words (64-bit)
 and 16 thresholds (7-bit), addressed through a 6-bit
 \texttt{cfg\_addr}; weights are loaded once per network and the cfg
 port carries traffic only at boot. An \texttt{x\_valid} strobe
@@ -301,7 +328,7 @@ is updated, causing a misbehaving program to hang visibly rather
 than corrupt an in-flight evaluation. This is a deliberate
 testability choice: a silently corrupted inference is a far worse
 failure mode than an observably hung firmware loop. The wrapper
-carries roughly 1.3\,K flops, ~700 of them purely for read-back of
+carries roughly 1.3\,K flops, $\sim$700 of them purely for read-back of
 every writable register.
 
 The memory subsystem instantiates pre-hardened OpenRAM~\cite{guthaus2016openram}
@@ -323,13 +350,14 @@ tile maps to ten output logits in a fifth evaluation. Grouping
 (rather than full $196 \to 64$ connectivity) is a hardware-shape
 choice: each branch fits one tile-evaluation fanin, so the entire
 network maps onto the SoC without changing tile or wrapper RTL.
-The accuracy gap from full $196 \to 64$ connectivity to grouped
-$4 \times (49 \to 16)$, measured against an unconstrained-fanin
-training run on the same data with the same training recipe, is
-0.87\,pp, well below the run-to-run accuracy variance observed
-across the three training seeds, and below the 0.69\,pp half-width
-of the 95\,\% Wilson confidence interval on the deployed network's
-MNIST accuracy.
+The accuracy cost of grouping was bounded before deployment with a
+float-precision proxy: trained on the same data with the same
+preprocessing, a grouped $4 \times (49 \to 16)$ model trails an
+unconstrained $196 \to 64$ model by 0.87\,pp. That gap is the same
+order as the deployed network's own experimental spread---0.74\,pp
+across the three training seeds, and a 0.69\,pp half-width on the
+95\,\% Wilson confidence interval---and an order below the accuracy
+given up to binarisation itself.
 Per-image inference therefore costs four hidden-layer batches plus
 one output-layer batch, which the PicoRV32 firmware schedules
 sequentially against the cfg-write/poll/read protocol of
@@ -353,10 +381,9 @@ schedule~\cite{smith2017superconvergence}.
 \subsection{Open-flow toolchain}
 \label{sec:impl:flow}
 
-The SoC is implemented through the LibreLane 2.4.13 RTL-to-GDSII
-flow~\cite{librelane2025} on the SkyWater sky130A open-source
-PDK~\cite{google2020skywater}, in the OpenLane lineage~\cite{shalan2020openlane}.
-Yosys~\cite{yosys2024} synthesises the design against the
+The SoC is implemented through the LibreLane 3.0.3 RTL-to-GDSII
+flow~\cite{librelane2025} on the SkyWater sky130A open-source PDK.
+Yosys synthesises the design against the
 \texttt{sky130\_fd\_sc\_hd} standard-cell library;
 OpenROAD~\cite{ajayi2019openroad} drives floorplanning, placement, clock-tree
 synthesis, routing, and antenna repair; Magic and KLayout perform GDS
@@ -395,7 +422,7 @@ three supply voltages (1.60\,V, 1.80\,V, 1.95\,V). At the headline
 $+0.51$\,ns setup slack and $+0.37$\,ns hold slack; hold timing is
 clean across all nine corners. Slow-corner setup violations at
 \texttt{nom\_ss\_100C\_1v60} are an attribute of the OpenRAM macros'
-single TT-corner Liberty, a documented LibreLane 2.x limitation
+single TT-corner Liberty, a documented LibreLane 3.x limitation
 discussed in Section~\ref{sec:discussion}, not a design defect.
 Physical verification is clean on KLayout DRC, Netgen LVS, KLayout
 XOR, and antenna: respectively 0 errors, 0 errors, 0 differences,
@@ -565,6 +592,13 @@ shows the tile at 24.3\,\% of total SoC power. Physical
 verification is clean on KLayout DRC, Netgen LVS, KLayout XOR, and
 antenna; TT timing closes, while slow-corner macro timing is limited
 by OpenRAM's single-corner Liberty model.
+
+% ---------------------------------------------------------------------
+% TODO(camera-ready): fill in or delete. Sponsor/grant text withheld for
+% blind review belongs here. Do NOT acknowledge LLM tooling.
+% ---------------------------------------------------------------------
+% \section*{Acknowledgment}
+% This work was supported in part by ... under Grant ...
 
 % ---------------------------------------------------------------------
 % Bibliography

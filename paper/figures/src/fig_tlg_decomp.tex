@@ -4,7 +4,7 @@
 \documentclass[border=2pt]{standalone}
 \usepackage{mathptmx}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing,fit}
 
 \definecolor{navy}{HTML}{1F3A5F}
 \definecolor{tlgred}{HTML}{A83232}
@@ -13,105 +13,56 @@
 \begin{document}
 \begin{tikzpicture}[
     font=\rmfamily,
-    >={Latex[length=1.6mm,width=1.4mm]},
-    line width=0.6pt,
-    primary/.style  = {draw=navy, fill=navy, text=white, line width=0.6pt,
-                       minimum height=8mm, minimum width=15mm, align=center,
-                       inner sep=2pt, font=\rmfamily\small},
-    secondary/.style= {draw=navy, fill=white, text=navy, line width=0.6pt,
-                       minimum height=7mm, minimum width=14mm, align=center,
-                       inner sep=2pt, font=\rmfamily\small},
-    tlg/.style      = {draw=tlgred, fill=redfill, text=tlgred, line width=0.9pt,
-                       minimum height=4.5mm, minimum width=16mm, align=center,
-                       inner sep=1pt, font=\rmfamily\scriptsize\bfseries},
-    sig/.style      = {draw=navy, line width=0.7pt, ->},
-    redsig/.style   = {draw=tlgred, line width=0.7pt, ->},
-    wlbl/.style     = {font=\rmfamily\scriptsize\itshape, text=navy, inner sep=1pt},
-    note/.style     = {font=\rmfamily\scriptsize\itshape, text=navy,
-                       align=center, inner sep=1pt},
+    >={Latex[length=1.8mm,width=1.5mm]},
+    line width=0.65pt,
+    source/.style={draw=navy, fill=white, text=navy, line width=0.7pt,
+                   minimum width=19mm, minimum height=12mm, align=center,
+                   inner sep=2pt, font=\rmfamily\small},
+    tlg/.style={draw=tlgred, fill=redfill, text=tlgred, line width=1.0pt,
+                minimum width=23mm, minimum height=8mm, align=center,
+                inner sep=2pt, font=\rmfamily\footnotesize\bfseries},
+    logic/.style={draw=navy, fill=navy, text=white, line width=0.7pt,
+                  minimum width=21mm, minimum height=12mm, align=center,
+                  inner sep=2pt, font=\rmfamily\small\bfseries},
+    outbox/.style={draw=navy, fill=white, text=navy, line width=0.7pt,
+                minimum width=12mm, minimum height=10mm, align=center,
+                inner sep=2pt, font=\rmfamily\small},
+    sig/.style={draw=navy, line width=0.75pt, ->},
+    redsig/.style={draw=tlgred, line width=0.85pt, ->},
+    lbl/.style={font=\rmfamily\scriptsize\itshape, text=navy, inner sep=1pt},
+    redlbl/.style={font=\rmfamily\scriptsize\itshape, text=tlgred, inner sep=1pt},
+    note/.style={font=\rmfamily\scriptsize\itshape, text=navy, align=center,
+                 inner sep=1pt},
   ]
 
-  % --- Source: 64-bit XNOR output -------------------------------------
-  \node[secondary, minimum width=20mm, minimum height=10mm] (xnor)
-    at (-3.5,0) {64-bit\\XNOR output};
+  % Input and chunked-LUT stage.
+  \node[source] (xnor) at (-3.20,-0.25) {64-bit\\XNOR output};
 
-  % --- Eleven chunk LUTs in vertical column (3 visible + vdots + 2) ----
-  \def\cx{-0.20}
-  \def\dh{0.55}
-  \node[tlg, anchor=center] (l1) at (\cx,  2.5*\dh) {6-bit chunk 1};
-  \node[tlg, anchor=center] (l2) at (\cx,  1.5*\dh) {6-bit chunk 2};
-  \node[anchor=center, text=tlgred, font=\rmfamily\small\bfseries]
-                              (ld) at (\cx,  0.5*\dh) {$\vdots$};
-  \node[tlg, anchor=center] (l10) at (\cx, -0.5*\dh) {6-bit chunk 10};
-  \node[tlg, anchor=center] (l11) at (\cx, -1.5*\dh) {4-bit residue};
+  \node[tlg] (c1)  at (-0.45, 1.55) {chunk 1\\[-1pt]\scriptsize $6{\to}3$};
+  \node[tlg] (c2)  at (-0.45, 0.55) {chunk 2\\[-1pt]\scriptsize $6{\to}3$};
+  \node[text=tlgred, font=\rmfamily\large\bfseries] (dots) at (-0.45,-0.25) {$\vdots$};
+  \node[tlg] (c10) at (-0.45,-1.05) {chunk 10\\[-1pt]\scriptsize $6{\to}3$};
+  \node[tlg] (c11) at (-0.45,-2.05) {residue\\[-1pt]\scriptsize $4{\to}3$};
 
-  % Sub-label for each: "6→3 LUT" or "4→3 LUT" annotation
-  \node[note, text=tlgred, anchor=west, font=\rmfamily\tiny]
-    at ($(l1.east)+(0.05,0)$) {$6{\to}3$};
-  \node[note, text=tlgred, anchor=west, font=\rmfamily\tiny]
-    at ($(l2.east)+(0.05,0)$) {$6{\to}3$};
-  \node[note, text=tlgred, anchor=west, font=\rmfamily\tiny]
-    at ($(l10.east)+(0.05,0)$) {$6{\to}3$};
-  \node[note, text=tlgred, anchor=west, font=\rmfamily\tiny]
-    at ($(l11.east)+(0.05,0)$) {$4{\to}3$};
+  \node[draw=tlgred, rounded corners=2pt, inner xsep=3pt, inner ysep=4pt,
+        fit=(c1)(c2)(dots)(c10)(c11)] (chunkbox) {};
+  \draw[redsig] (xnor.east) -- (chunkbox.west)
+    node[redlbl, midway, above] {64};
 
-  % Fan-out from XNOR output to each chunk LUT
-  \draw[redsig] (xnor.east) -- (l1.west);
-  \draw[redsig] (xnor.east) -- (l2.west);
-  \draw[redsig] (xnor.east) -- (l10.west);
-  \draw[redsig] (xnor.east) -- (l11.west);
-  \node[wlbl, text=tlgred, anchor=south] at ($(xnor.east)+(0.4,0.1)$) {64};
+  % Conventional digital accumulation and compare.
+  \node[logic] (adder) at (3.30,-0.25) {Adder tree\\[-1pt]\scriptsize $11{\times}3 \to 7$};
+  \node[logic, minimum width=17mm] (cmp) at (5.75,-0.25) {$\geq\,\theta_i$\\[-1pt]\scriptsize compare};
+  \node[outbox] (yout) at (7.40,-0.25) {$y_i$\\[-1pt]\scriptsize 1 bit};
 
-  % Bracket label: "Chunked-LUT TLG decomposition"
-  \draw[decorate, decoration={brace, amplitude=3pt},
-        draw=tlgred, line width=0.8pt]
-    ($(l1.north east)+(0.95,0.10)$) -- ($(l11.south east)+(0.95,-0.10)$);
-  \node[note, text=tlgred, anchor=west, align=left,
-        font=\rmfamily\scriptsize\itshape]
-    at ($(l2.east)+(1.20,-0.20)$)
-    {Chunked-LUT TLG\\
-     decomposition\\
-     (Yosys $\to$ mux+AOI)};
-
-  % --- Adder tree merge column to the right of LUTs --------------------
-  \coordinate (mxA) at ($(l1.east)+(0.20,0)$);
-  % Adder tree and comparator: navy (conventional digital, not TLG)
-  \node[draw=navy, fill=navy, text=white, line width=0.6pt,
-        anchor=west, minimum width=22mm, minimum height=10mm,
-        align=center, inner sep=2pt,
-        font=\rmfamily\small\bfseries]
-    (adder) at (4.50,0) {Adder tree\\\scriptsize $11{\times}3 \to 7$};
-
-  % Light feeders from each chunk into merge column (still red; the
-  % chunk outputs are red, the merge into the adder transitions to navy)
-  \foreach \n in {l1,l2,l10,l11}{
-    \draw[draw=tlgred, line width=0.4pt] (\n.east) -- (mxA |- \n);
-  }
-  \draw[draw=tlgred, line width=0.5pt] (mxA |- l1) -- (mxA |- l11);
-  \draw[sig] (mxA |- adder.west) -- (adder.west)
-    node[wlbl, midway, above] {$11{\times}3$};
-
-  % Threshold comparator (navy, conventional)
-  \node[draw=navy, fill=navy, text=white, line width=0.6pt,
-        anchor=west, minimum width=16mm, minimum height=10mm,
-        align=center, inner sep=2pt,
-        font=\rmfamily\small\bfseries]
-    (cmp) at ($(adder.east)+(0.50,0)$)
-    {$\geq\,\theta_i$\\\scriptsize compare};
+  \draw[sig] (chunkbox.east) -- (adder.west)
+    node[lbl, midway, above] {$11{\times}3$};
   \draw[sig] (adder.east) -- (cmp.west)
-    node[wlbl, midway, above] {7};
-
-  \node[secondary, anchor=west, minimum width=12mm, minimum height=10mm]
-    (yout) at ($(cmp.east)+(0.50,0)$) {$y_i$\\\scriptsize 1-bit};
+    node[lbl, midway, above] {7};
   \draw[sig] (cmp.east) -- (yout.west)
-    node[wlbl, midway, above] {1};
+    node[lbl, midway, above] {1};
 
-  % --- Footer note: digital cells only ---------------------------------
-  \node[note, anchor=north, align=center,
-        font=\rmfamily\scriptsize\itshape]
-    at ($(adder.south)+(0,-1.40)$)
-    {implemented entirely with digital standard cells\\
-     --- no analog or mixed-signal primitives};
-
+  \node[note, anchor=north, align=center]
+    at ($(adder.south)+(0,-0.68)$)
+    {digital standard cells only};
 \end{tikzpicture}
 \end{document}
