@@ -259,6 +259,12 @@ aren't over-read:
 }
 ```
 
+## License
+
+MIT; see [`LICENSE`](LICENSE). `vendor/picorv32/` keeps its upstream ISC license.
+The paper sources under `paper/` and `camera-ready/` are the authors' manuscript;
+the published version is © 2026 IEEE.
+
 ## Acknowledgments
 
 PicoRV32 by Claire Xenia Wolf (YosysHQ, ISC license). The flow is built on
