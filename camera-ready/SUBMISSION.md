@@ -11,6 +11,9 @@ The archive ships `main.bbl` (publishers do not run BibTeX) and its
 `\graphicspath` points at its own `figures/` copy. `make dist` compiles the
 archive standalone and fails if it does not match the upload PDF's page count.
 
+**EDAS paper #1571290529** — accepted as a **poster** (reviews: weak reject /
+weak accept / neutral). Rename the upload to the paper ID if EDAS asks.
+
 ## Blocking — do these first
 
 1. **Copyright notice.** `main.tex` still has the `\IEEEpubid` block commented
