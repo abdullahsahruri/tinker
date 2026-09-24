@@ -17,6 +17,9 @@ LibreLane configurations, and result reports for the paper:
 > BNN Inference SoC," *2026 IEEE 39th International System-on-Chip Conference
 > (SOCC)*, 2026. Accepted as a poster (EDAS #1571290529).
 
+📄 **Poster:** [PDF in this repo](docs/poster/tinker_socc2026_poster.pdf) ·
+[Google Drive](https://drive.google.com/file/d/19704OuEIZQ9zVoQLKQsWt_MiRe8qG9CL/view)
+
 ---
 
 ## Headline results
